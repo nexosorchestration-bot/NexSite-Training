@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quizzes — NexSite Studio Training</title>
+  <link rel="stylesheet" href="css/portal.css" />
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-icon">N</div>
+      <div>
+        <div class="sidebar-brand-name" id="sb-name">NexSite Studio</div>
+        <div class="sidebar-brand-sub">Training Portal</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav" id="sidebar-nav"></nav>
+    <div class="sidebar-footer">Internal use only</div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <div class="topbar-title">Quizzes</div>
+      <div class="topbar-right"></div>
+    </div>
+
+    <div class="page-content">
+      <div class="page-header">
+        <h1>Quizzes</h1>
+        <p>Test your knowledge of standards, templates, and processes. 75% or above to pass.</p>
+      </div>
+
+      <div class="grid-2" id="quiz-list"></div>
+    </div>
+  </div>
+</div>
+
+<script src="js/portal-config.js"></script>
+<script src="js/quiz.js"></script>
+<script>
+  (function () {
+    var cfg = window.PORTAL_CONFIG || {};
+    var nav = document.getElementById("sidebar-nav");
+    var sb  = document.getElementById("sb-name");
+    if (sb && cfg.org) sb.textContent = cfg.org.name;
+    (cfg.nav || []).forEach(function (item) {
+      var a = document.createElement("a");
+      a.className = "nav-item" + (item.id === "quizzes" ? " active" : "");
+      a.href = item.href;
+      a.innerHTML = '<span class="nav-icon">' + item.icon + '</span>' + item.label;
+      nav.appendChild(a);
+    });
+    document.getElementById("menu-toggle").addEventListener("click", function () {
+      var s = document.getElementById("sidebar");
+      var open = s.classList.toggle("open");
+      this.classList.toggle("open", open);
+    });
+
+    window.NexQuiz.renderQuizList("quiz-list");
+  })();
+</script>
+</body>
+</html>

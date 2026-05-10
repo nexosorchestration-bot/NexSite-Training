@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Comms — NexSite Studio Training</title>
+  <link rel="stylesheet" href="css/portal.css" />
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-icon">N</div>
+      <div>
+        <div class="sidebar-brand-name" id="sb-name">NexSite Studio</div>
+        <div class="sidebar-brand-sub">Training Portal</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav" id="sidebar-nav"></nav>
+    <div class="sidebar-footer">Internal use only</div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <div class="topbar-title">Client Comms</div>
+      <div class="topbar-right"></div>
+    </div>
+    <div class="page-content">
+      <div class="page-header">
+        <h1>Client Communication Templates</h1>
+        <p>Ready-to-use email templates for every client touchpoint. Click Copy to copy any template.</p>
+      </div>
+      <div id="comms-list"></div>
+    </div>
+  </div>
+</div>
+
+<script src="js/portal-config.js"></script>
+<script>
+  (function () {
+    var cfg = window.PORTAL_CONFIG || {};
+    var nav = document.getElementById("sidebar-nav");
+    var sb  = document.getElementById("sb-name");
+    if (sb && cfg.org) sb.textContent = cfg.org.name;
+    (cfg.nav || []).forEach(function (item) {
+      var a = document.createElement("a");
+      a.className = "nav-item" + (item.id === "comms" ? " active" : "");
+      a.href = item.href;
+      a.innerHTML = '<span class="nav-icon">' + item.icon + '</span>' + item.label;
+      nav.appendChild(a);
+    });
+    document.getElementById("menu-toggle").addEventListener("click", function () {
+      var s = document.getElementById("sidebar");
+      var open = s.classList.toggle("open");
+      this.classList.toggle("open", open);
+    });
+
+    var wrap = document.getElementById("comms-list");
+    (cfg.comms || []).forEach(function (item) {
+      var card = document.createElement("div");
+      card.className = "comms-card";
+
+      var ta = document.createElement("textarea");
+      ta.className = "comms-template";
+      ta.readOnly = true;
+      ta.value = item.template;
+      ta.rows = item.template.split("\n").length + 1;
+
+      var copyBtn = document.createElement("button");
+      copyBtn.className = "btn btn--outline btn--sm comms-copy-btn";
+      copyBtn.textContent = "Copy";
+      copyBtn.addEventListener("click", function () {
+        navigator.clipboard.writeText(item.template).then(function () {
+          copyBtn.textContent = "Copied!";
+          setTimeout(function () { copyBtn.textContent = "Copy"; }, 2000);
+        });
+      });
+
+      var header = document.createElement("div");
+      header.className = "comms-header";
+      header.innerHTML =
+        '<div>' +
+          '<div class="comms-title">' + item.title + '</div>' +
+          '<div class="comms-when">' + item.when + '</div>' +
+        '</div>';
+      header.appendChild(copyBtn);
+
+      card.appendChild(header);
+      card.appendChild(ta);
+      wrap.appendChild(card);
+    });
+  })();
+</script>
+</body>
+</html>

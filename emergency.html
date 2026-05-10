@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emergency — NexSite Studio Training</title>
+  <link rel="stylesheet" href="css/portal.css" />
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-icon">N</div>
+      <div>
+        <div class="sidebar-brand-name" id="sb-name">NexSite Studio</div>
+        <div class="sidebar-brand-sub">Training Portal</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav" id="sidebar-nav"></nav>
+    <div class="sidebar-footer">Internal use only</div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <div class="topbar-title">Emergency</div>
+      <div class="topbar-right"></div>
+    </div>
+    <div class="page-content">
+      <div class="page-header">
+        <h1>Emergency Recovery</h1>
+        <p>Step-by-step recovery procedures for site outages and critical issues.</p>
+      </div>
+      <div id="emergency-list"></div>
+    </div>
+  </div>
+</div>
+
+<script src="js/portal-config.js"></script>
+<script>
+  (function () {
+    var cfg = window.PORTAL_CONFIG || {};
+    var nav = document.getElementById("sidebar-nav");
+    var sb  = document.getElementById("sb-name");
+    if (sb && cfg.org) sb.textContent = cfg.org.name;
+    (cfg.nav || []).forEach(function (item) {
+      var a = document.createElement("a");
+      a.className = "nav-item" + (item.id === "emergency" ? " active" : "");
+      a.href = item.href;
+      a.innerHTML = '<span class="nav-icon">' + item.icon + '</span>' + item.label;
+      nav.appendChild(a);
+    });
+    document.getElementById("menu-toggle").addEventListener("click", function () {
+      var s = document.getElementById("sidebar");
+      var open = s.classList.toggle("open");
+      this.classList.toggle("open", open);
+    });
+
+    var severityBadge = {
+      critical: '<span class="badge badge--red">Critical</span>',
+      high:     '<span class="badge badge--red" style="background:var(--color-warn-bg);color:var(--color-warn);border-color:var(--color-warn-bd)">High</span>',
+      medium:   '<span class="badge badge--neutral">Medium</span>'
+    };
+
+    var wrap = document.getElementById("emergency-list");
+    (cfg.emergency || []).forEach(function (item) {
+      var card = document.createElement("div");
+      card.className = "emg-card emg-card--" + item.severity;
+      card.id = "emg-" + item.id;
+
+      var stepsHtml = (item.steps || []).map(function (step) {
+        return '<li>' + step + '</li>';
+      }).join("");
+
+      card.innerHTML =
+        '<div class="emg-header">' +
+          '<div class="emg-title">' + item.title + '</div>' +
+          (severityBadge[item.severity] || '') +
+        '</div>' +
+        '<ol class="emg-steps">' + stepsHtml + '</ol>';
+
+      wrap.appendChild(card);
+    });
+  })();
+</script>
+</body>
+</html>

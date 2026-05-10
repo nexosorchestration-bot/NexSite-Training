@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glossary — NexSite Studio Training</title>
+  <link rel="stylesheet" href="css/portal.css" />
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-icon">N</div>
+      <div>
+        <div class="sidebar-brand-name" id="sb-name">NexSite Studio</div>
+        <div class="sidebar-brand-sub">Training Portal</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav" id="sidebar-nav"></nav>
+    <div class="sidebar-footer">Internal use only</div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <div class="topbar-title">Glossary</div>
+      <div class="topbar-right"></div>
+    </div>
+    <div class="page-content">
+      <div class="page-header">
+        <h1>Glossary</h1>
+        <p>Definitions for every term used across NexSite Studio work, sorted alphabetically.</p>
+      </div>
+      <div class="card" style="max-width:760px">
+        <dl id="glossary-list" class="glossary-list"></dl>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/portal-config.js"></script>
+<script>
+  (function () {
+    var cfg = window.PORTAL_CONFIG || {};
+    var nav = document.getElementById("sidebar-nav");
+    var sb  = document.getElementById("sb-name");
+    if (sb && cfg.org) sb.textContent = cfg.org.name;
+    (cfg.nav || []).forEach(function (item) {
+      var a = document.createElement("a");
+      a.className = "nav-item" + (item.id === "glossary" ? " active" : "");
+      a.href = item.href;
+      a.innerHTML = '<span class="nav-icon">' + item.icon + '</span>' + item.label;
+      nav.appendChild(a);
+    });
+    document.getElementById("menu-toggle").addEventListener("click", function () {
+      var s = document.getElementById("sidebar");
+      var open = s.classList.toggle("open");
+      this.classList.toggle("open", open);
+    });
+
+    var list = document.getElementById("glossary-list");
+    var terms = (cfg.glossary || []).slice().sort(function (a, b) {
+      return a.term.localeCompare(b.term);
+    });
+
+    terms.forEach(function (item, i) {
+      var dt = document.createElement("dt");
+      dt.className = "glossary-term";
+      dt.textContent = item.term;
+
+      var dd = document.createElement("dd");
+      dd.className = "glossary-def";
+      dd.textContent = item.definition;
+
+      list.appendChild(dt);
+      list.appendChild(dd);
+
+      if (i < terms.length - 1) {
+        var hr = document.createElement("div");
+        hr.className = "glossary-divider";
+        list.appendChild(hr);
+      }
+    });
+  })();
+</script>
+</body>
+</html>

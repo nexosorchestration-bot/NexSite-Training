@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Troubleshooting — NexSite Studio Training</title>
+  <link rel="stylesheet" href="css/portal.css" />
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-icon">N</div>
+      <div>
+        <div class="sidebar-brand-name" id="sb-name">NexSite Studio</div>
+        <div class="sidebar-brand-sub">Training Portal</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav" id="sidebar-nav"></nav>
+    <div class="sidebar-footer">Internal use only</div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <div class="topbar-title">Troubleshooting</div>
+      <div class="topbar-right"></div>
+    </div>
+    <div class="page-content">
+      <div class="page-header">
+        <h1>Troubleshooting</h1>
+        <p>Common issues, their likely causes, and how to fix them.</p>
+      </div>
+      <div id="issue-list"></div>
+    </div>
+  </div>
+</div>
+
+<script src="js/portal-config.js"></script>
+<script>
+  (function () {
+    var cfg = window.PORTAL_CONFIG || {};
+    var nav = document.getElementById("sidebar-nav");
+    var sb  = document.getElementById("sb-name");
+    if (sb && cfg.org) sb.textContent = cfg.org.name;
+    (cfg.nav || []).forEach(function (item) {
+      var a = document.createElement("a");
+      a.className = "nav-item" + (item.id === "troubleshoot" ? " active" : "");
+      a.href = item.href;
+      a.innerHTML = '<span class="nav-icon">' + item.icon + '</span>' + item.label;
+      nav.appendChild(a);
+    });
+    document.getElementById("menu-toggle").addEventListener("click", function () {
+      var s = document.getElementById("sidebar");
+      var open = s.classList.toggle("open");
+      this.classList.toggle("open", open);
+    });
+
+    var wrap = document.getElementById("issue-list");
+    (cfg.troubleshooting || []).forEach(function (item) {
+      var card = document.createElement("div");
+      card.className = "ts-card";
+      card.id = "ts-" + item.id;
+
+      var stepsHtml = (item.fix || []).map(function (step, i) {
+        return '<li>' + step + '</li>';
+      }).join("");
+
+      card.innerHTML =
+        '<div class="ts-symptom">' + item.symptom + '</div>' +
+        '<div class="ts-cause"><strong>Likely cause:</strong> ' + item.cause + '</div>' +
+        '<div class="ts-fix-label">Steps to fix</div>' +
+        '<ol class="ts-steps">' + stepsHtml + '</ol>';
+
+      wrap.appendChild(card);
+    });
+  })();
+</script>
+</body>
+</html>
