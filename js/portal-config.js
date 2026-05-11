@@ -159,9 +159,9 @@ window.PORTAL_CONFIG = {
   workflows: [
     {
       id: "local-starter",
-      title: "Local Starter",
-      category: "Starter Package — $299 setup + $49/mo",
-      summary: "End-to-end workflow for the Local Starter package. Up to 3 pages, contact form, mobile-optimized.",
+      title: "Starter Site",
+      category: "Starter Site — $100 setup + $30/mo",
+      summary: "End-to-end workflow for the Starter Site package. 1-page, contact form, mobile-optimized.",
       content: [
         {
           heading: "Intake",
@@ -169,7 +169,7 @@ window.PORTAL_CONFIG = {
         },
         {
           heading: "Scope",
-          body: "Confirm in writing: up to 3 pages, contact form, mobile-optimized, no booking integration, no e-commerce. Send the scope boundaries doc and get written approval before writing a single line of code."
+          body: "Confirm in writing: 1-page website, contact form, mobile-optimized, no booking integration, no e-commerce. Send the scope boundaries doc and get written approval before writing a single line of code."
         },
         {
           heading: "Build",
@@ -191,17 +191,17 @@ window.PORTAL_CONFIG = {
     },
     {
       id: "growth",
-      title: "Growth",
-      category: "Growth Package — $449 setup + $79/mo",
-      summary: "End-to-end workflow for the Growth package. Up to 5–6 pages, gallery, basic SEO.",
+      title: "Business Site",
+      category: "Business Site — $200 setup + $50/mo",
+      summary: "End-to-end workflow for the Business Site package. 3–5 pages, gallery, basic SEO.",
       content: [
         {
           heading: "Intake",
-          body: "Same as Local Starter, plus: collect team member info if showing staff, at least 2–3 testimonials, and specific CTAs or goals for the site (bookings, calls, form leads). More pages means more content — don't start without it."
+          body: "Same as Starter Site, plus: collect team member info if showing staff, at least 2–3 testimonials, and specific CTAs or goals for the site (bookings, calls, form leads). More pages means more content — don't start without it."
         },
         {
           heading: "Scope",
-          body: "Up to 5–6 pages, contact form, gallery or portfolio section, basic SEO meta tags. Confirm explicitly: no booking platform integration, no e-commerce, no custom backend. Those are Booking or Enterprise."
+          body: "Up to 3–5 pages, contact form, gallery or portfolio section, basic SEO meta tags. Confirm explicitly: no booking platform integration, no e-commerce, no custom backend. Those are Booking Site or Enterprise Site."
         },
         {
           heading: "Build",
@@ -213,19 +213,19 @@ window.PORTAL_CONFIG = {
         },
         {
           heading: "Maintenance",
-          body: "Same scope as Local Starter. Note in NOTES.md which pages are most likely to need content updates (usually services and team pages) so you can find them quickly for future requests."
+          body: "Same scope as Starter Site. Note in NOTES.md which pages are most likely to need content updates (usually services and team pages) so you can find them quickly for future requests."
         }
       ]
     },
     {
       id: "booking",
-      title: "Booking",
-      category: "Booking Package — $599 setup + $99/mo",
-      summary: "End-to-end workflow for the Booking package. Booking-ready site connected to the client's existing provider.",
+      title: "Booking Site",
+      category: "Booking Site — $300 setup + $70/mo",
+      summary: "End-to-end workflow for the Booking Site package. Booking-ready site connected to the client's existing provider.",
       content: [
         {
           heading: "Intake",
-          body: "Collect everything from the Growth intake, plus: which booking provider the client uses (Calendly, Square Appointments, Acuity, etc.), their main booking URL, each service with name/price/duration, and team members who offer each service."
+          body: "Collect everything from the Business Site intake, plus: which booking provider the client uses (Calendly, Square Appointments, Acuity, etc.), their main booking URL, each service with name/price/duration, and team members who offer each service."
         },
         {
           heading: "Scope",
@@ -247,8 +247,8 @@ window.PORTAL_CONFIG = {
     },
     {
       id: "enterprise",
-      title: "Enterprise",
-      category: "Enterprise Package — $800+ custom scope",
+      title: "Enterprise Site",
+      category: "Enterprise Site — $600 setup + starting at $70/mo",
       summary: "Workflow for Enterprise projects. Scope is defined per engagement — never assume.",
       content: [
         {
@@ -760,7 +760,7 @@ window.PORTAL_CONFIG = {
       id: "first-response",
       title: "First Response to Inquiry",
       when: "When a potential client reaches out through the contact form or email for the first time.",
-      template: "Hi [NAME],\n\nThanks for reaching out — I'd love to learn more about what you're working on.\n\nI build websites for small businesses, focused on clean, mobile-ready sites that are easy to maintain long-term. Packages start at $299 for a basic site and go up based on what you need.\n\nThe quickest way to get started is to fill out my short intake form — it takes about 5 minutes and gives me everything I need to send you a clear quote:\n[QUESTIONNAIRE LINK]\n\nLet me know if you have questions in the meantime.\n\nCaleb Collins\nNexSite Studio\ncaleb.collins@nexsitestudio.org"
+      template: "Hi [NAME],\n\nThanks for reaching out — I'd love to learn more about what you're working on.\n\nI build websites for small businesses, focused on clean, mobile-ready sites that are easy to maintain long-term. Packages start at $100 for a basic site and go up based on what you need.\n\nThe quickest way to get started is to fill out my short intake form — it takes about 5 minutes and gives me everything I need to send you a clear quote:\n[QUESTIONNAIRE LINK]\n\nLet me know if you have questions in the meantime.\n\nCaleb Collins\nNexSite Studio\ncaleb.collins@nexsitestudio.org"
     },
     {
       id: "intake-confirmation",
@@ -816,20 +816,20 @@ window.PORTAL_CONFIG = {
       summary: "Exact boundaries for what each package includes and excludes.",
       content: [
         {
-          heading: "Local Starter — $299 setup + $49/mo",
-          body: "Up to 3 pages. Contact form (EmailJS or FormSubmit). Mobile-optimized layout. Domain and hosting setup via Cloudflare Pages. Does not include: booking platform integration, e-commerce, custom backend, more than 3 pages, or design work beyond the base template."
+          heading: "Starter Site — $100 setup + $30/mo",
+          body: "1-page website. Contact form (EmailJS or FormSubmit). Mobile-optimized layout. Domain and hosting setup via Cloudflare Pages. Up to 5 listed services. 3 free updates/mo. Does not include: booking platform integration, e-commerce, custom backend, additional pages, or design work beyond the base template."
         },
         {
-          heading: "Growth — $449 setup + $79/mo",
-          body: "Up to 5–6 pages. Contact form. Gallery or portfolio section. Basic SEO meta tags (title, description, Open Graph). Does not include: booking platform integration, e-commerce, custom backend, login systems, or anything requiring a server."
+          heading: "Business Site — $200 setup + $50/mo",
+          body: "3–5 pages with navigation. Contact form. Up to 10 listed services. Quote or intake form section. Gallery or portfolio section. Basic SEO meta tags (title, description, Open Graph). 6 free edits/mo. Does not include: booking platform integration, e-commerce, custom backend, login systems, or anything requiring a server."
         },
         {
-          heading: "Booking — $599 setup + $99/mo",
-          body: "All Growth features plus booking-ready pages: service listings, staff profiles, and booking links or embeds connected to the client's existing booking provider. Does not include: custom scheduling logic, live availability sync via API, customer account creation, payment processing beyond the client's booking provider, or any custom backend."
+          heading: "Booking Site — $300 setup + $70/mo",
+          body: "All Business Site features plus booking-ready pages: service listings, staff profiles, and booking links or embeds connected to the client's existing booking provider. Up to 10 pages. Stripe/Square payment capability. 8 free edits/mo. Does not include: custom scheduling logic, live availability sync via API, customer account creation, payment processing beyond the client's booking provider, or any custom backend."
         },
         {
-          heading: "Enterprise — $800+ custom",
-          body: "Custom scope only. Defined per project after a scoping call. May include custom backend features, employee login, API integrations, multi-location support, or advanced payment flows — each as an explicit line item with its own cost. Requires a 50% deposit before work begins."
+          heading: "Enterprise Site — $600 setup + starting at $70/mo",
+          body: "Custom scope only. Defined per project after a scoping call. May include custom backend features, employee login, business/sales metrics, API integrations, multi-location support, or advanced payment flows — each as an explicit line item with its own cost. 10 priority edits/mo. Requires a 50% deposit before work begins."
         }
       ]
     },
