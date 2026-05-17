@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard | Self-Learning Guidance</title>
+  <title>The Complete Web Development Handbook — Part 2 | Self-Learning Guidance</title>
   <link rel="stylesheet" href="css/portal.css" />
 </head>
-<body data-page="dashboard">
+<body data-page="doc" data-doc-id="web-development-handbook-p2">
   <div class="app">
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-brand">
@@ -25,34 +25,27 @@
         <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
           <span></span><span></span><span></span>
         </button>
-        <div class="topbar-title" id="topbar-title">Dashboard</div>
+        <div class="topbar-title" id="topbar-title">The Complete Web Development Handbook — Part 2</div>
         <div class="topbar-right">
           <span class="topbar-badge" id="tb-version">v1.0</span>
         </div>
       </div>
       <div class="page-content">
         <div class="page-header">
-          <h1 id="dashboard-title">Self-Learning Guidance</h1>
-          <p id="dashboard-intro"></p>
+          <h1 id="doc-title">The Complete Web Development Handbook — Part 2</h1>
+          <p id="doc-summary">*Continues from web_development_handbook_p1.md*</p>
         </div>
 
-        <div class="grid-3 dashboard-stats">
-          <div class="card stat-card">
-            <div class="stat-value" id="stat-docs">0</div>
-            <div class="stat-label">Imported guides</div>
-          </div>
-          <div class="card stat-card">
-            <div class="stat-value" id="stat-sections">0</div>
-            <div class="stat-label">Document sections</div>
-          </div>
-          <div class="card stat-card">
-            <div class="stat-value stat-value--path" id="stat-source"></div>
-            <div class="stat-label">Source directory</div>
-          </div>
+        <div class="doc-layout">
+          <nav class="doc-nav card">
+            <div class="doc-nav-header">
+              <span class="section-label">Sections</span>
+              <span class="badge badge--neutral" id="doc-meta">58 sections</span>
+            </div>
+            <div id="doc-nav"></div>
+          </nav>
+          <article class="doc-article card" id="doc-content"></article>
         </div>
-
-        <div class="section-label">Guide Library</div>
-        <div class="grid-3" id="doc-cards"></div>
       </div>
     </div>
   </div>

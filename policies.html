@@ -2,105 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="refresh" content="0; url=index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Policies — NexSite Studio Training</title>
+  <title>Redirecting | Self-Learning Guidance</title>
   <link rel="stylesheet" href="css/portal.css" />
 </head>
-<body>
-<div class="app">
-  <aside class="sidebar" id="sidebar">
-    <div class="sidebar-brand">
-      <div class="sidebar-brand-icon">N</div>
-      <div>
-        <div class="sidebar-brand-name" id="sb-name">NexSite Studio</div>
-        <div class="sidebar-brand-sub">Training Portal</div>
-      </div>
+<body data-page="legacy">
+  <main class="page-content" style="max-width:720px;margin:0 auto;padding-top:4rem;">
+    <div class="card">
+      <h1 style="margin-bottom:0.75rem;">This page moved</h1>
+      <p style="margin-bottom:0.75rem;">The previous training content was replaced with the imported self-learning guidance library.</p>
+      <p><a href="index.html">Open the dashboard</a>.</p>
     </div>
-    <nav class="sidebar-nav" id="sidebar-nav"></nav>
-    <div class="sidebar-footer">Internal use only</div>
-  </aside>
-
-  <div class="main">
-    <div class="topbar">
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-      <div class="topbar-title">Policies</div>
-      <div class="topbar-right"></div>
-    </div>
-    <div class="page-content">
-      <div class="page-header">
-        <h1>Policies</h1>
-        <p>Package scope boundaries, small update definition, change order process, and refund policy.</p>
-      </div>
-      <div class="standards-layout">
-        <nav class="standards-nav" id="page-nav"></nav>
-        <div id="page-content-area"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script src="js/portal-config.js"></script>
-<script>
-  (function () {
-    var cfg = window.PORTAL_CONFIG || {};
-    var nav = document.getElementById("sidebar-nav");
-    var sb  = document.getElementById("sb-name");
-    if (sb && cfg.org) sb.textContent = cfg.org.name;
-    (cfg.nav || []).forEach(function (item) {
-      var a = document.createElement("a");
-      a.className = "nav-item" + (item.id === "policies" ? " active" : "");
-      a.href = item.href;
-      a.innerHTML = '<span class="nav-icon">' + item.icon + '</span>' + item.label;
-      nav.appendChild(a);
-    });
-    document.getElementById("menu-toggle").addEventListener("click", function () {
-      var s = document.getElementById("sidebar");
-      var open = s.classList.toggle("open");
-      this.classList.toggle("open", open);
-    });
-
-    var sNav  = document.getElementById("page-nav");
-    var sCont = document.getElementById("page-content-area");
-    (cfg.policies || []).forEach(function (item) {
-      var a = document.createElement("a");
-      a.className = "standards-nav-item";
-      a.href = "#item-" + item.id;
-      a.textContent = item.title;
-      sNav.appendChild(a);
-
-      var article = document.createElement("div");
-      article.className = "standard-article";
-      article.id = "item-" + item.id;
-      article.innerHTML =
-        '<div class="standard-article-header">' +
-          '<div>' +
-            '<div class="standard-article-title">' + item.title + '</div>' +
-            '<div class="standard-article-summary">' + item.summary + '</div>' +
-          '</div>' +
-          '<span class="badge badge--neutral">' + item.category + '</span>' +
-        '</div>';
-      (item.content || []).forEach(function (s) {
-        var sec = document.createElement("div");
-        sec.className = "standard-section";
-        sec.innerHTML = '<h4>' + s.heading + '</h4><p>' + s.body + '</p>';
-        article.appendChild(sec);
-      });
-      sCont.appendChild(article);
-    });
-
-    var navItems = sNav.querySelectorAll(".standards-nav-item");
-    var articles = sCont.querySelectorAll(".standard-article");
-    window.addEventListener("scroll", function () {
-      var scrollY = window.scrollY;
-      articles.forEach(function (art, i) {
-        if (art.offsetTop - 100 <= scrollY) {
-          navItems.forEach(function (n) { n.classList.remove("active"); });
-          if (navItems[i]) navItems[i].classList.add("active");
-        }
-      });
-    }, { passive: true });
-    if (navItems[0]) navItems[0].classList.add("active");
-  })();
-</script>
+  </main>
 </body>
 </html>

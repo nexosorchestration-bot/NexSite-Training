@@ -2,81 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="refresh" content="0; url=index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quiz — NexSite Studio Training</title>
+  <title>Redirecting | Self-Learning Guidance</title>
   <link rel="stylesheet" href="css/portal.css" />
 </head>
-<body>
-<div class="app">
-  <aside class="sidebar" id="sidebar">
-    <div class="sidebar-brand">
-      <div class="sidebar-brand-icon">N</div>
-      <div>
-        <div class="sidebar-brand-name" id="sb-name">NexSite Studio</div>
-        <div class="sidebar-brand-sub">Training Portal</div>
-      </div>
+<body data-page="legacy">
+  <main class="page-content" style="max-width:720px;margin:0 auto;padding-top:4rem;">
+    <div class="card">
+      <h1 style="margin-bottom:0.75rem;">This page moved</h1>
+      <p style="margin-bottom:0.75rem;">The previous training content was replaced with the imported self-learning guidance library.</p>
+      <p><a href="index.html">Open the dashboard</a>.</p>
     </div>
-    <nav class="sidebar-nav" id="sidebar-nav"></nav>
-    <div class="sidebar-footer">Internal use only</div>
-  </aside>
-
-  <div class="main">
-    <div class="topbar">
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-      <div class="topbar-title" id="topbar-quiz-title">Quiz</div>
-      <div class="topbar-right">
-        <a class="btn btn--ghost btn--sm" href="quizzes.html">← All Quizzes</a>
-      </div>
-    </div>
-
-    <div class="page-content">
-      <div class="page-header" id="quiz-header"></div>
-      <div id="quiz-mount"></div>
-    </div>
-  </div>
-</div>
-
-<script src="js/portal-config.js"></script>
-<script src="js/quiz.js"></script>
-<script>
-  (function () {
-    var cfg = window.PORTAL_CONFIG || {};
-    var nav = document.getElementById("sidebar-nav");
-    var sb  = document.getElementById("sb-name");
-    if (sb && cfg.org) sb.textContent = cfg.org.name;
-    (cfg.nav || []).forEach(function (item) {
-      var a = document.createElement("a");
-      a.className = "nav-item" + (item.id === "quizzes" ? " active" : "");
-      a.href = item.href;
-      a.innerHTML = '<span class="nav-icon">' + item.icon + '</span>' + item.label;
-      nav.appendChild(a);
-    });
-    document.getElementById("menu-toggle").addEventListener("click", function () {
-      var s = document.getElementById("sidebar");
-      var open = s.classList.toggle("open");
-      this.classList.toggle("open", open);
-    });
-
-    // Parse quiz ID from URL
-    var params  = new URLSearchParams(location.search);
-    var quizId  = params.get("id");
-    var quiz    = (cfg.quizzes || []).find(function (q) { return q.id === quizId; });
-
-    if (!quiz) {
-      document.getElementById("quiz-header").innerHTML =
-        '<h1>Quiz not found</h1><p><a href="quizzes.html">← Back to quizzes</a></p>';
-      return;
-    }
-
-    document.title = quiz.title + " — NexSite Studio Training";
-    document.getElementById("topbar-quiz-title").textContent = quiz.title;
-    document.getElementById("quiz-header").innerHTML =
-      '<h1>' + quiz.title + '</h1>' +
-      '<p>' + quiz.description + ' &nbsp;<span class="badge badge--neutral">' + quiz.questions.length + ' questions</span> ' +
-      '<span class="badge badge--neutral">Pass: ' + quiz.passingScore + '%</span></p>';
-
-    window.NexQuiz.runQuiz(quizId, "quiz-mount");
-  })();
-</script>
+  </main>
 </body>
 </html>

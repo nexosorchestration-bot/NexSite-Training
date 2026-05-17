@@ -1,1240 +1,4296 @@
 window.PORTAL_CONFIG = {
-
-  org: {
-    name:    "NexSite Studio",
-    tagline: "Internal Training Portal",
-    version: "2.0"
+  "org": {
+    "name": "Self-Learning Guidance",
+    "tagline": "Reference Portal",
+    "version": "1.0"
   },
-
-  nav: [
-    { id: "index",        label: "Dashboard",      icon: "⬛", href: "index.html" },
-    { id: "standards",    label: "Standards",      icon: "📋", href: "standards.html" },
-    { id: "workflows",    label: "Workflows",      icon: "⚙",  href: "workflows.html" },
-    { id: "editing",      label: "Editing",        icon: "✏",  href: "editing.html" },
-    { id: "booking",      label: "Booking Setup",  icon: "📅", href: "booking.html" },
-    { id: "deployment",   label: "Deployment",     icon: "▲",  href: "deployment.html" },
-    { id: "maintenance",  label: "Maintenance",    icon: "◆",  href: "maintenance.html" },
-    { id: "troubleshoot", label: "Troubleshoot",   icon: "◎",  href: "troubleshooting.html" },
-    { id: "comms",        label: "Client Comms",   icon: "✉",  href: "comms.html" },
-    { id: "policies",     label: "Policies",       icon: "▣",  href: "policies.html" },
-    { id: "glossary",     label: "Glossary",       icon: "≡",  href: "glossary.html" },
-    { id: "emergency",    label: "Emergency",      icon: "⚠",  href: "emergency.html" }
-  ],
-
-  // ─── Standards ────────────────────────────────────────────────────────────────
-
-  standards: [
+  "sourceDir": "/home/nexuscore/Documents/self_learning_guidance",
+  "nav": [
     {
-      id: "client-communication",
-      title: "Client Communication",
-      category: "Client Relations",
-      summary: "How to communicate professionally with clients at every stage.",
-      content: [
-        {
-          heading: "Response Time",
-          body: "Respond to all client messages within one business day. For urgent requests, respond same day when possible. Never leave a message unread for more than 24 hours without at least an acknowledgement."
-        },
-        {
-          heading: "Project Updates",
-          body: "Send an unsolicited update at least once per week during active builds. Clients should never have to ask where things stand. Use clear language — avoid jargon unless the client has demonstrated technical familiarity."
-        },
-        {
-          heading: "Scope Conversations",
-          body: "If a client request falls outside the agreed scope, do not begin work before confirming. Say: 'That's something I can look at — let me check if it's covered under the current scope or if it would be a quick add-on.' Never silently absorb scope creep."
-        },
-        {
-          heading: "Delivering Work",
-          body: "When delivering a site or milestone, send a short summary of what was completed, the staging or live link, and any action items the client needs to complete. Give them a clear deadline for feedback."
-        }
-      ]
-    },
-    {
-      id: "scope-management",
-      title: "Scope Management",
-      category: "Project Management",
-      summary: "How to define, protect, and communicate project scope.",
-      content: [
-        {
-          heading: "Scope Before Build",
-          body: "Before starting any build, confirm what is and is not included in writing. Use the scope boundaries doc from the relevant package. If it is not in writing, it is not in scope."
-        },
-        {
-          heading: "The Scope Creep Rule",
-          body: "Any feature, page, revision, or request not covered in the original scope agreement is a potential add-on. Small items under 30 minutes can be a goodwill gesture once per project. Anything larger needs a conversation and approval before work begins."
-        },
-        {
-          heading: "Change Orders",
-          body: "For any out-of-scope work, create a short written change order that includes: description of the addition, estimated time, additional cost (or 'no charge' if waiving), and client approval. Keep these in the project folder."
-        },
-        {
-          heading: "Booking Sites Specifically",
-          body: "The default booking package does not include custom backends, login systems, or payment processing. These must be explicitly scoped as add-ons. See the Policies section for exact language."
-        }
-      ]
-    },
-    {
-      id: "design-standards",
-      title: "Design Standards",
-      category: "Design",
-      summary: "Visual and UX standards for all NexSite Studio deliverables.",
-      content: [
-        {
-          heading: "Mobile First",
-          body: "Every site must be tested on a real mobile device before delivery. Not just browser devtools — a physical phone. Check the booking flow, form submission, and navigation on the smallest screen the client's audience is likely to use."
-        },
-        {
-          heading: "Typography",
-          body: "Default to system fonts unless the client's brand requires a custom typeface. If using a web font, load only the weights you use. Never load a full font family when you are using two weights."
-        },
-        {
-          heading: "Color Accessibility",
-          body: "All text on colored backgrounds must meet WCAG AA contrast ratio (4.5:1 for normal text, 3:1 for large text). Use a contrast checker before finalizing brand color pairings."
-        },
-        {
-          heading: "Image Optimization",
-          body: "All images must be compressed before deployment. Hero images should be under 300KB. Team photos under 100KB each. Use WebP where possible. Never deliver a site with unoptimized assets."
-        },
-        {
-          heading: "No Lorem Ipsum in Delivery",
-          body: "Placeholder text must be replaced before any client-facing delivery — staging or production. If client content is missing, use clearly marked placeholder copy that says [CLIENT TO PROVIDE], not lorem ipsum."
-        }
-      ]
-    },
-    {
-      id: "code-standards",
-      title: "Code Standards",
-      category: "Development",
-      summary: "HTML, CSS, and JS standards for all NexSite Studio builds.",
-      content: [
-        {
-          heading: "Config-First",
-          body: "All client-specific data belongs in a config file, not scattered through HTML. For the booking template this means site-config.js. No hardcoded business names in navigation or page content."
-        },
-        {
-          heading: "No Inline Styles",
-          body: "CSS belongs in stylesheets, not inline style attributes, unless it is dynamically set by JavaScript. Inline styles make maintenance difficult and create specificity problems."
-        },
-        {
-          heading: "Semantic HTML",
-          body: "Use the correct HTML element for the job: nav for navigation, main for main content, header/footer for their respective sections, button for actions, a for navigation. Do not use divs for everything."
-        },
-        {
-          heading: "Comments",
-          body: "Do not add comments that describe what the code obviously does. Only comment on non-obvious constraints, workarounds for specific bugs, or hidden business rules. Section markers are fine for long CSS files."
-        },
-        {
-          heading: "Validate Before Delivery",
-          body: "Run HTML through the W3C validator and check the browser console for errors before any delivery. Zero console errors and zero validation errors is the baseline."
-        }
-      ]
-    },
-    {
-      id: "file-delivery",
-      title: "File & Delivery Standards",
-      category: "Operations",
-      summary: "How to name files, organize projects, and hand off work.",
-      content: [
-        {
-          heading: "File Naming",
-          body: "Use lowercase with hyphens for all file and folder names: client-name/, hero-image.jpg, site-config.js. No spaces, no camelCase in file names, no underscores for web assets."
-        },
-        {
-          heading: "Project Folders",
-          body: "Each client project lives in its own folder. Inside: the site files, an assets/ subfolder, a docs/ subfolder for the intake form and scope doc, and a NOTES.md for anything important about the client or project."
-        },
-        {
-          heading: "Handoff Checklist",
-          body: "Before marking a project delivered, run through the pre-launch checklist. The checklist is not optional. If something on the checklist cannot be completed, document why and get client sign-off."
-        },
-        {
-          heading: "Client Credentials",
-          body: "Never store client passwords or API keys in project files. Use a secure password manager and share credentials through a secure channel. Never send passwords in plain text over email."
-        }
-      ]
+      "id": "index",
+      "label": "Dashboard",
+      "icon": "Home",
+      "href": "index.html"
     }
   ],
-
-  // ─── Package Workflows ────────────────────────────────────────────────────────
-
-  workflows: [
+  "docs": [
     {
-      id: "local-starter",
-      title: "Starter Site",
-      category: "Starter Site — $100 setup + $30/mo",
-      summary: "End-to-end workflow for the Starter Site package. 1-page, contact form, mobile-optimized.",
-      content: [
+      "id": "python-beginner-to-intermediate-guide",
+      "title": "Python Programming Guide: Beginner to Intermediate",
+      "navLabel": "Python Guide",
+      "summary": "A practical, project-driven guide for teaching Python from absolute beginner level to confident intermediate level.",
+      "href": "python-beginner-to-intermediate-guide.html",
+      "icon": "Py",
+      "sections": [
         {
-          heading: "Intake",
-          body: "Run the client intake questionnaire. Collect: business name, address, phone, email, hours, 3–5 services or products, logo (or note it needs to be designed), 1–3 photos, and preferred domain. Do not start scoping until you have all of this."
+          "id": "python-beginner-to-intermediate-guide-1-what-youre-about-to-learn",
+          "title": "1. What You\u2019re About to Learn",
+          "level": 2
         },
         {
-          heading: "Scope",
-          body: "Confirm in writing: 1-page website, contact form, mobile-optimized, no booking integration, no e-commerce. Send the scope boundaries doc and get written approval before writing a single line of code."
+          "id": "python-beginner-to-intermediate-guide-2-why-it-matters",
+          "title": "2. Why It Matters",
+          "level": 2
         },
         {
-          heading: "Build",
-          body: "Use a base template — never build from a blank file. Fill all config fields before writing any custom HTML. Test locally with a live server. Do not open HTML files with file:// during development."
+          "id": "python-beginner-to-intermediate-guide-3-tiny-example",
+          "title": "3. Tiny Example",
+          "level": 2
         },
         {
-          heading: "Review",
-          body: "Send a staging link with a numbered list of what to check. Give the client 5 business days to respond. Limit to 2 revision rounds — scope the third as a paid add-on."
+          "id": "python-beginner-to-intermediate-guide-4-explanation",
+          "title": "4. Explanation",
+          "level": 2
         },
         {
-          heading: "Launch",
-          body: "Run the pre-launch checklist. Connect to Cloudflare Pages, set the custom domain, confirm HTTPS is active. Test the form on production — not just staging. Send the delivery message."
+          "id": "python-beginner-to-intermediate-guide-5-break-it-on-purpose",
+          "title": "5. Break It on Purpose",
+          "level": 2
         },
         {
-          heading: "Maintenance Handoff",
-          body: "Confirm the client understands the monthly maintenance scope. Set up recurring payment. Document any client-specific quirks in NOTES.md before the project folder is archived."
+          "id": "python-beginner-to-intermediate-guide-6-modify-it",
+          "title": "6. Modify It",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-7-mini-challenge",
+          "title": "7. Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-8-real-project-connection",
+          "title": "8. Real Project Connection",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-chapter-1-what-python-is-and-what-you-can-build-with-it",
+          "title": "Chapter 1: What Python Is and What You Can Build With It",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-chapter-2-installing-python-and-running-your-first-script",
+          "title": "Chapter 2: Installing Python and Running Your First Script",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-chapter-3-variables-text-numbers-and-input",
+          "title": "Chapter 3: Variables, Text, Numbers, and Input",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-chapter-4-understanding-errors-without-panicking",
+          "title": "Chapter 4: Understanding Errors Without Panicking",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-chapter-5-conditions-and-decisions",
+          "title": "Chapter 5: Conditions and Decisions",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-chapter-6-lists-and-repeating-work",
+          "title": "Chapter 6: Lists and Repeating Work",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-chapter-7-dictionaries-and-structured-data",
+          "title": "Chapter 7: Dictionaries and Structured Data",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-chapter-8-loops-menus-and-interactive-programs",
+          "title": "Chapter 8: Loops, Menus, and Interactive Programs",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-chapter-9-functions",
+          "title": "Chapter 9: Functions",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-chapter-10-return-values-and-scope",
+          "title": "Chapter 10: Return Values and Scope",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-chapter-11-organizing-programs",
+          "title": "Chapter 11: Organizing Programs",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-chapter-12-reading-and-writing-files",
+          "title": "Chapter 12: Reading and Writing Files",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-chapter-13-json-and-csv",
+          "title": "Chapter 13: JSON and CSV",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-chapter-14-virtual-environments-and-pip",
+          "title": "Chapter 14: Virtual Environments and pip",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-chapter-15-installing-and-using-packages",
+          "title": "Chapter 15: Installing and Using Packages",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-chapter-16-exceptions-and-defensive-code",
+          "title": "Chapter 16: Exceptions and Defensive Code",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-chapter-17-logging",
+          "title": "Chapter 17: Logging",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-chapter-18-type-hints",
+          "title": "Chapter 18: Type Hints",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-chapter-19-dataclasses",
+          "title": "Chapter 19: Dataclasses",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-chapter-20-working-with-apis",
+          "title": "Chapter 20: Working with APIs",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-project-1-to-do-app",
+          "title": "Project 1: To-Do App",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-project-2-file-organizer",
+          "title": "Project 2: File Organizer",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-project-3-contact-manager",
+          "title": "Project 3: Contact Manager",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-project-4-log-analyzer",
+          "title": "Project 4: Log Analyzer",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-project-5-api-tool",
+          "title": "Project 5: API Tool",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-project-6-mini-python-package",
+          "title": "Project 6: Mini Python Package",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-chapter-27-reading-documentation",
+          "title": "Chapter 27: Reading Documentation",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-chapter-28-debugging-strategy",
+          "title": "Chapter 28: Debugging Strategy",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-chapter-29-basic-testing",
+          "title": "Chapter 29: Basic Testing",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-chapter-30-git-and-github-basics",
+          "title": "Chapter 30: Git and GitHub Basics",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-chapter-31-what-to-learn-next",
+          "title": "Chapter 31: What to Learn Next",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-automation",
+          "title": "Automation",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-web-development",
+          "title": "Web Development",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-data",
+          "title": "Data",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-ai-and-machine-learning",
+          "title": "AI and Machine Learning",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-desktop-apps",
+          "title": "Desktop Apps",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-command-line-tools",
+          "title": "Command-Line Tools",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-personal-automation-toolkit",
+          "title": "Personal Automation Toolkit",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-running-python",
+          "title": "Running Python",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-virtual-environments",
+          "title": "Virtual Environments",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-pip",
+          "title": "pip",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-project-commands",
+          "title": "Project Commands",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-git",
+          "title": "Git",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-syntaxerror",
+          "title": "SyntaxError",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-nameerror",
+          "title": "NameError",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-typeerror",
+          "title": "TypeError",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-valueerror",
+          "title": "ValueError",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-filenotfounderror",
+          "title": "FileNotFoundError",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-variables",
+          "title": "Variables",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-input",
+          "title": "Input",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-conditions",
+          "title": "Conditions",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-lists",
+          "title": "Lists",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-dictionaries",
+          "title": "Dictionaries",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-loops",
+          "title": "Loops",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-functions",
+          "title": "Functions",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-files",
+          "title": "Files",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-json",
+          "title": "JSON",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-apis",
+          "title": "APIs",
+          "level": 2
+        },
+        {
+          "id": "python-beginner-to-intermediate-guide-debugging",
+          "title": "Debugging",
+          "level": 2
         }
-      ]
+      ],
+      "contentHtml": "<h1 id=\"python-beginner-to-intermediate-guide-python-programming-guide-beginner-to-intermediate\">Python Programming Guide: Beginner to Intermediate</h1>\n<p>A practical, project-driven guide for teaching Python from absolute beginner level to confident intermediate level.</p>\n<blockquote><p><strong>Goal:</strong> Take someone from \u201cI can barely read Python\u201d to \u201cI can build real scripts, debug them, structure small projects, use libraries, read documentation, and know what to learn next.\u201d</p></blockquote>\n<p>This guide is designed like a <strong>field manual</strong>, not a dry textbook.</p>\n<p>The emphasis is on:</p>\n<ol><li>Seeing working examples</li><li>Typing and modifying code</li><li>Breaking things on purpose</li><li>Learning to read errors</li><li>Building useful scripts</li><li>Gradually becoming independent</li></ol>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-table-of-contents\">Table of Contents</h2>\n<ul><li><a href=\"#core-philosophy\">Core Philosophy</a></li><li><a href=\"#how-to-use-this-guide\">How to Use This Guide</a></li><li><a href=\"#teaching-formula-for-every-chapter\">Teaching Formula for Every Chapter</a></li><li><a href=\"#part-1-getting-started\">Part 1: Getting Started</a></li><li><a href=\"#chapter-1-what-python-is-and-what-you-can-build-with-it\">Chapter 1: What Python Is and What You Can Build With It</a></li><li><a href=\"#chapter-2-installing-python-and-running-your-first-script\">Chapter 2: Installing Python and Running Your First Script</a></li><li><a href=\"#chapter-3-variables-text-numbers-and-input\">Chapter 3: Variables, Text, Numbers, and Input</a></li><li><a href=\"#chapter-4-understanding-errors-without-panicking\">Chapter 4: Understanding Errors Without Panicking</a></li><li><a href=\"#part-2-making-programs-think\">Part 2: Making Programs Think</a></li><li><a href=\"#chapter-5-conditions-and-decisions\">Chapter 5: Conditions and Decisions</a></li><li><a href=\"#chapter-6-lists-and-repeating-work\">Chapter 6: Lists and Repeating Work</a></li><li><a href=\"#chapter-7-dictionaries-and-structured-data\">Chapter 7: Dictionaries and Structured Data</a></li><li><a href=\"#chapter-8-loops-menus-and-interactive-programs\">Chapter 8: Loops, Menus, and Interactive Programs</a></li><li><a href=\"#part-3-writing-better-code\">Part 3: Writing Better Code</a></li><li><a href=\"#chapter-9-functions\">Chapter 9: Functions</a></li><li><a href=\"#chapter-10-return-values-and-scope\">Chapter 10: Return Values and Scope</a></li><li><a href=\"#chapter-11-organizing-programs\">Chapter 11: Organizing Programs</a></li><li><a href=\"#chapter-12-reading-and-writing-files\">Chapter 12: Reading and Writing Files</a></li><li><a href=\"#chapter-13-json-and-csv\">Chapter 13: JSON and CSV</a></li><li><a href=\"#part-4-real-world-python\">Part 4: Real-World Python</a></li><li><a href=\"#chapter-14-virtual-environments-and-pip\">Chapter 14: Virtual Environments and pip</a></li><li><a href=\"#chapter-15-installing-and-using-packages\">Chapter 15: Installing and Using Packages</a></li><li><a href=\"#chapter-16-exceptions-and-defensive-code\">Chapter 16: Exceptions and Defensive Code</a></li><li><a href=\"#chapter-17-logging\">Chapter 17: Logging</a></li><li><a href=\"#chapter-18-type-hints\">Chapter 18: Type Hints</a></li><li><a href=\"#chapter-19-dataclasses\">Chapter 19: Dataclasses</a></li><li><a href=\"#chapter-20-working-with-apis\">Chapter 20: Working with APIs</a></li><li><a href=\"#part-5-intermediate-projects\">Part 5: Intermediate Projects</a></li><li><a href=\"#project-1-to-do-app\">Project 1: To-Do App</a></li><li><a href=\"#project-2-file-organizer\">Project 2: File Organizer</a></li><li><a href=\"#project-3-contact-manager\">Project 3: Contact Manager</a></li><li><a href=\"#project-4-log-analyzer\">Project 4: Log Analyzer</a></li><li><a href=\"#project-5-api-tool\">Project 5: API Tool</a></li><li><a href=\"#project-6-mini-python-package\">Project 6: Mini Python Package</a></li><li><a href=\"#part-6-becoming-independent\">Part 6: Becoming Independent</a></li><li><a href=\"#chapter-27-reading-documentation\">Chapter 27: Reading Documentation</a></li><li><a href=\"#chapter-28-debugging-strategy\">Chapter 28: Debugging Strategy</a></li><li><a href=\"#chapter-29-basic-testing\">Chapter 29: Basic Testing</a></li><li><a href=\"#chapter-30-git-and-github-basics\">Chapter 30: Git and GitHub Basics</a></li><li><a href=\"#chapter-31-what-to-learn-next\">Chapter 31: What to Learn Next</a></li><li><a href=\"#final-skill-checklist\">Final Skill Checklist</a></li><li><a href=\"#recommended-capstone-project\">Recommended Capstone Project</a></li><li><a href=\"#appendix-a-beginner-friendly-python-commands\">Appendix A: Beginner-Friendly Python Commands</a></li><li><a href=\"#appendix-b-common-beginner-errors\">Appendix B: Common Beginner Errors</a></li><li><a href=\"#appendix-c-practice-prompts\">Appendix C: Practice Prompts</a></li></ul>\n<hr />\n<h1 id=\"python-beginner-to-intermediate-guide-core-philosophy\">Core Philosophy</h1>\n<p>A strong Python beginner-to-intermediate guide should be built around <strong>progressive competence</strong>.</p>\n<p>The learner should repeatedly go through this cycle:</p>\n<pre><code class=\"language-text\">See it\nType it\nBreak it\nFix it\nModify it\nBuild something similar without help</code></pre>\n<p>Most beginner programming guides fail because they teach syntax in isolation:</p>\n<pre><code class=\"language-text\">variables \u2192 loops \u2192 functions \u2192 classes \u2192 done</code></pre>\n<p>That teaches vocabulary, but it does not teach programming.</p>\n<p>This guide teaches Python as a tool for solving real problems.</p>\n<p>The point is not to memorize every feature.</p>\n<p>The point is to become capable.</p>\n<hr />\n<h1 id=\"python-beginner-to-intermediate-guide-how-to-use-this-guide\">How to Use This Guide</h1>\n<p>This guide can be used by:</p>\n<ul><li>Self-taught beginners</li><li>Teachers</li><li>Tutors</li><li>Bootcamp instructors</li><li>AI-assisted learners</li><li>Developers creating a beginner Python course</li><li>People building internal training material</li></ul>\n<p>Each chapter should include:</p>\n<ul><li>A plain-English explanation</li><li>Small code examples</li><li>Intentional mistakes</li><li>Debugging notes</li><li>Exercises</li><li>A mini-project or practical task</li></ul>\n<p>The best learning rhythm is:</p>\n<pre><code class=\"language-text\">Read a little\nCode a little\nBreak something\nFix it\nChange the example\nBuild a tiny version from scratch</code></pre>\n<p>Do not rush.</p>\n<p>Programming is learned through repetition, pattern recognition, and confidence.</p>\n<hr />\n<h1 id=\"python-beginner-to-intermediate-guide-teaching-formula-for-every-chapter\">Teaching Formula for Every Chapter</h1>\n<p>Every chapter should follow the same basic pattern.</p>\n<h2 id=\"python-beginner-to-intermediate-guide-1-what-youre-about-to-learn\">1. What You\u2019re About to Learn</h2>\n<p>State the topic plainly.</p>\n<p>Example:</p>\n<blockquote><p>In this chapter, you\u2019ll learn how to make Python repeat work for you using loops.</p></blockquote>\n<h2 id=\"python-beginner-to-intermediate-guide-2-why-it-matters\">2. Why It Matters</h2>\n<p>Connect the concept to real use.</p>\n<p>Example:</p>\n<blockquote><p>Without loops, you would need to manually write the same line of code over and over. Loops let you process files, messages, records, users, songs, images, and anything else that comes in groups.</p></blockquote>\n<h2 id=\"python-beginner-to-intermediate-guide-3-tiny-example\">3. Tiny Example</h2>\n<pre><code class=\"language-python\">for number in range(5):\n    print(number)</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-4-explanation\">4. Explanation</h2>\n<p>Explain only what is needed.</p>\n<pre><code class=\"language-text\">range(5) creates the numbers 0 through 4.\nThe loop runs once for each number.\nprint(number) displays the current number.</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-5-break-it-on-purpose\">5. Break It on Purpose</h2>\n<p>Show a common mistake.</p>\n<pre><code class=\"language-python\">for number in range(5)\n    print(number)</code></pre>\n<p>This causes:</p>\n<pre><code class=\"language-text\">SyntaxError: expected &#x27;:&#x27;</code></pre>\n<p>Explanation:</p>\n<pre><code class=\"language-text\">Python expected a colon after the for statement.\nThe colon tells Python that an indented block is about to begin.</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-6-modify-it\">6. Modify It</h2>\n<p>Ask the learner to change the code.</p>\n<p>Example tasks:</p>\n<pre><code class=\"language-text\">Make it count from 1 to 10.\nMake it print only even numbers.\nMake it print &quot;Done!&quot; at the end.</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-7-mini-challenge\">7. Mini Challenge</h2>\n<p>Give a small independent challenge.</p>\n<p>Example:</p>\n<pre><code class=\"language-text\">Write a loop that prints every item in a grocery list.</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-8-real-project-connection\">8. Real Project Connection</h2>\n<p>Show how this appears in actual scripts.</p>\n<p>Example:</p>\n<pre><code class=\"language-python\">from pathlib import Path\n\nfolder = Path(&quot;Downloads&quot;)\n\nfor file in folder.iterdir():\n    print(file.name)</code></pre>\n<hr />\n<h1 id=\"python-beginner-to-intermediate-guide-part-1-getting-started\">Part 1: Getting Started</h1>\n<p>Part 1 gives the learner enough basic comfort to write, run, and edit simple Python scripts.</p>\n<p>The goal is not mastery.</p>\n<p>The goal is survival.</p>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-chapter-1-what-python-is-and-what-you-can-build-with-it\">Chapter 1: What Python Is and What You Can Build With It</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-goal\">Goal</h3>\n<p>Help the learner understand what Python is and why it is useful.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-key-ideas\">Key Ideas</h3>\n<p>Python is a programming language used to tell computers what to do.</p>\n<p>Python can be used for:</p>\n<ul><li>Automation</li><li>Websites</li><li>Data analysis</li><li>AI and machine learning</li><li>File processing</li><li>Scripting</li><li>APIs</li><li>Games</li><li>Desktop tools</li><li>Command-line tools</li><li>Testing</li><li>System administration</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-plain-english-explanation\">Plain-English Explanation</h3>\n<p>Python is popular because it is readable, flexible, and useful in many areas.</p>\n<p>A Python program can be as small as:</p>\n<pre><code class=\"language-python\">print(&quot;Hello, world!&quot;)</code></pre>\n<p>Or as large as a full web application.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-exercise\">Exercise</h3>\n<p>Ask the learner:</p>\n<pre><code class=\"language-text\">Write down three annoying computer tasks you wish could be automated.</code></pre>\n<p>Examples:</p>\n<pre><code class=\"language-text\">Rename files\nSort downloads\nConvert images\nClean up folders\nCount words in documents\nFetch information from a website</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-mini-challenge\">Mini Challenge</h3>\n<p>Create a file called <code>hello.py</code>:</p>\n<pre><code class=\"language-python\">print(&quot;Hello, Python!&quot;)\nprint(&quot;I am learning to code.&quot;)</code></pre>\n<p>Run it.</p>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-chapter-2-installing-python-and-running-your-first-script\">Chapter 2: Installing Python and Running Your First Script</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-goal-2\">Goal</h3>\n<p>Teach the learner how to run Python code.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-key-ideas-2\">Key Ideas</h3>\n<p>The learner should understand:</p>\n<ul><li>What Python is</li><li>What a <code>.py</code> file is</li><li>How to run a file</li><li>What the terminal is used for</li><li>The difference between writing code and running code</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-basic-commands\">Basic Commands</h3>\n<p>Check Python version:</p>\n<pre><code class=\"language-bash\">python --version</code></pre>\n<p>Or:</p>\n<pre><code class=\"language-bash\">python3 --version</code></pre>\n<p>Run a script:</p>\n<pre><code class=\"language-bash\">python hello.py</code></pre>\n<p>Or:</p>\n<pre><code class=\"language-bash\">python3 hello.py</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-first-script\">First Script</h3>\n<p>Create a file called <code>first_script.py</code>:</p>\n<pre><code class=\"language-python\">print(&quot;This is my first Python script.&quot;)\nprint(&quot;Python runs this file from top to bottom.&quot;)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-explanation\">Explanation</h3>\n<p>Python reads the file from top to bottom.</p>\n<p>Each <code>print()</code> line displays text on the screen.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-break-it-on-purpose\">Break It on Purpose</h3>\n<p>Try this:</p>\n<pre><code class=\"language-python\">print(&quot;This line is missing something&quot;</code></pre>\n<p>This causes a syntax error because the closing parenthesis is missing.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-mini-challenge-2\">Mini Challenge</h3>\n<p>Create a script that prints:</p>\n<pre><code class=\"language-text\">Your name\nYour favorite food\nOne thing you want to build with Python</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-chapter-3-variables-text-numbers-and-input\">Chapter 3: Variables, Text, Numbers, and Input</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-goal-3\">Goal</h3>\n<p>Teach the learner how to store information.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-key-ideas-3\">Key Ideas</h3>\n<ul><li>Variables</li><li>Strings</li><li>Integers</li><li>Floats</li><li>Booleans</li><li><code>input()</code></li><li>Type conversion</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-example\">Example</h3>\n<pre><code class=\"language-python\">name = &quot;Maya&quot;\nage = 29\n\nprint(name)\nprint(age)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-explanation-2\">Explanation</h3>\n<p>A variable is a name that points to a value.</p>\n<pre><code class=\"language-python\">name = &quot;Maya&quot;</code></pre>\n<p>This means:</p>\n<pre><code class=\"language-text\">Store the text &quot;Maya&quot; under the name name.</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-getting-user-input\">Getting User Input</h3>\n<pre><code class=\"language-python\">name = input(&quot;What is your name? &quot;)\nprint(&quot;Hello,&quot;, name)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-input-is-text\">Input Is Text</h3>\n<pre><code class=\"language-python\">age = input(&quot;How old are you? &quot;)\nprint(age + 1)</code></pre>\n<p>This causes an error because <code>input()</code> gives back text, not a number.</p>\n<p>Correct version:</p>\n<pre><code class=\"language-python\">age = input(&quot;How old are you? &quot;)\nage = int(age)\n\nprint(&quot;Next year you will be&quot;, age + 1)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-mini-project-age-calculator\">Mini Project: Age Calculator</h3>\n<pre><code class=\"language-python\">name = input(&quot;What is your name? &quot;)\nage = int(input(&quot;How old are you? &quot;))\n\nprint(&quot;Hello,&quot;, name)\nprint(&quot;Next year you will be&quot;, age + 1)\nprint(&quot;In ten years you will be&quot;, age + 10)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-exercises\">Exercises</h3>\n<pre><code class=\"language-text\">Ask the user for their favorite color and print a sentence using it.\nAsk the user for two numbers and print their sum.\nAsk the user for a temperature in Celsius and convert it to Fahrenheit.</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-chapter-4-understanding-errors-without-panicking\">Chapter 4: Understanding Errors Without Panicking</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-goal-4\">Goal</h3>\n<p>Teach the learner that errors are information.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-key-ideas-4\">Key Ideas</h3>\n<ul><li>Syntax errors</li><li>Name errors</li><li>Type errors</li><li>Value errors</li><li>Reading tracebacks</li><li>Fixing one thing at a time</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-common-error-syntaxerror\">Common Error: SyntaxError</h3>\n<pre><code class=\"language-python\">print(&quot;Hello&quot;</code></pre>\n<p>Problem:</p>\n<pre><code class=\"language-text\">Missing closing parenthesis.</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-common-error-nameerror\">Common Error: NameError</h3>\n<pre><code class=\"language-python\">print(username)</code></pre>\n<p>Problem:</p>\n<pre><code class=\"language-text\">The variable username was never created.</code></pre>\n<p>Fixed:</p>\n<pre><code class=\"language-python\">username = &quot;Maya&quot;\nprint(username)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-common-error-typeerror\">Common Error: TypeError</h3>\n<pre><code class=\"language-python\">age = &quot;30&quot;\nprint(age + 1)</code></pre>\n<p>Problem:</p>\n<pre><code class=\"language-text\">Python cannot add text and a number.</code></pre>\n<p>Fixed:</p>\n<pre><code class=\"language-python\">age = int(&quot;30&quot;)\nprint(age + 1)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-common-error-valueerror\">Common Error: ValueError</h3>\n<pre><code class=\"language-python\">age = int(&quot;banana&quot;)</code></pre>\n<p>Problem:</p>\n<pre><code class=\"language-text\">The text &quot;banana&quot; cannot be converted into a number.</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-debugging-habit\">Debugging Habit</h3>\n<p>When an error happens, ask:</p>\n<pre><code class=\"language-text\">What line caused the error?\nWhat kind of error is it?\nWhat is Python complaining about?\nWhat did I expect this value to be?\nWhat is it actually?</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-mini-challenge-3\">Mini Challenge</h3>\n<p>Intentionally create and fix:</p>\n<pre><code class=\"language-text\">One SyntaxError\nOne NameError\nOne TypeError\nOne ValueError</code></pre>\n<hr />\n<h1 id=\"python-beginner-to-intermediate-guide-part-2-making-programs-think\">Part 2: Making Programs Think</h1>\n<p>Part 2 teaches the learner how to make programs decide, repeat, and store groups of information.</p>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-chapter-5-conditions-and-decisions\">Chapter 5: Conditions and Decisions</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-goal-5\">Goal</h3>\n<p>Teach the learner how to make Python choose between different actions.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-key-ideas-5\">Key Ideas</h3>\n<ul><li><code>if</code></li><li><code>elif</code></li><li><code>else</code></li><li>Comparisons</li><li>Boolean logic</li><li>Nested conditions</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-basic-example\">Basic Example</h3>\n<pre><code class=\"language-python\">age = int(input(&quot;How old are you? &quot;))\n\nif age &gt;= 18:\n    print(&quot;You are an adult.&quot;)\nelse:\n    print(&quot;You are not an adult yet.&quot;)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-explanation-3\">Explanation</h3>\n<p>The condition after <code>if</code> is checked.</p>\n<p>If it is true, the indented code runs.</p>\n<p>If it is false, Python checks the next branch.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-comparisons\">Comparisons</h3>\n<pre><code class=\"language-python\">==  equal to\n!=  not equal to\n&gt;   greater than\n&lt;   less than\n&gt;=  greater than or equal to\n&lt;=  less than or equal to</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-example-with-elif\">Example With <code>elif</code></h3>\n<pre><code class=\"language-python\">score = int(input(&quot;Score: &quot;))\n\nif score &gt;= 90:\n    print(&quot;A&quot;)\nelif score &gt;= 80:\n    print(&quot;B&quot;)\nelif score &gt;= 70:\n    print(&quot;C&quot;)\nelse:\n    print(&quot;Needs improvement&quot;)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-boolean-logic\">Boolean Logic</h3>\n<pre><code class=\"language-python\">username = input(&quot;Username: &quot;)\npassword = input(&quot;Password: &quot;)\n\nif username == &quot;admin&quot; and password == &quot;secret&quot;:\n    print(&quot;Access granted&quot;)\nelse:\n    print(&quot;Access denied&quot;)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-mini-project-simple-login\">Mini Project: Simple Login</h3>\n<pre><code class=\"language-python\">correct_username = &quot;admin&quot;\ncorrect_password = &quot;python123&quot;\n\nusername = input(&quot;Username: &quot;)\npassword = input(&quot;Password: &quot;)\n\nif username == correct_username and password == correct_password:\n    print(&quot;Welcome!&quot;)\nelse:\n    print(&quot;Wrong username or password.&quot;)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-exercises-2\">Exercises</h3>\n<pre><code class=\"language-text\">Write a program that checks if a number is even or odd.\nWrite a program that gives a discount if a customer spends over $100.\nWrite a program that checks if a password is long enough.</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-chapter-6-lists-and-repeating-work\">Chapter 6: Lists and Repeating Work</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-goal-6\">Goal</h3>\n<p>Teach the learner how to store multiple values and loop through them.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-key-ideas-6\">Key Ideas</h3>\n<ul><li>Lists</li><li>Indexing</li><li>Appending</li><li>Removing</li><li><code>for</code> loops</li><li><code>range()</code></li><li><code>len()</code></li><li><code>enumerate()</code></li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-basic-list\">Basic List</h3>\n<pre><code class=\"language-python\">fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;]\n\nprint(fruits[0])\nprint(fruits[1])\nprint(fruits[2])</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-explanation-4\">Explanation</h3>\n<p>Lists store multiple values in order.</p>\n<p>Python starts counting at zero.</p>\n<pre><code class=\"language-text\">fruits[0] is &quot;apple&quot;\nfruits[1] is &quot;banana&quot;\nfruits[2] is &quot;cherry&quot;</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-looping-through-a-list\">Looping Through a List</h3>\n<pre><code class=\"language-python\">fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;]\n\nfor fruit in fruits:\n    print(fruit)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-adding-items\">Adding Items</h3>\n<pre><code class=\"language-python\">tasks = []\n\ntasks.append(&quot;Wash dishes&quot;)\ntasks.append(&quot;Do laundry&quot;)\n\nprint(tasks)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-using-enumerate\">Using <code>enumerate()</code></h3>\n<pre><code class=\"language-python\">tasks = [&quot;Wash dishes&quot;, &quot;Do laundry&quot;, &quot;Study Python&quot;]\n\nfor index, task in enumerate(tasks, start=1):\n    print(index, task)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-mini-project-task-list\">Mini Project: Task List</h3>\n<pre><code class=\"language-python\">tasks = []\n\ntasks.append(input(&quot;Enter task 1: &quot;))\ntasks.append(input(&quot;Enter task 2: &quot;))\ntasks.append(input(&quot;Enter task 3: &quot;))\n\nprint(&quot;Your tasks:&quot;)\n\nfor index, task in enumerate(tasks, start=1):\n    print(index, task)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-exercises-3\">Exercises</h3>\n<pre><code class=\"language-text\">Create a list of five favorite songs and print each one.\nAsk the user for three groceries and store them in a list.\nPrint a numbered list of movies.</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-chapter-7-dictionaries-and-structured-data\">Chapter 7: Dictionaries and Structured Data</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-goal-7\">Goal</h3>\n<p>Teach the learner how to store labeled data.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-key-ideas-7\">Key Ideas</h3>\n<ul><li>Dictionaries</li><li>Keys</li><li>Values</li><li>Accessing values</li><li>Updating values</li><li>Looping through dictionaries</li><li>Nested data</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-basic-dictionary\">Basic Dictionary</h3>\n<pre><code class=\"language-python\">person = {\n    &quot;name&quot;: &quot;Maya&quot;,\n    &quot;age&quot;: 29,\n    &quot;city&quot;: &quot;Indianapolis&quot;\n}\n\nprint(person[&quot;name&quot;])\nprint(person[&quot;age&quot;])</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-explanation-5\">Explanation</h3>\n<p>A dictionary stores information by label.</p>\n<p>Instead of using numeric positions like a list, you use keys.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-updating-values\">Updating Values</h3>\n<pre><code class=\"language-python\">person[&quot;age&quot;] = 30\nperson[&quot;job&quot;] = &quot;Designer&quot;\n\nprint(person)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-looping-through-a-dictionary\">Looping Through a Dictionary</h3>\n<pre><code class=\"language-python\">person = {\n    &quot;name&quot;: &quot;Maya&quot;,\n    &quot;age&quot;: 29,\n    &quot;city&quot;: &quot;Indianapolis&quot;\n}\n\nfor key, value in person.items():\n    print(key, &quot;:&quot;, value)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-mini-project-contact-card\">Mini Project: Contact Card</h3>\n<pre><code class=\"language-python\">contact = {\n    &quot;name&quot;: input(&quot;Name: &quot;),\n    &quot;email&quot;: input(&quot;Email: &quot;),\n    &quot;phone&quot;: input(&quot;Phone: &quot;)\n}\n\nprint(&quot;Contact saved:&quot;)\n\nfor key, value in contact.items():\n    print(key, &quot;:&quot;, value)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-exercises-4\">Exercises</h3>\n<pre><code class=\"language-text\">Create a dictionary for a book.\nCreate a dictionary for a customer.\nCreate a dictionary for a song with title, artist, album, and year.</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-chapter-8-loops-menus-and-interactive-programs\">Chapter 8: Loops, Menus, and Interactive Programs</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-goal-8\">Goal</h3>\n<p>Teach the learner how to build programs that keep running until the user quits.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-key-ideas-8\">Key Ideas</h3>\n<ul><li><code>while</code> loops</li><li>Menus</li><li>Commands</li><li><code>break</code></li><li>Interactive programs</li><li>Combining lists, conditions, and loops</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-basic-while-loop\">Basic <code>while</code> Loop</h3>\n<pre><code class=\"language-python\">while True:\n    command = input(&quot;Type quit to stop: &quot;)\n\n    if command == &quot;quit&quot;:\n        break\n\n    print(&quot;You typed:&quot;, command)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-mini-project-command-based-to-do-app\">Mini Project: Command-Based To-Do App</h3>\n<pre><code class=\"language-python\">tasks = []\n\nwhile True:\n    command = input(&quot;Command: &quot;)\n\n    if command == &quot;add&quot;:\n        task = input(&quot;Task: &quot;)\n        tasks.append(task)\n\n    elif command == &quot;list&quot;:\n        for index, task in enumerate(tasks, start=1):\n            print(index, task)\n\n    elif command == &quot;quit&quot;:\n        break\n\n    else:\n        print(&quot;Unknown command&quot;)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-explanation-6\">Explanation</h3>\n<p>This program keeps running until the user types <code>quit</code>.</p>\n<p>The user can:</p>\n<pre><code class=\"language-text\">add a task\nlist tasks\nquit the program</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-exercises-5\">Exercises</h3>\n<pre><code class=\"language-text\">Add a help command.\nAdd a count command that shows how many tasks exist.\nAdd a delete command.\nPrevent empty tasks from being added.</code></pre>\n<hr />\n<h1 id=\"python-beginner-to-intermediate-guide-part-3-writing-better-code\">Part 3: Writing Better Code</h1>\n<p>Part 3 moves the learner from writing small scripts to organizing real programs.</p>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-chapter-9-functions\">Chapter 9: Functions</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-goal-9\">Goal</h3>\n<p>Teach the learner how to reuse code by giving it a name.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-key-ideas-9\">Key Ideas</h3>\n<ul><li>Defining functions</li><li>Calling functions</li><li>Parameters</li><li>Avoiding repeated code</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-before-functions\">Before Functions</h3>\n<pre><code class=\"language-python\">print(&quot;Hello, Maya&quot;)\nprint(&quot;Welcome back!&quot;)\n\nprint(&quot;Hello, Jordan&quot;)\nprint(&quot;Welcome back!&quot;)\n\nprint(&quot;Hello, Sam&quot;)\nprint(&quot;Welcome back!&quot;)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-after-functions\">After Functions</h3>\n<pre><code class=\"language-python\">def welcome_user(name):\n    print(&quot;Hello,&quot;, name)\n    print(&quot;Welcome back!&quot;)\n\nwelcome_user(&quot;Maya&quot;)\nwelcome_user(&quot;Jordan&quot;)\nwelcome_user(&quot;Sam&quot;)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-explanation-7\">Explanation</h3>\n<p>A function is a named chunk of code.</p>\n<p>Instead of copying the same logic repeatedly, give it a name and call it when needed.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-mini-project-greeting-program\">Mini Project: Greeting Program</h3>\n<pre><code class=\"language-python\">def greet(name):\n    print(&quot;Hello,&quot;, name)\n\ndef farewell(name):\n    print(&quot;Goodbye,&quot;, name)\n\nusername = input(&quot;Name: &quot;)\n\ngreet(username)\nfarewell(username)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-exercises-6\">Exercises</h3>\n<pre><code class=\"language-text\">Write a function that prints a menu.\nWrite a function that doubles a number.\nWrite a function that prints a formatted contact card.</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-chapter-10-return-values-and-scope\">Chapter 10: Return Values and Scope</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-goal-10\">Goal</h3>\n<p>Teach the learner how functions give information back.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-key-ideas-10\">Key Ideas</h3>\n<ul><li><code>return</code></li><li>Difference between printing and returning</li><li>Local variables</li><li>Function inputs and outputs</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-printing-vs-returning\">Printing vs Returning</h3>\n<pre><code class=\"language-python\">def add(a, b):\n    print(a + b)\n\nresult = add(2, 3)\nprint(result)</code></pre>\n<p>This prints:</p>\n<pre><code class=\"language-text\">5\nNone</code></pre>\n<p>Because the function printed the answer but did not return it.</p>\n<p>Correct version:</p>\n<pre><code class=\"language-python\">def add(a, b):\n    return a + b\n\nresult = add(2, 3)\nprint(result)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-explanation-8\">Explanation</h3>\n<p><code>return</code> sends a value back to the place where the function was called.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-mini-project-calculator-functions\">Mini Project: Calculator Functions</h3>\n<pre><code class=\"language-python\">def add(a, b):\n    return a + b\n\ndef subtract(a, b):\n    return a - b\n\ndef multiply(a, b):\n    return a * b\n\ndef divide(a, b):\n    return a / b\n\nx = float(input(&quot;First number: &quot;))\ny = float(input(&quot;Second number: &quot;))\n\nprint(&quot;Add:&quot;, add(x, y))\nprint(&quot;Subtract:&quot;, subtract(x, y))\nprint(&quot;Multiply:&quot;, multiply(x, y))\nprint(&quot;Divide:&quot;, divide(x, y))</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-exercises-7\">Exercises</h3>\n<pre><code class=\"language-text\">Write a function that returns the length of a string.\nWrite a function that returns True if a number is even.\nWrite a function that converts Celsius to Fahrenheit.</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-chapter-11-organizing-programs\">Chapter 11: Organizing Programs</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-goal-11\">Goal</h3>\n<p>Teach the learner how to structure code so it is easier to read and maintain.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-key-ideas-11\">Key Ideas</h3>\n<ul><li><code>main()</code> function</li><li>Separating logic</li><li>Naming functions clearly</li><li>Avoiding giant scripts</li><li>Reading code from top to bottom</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-messy-script\">Messy Script</h3>\n<pre><code class=\"language-python\">filename = input(&quot;File: &quot;)\n\nwith open(filename, &quot;r&quot;) as file:\n    text = file.read()\n\nwords = text.split()\nprint(&quot;Word count:&quot;, len(words))</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-organized-version\">Organized Version</h3>\n<pre><code class=\"language-python\">from pathlib import Path\n\ndef read_text_file(path):\n    return Path(path).read_text()\n\ndef count_words(text):\n    return len(text.split())\n\ndef main():\n    filename = input(&quot;File: &quot;)\n    text = read_text_file(filename)\n    total = count_words(text)\n    print(&quot;Word count:&quot;, total)\n\nmain()</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-explanation-9\">Explanation</h3>\n<p>The organized version separates the program into clear jobs:</p>\n<pre><code class=\"language-text\">Read a file\nCount words\nControl the program flow</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-standard-pattern\">Standard Pattern</h3>\n<pre><code class=\"language-python\">def main():\n    print(&quot;Program starts here&quot;)\n\nif __name__ == &quot;__main__&quot;:\n    main()</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-exercises-8\">Exercises</h3>\n<pre><code class=\"language-text\">Rewrite a previous script using functions.\nCreate a main() function for your to-do app.\nSplit a program into at least three functions.</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-chapter-12-reading-and-writing-files\">Chapter 12: Reading and Writing Files</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-goal-12\">Goal</h3>\n<p>Teach the learner how to work with files.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-key-ideas-12\">Key Ideas</h3>\n<ul><li><code>pathlib</code></li><li>Reading text files</li><li>Writing text files</li><li>Appending text</li><li>Checking if files exist</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-reading-a-file\">Reading a File</h3>\n<pre><code class=\"language-python\">from pathlib import Path\n\npath = Path(&quot;notes.txt&quot;)\ntext = path.read_text()\n\nprint(text)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-writing-a-file\">Writing a File</h3>\n<pre><code class=\"language-python\">from pathlib import Path\n\npath = Path(&quot;notes.txt&quot;)\npath.write_text(&quot;These are my notes.&quot;)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-appending-to-a-file\">Appending to a File</h3>\n<pre><code class=\"language-python\">from pathlib import Path\n\npath = Path(&quot;notes.txt&quot;)\n\nold_text = path.read_text()\nnew_text = old_text + &quot;\\nAnother note.&quot;\n\npath.write_text(new_text)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-checking-if-a-file-exists\">Checking if a File Exists</h3>\n<pre><code class=\"language-python\">from pathlib import Path\n\npath = Path(&quot;notes.txt&quot;)\n\nif path.exists():\n    print(path.read_text())\nelse:\n    print(&quot;File does not exist.&quot;)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-mini-project-notes-app\">Mini Project: Notes App</h3>\n<pre><code class=\"language-python\">from pathlib import Path\n\nNOTES_FILE = Path(&quot;notes.txt&quot;)\n\nwhile True:\n    command = input(&quot;Command: &quot;)\n\n    if command == &quot;add&quot;:\n        note = input(&quot;Note: &quot;)\n\n        if NOTES_FILE.exists():\n            old_text = NOTES_FILE.read_text()\n        else:\n            old_text = &quot;&quot;\n\n        NOTES_FILE.write_text(old_text + note + &quot;\\n&quot;)\n\n    elif command == &quot;show&quot;:\n        if NOTES_FILE.exists():\n            print(NOTES_FILE.read_text())\n        else:\n            print(&quot;No notes yet.&quot;)\n\n    elif command == &quot;quit&quot;:\n        break\n\n    else:\n        print(&quot;Unknown command.&quot;)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-exercises-9\">Exercises</h3>\n<pre><code class=\"language-text\">Write a program that saves a user&#x27;s name to a file.\nWrite a program that reads a shopping list from a file.\nModify the notes app to add timestamps.</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-chapter-13-json-and-csv\">Chapter 13: JSON and CSV</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-goal-13\">Goal</h3>\n<p>Teach the learner how to store structured data.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-key-ideas-13\">Key Ideas</h3>\n<ul><li>JSON</li><li>CSV</li><li><code>json</code> module</li><li>Reading and writing structured data</li><li>Lists of dictionaries</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-json-example\">JSON Example</h3>\n<pre><code class=\"language-python\">import json\nfrom pathlib import Path\n\ndata = {\n    &quot;name&quot;: &quot;Maya&quot;,\n    &quot;age&quot;: 29,\n    &quot;city&quot;: &quot;Indianapolis&quot;\n}\n\npath = Path(&quot;person.json&quot;)\npath.write_text(json.dumps(data, indent=2))</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-reading-json\">Reading JSON</h3>\n<pre><code class=\"language-python\">import json\nfrom pathlib import Path\n\npath = Path(&quot;person.json&quot;)\ndata = json.loads(path.read_text())\n\nprint(data[&quot;name&quot;])</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-csv-example\">CSV Example</h3>\n<pre><code class=\"language-python\">import csv\n\nwith open(&quot;contacts.csv&quot;, &quot;w&quot;, newline=&quot;&quot;) as file:\n    writer = csv.writer(file)\n    writer.writerow([&quot;name&quot;, &quot;email&quot;])\n    writer.writerow([&quot;Maya&quot;, &quot;maya@example.com&quot;])\n    writer.writerow([&quot;Jordan&quot;, &quot;jordan@example.com&quot;])</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-reading-csv\">Reading CSV</h3>\n<pre><code class=\"language-python\">import csv\n\nwith open(&quot;contacts.csv&quot;, &quot;r&quot;, newline=&quot;&quot;) as file:\n    reader = csv.DictReader(file)\n\n    for row in reader:\n        print(row[&quot;name&quot;], row[&quot;email&quot;])</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-mini-project-save-contacts-as-json\">Mini Project: Save Contacts as JSON</h3>\n<pre><code class=\"language-python\">import json\nfrom pathlib import Path\n\nCONTACTS_FILE = Path(&quot;contacts.json&quot;)\n\ndef load_contacts():\n    if CONTACTS_FILE.exists():\n        return json.loads(CONTACTS_FILE.read_text())\n    return []\n\ndef save_contacts(contacts):\n    CONTACTS_FILE.write_text(json.dumps(contacts, indent=2))\n\ncontacts = load_contacts()\n\ncontact = {\n    &quot;name&quot;: input(&quot;Name: &quot;),\n    &quot;email&quot;: input(&quot;Email: &quot;),\n    &quot;phone&quot;: input(&quot;Phone: &quot;)\n}\n\ncontacts.append(contact)\nsave_contacts(contacts)\n\nprint(&quot;Contact saved.&quot;)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-exercises-10\">Exercises</h3>\n<pre><code class=\"language-text\">Save a list of books to JSON.\nLoad contacts from JSON and print them.\nCreate a CSV file of expenses.\nRead a CSV file and total the expense amounts.</code></pre>\n<hr />\n<h1 id=\"python-beginner-to-intermediate-guide-part-4-real-world-python\">Part 4: Real-World Python</h1>\n<p>Part 4 introduces tools and habits that make Python useful outside beginner exercises.</p>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-chapter-14-virtual-environments-and-pip\">Chapter 14: Virtual Environments and pip</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-goal-14\">Goal</h3>\n<p>Teach the learner how to safely install project-specific packages.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-key-ideas-14\">Key Ideas</h3>\n<ul><li><code>venv</code></li><li><code>pip</code></li><li>Project dependencies</li><li><code>requirements.txt</code></li><li>Avoiding global package clutter</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-create-a-virtual-environment\">Create a Virtual Environment</h3>\n<pre><code class=\"language-bash\">python -m venv .venv</code></pre>\n<p>Or:</p>\n<pre><code class=\"language-bash\">python3 -m venv .venv</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-activate-it-on-linuxmacos\">Activate It on Linux/macOS</h3>\n<pre><code class=\"language-bash\">source .venv/bin/activate</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-activate-it-on-windows-powershell\">Activate It on Windows PowerShell</h3>\n<pre><code class=\"language-powershell\">.venv\\Scripts\\Activate.ps1</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-install-a-package\">Install a Package</h3>\n<pre><code class=\"language-bash\">pip install requests</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-save-dependencies\">Save Dependencies</h3>\n<pre><code class=\"language-bash\">pip freeze &gt; requirements.txt</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-install-from-requirements\">Install from Requirements</h3>\n<pre><code class=\"language-bash\">pip install -r requirements.txt</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-suggested-project-folder\">Suggested Project Folder</h3>\n<pre><code class=\"language-text\">my_project/\n\u251c\u2500\u2500 .venv/\n\u251c\u2500\u2500 main.py\n\u2514\u2500\u2500 requirements.txt</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-exercises-11\">Exercises</h3>\n<pre><code class=\"language-text\">Create a virtual environment.\nActivate it.\nInstall requests.\nCreate a requirements.txt file.\nDeactivate and reactivate the environment.</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-chapter-15-installing-and-using-packages\">Chapter 15: Installing and Using Packages</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-goal-15\">Goal</h3>\n<p>Teach the learner how to use third-party libraries.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-key-ideas-15\">Key Ideas</h3>\n<ul><li>Importing packages</li><li>Reading package docs</li><li>Installing with pip</li><li>Using <code>requests</code></li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-example-with-requests\">Example with <code>requests</code></h3>\n<pre><code class=\"language-python\">import requests\n\nresponse = requests.get(&quot;https://example.com&quot;)\nprint(response.status_code)\nprint(response.text[:100])</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-explanation-10\">Explanation</h3>\n<p>A package is code someone else wrote that you can install and use.</p>\n<p>This saves time.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-good-package-questions\">Good Package Questions</h3>\n<p>Before using a package, ask:</p>\n<pre><code class=\"language-text\">What does it do?\nIs it actively maintained?\nHow do I install it?\nWhat is the smallest working example?\nWhat errors should I expect?</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-exercises-12\">Exercises</h3>\n<pre><code class=\"language-text\">Install requests.\nFetch a webpage.\nPrint the HTTP status code.\nPrint only the first 200 characters of the page.</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-chapter-16-exceptions-and-defensive-code\">Chapter 16: Exceptions and Defensive Code</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-goal-16\">Goal</h3>\n<p>Teach the learner how to handle expected failures.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-key-ideas-16\">Key Ideas</h3>\n<ul><li><code>try</code></li><li><code>except</code></li><li><code>else</code></li><li><code>finally</code></li><li>Specific exceptions</li><li>Avoiding crashes</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-example-2\">Example</h3>\n<pre><code class=\"language-python\">from pathlib import Path\n\npath = Path(&quot;notes.txt&quot;)\n\ntry:\n    text = path.read_text()\nexcept FileNotFoundError:\n    print(&quot;That file does not exist.&quot;)\nelse:\n    print(text)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-explanation-11\">Explanation</h3>\n<p><code>try</code> means:</p>\n<pre><code class=\"language-text\">Attempt this risky thing.</code></pre>\n<p><code>except</code> means:</p>\n<pre><code class=\"language-text\">Handle this known failure.</code></pre>\n<p><code>else</code> means:</p>\n<pre><code class=\"language-text\">Run this if nothing failed.</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-bad-exception-handling\">Bad Exception Handling</h3>\n<pre><code class=\"language-python\">try:\n    number = int(input(&quot;Number: &quot;))\nexcept:\n    print(&quot;Something went wrong.&quot;)</code></pre>\n<p>This is too broad.</p>\n<p>Better:</p>\n<pre><code class=\"language-python\">try:\n    number = int(input(&quot;Number: &quot;))\nexcept ValueError:\n    print(&quot;Please enter a valid number.&quot;)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-exercises-13\">Exercises</h3>\n<pre><code class=\"language-text\">Handle invalid number input.\nHandle missing files.\nHandle division by zero.\nModify the calculator to avoid crashing.</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-chapter-17-logging\">Chapter 17: Logging</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-goal-17\">Goal</h3>\n<p>Teach the learner how to record what a program is doing.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-key-ideas-17\">Key Ideas</h3>\n<ul><li><code>logging</code></li><li>Log levels</li><li>Debugging without endless <code>print()</code></li><li>Saving logs to files</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-basic-logging\">Basic Logging</h3>\n<pre><code class=\"language-python\">import logging\n\nlogging.basicConfig(level=logging.INFO)\n\nlogging.info(&quot;Program started&quot;)\nlogging.warning(&quot;This is a warning&quot;)\nlogging.error(&quot;Something went wrong&quot;)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-log-levels\">Log Levels</h3>\n<pre><code class=\"language-text\">DEBUG    Detailed information for debugging\nINFO     General program information\nWARNING  Something unexpected happened\nERROR    Something failed\nCRITICAL Something very serious failed</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-logging-to-a-file\">Logging to a File</h3>\n<pre><code class=\"language-python\">import logging\n\nlogging.basicConfig(\n    filename=&quot;app.log&quot;,\n    level=logging.INFO,\n    format=&quot;%(asctime)s %(levelname)s %(message)s&quot;\n)\n\nlogging.info(&quot;Program started&quot;)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-exercises-14\">Exercises</h3>\n<pre><code class=\"language-text\">Add logging to the notes app.\nLog every time a task is added.\nLog errors when a file is missing.</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-chapter-18-type-hints\">Chapter 18: Type Hints</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-goal-18\">Goal</h3>\n<p>Teach the learner how to make code easier to read and reason about.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-key-ideas-18\">Key Ideas</h3>\n<ul><li>Function annotations</li><li>Basic types</li><li>Return types</li><li>Optional clarity</li><li>Better editor help</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-example-without-type-hints\">Example Without Type Hints</h3>\n<pre><code class=\"language-python\">def add(a, b):\n    return a + b</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-example-with-type-hints\">Example With Type Hints</h3>\n<pre><code class=\"language-python\">def add(a: int, b: int) -&gt; int:\n    return a + b</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-more-examples\">More Examples</h3>\n<pre><code class=\"language-python\">def greet(name: str) -&gt; str:\n    return f&quot;Hello, {name}&quot;\n\ndef is_even(number: int) -&gt; bool:\n    return number % 2 == 0</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-lists-and-dictionaries\">Lists and Dictionaries</h3>\n<pre><code class=\"language-python\">def average(numbers: list[float]) -&gt; float:\n    return sum(numbers) / len(numbers)\n\ndef print_user(user: dict[str, str]) -&gt; None:\n    print(user[&quot;name&quot;])</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-explanation-12\">Explanation</h3>\n<p>Type hints do not usually change how Python runs.</p>\n<p>They help humans and tools understand the code.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-exercises-15\">Exercises</h3>\n<pre><code class=\"language-text\">Add type hints to calculator functions.\nAdd type hints to contact manager functions.\nWrite a function that takes a list of strings and returns the longest one.</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-chapter-19-dataclasses\">Chapter 19: Dataclasses</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-goal-19\">Goal</h3>\n<p>Teach the learner how to represent structured objects cleanly.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-key-ideas-19\">Key Ideas</h3>\n<ul><li><code>dataclass</code></li><li>Structured records</li><li>Replacing messy dictionaries</li><li>Type hints with data</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-dictionary-version\">Dictionary Version</h3>\n<pre><code class=\"language-python\">contact = {\n    &quot;name&quot;: &quot;Maya&quot;,\n    &quot;email&quot;: &quot;maya@example.com&quot;,\n    &quot;phone&quot;: &quot;555-1234&quot;\n}</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-dataclass-version\">Dataclass Version</h3>\n<pre><code class=\"language-python\">from dataclasses import dataclass\n\n@dataclass\nclass Contact:\n    name: str\n    email: str\n    phone: str\n\ncontact = Contact(\n    name=&quot;Maya&quot;,\n    email=&quot;maya@example.com&quot;,\n    phone=&quot;555-1234&quot;\n)\n\nprint(contact.name)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-explanation-13\">Explanation</h3>\n<p>A dataclass lets you define the shape of your data.</p>\n<p>It is cleaner than using plain dictionaries everywhere.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-mini-project-contact-dataclass\">Mini Project: Contact Dataclass</h3>\n<pre><code class=\"language-python\">from dataclasses import dataclass\n\n@dataclass\nclass Contact:\n    name: str\n    email: str\n    phone: str\n\ndef display_contact(contact: Contact) -&gt; None:\n    print(contact.name)\n    print(contact.email)\n    print(contact.phone)\n\ncontact = Contact(&quot;Maya&quot;, &quot;maya@example.com&quot;, &quot;555-1234&quot;)\ndisplay_contact(contact)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-exercises-16\">Exercises</h3>\n<pre><code class=\"language-text\">Create a Book dataclass.\nCreate a Song dataclass.\nCreate a Customer dataclass.\nCreate a list of Contact objects.</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-chapter-20-working-with-apis\">Chapter 20: Working with APIs</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-goal-20\">Goal</h3>\n<p>Teach the learner how to get information from web services.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-key-ideas-20\">Key Ideas</h3>\n<ul><li>HTTP requests</li><li>JSON responses</li><li>Status codes</li><li>API endpoints</li><li>Query parameters</li><li>Environment variables for secrets</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-basic-api-request\">Basic API Request</h3>\n<pre><code class=\"language-python\">import requests\n\nurl = &quot;https://api.github.com&quot;\nresponse = requests.get(url)\n\nprint(response.status_code)\nprint(response.json())</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-explanation-14\">Explanation</h3>\n<p>An API lets one program talk to another program.</p>\n<p>Many APIs return JSON.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-handling-errors\">Handling Errors</h3>\n<pre><code class=\"language-python\">import requests\n\nresponse = requests.get(&quot;https://api.github.com&quot;)\n\nif response.status_code == 200:\n    data = response.json()\n    print(data)\nelse:\n    print(&quot;Request failed:&quot;, response.status_code)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-mini-project-github-api-checker\">Mini Project: GitHub API Checker</h3>\n<pre><code class=\"language-python\">import requests\n\nusername = input(&quot;GitHub username: &quot;)\n\nurl = f&quot;https://api.github.com/users/{username}&quot;\nresponse = requests.get(url)\n\nif response.status_code == 200:\n    data = response.json()\n    print(&quot;Name:&quot;, data.get(&quot;name&quot;))\n    print(&quot;Public repos:&quot;, data.get(&quot;public_repos&quot;))\n    print(&quot;Profile:&quot;, data.get(&quot;html_url&quot;))\nelse:\n    print(&quot;User not found or request failed.&quot;)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-exercises-17\">Exercises</h3>\n<pre><code class=\"language-text\">Fetch information from the GitHub API.\nPrint only selected fields.\nHandle a failed request.\nSave API results to JSON.</code></pre>\n<hr />\n<h1 id=\"python-beginner-to-intermediate-guide-part-5-intermediate-projects\">Part 5: Intermediate Projects</h1>\n<p>Part 5 turns the learner\u2019s skills into useful projects.</p>\n<p>Each project should be built in phases:</p>\n<pre><code class=\"language-text\">Version 1: Basic working script\nVersion 2: Functions\nVersion 3: File storage\nVersion 4: Error handling\nVersion 5: Cleaner project structure</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-project-1-to-do-app\">Project 1: To-Do App</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-concepts\">Concepts</h3>\n<ul><li>Lists</li><li>Loops</li><li>Commands</li><li>Functions</li><li>JSON persistence</li><li>Error handling</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-version-1-in-memory-to-do-app\">Version 1: In-Memory To-Do App</h3>\n<pre><code class=\"language-python\">tasks = []\n\nwhile True:\n    command = input(&quot;Command: &quot;)\n\n    if command == &quot;add&quot;:\n        task = input(&quot;Task: &quot;)\n        tasks.append(task)\n\n    elif command == &quot;list&quot;:\n        for index, task in enumerate(tasks, start=1):\n            print(index, task)\n\n    elif command == &quot;quit&quot;:\n        break\n\n    else:\n        print(&quot;Unknown command.&quot;)</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-version-2-add-functions\">Version 2: Add Functions</h3>\n<pre><code class=\"language-python\">def add_task(tasks):\n    task = input(&quot;Task: &quot;)\n    tasks.append(task)\n\ndef list_tasks(tasks):\n    for index, task in enumerate(tasks, start=1):\n        print(index, task)\n\ndef main():\n    tasks = []\n\n    while True:\n        command = input(&quot;Command: &quot;)\n\n        if command == &quot;add&quot;:\n            add_task(tasks)\n        elif command == &quot;list&quot;:\n            list_tasks(tasks)\n        elif command == &quot;quit&quot;:\n            break\n        else:\n            print(&quot;Unknown command.&quot;)\n\nmain()</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-version-3-save-to-json\">Version 3: Save to JSON</h3>\n<pre><code class=\"language-python\">import json\nfrom pathlib import Path\n\nTASKS_FILE = Path(&quot;tasks.json&quot;)\n\ndef load_tasks():\n    if TASKS_FILE.exists():\n        return json.loads(TASKS_FILE.read_text())\n    return []\n\ndef save_tasks(tasks):\n    TASKS_FILE.write_text(json.dumps(tasks, indent=2))\n\ndef add_task(tasks):\n    task = input(&quot;Task: &quot;)\n    tasks.append(task)\n    save_tasks(tasks)\n\ndef list_tasks(tasks):\n    for index, task in enumerate(tasks, start=1):\n        print(index, task)\n\ndef main():\n    tasks = load_tasks()\n\n    while True:\n        command = input(&quot;Command: &quot;)\n\n        if command == &quot;add&quot;:\n            add_task(tasks)\n        elif command == &quot;list&quot;:\n            list_tasks(tasks)\n        elif command == &quot;quit&quot;:\n            break\n        else:\n            print(&quot;Unknown command.&quot;)\n\nif __name__ == &quot;__main__&quot;:\n    main()</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-upgrade-ideas\">Upgrade Ideas</h3>\n<pre><code class=\"language-text\">Add delete\nAdd done/undone status\nAdd due dates\nAdd priority\nAdd search\nAdd edit\nAdd categories</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-project-2-file-organizer\">Project 2: File Organizer</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-concepts-2\">Concepts</h3>\n<ul><li><code>pathlib</code></li><li>File extensions</li><li>Folders</li><li>Moving files</li><li>Dry-run mode</li><li>Error handling</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-basic-version\">Basic Version</h3>\n<pre><code class=\"language-python\">from pathlib import Path\nimport shutil\n\nsource = Path(&quot;Downloads&quot;)\n\nfor file in source.iterdir():\n    if file.is_file():\n        extension = file.suffix.lower().replace(&quot;.&quot;, &quot;&quot;)\n        target_folder = source / extension\n        target_folder.mkdir(exist_ok=True)\n\n        shutil.move(str(file), str(target_folder / file.name))</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-safer-version-with-dry-run\">Safer Version With Dry Run</h3>\n<pre><code class=\"language-python\">from pathlib import Path\nimport shutil\n\ndef organize_folder(source: Path, dry_run: bool = True) -&gt; None:\n    for file in source.iterdir():\n        if not file.is_file():\n            continue\n\n        extension = file.suffix.lower().replace(&quot;.&quot;, &quot;&quot;) or &quot;no_extension&quot;\n        target_folder = source / extension\n        target_path = target_folder / file.name\n\n        print(f&quot;{file} -&gt; {target_path}&quot;)\n\n        if not dry_run:\n            target_folder.mkdir(exist_ok=True)\n            shutil.move(str(file), str(target_path))\n\ndef main():\n    source = Path(input(&quot;Folder to organize: &quot;))\n    organize_folder(source, dry_run=True)\n\nif __name__ == &quot;__main__&quot;:\n    main()</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-upgrade-ideas-2\">Upgrade Ideas</h3>\n<pre><code class=\"language-text\">Add command-line arguments\nAdd undo log\nAdd file type categories\nAdd duplicate detection\nAdd preview before moving\nAdd ignore rules</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-project-3-contact-manager\">Project 3: Contact Manager</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-concepts-3\">Concepts</h3>\n<ul><li>Dictionaries</li><li>Lists</li><li>JSON</li><li>CRUD operations</li><li>Search</li><li>Functions</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-basic-version-2\">Basic Version</h3>\n<pre><code class=\"language-python\">import json\nfrom pathlib import Path\n\nCONTACTS_FILE = Path(&quot;contacts.json&quot;)\n\ndef load_contacts():\n    if CONTACTS_FILE.exists():\n        return json.loads(CONTACTS_FILE.read_text())\n    return []\n\ndef save_contacts(contacts):\n    CONTACTS_FILE.write_text(json.dumps(contacts, indent=2))\n\ndef add_contact(contacts):\n    contact = {\n        &quot;name&quot;: input(&quot;Name: &quot;),\n        &quot;email&quot;: input(&quot;Email: &quot;),\n        &quot;phone&quot;: input(&quot;Phone: &quot;)\n    }\n\n    contacts.append(contact)\n    save_contacts(contacts)\n\ndef list_contacts(contacts):\n    for contact in contacts:\n        print(contact[&quot;name&quot;], contact[&quot;email&quot;], contact[&quot;phone&quot;])\n\ndef find_contact(contacts):\n    query = input(&quot;Search: &quot;).lower()\n\n    for contact in contacts:\n        if query in contact[&quot;name&quot;].lower():\n            print(contact)\n\ndef main():\n    contacts = load_contacts()\n\n    while True:\n        command = input(&quot;Command: &quot;)\n\n        if command == &quot;add&quot;:\n            add_contact(contacts)\n        elif command == &quot;list&quot;:\n            list_contacts(contacts)\n        elif command == &quot;find&quot;:\n            find_contact(contacts)\n        elif command == &quot;quit&quot;:\n            break\n        else:\n            print(&quot;Unknown command.&quot;)\n\nif __name__ == &quot;__main__&quot;:\n    main()</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-upgrade-ideas-3\">Upgrade Ideas</h3>\n<pre><code class=\"language-text\">Add delete\nAdd edit\nAdd export to CSV\nAdd import from CSV\nAdd duplicate detection\nAdd validation for email and phone</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-project-4-log-analyzer\">Project 4: Log Analyzer</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-concepts-4\">Concepts</h3>\n<ul><li>Reading files</li><li>Parsing lines</li><li>Counting</li><li>Dictionaries</li><li>Reporting</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-example-log-file\">Example Log File</h3>\n<pre><code class=\"language-text\">INFO User logged in\nERROR Could not connect to database\nINFO Page loaded\nWARNING Slow response\nERROR Payment failed</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-analyzer\">Analyzer</h3>\n<pre><code class=\"language-python\">from pathlib import Path\n\ndef analyze_log(path: Path) -&gt; dict[str, int]:\n    counts = {\n        &quot;INFO&quot;: 0,\n        &quot;WARNING&quot;: 0,\n        &quot;ERROR&quot;: 0\n    }\n\n    for line in path.read_text().splitlines():\n        for level in counts:\n            if line.startswith(level):\n                counts[level] += 1\n\n    return counts\n\ndef main():\n    path = Path(input(&quot;Log file: &quot;))\n    counts = analyze_log(path)\n\n    for level, count in counts.items():\n        print(level, count)\n\nif __name__ == &quot;__main__&quot;:\n    main()</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-upgrade-ideas-4\">Upgrade Ideas</h3>\n<pre><code class=\"language-text\">Find the most common error\nFilter logs by date\nWrite a summary report\nSearch for keywords\nExport results to CSV</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-project-5-api-tool\">Project 5: API Tool</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-concepts-5\">Concepts</h3>\n<ul><li>HTTP requests</li><li>JSON</li><li>CLI input</li><li>Error handling</li><li>Saving responses</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-github-user-lookup-tool\">GitHub User Lookup Tool</h3>\n<pre><code class=\"language-python\">import json\nfrom pathlib import Path\nimport requests\n\ndef fetch_github_user(username: str) -&gt; dict | None:\n    url = f&quot;https://api.github.com/users/{username}&quot;\n    response = requests.get(url)\n\n    if response.status_code != 200:\n        return None\n\n    return response.json()\n\ndef save_user_data(username: str, data: dict) -&gt; None:\n    path = Path(f&quot;{username}.json&quot;)\n    path.write_text(json.dumps(data, indent=2))\n\ndef main():\n    username = input(&quot;GitHub username: &quot;)\n    data = fetch_github_user(username)\n\n    if data is None:\n        print(&quot;Could not fetch user.&quot;)\n        return\n\n    print(&quot;Name:&quot;, data.get(&quot;name&quot;))\n    print(&quot;Repos:&quot;, data.get(&quot;public_repos&quot;))\n    print(&quot;URL:&quot;, data.get(&quot;html_url&quot;))\n\n    save_user_data(username, data)\n\nif __name__ == &quot;__main__&quot;:\n    main()</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-upgrade-ideas-5\">Upgrade Ideas</h3>\n<pre><code class=\"language-text\">Add command-line arguments\nAdd caching\nAdd better error messages\nSupport multiple usernames\nExport summary to CSV</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-project-6-mini-python-package\">Project 6: Mini Python Package</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-concepts-6\">Concepts</h3>\n<ul><li>Project structure</li><li><code>pyproject.toml</code></li><li>CLI entry points</li><li>Modules</li><li>README</li><li>Tests</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-suggested-folder-layout\">Suggested Folder Layout</h3>\n<pre><code class=\"language-text\">word_counter/\n\u251c\u2500\u2500 pyproject.toml\n\u251c\u2500\u2500 README.md\n\u251c\u2500\u2500 src/\n\u2502   \u2514\u2500\u2500 word_counter/\n\u2502       \u251c\u2500\u2500 __init__.py\n\u2502       \u251c\u2500\u2500 cli.py\n\u2502       \u2514\u2500\u2500 core.py\n\u2514\u2500\u2500 tests/\n    \u2514\u2500\u2500 test_core.py</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-corepy\"><code>core.py</code></h3>\n<pre><code class=\"language-python\">def count_words(text: str) -&gt; int:\n    return len(text.split())</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-clipy\"><code>cli.py</code></h3>\n<pre><code class=\"language-python\">from pathlib import Path\nfrom word_counter.core import count_words\n\ndef main():\n    path = Path(input(&quot;File: &quot;))\n    text = path.read_text()\n    print(&quot;Word count:&quot;, count_words(text))</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-pyprojecttoml\"><code>pyproject.toml</code></h3>\n<pre><code class=\"language-toml\">[project]\nname = &quot;word-counter&quot;\nversion = &quot;0.1.0&quot;\ndescription = &quot;A simple word counting CLI tool&quot;\nrequires-python = &quot;&gt;=3.11&quot;\n\n[project.scripts]\nword-counter = &quot;word_counter.cli:main&quot;</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-install-locally\">Install Locally</h3>\n<pre><code class=\"language-bash\">pip install -e .</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-run\">Run</h3>\n<pre><code class=\"language-bash\">word-counter</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-upgrade-ideas-6\">Upgrade Ideas</h3>\n<pre><code class=\"language-text\">Add character count\nAdd line count\nAdd file path as an argument\nAdd tests\nAdd README usage examples\nPublish internally or package as a zip</code></pre>\n<hr />\n<h1 id=\"python-beginner-to-intermediate-guide-part-6-becoming-independent\">Part 6: Becoming Independent</h1>\n<p>Intermediate programmers are not people who know everything.</p>\n<p>They are people who can:</p>\n<pre><code class=\"language-text\">Read unfamiliar code\nDebug problems\nSearch documentation\nBreak problems into pieces\nUse libraries\nStructure projects\nRecover from mistakes</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-chapter-27-reading-documentation\">Chapter 27: Reading Documentation</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-goal-21\">Goal</h3>\n<p>Teach the learner how to use documentation without feeling overwhelmed.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-key-ideas-21\">Key Ideas</h3>\n<ul><li>Look for examples first</li><li>Find function signatures</li><li>Read parameters</li><li>Check return values</li><li>Use small experiments</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-documentation-reading-strategy\">Documentation Reading Strategy</h3>\n<pre><code class=\"language-text\">1. Find the smallest example.\n2. Copy it into a test file.\n3. Run it.\n4. Change one thing.\n5. Read the parameter list.\n6. Check what the function returns.\n7. Use it in your own program.</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-practice-exercise\">Practice Exercise</h3>\n<p>Pick a Python standard library module:</p>\n<pre><code class=\"language-text\">pathlib\njson\ncsv\ndatetime\nrandom\nstatistics\nargparse\nlogging</code></pre>\n<p>Then find:</p>\n<pre><code class=\"language-text\">One example\nOne function\nOne parameter\nOne return value\nOne thing you can build with it</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-chapter-28-debugging-strategy\">Chapter 28: Debugging Strategy</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-goal-22\">Goal</h3>\n<p>Teach the learner how to think through bugs.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-key-ideas-22\">Key Ideas</h3>\n<ul><li>Reproducing errors</li><li>Reading tracebacks</li><li>Printing values</li><li>Isolating the problem</li><li>Reducing the code</li><li>Testing assumptions</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-debugging-checklist\">Debugging Checklist</h3>\n<pre><code class=\"language-text\">Can I reproduce the bug?\nWhat exact line fails?\nWhat is the error type?\nWhat value is wrong?\nWhere did that value come from?\nWhat did I assume?\nCan I make a smaller version of the problem?</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-useful-debug-prints\">Useful Debug Prints</h3>\n<pre><code class=\"language-python\">print(&quot;DEBUG value:&quot;, value)\nprint(&quot;DEBUG type:&quot;, type(value))\nprint(&quot;DEBUG length:&quot;, len(items))</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-example-3\">Example</h3>\n<pre><code class=\"language-python\">age = input(&quot;Age: &quot;)\nprint(&quot;DEBUG age:&quot;, age)\nprint(&quot;DEBUG type:&quot;, type(age))\n\nnext_year = age + 1\nprint(next_year)</code></pre>\n<p>Problem:</p>\n<pre><code class=\"language-text\">age is a string because input() returns text.</code></pre>\n<p>Fixed:</p>\n<pre><code class=\"language-python\">age = int(input(&quot;Age: &quot;))\nnext_year = age + 1\nprint(next_year)</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-chapter-29-basic-testing\">Chapter 29: Basic Testing</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-goal-23\">Goal</h3>\n<p>Teach the learner how to check that functions work.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-key-ideas-23\">Key Ideas</h3>\n<ul><li>Test small functions</li><li>Use <code>assert</code></li><li>Separate logic from input/output</li><li>Write predictable code</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-simple-test\">Simple Test</h3>\n<pre><code class=\"language-python\">def add(a, b):\n    return a + b\n\nassert add(2, 3) == 5\nassert add(-1, 1) == 0</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-testable-code\">Testable Code</h3>\n<p>Good:</p>\n<pre><code class=\"language-python\">def count_words(text: str) -&gt; int:\n    return len(text.split())</code></pre>\n<p>Harder to test:</p>\n<pre><code class=\"language-python\">text = input(&quot;Text: &quot;)\nprint(len(text.split()))</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-better-program-structure\">Better Program Structure</h3>\n<pre><code class=\"language-python\">def count_words(text: str) -&gt; int:\n    return len(text.split())\n\ndef main():\n    text = input(&quot;Text: &quot;)\n    print(count_words(text))\n\nif __name__ == &quot;__main__&quot;:\n    main()</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-exercises-18\">Exercises</h3>\n<pre><code class=\"language-text\">Write tests for add().\nWrite tests for is_even().\nWrite tests for count_words().\nWrite tests for Celsius to Fahrenheit conversion.</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-chapter-30-git-and-github-basics\">Chapter 30: Git and GitHub Basics</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-goal-24\">Goal</h3>\n<p>Teach the learner how to save versions of their code.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-key-ideas-24\">Key Ideas</h3>\n<ul><li>Repositories</li><li>Commits</li><li>Status</li><li>Adding files</li><li>Commit messages</li><li>Remote repositories</li><li>GitHub basics</li></ul>\n<h3 id=\"python-beginner-to-intermediate-guide-basic-commands-2\">Basic Commands</h3>\n<pre><code class=\"language-bash\">git init\ngit status\ngit add .\ngit commit -m &quot;Initial commit&quot;</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-connect-to-github\">Connect to GitHub</h3>\n<pre><code class=\"language-bash\">git remote add origin &lt;repo-url&gt;\ngit branch -M main\ngit push -u origin main</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-useful-habit\">Useful Habit</h3>\n<p>Commit when:</p>\n<pre><code class=\"language-text\">The code works\nA feature is added\nA bug is fixed\nBefore a risky change\nAfter cleanup</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-good-commit-messages\">Good Commit Messages</h3>\n<pre><code class=\"language-text\">Add task saving to JSON\nFix missing file error\nRefactor contact search\nAdd README usage examples</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-exercises-19\">Exercises</h3>\n<pre><code class=\"language-text\">Create a Git repo for the to-do app.\nMake three commits.\nPush the project to GitHub.\nWrite a README.</code></pre>\n<hr />\n<h2 id=\"python-beginner-to-intermediate-guide-chapter-31-what-to-learn-next\">Chapter 31: What to Learn Next</h2>\n<h3 id=\"python-beginner-to-intermediate-guide-goal-25\">Goal</h3>\n<p>Give the learner direction after reaching intermediate level.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-possible-paths\">Possible Paths</h3>\n<h2 id=\"python-beginner-to-intermediate-guide-automation\">Automation</h2>\n<p>Learn:</p>\n<pre><code class=\"language-text\">pathlib\nshutil\nsubprocess\nschedule\nwatchdog</code></pre>\n<p>Build:</p>\n<pre><code class=\"language-text\">File organizer\nBackup script\nFolder watcher\nBatch renamer\nReport generator</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-web-development\">Web Development</h2>\n<p>Learn:</p>\n<pre><code class=\"language-text\">Flask\nFastAPI\nHTML\nCSS\nJavaScript basics\nDatabases\nAuthentication</code></pre>\n<p>Build:</p>\n<pre><code class=\"language-text\">Personal website\nAPI backend\nDashboard\nBooking system\nInternal tool</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-data\">Data</h2>\n<p>Learn:</p>\n<pre><code class=\"language-text\">pandas\nmatplotlib\ncsv\nstatistics\nJupyter\nSQL</code></pre>\n<p>Build:</p>\n<pre><code class=\"language-text\">Expense tracker\nSales dashboard\nCSV cleaner\nData report generator</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-ai-and-machine-learning\">AI and Machine Learning</h2>\n<p>Learn:</p>\n<pre><code class=\"language-text\">APIs\nembeddings\nvector search\nprompt pipelines\nPyTorch basics\nscikit-learn</code></pre>\n<p>Build:</p>\n<pre><code class=\"language-text\">Document search tool\nAI assistant\nClassifier\nRecommendation tool</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-desktop-apps\">Desktop Apps</h2>\n<p>Learn:</p>\n<pre><code class=\"language-text\">PySide6\nTkinter\nCustomTkinter\nPackaging\nState management</code></pre>\n<p>Build:</p>\n<pre><code class=\"language-text\">Notes app\nFile cleaner UI\nMusic utility\nCustomer manager</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-command-line-tools\">Command-Line Tools</h2>\n<p>Learn:</p>\n<pre><code class=\"language-text\">argparse\ntyper\nrich\nclick\nlogging\npackaging</code></pre>\n<p>Build:</p>\n<pre><code class=\"language-text\">CLI file organizer\nProject scaffolder\nLog inspector\nSystem report tool</code></pre>\n<hr />\n<h1 id=\"python-beginner-to-intermediate-guide-final-skill-checklist\">Final Skill Checklist</h1>\n<p>By the end of this guide, the learner should be able to:</p>\n<pre><code class=\"language-text\">Write and run Python scripts\nUse variables, strings, numbers, and booleans\nUse input() and print()\nUse if, elif, and else\nUse lists and dictionaries\nUse for loops and while loops\nWrite functions\nUse return values\nUnderstand basic scope\nRead and write text files\nRead and write JSON\nRead and write CSV\nUse pathlib\nInstall packages with pip\nCreate virtual environments\nHandle common exceptions\nUse logging\nAdd type hints\nUse dataclasses\nFetch data from APIs\nStructure small projects\nUse pyproject.toml basics\nCreate a simple CLI tool\nRead documentation\nDebug common errors\nWrite basic tests\nUse Git and GitHub basics\nBuild several useful projects\nKnow what to learn next</code></pre>\n<hr />\n<h1 id=\"python-beginner-to-intermediate-guide-recommended-capstone-project\">Recommended Capstone Project</h1>\n<h2 id=\"python-beginner-to-intermediate-guide-personal-automation-toolkit\">Personal Automation Toolkit</h2>\n<p>The learner should finish by building a small toolkit with multiple commands.</p>\n<h3 id=\"python-beginner-to-intermediate-guide-features\">Features</h3>\n<pre><code class=\"language-text\">Organize files by extension\nCount words in a text file\nSave and list notes\nAnalyze a log file\nFetch GitHub user info\nExport results to JSON\nWrite logs to app.log</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-suggested-folder-layout-2\">Suggested Folder Layout</h3>\n<pre><code class=\"language-text\">automation_toolkit/\n\u251c\u2500\u2500 pyproject.toml\n\u251c\u2500\u2500 README.md\n\u251c\u2500\u2500 data/\n\u251c\u2500\u2500 logs/\n\u251c\u2500\u2500 src/\n\u2502   \u2514\u2500\u2500 automation_toolkit/\n\u2502       \u251c\u2500\u2500 __init__.py\n\u2502       \u251c\u2500\u2500 cli.py\n\u2502       \u251c\u2500\u2500 files.py\n\u2502       \u251c\u2500\u2500 notes.py\n\u2502       \u251c\u2500\u2500 logs.py\n\u2502       \u251c\u2500\u2500 github.py\n\u2502       \u2514\u2500\u2500 utils.py\n\u2514\u2500\u2500 tests/\n    \u251c\u2500\u2500 test_files.py\n    \u251c\u2500\u2500 test_notes.py\n    \u2514\u2500\u2500 test_logs.py</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-cli-menu-version\">CLI Menu Version</h3>\n<pre><code class=\"language-python\">def main():\n    while True:\n        print()\n        print(&quot;Automation Toolkit&quot;)\n        print(&quot;1. Organize files&quot;)\n        print(&quot;2. Count words&quot;)\n        print(&quot;3. Add note&quot;)\n        print(&quot;4. Show notes&quot;)\n        print(&quot;5. Analyze log&quot;)\n        print(&quot;6. Fetch GitHub user&quot;)\n        print(&quot;7. Quit&quot;)\n\n        choice = input(&quot;Choice: &quot;)\n\n        if choice == &quot;1&quot;:\n            print(&quot;Organize files&quot;)\n        elif choice == &quot;2&quot;:\n            print(&quot;Count words&quot;)\n        elif choice == &quot;3&quot;:\n            print(&quot;Add note&quot;)\n        elif choice == &quot;4&quot;:\n            print(&quot;Show notes&quot;)\n        elif choice == &quot;5&quot;:\n            print(&quot;Analyze log&quot;)\n        elif choice == &quot;6&quot;:\n            print(&quot;Fetch GitHub user&quot;)\n        elif choice == &quot;7&quot;:\n            break\n        else:\n            print(&quot;Invalid choice&quot;)\n\nif __name__ == &quot;__main__&quot;:\n    main()</code></pre>\n<h3 id=\"python-beginner-to-intermediate-guide-capstone-requirements\">Capstone Requirements</h3>\n<pre><code class=\"language-text\">Use functions\nUse at least three modules\nUse pathlib\nUse JSON\nUse error handling\nUse logging\nUse type hints\nInclude README instructions\nInclude at least five tests\nUse Git commits throughout</code></pre>\n<hr />\n<h1 id=\"python-beginner-to-intermediate-guide-appendix-a-beginner-friendly-python-commands\">Appendix A: Beginner-Friendly Python Commands</h1>\n<h2 id=\"python-beginner-to-intermediate-guide-running-python\">Running Python</h2>\n<pre><code class=\"language-bash\">python --version\npython3 --version\npython script.py\npython3 script.py</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-virtual-environments\">Virtual Environments</h2>\n<pre><code class=\"language-bash\">python -m venv .venv\nsource .venv/bin/activate\ndeactivate</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-pip\">pip</h2>\n<pre><code class=\"language-bash\">pip install requests\npip freeze &gt; requirements.txt\npip install -r requirements.txt</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-project-commands\">Project Commands</h2>\n<pre><code class=\"language-bash\">mkdir my_project\ncd my_project\ntouch main.py\npython main.py</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-git\">Git</h2>\n<pre><code class=\"language-bash\">git init\ngit status\ngit add .\ngit commit -m &quot;Message&quot;\ngit log</code></pre>\n<hr />\n<h1 id=\"python-beginner-to-intermediate-guide-appendix-b-common-beginner-errors\">Appendix B: Common Beginner Errors</h1>\n<h2 id=\"python-beginner-to-intermediate-guide-syntaxerror\">SyntaxError</h2>\n<p>Usually means Python cannot understand the structure of the code.</p>\n<p>Common causes:</p>\n<pre><code class=\"language-text\">Missing colon\nMissing parenthesis\nMissing quote\nBad indentation</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-nameerror\">NameError</h2>\n<p>Usually means a variable or function name does not exist.</p>\n<p>Example:</p>\n<pre><code class=\"language-python\">print(username)</code></pre>\n<p>Fixed:</p>\n<pre><code class=\"language-python\">username = &quot;Maya&quot;\nprint(username)</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-typeerror\">TypeError</h2>\n<p>Usually means you used a value in the wrong way.</p>\n<p>Example:</p>\n<pre><code class=\"language-python\">age = &quot;30&quot;\nprint(age + 1)</code></pre>\n<p>Fixed:</p>\n<pre><code class=\"language-python\">age = int(&quot;30&quot;)\nprint(age + 1)</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-valueerror\">ValueError</h2>\n<p>Usually means the type conversion was possible in theory, but the value was invalid.</p>\n<p>Example:</p>\n<pre><code class=\"language-python\">number = int(&quot;banana&quot;)</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-filenotfounderror\">FileNotFoundError</h2>\n<p>Usually means Python tried to open a file that does not exist.</p>\n<p>Example:</p>\n<pre><code class=\"language-python\">from pathlib import Path\n\ntext = Path(&quot;missing.txt&quot;).read_text()</code></pre>\n<p>Safer:</p>\n<pre><code class=\"language-python\">from pathlib import Path\n\npath = Path(&quot;missing.txt&quot;)\n\nif path.exists():\n    print(path.read_text())\nelse:\n    print(&quot;File not found.&quot;)</code></pre>\n<hr />\n<h1 id=\"python-beginner-to-intermediate-guide-appendix-c-practice-prompts\">Appendix C: Practice Prompts</h1>\n<p>Use these prompts to strengthen each skill.</p>\n<h2 id=\"python-beginner-to-intermediate-guide-variables\">Variables</h2>\n<pre><code class=\"language-text\">Create a script that stores your name, age, and city.\nCreate a script that calculates the area of a rectangle.\nCreate a script that converts minutes into seconds.</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-input\">Input</h2>\n<pre><code class=\"language-text\">Ask the user for their name and greet them.\nAsk the user for two numbers and add them.\nAsk the user for a bill amount and tip percentage.</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-conditions\">Conditions</h2>\n<pre><code class=\"language-text\">Check if a user is old enough to vote.\nCheck if a number is positive, negative, or zero.\nCheck if a password has at least 8 characters.</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-lists\">Lists</h2>\n<pre><code class=\"language-text\">Create a list of favorite foods.\nPrint every item in a list.\nAsk the user to add items to a list.</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-dictionaries\">Dictionaries</h2>\n<pre><code class=\"language-text\">Create a contact card.\nCreate a product record.\nCreate a song record.</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-loops\">Loops</h2>\n<pre><code class=\"language-text\">Print numbers from 1 to 100.\nPrint only even numbers.\nKeep asking for input until the user types quit.</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-functions\">Functions</h2>\n<pre><code class=\"language-text\">Write a function that adds two numbers.\nWrite a function that checks if a word is long.\nWrite a function that formats a name.</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-files\">Files</h2>\n<pre><code class=\"language-text\">Save user input to a file.\nRead a file and count the words.\nAppend a new line to a notes file.</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-json\">JSON</h2>\n<pre><code class=\"language-text\">Save a list of contacts to JSON.\nLoad a JSON file and print each record.\nAdd a new item to an existing JSON file.</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-apis\">APIs</h2>\n<pre><code class=\"language-text\">Fetch data from a public API.\nPrint selected fields.\nSave the response to a JSON file.</code></pre>\n<h2 id=\"python-beginner-to-intermediate-guide-debugging\">Debugging</h2>\n<pre><code class=\"language-text\">Fix a script with a missing colon.\nFix a script with a bad variable name.\nFix a script that adds text to a number.\nFix a script that crashes when a file is missing.</code></pre>\n<hr />\n<h1 id=\"python-beginner-to-intermediate-guide-closing-note\">Closing Note</h1>\n<p>The best beginner-to-intermediate Python guide does not try to teach everything.</p>\n<p>It teaches enough to make the learner capable.</p>\n<p>A capable intermediate Python programmer can:</p>\n<pre><code class=\"language-text\">Build small tools\nRead errors\nUse libraries\nOrganize projects\nHandle files\nWork with APIs\nDebug problems\nRead documentation\nKeep learning independently</code></pre>\n<p>That is the real milestone.</p>\n<p>The north star:</p>\n<blockquote><p>Teach Python as a tool for making useful things, not as a pile of syntax to memorize.</p></blockquote>"
     },
     {
-      id: "growth",
-      title: "Business Site",
-      category: "Business Site — $200 setup + $50/mo",
-      summary: "End-to-end workflow for the Business Site package. 3–5 pages, gallery, basic SEO.",
-      content: [
+      "id": "bash-beginner-to-intermediate-guide",
+      "title": "Bash Beginner to Intermediate Guide",
+      "navLabel": "Bash Guide",
+      "summary": "*A practical field manual for learning Bash, Linux shell scripting, automation, and command-line confidence.*",
+      "href": "bash-beginner-to-intermediate-guide.html",
+      "icon": "Sh",
+      "sections": [
         {
-          heading: "Intake",
-          body: "Same as Starter Site, plus: collect team member info if showing staff, at least 2–3 testimonials, and specific CTAs or goals for the site (bookings, calls, form leads). More pages means more content — don't start without it."
+          "id": "bash-beginner-to-intermediate-guide-who-this-guide-is-for",
+          "title": "Who This Guide Is For",
+          "level": 2
         },
         {
-          heading: "Scope",
-          body: "Up to 3–5 pages, contact form, gallery or portfolio section, basic SEO meta tags. Confirm explicitly: no booking platform integration, no e-commerce, no custom backend. Those are Booking Site or Enterprise Site."
+          "id": "bash-beginner-to-intermediate-guide-what-you-should-be-able-to-do-by-the-end",
+          "title": "What You Should Be Able To Do By The End",
+          "level": 2
         },
         {
-          heading: "Build",
-          body: "Same approach as Local Starter. Extra pages should be lightweight extensions of the base template, not separate templates. Keep all content in the config file — never hardcode client info in HTML."
+          "id": "bash-beginner-to-intermediate-guide-the-core-philosophy",
+          "title": "The Core Philosophy",
+          "level": 2
         },
         {
-          heading: "Review and Launch",
-          body: "Same process as Local Starter. With more pages, allow one extra business day for client review. The full pre-launch checklist still applies to every page."
+          "id": "bash-beginner-to-intermediate-guide-part-1-terminal-survival",
+          "title": "Part 1: Terminal Survival",
+          "level": 2
         },
         {
-          heading: "Maintenance",
-          body: "Same scope as Starter Site. Note in NOTES.md which pages are most likely to need content updates (usually services and team pages) so you can find them quickly for future requests."
+          "id": "bash-beginner-to-intermediate-guide-part-2-file-and-text-power",
+          "title": "Part 2: File and Text Power",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-part-3-bash-scripting-basics",
+          "title": "Part 3: Bash Scripting Basics",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-part-4-intermediate-bash",
+          "title": "Part 4: Intermediate Bash",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-part-5-real-projects",
+          "title": "Part 5: Real Projects",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-part-6-automation-and-next-steps",
+          "title": "Part 6: Automation and Next Steps",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-1-what-bash-is",
+          "title": "Chapter 1: What Bash Is",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-bash-is-a-shell",
+          "title": "Bash Is a Shell",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-bash-is-also-a-script-runner",
+          "title": "Bash Is Also a Script Runner",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-what-bash-is-good-at",
+          "title": "What Bash Is Good At",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-what-bash-is-bad-at",
+          "title": "What Bash Is Bad At",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-2-the-terminal-mental-model",
+          "title": "Chapter 2: The Terminal Mental Model",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-current-directory",
+          "title": "Current Directory",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-changing-directory",
+          "title": "Changing Directory",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-relative-vs-absolute-paths",
+          "title": "Relative vs Absolute Paths",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-the-prompt",
+          "title": "The Prompt",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-commands-have-this-shape",
+          "title": "Commands Have This Shape",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-2",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-3-files-folders-and-paths",
+          "title": "Chapter 3: Files, Folders, and Paths",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-common-folders",
+          "title": "Common Folders",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-file-names-matter",
+          "title": "File Names Matter",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-hidden-files",
+          "title": "Hidden Files",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-file-extensions-are-not-magic",
+          "title": "File Extensions Are Not Magic",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-3",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-4-basic-commands",
+          "title": "Chapter 4: Basic Commands",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-pwd",
+          "title": "`pwd`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-ls",
+          "title": "`ls`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-cd",
+          "title": "`cd`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mkdir",
+          "title": "`mkdir`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-touch",
+          "title": "`touch`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-cp",
+          "title": "`cp`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mv",
+          "title": "`mv`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-rm",
+          "title": "`rm`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-cat",
+          "title": "`cat`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-less",
+          "title": "`less`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-head",
+          "title": "`head`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-tail",
+          "title": "`tail`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-clear",
+          "title": "`clear`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-4",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-5-reading-command-help",
+          "title": "Chapter 5: Reading Command Help",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-help",
+          "title": "`--help`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-man",
+          "title": "`man`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-type",
+          "title": "`type`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-which",
+          "title": "`which`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-command-v",
+          "title": "`command -v`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-5",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-6-errors-are-information",
+          "title": "Chapter 6: Errors Are Information",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-common-error-types",
+          "title": "Common Error Types",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-standard-output-and-standard-error",
+          "title": "Standard Output and Standard Error",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-6",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-7-viewing-files",
+          "title": "Chapter 7: Viewing Files",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-cat-2",
+          "title": "`cat`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-less-2",
+          "title": "`less`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-head-2",
+          "title": "`head`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-tail-2",
+          "title": "`tail`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-wc",
+          "title": "`wc`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-file",
+          "title": "`file`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-du",
+          "title": "`du`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-7",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-8-creating-copying-moving-and-removing-files",
+          "title": "Chapter 8: Creating, Copying, Moving, and Removing Files",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-create-files",
+          "title": "Create Files",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-create-folders",
+          "title": "Create Folders",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-copy-files",
+          "title": "Copy Files",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-move-and-rename",
+          "title": "Move and Rename",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-remove-safely",
+          "title": "Remove Safely",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-safer-delete-pattern",
+          "title": "Safer Delete Pattern",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-dangerous-command-warning",
+          "title": "Dangerous Command Warning",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-8",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-9-wildcards-and-globs",
+          "title": "Chapter 9: Wildcards and Globs",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-section",
+          "title": "`*`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-section-2",
+          "title": "`?`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-character-sets",
+          "title": "Character Sets",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-brace-expansion",
+          "title": "Brace Expansion",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-preview-before-acting",
+          "title": "Preview Before Acting",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-9",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-10-searching-files-and-text",
+          "title": "Chapter 10: Searching Files and Text",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-search-file-names-with-find",
+          "title": "Search File Names With `find`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-search-text-with-grep",
+          "title": "Search Text With `grep`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-common-grep-options",
+          "title": "Common `grep` Options",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-ripgrep-optional-upgrade",
+          "title": "`ripgrep` Optional Upgrade",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-10",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-11-pipes-and-redirects",
+          "title": "Chapter 11: Pipes and Redirects",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-redirect-output-to-a-file",
+          "title": "Redirect Output to a File",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-redirect-input",
+          "title": "Redirect Input",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-pipes",
+          "title": "Pipes",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-example-top-file-extensions",
+          "title": "Example: Top File Extensions",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-tee",
+          "title": "`tee`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-redirect-errors",
+          "title": "Redirect Errors",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-11",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-12-text-processing-basics",
+          "title": "Chapter 12: Text Processing Basics",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-sort",
+          "title": "`sort`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-uniq",
+          "title": "`uniq`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-cut",
+          "title": "`cut`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-tr",
+          "title": "`tr`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-sed",
+          "title": "`sed`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-awk",
+          "title": "`awk`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-12",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-13-your-first-bash-script",
+          "title": "Chapter 13: Your First Bash Script",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-the-shebang",
+          "title": "The Shebang",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-script-file-names",
+          "title": "Script File Names",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-comments",
+          "title": "Comments",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-13",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-14-variables",
+          "title": "Chapter 14: Variables",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-use-quotes-around-variables",
+          "title": "Use Quotes Around Variables",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-common-variable-examples",
+          "title": "Common Variable Examples",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-read-user-input",
+          "title": "Read User Input",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-environment-variables",
+          "title": "Environment Variables",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-14",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-15-quoting-rules",
+          "title": "Chapter 15: Quoting Rules",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-double-quotes",
+          "title": "Double Quotes",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-single-quotes",
+          "title": "Single Quotes",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-escaping",
+          "title": "Escaping",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-the-golden-rule",
+          "title": "The Golden Rule",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-word-splitting",
+          "title": "Word Splitting",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-15",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-16-command-substitution",
+          "title": "Chapter 16: Command Substitution",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-old-style-vs-new-style",
+          "title": "Old Style vs New Style",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-useful-examples",
+          "title": "Useful Examples",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-be-careful-with-multi-line-output",
+          "title": "Be Careful With Multi-Line Output",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-16",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-17-script-arguments",
+          "title": "Chapter 17: Script Arguments",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-special-argument-variables",
+          "title": "Special Argument Variables",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-validate-required-arguments",
+          "title": "Validate Required Arguments",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-example-count-lines",
+          "title": "Example: Count Lines",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-17",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-18-exit-codes",
+          "title": "Chapter 18: Exit Codes",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-use-exit-codes-in-scripts",
+          "title": "Use Exit Codes in Scripts",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-section-3",
+          "title": "`&&`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-section-4",
+          "title": "`||`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-combine",
+          "title": "Combine",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-18",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-19-conditionals",
+          "title": "Chapter 19: Conditionals",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-basic-if",
+          "title": "Basic `if`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-else",
+          "title": "`else`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-elif",
+          "title": "`elif`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-file-tests",
+          "title": "File Tests",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-string-tests",
+          "title": "String Tests",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-number-tests",
+          "title": "Number Tests",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-combining-conditions",
+          "title": "Combining Conditions",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-19",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-20-loops",
+          "title": "Chapter 20: Loops",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-for-loop-over-words",
+          "title": "`for` Loop Over Words",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-loop-over-files",
+          "title": "Loop Over Files",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-c-style-loop",
+          "title": "C-Style Loop",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-while-loop",
+          "title": "`while` Loop",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-read-file-line-by-line",
+          "title": "Read File Line By Line",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-menu-loop",
+          "title": "Menu Loop",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-break-and-continue",
+          "title": "`break` and `continue`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-20",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-21-functions",
+          "title": "Chapter 21: Functions",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-function-with-arguments",
+          "title": "Function With Arguments",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-return-values-vs-output",
+          "title": "Return Values vs Output",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-example-logging-function",
+          "title": "Example: Logging Function",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-example-require-command",
+          "title": "Example: Require Command",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-21",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-22-safe-scripting-habits",
+          "title": "Chapter 22: Safe Scripting Habits",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-start-with-strict-ish-mode",
+          "title": "Start With Strict-ish Mode",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-add-ifs",
+          "title": "Add `IFS`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-use-dry-run-mode",
+          "title": "Use Dry Run Mode",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-confirm-dangerous-actions",
+          "title": "Confirm Dangerous Actions",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-guard-against-empty-variables",
+          "title": "Guard Against Empty Variables",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-use-full-paths-in-automation",
+          "title": "Use Full Paths in Automation",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-22",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-23-working-with-files-safely",
+          "title": "Chapter 23: Working With Files Safely",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-bad-pattern",
+          "title": "Bad Pattern",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-better-pattern-with-find-print0",
+          "title": "Better Pattern With `find -print0`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-end-of-options",
+          "title": "`--` End of Options",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-check-before-overwriting",
+          "title": "Check Before Overwriting",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-atomic-ish-writes",
+          "title": "Atomic-ish Writes",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-temporary-files",
+          "title": "Temporary Files",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-23",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-24-arrays",
+          "title": "Chapter 24: Arrays",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-loop-over-array",
+          "title": "Loop Over Array",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-add-to-array",
+          "title": "Add to Array",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-number-of-items",
+          "title": "Number of Items",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-array-of-commands-or-files",
+          "title": "Array of Commands or Files",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-build-array-from-find",
+          "title": "Build Array From Find",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-24",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-25-case-statements",
+          "title": "Chapter 25: Case Statements",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-menu-example",
+          "title": "Menu Example",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-pattern-matching",
+          "title": "Pattern Matching",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-25",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-26-logging",
+          "title": "Chapter 26: Logging",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-simple-logging-function",
+          "title": "Simple Logging Function",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-log-to-file",
+          "title": "Log to File",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-separate-info-and-error",
+          "title": "Separate Info and Error",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-verbose-mode",
+          "title": "Verbose Mode",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-26",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-27-debugging-bash-scripts",
+          "title": "Chapter 27: Debugging Bash Scripts",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-set-x",
+          "title": "`set -x`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-set-e",
+          "title": "`set -e`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-set-u",
+          "title": "`set -u`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-pipefail",
+          "title": "`pipefail`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-print-variables",
+          "title": "Print Variables",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-shellcheck",
+          "title": "ShellCheck",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-common-bugs",
+          "title": "Common Bugs",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-27",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-28-using-find",
+          "title": "Chapter 28: Using `find`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-find-files-by-name",
+          "title": "Find Files By Name",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-find-directories",
+          "title": "Find Directories",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-limit-depth",
+          "title": "Limit Depth",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-find-by-size",
+          "title": "Find By Size",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-find-by-modified-time",
+          "title": "Find By Modified Time",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-find-empty-files-or-directories",
+          "title": "Find Empty Files or Directories",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-execute-command",
+          "title": "Execute Command",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-safer-null-output",
+          "title": "Safer Null Output",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-28",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-29-using-xargs",
+          "title": "Chapter 29: Using `xargs`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-problem-with-spaces",
+          "title": "Problem With Spaces",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-preview-with-echo",
+          "title": "Preview With `echo`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-limit-arguments",
+          "title": "Limit Arguments",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-replace-placeholder",
+          "title": "Replace Placeholder",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-find-exec-vs-xargs",
+          "title": "`find -exec` vs `xargs`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-29",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-30-using-sed",
+          "title": "Chapter 30: Using `sed`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-substitute-text",
+          "title": "Substitute Text",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-in-place-edit",
+          "title": "In-Place Edit",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-delete-lines-matching-pattern",
+          "title": "Delete Lines Matching Pattern",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-print-specific-lines",
+          "title": "Print Specific Lines",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-replace-paths",
+          "title": "Replace Paths",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-30",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-31-using-awk",
+          "title": "Chapter 31: Using `awk`",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-print-columns",
+          "title": "Print Columns",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-use-custom-delimiter",
+          "title": "Use Custom Delimiter",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-skip-header",
+          "title": "Skip Header",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-filter-rows",
+          "title": "Filter Rows",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-sum-values",
+          "title": "Sum Values",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-pretty-output",
+          "title": "Pretty Output",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-31",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-32-project-1-downloads-cleaner",
+          "title": "Chapter 32: Project 1: Downloads Cleaner",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-version-1-basic-cleaner",
+          "title": "Version 1: Basic Cleaner",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-version-2-dry-run-mode",
+          "title": "Version 2: Dry Run Mode",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-improvements",
+          "title": "Improvements",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-challenge",
+          "title": "Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-33-project-2-project-bootstrapper",
+          "title": "Chapter 33: Project 2: Project Bootstrapper",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-script",
+          "title": "Script",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-add-git",
+          "title": "Add Git",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-challenge-2",
+          "title": "Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-34-project-3-log-scanner",
+          "title": "Chapter 34: Project 3: Log Scanner",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-script-2",
+          "title": "Script",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-why-true",
+          "title": "Why `|| true`?",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-challenge-3",
+          "title": "Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-35-project-4-backup-script",
+          "title": "Chapter 35: Project 4: Backup Script",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-script-3",
+          "title": "Script",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-restore-preview",
+          "title": "Restore Preview",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-challenge-4",
+          "title": "Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-36-project-5-system-info-report",
+          "title": "Chapter 36: Project 5: System Info Report",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-script-4",
+          "title": "Script",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-challenge-5",
+          "title": "Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-37-project-6-mp3-folder-inspector",
+          "title": "Chapter 37: Project 6: MP3 Folder Inspector",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-requirements",
+          "title": "Requirements",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-basic-inspector",
+          "title": "Basic Inspector",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-find-non-mp3-files-with-mp3-extension",
+          "title": "Find Non-MP3 Files With MP3 Extension",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-challenge-6",
+          "title": "Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-38-project-7-simple-cli-tool",
+          "title": "Chapter 38: Project 7: Simple CLI Tool",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-script-5",
+          "title": "Script",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-challenge-7",
+          "title": "Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-39-aliases-and-shell-functions",
+          "title": "Chapter 39: Aliases and Shell Functions",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-aliases",
+          "title": "Aliases",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-alias-with-safety",
+          "title": "Alias With Safety",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-shell-functions",
+          "title": "Shell Functions",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-function-example-extract-archives",
+          "title": "Function Example: Extract Archives",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-32",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-40-cron-jobs",
+          "title": "Chapter 40: Cron Jobs",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-cron-format",
+          "title": "Cron Format",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-common-schedules",
+          "title": "Common Schedules",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-use-full-paths",
+          "title": "Use Full Paths",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-cron-script-tips",
+          "title": "Cron Script Tips",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-33",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-41-systemd-user-services",
+          "title": "Chapter 41: Systemd User Services",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-user-service-folder",
+          "title": "User Service Folder",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-example-service",
+          "title": "Example Service",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-timer-instead-of-cron",
+          "title": "Timer Instead of Cron",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-mini-challenge-34",
+          "title": "Mini Challenge",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-42-when-to-use-bash-vs-python",
+          "title": "Chapter 42: When To Use Bash vs Python",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-bash-example",
+          "title": "Bash Example",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-python-example",
+          "title": "Python Example",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-hybrid-approach",
+          "title": "Hybrid Approach",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-rule-of-thumb",
+          "title": "Rule of Thumb",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-43-final-bash-checklist",
+          "title": "Chapter 43: Final Bash Checklist",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-chapter-44-cheat-sheets",
+          "title": "Chapter 44: Cheat Sheets",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-navigation",
+          "title": "Navigation",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-file-operations",
+          "title": "File Operations",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-viewing-files",
+          "title": "Viewing Files",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-searching",
+          "title": "Searching",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-pipes-and-redirects",
+          "title": "Pipes and Redirects",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-script-template",
+          "title": "Script Template",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-arguments",
+          "title": "Arguments",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-tests",
+          "title": "Tests",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-loops",
+          "title": "Loops",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-functions",
+          "title": "Functions",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-safer-file-loop",
+          "title": "Safer File Loop",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-dry-run-helper",
+          "title": "Dry Run Helper",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-good-habits",
+          "title": "Good Habits",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-beginner",
+          "title": "Beginner",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-early-intermediate",
+          "title": "Early Intermediate",
+          "level": 2
+        },
+        {
+          "id": "bash-beginner-to-intermediate-guide-intermediate",
+          "title": "Intermediate",
+          "level": 2
         }
-      ]
+      ],
+      "contentHtml": "<h1 id=\"bash-beginner-to-intermediate-guide-bash-beginner-to-intermediate-guide\">Bash Beginner to Intermediate Guide</h1>\n<p><em>A practical field manual for learning Bash, Linux shell scripting, automation, and command-line confidence.</em></p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-who-this-guide-is-for\">Who This Guide Is For</h2>\n<p>This guide is for someone who wants to go from:</p>\n<blockquote><p>\u201cI can copy-paste terminal commands, but I do not fully understand what is happening.\u201d</p></blockquote>\n<p>to:</p>\n<blockquote><p>\u201cI can write useful scripts, automate boring tasks, inspect files, handle errors, and safely glue programs together.\u201d</p></blockquote>\n<p>This guide assumes you are using Linux, macOS, WSL, or another Unix-like terminal. Most examples are written with Linux in mind.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-what-you-should-be-able-to-do-by-the-end\">What You Should Be Able To Do By The End</h2>\n<p>By the end of this guide, you should be able to:</p>\n<ul><li>Navigate the filesystem confidently</li><li>Understand paths, files, directories, permissions, and ownership</li><li>Read, write, copy, move, rename, and search files</li><li>Use pipes and redirects</li><li>Chain commands together</li><li>Write Bash scripts</li><li>Use variables, arguments, conditionals, loops, and functions</li><li>Handle errors and exit codes</li><li>Process text files with <code>grep</code>, <code>cut</code>, <code>sort</code>, <code>uniq</code>, <code>sed</code>, and <code>awk</code></li><li>Use <code>find</code> and <code>xargs</code></li><li>Build small automation scripts</li><li>Create safer scripts with dry-run mode and confirmations</li><li>Debug shell scripts</li><li>Understand when Bash is the right tool and when Python is better</li></ul>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-the-core-philosophy\">The Core Philosophy</h2>\n<p>Bash is not just a programming language.</p>\n<p>Bash is a <strong>command glue language</strong>.</p>\n<p>Its superpower is connecting tools together:</p>\n<pre><code class=\"language-bash\">find ~/Downloads -type f -name &quot;*.mp3&quot; | sort | head</code></pre>\n<p>That one line:</p>\n<ol><li>Searches for files</li><li>Filters only MP3s</li><li>Sorts them</li><li>Shows the first few</li></ol>\n<p>Bash is at its best when you are:</p>\n<ul><li>Moving files</li><li>Renaming things</li><li>Running commands repeatedly</li><li>Automating setup tasks</li><li>Inspecting folders</li><li>Processing logs</li><li>Managing projects</li><li>Calling other programs</li></ul>\n<p>Bash is not always the best choice for:</p>\n<ul><li>Large applications</li><li>Complex data structures</li><li>Heavy JSON processing</li><li>Big APIs</li><li>GUI programs</li><li>Complex business logic</li></ul>\n<p>A healthy rule:</p>\n<blockquote><p>Use Bash to glue tools together. Use Python when the logic gets big.</p></blockquote>\n<hr />\n<h1 id=\"bash-beginner-to-intermediate-guide-table-of-contents\">Table of Contents</h1>\n<h2 id=\"bash-beginner-to-intermediate-guide-part-1-terminal-survival\">Part 1: Terminal Survival</h2>\n<ol><li><a href=\"#chapter-1-what-bash-is\">What Bash Is</a></li><li><a href=\"#chapter-2-the-terminal-mental-model\">The Terminal Mental Model</a></li><li><a href=\"#chapter-3-files-folders-and-paths\">Files, Folders, and Paths</a></li><li><a href=\"#chapter-4-basic-commands\">Basic Commands</a></li><li><a href=\"#chapter-5-reading-command-help\">Reading Command Help</a></li><li><a href=\"#chapter-6-errors-are-information\">Errors Are Information</a></li></ol>\n<h2 id=\"bash-beginner-to-intermediate-guide-part-2-file-and-text-power\">Part 2: File and Text Power</h2>\n<ol><li><a href=\"#chapter-7-viewing-files\">Viewing Files</a></li><li><a href=\"#chapter-8-creating-copying-moving-and-removing-files\">Creating, Copying, Moving, and Removing Files</a></li><li><a href=\"#chapter-9-wildcards-and-globs\">Wildcards and Globs</a></li><li><a href=\"#chapter-10-searching-files-and-text\">Searching Files and Text</a></li><li><a href=\"#chapter-11-pipes-and-redirects\">Pipes and Redirects</a></li><li><a href=\"#chapter-12-text-processing-basics\">Text Processing Basics</a></li></ol>\n<h2 id=\"bash-beginner-to-intermediate-guide-part-3-bash-scripting-basics\">Part 3: Bash Scripting Basics</h2>\n<ol><li><a href=\"#chapter-13-your-first-bash-script\">Your First Bash Script</a></li><li><a href=\"#chapter-14-variables\">Variables</a></li><li><a href=\"#chapter-15-quoting-rules\">Quoting Rules</a></li><li><a href=\"#chapter-16-command-substitution\">Command Substitution</a></li><li><a href=\"#chapter-17-script-arguments\">Script Arguments</a></li><li><a href=\"#chapter-18-exit-codes\">Exit Codes</a></li><li><a href=\"#chapter-19-conditionals\">Conditionals</a></li><li><a href=\"#chapter-20-loops\">Loops</a></li><li><a href=\"#chapter-21-functions\">Functions</a></li></ol>\n<h2 id=\"bash-beginner-to-intermediate-guide-part-4-intermediate-bash\">Part 4: Intermediate Bash</h2>\n<ol><li><a href=\"#chapter-22-safe-scripting-habits\">Safe Scripting Habits</a></li><li><a href=\"#chapter-23-working-with-files-safely\">Working With Files Safely</a></li><li><a href=\"#chapter-24-arrays\">Arrays</a></li><li><a href=\"#chapter-25-case-statements\">Case Statements</a></li><li><a href=\"#chapter-26-logging\">Logging</a></li><li><a href=\"#chapter-27-debugging-bash-scripts\">Debugging Bash Scripts</a></li><li><a href=\"#chapter-28-using-find\">Using <code>find</code></a></li><li><a href=\"#chapter-29-using-xargs\">Using <code>xargs</code></a></li><li><a href=\"#chapter-30-using-sed\">Using <code>sed</code></a></li><li><a href=\"#chapter-31-using-awk\">Using <code>awk</code></a></li></ol>\n<h2 id=\"bash-beginner-to-intermediate-guide-part-5-real-projects\">Part 5: Real Projects</h2>\n<ol><li><a href=\"#chapter-32-project-1-downloads-cleaner\">Project 1: Downloads Cleaner</a></li><li><a href=\"#chapter-33-project-2-project-bootstrapper\">Project 2: Project Bootstrapper</a></li><li><a href=\"#chapter-34-project-3-log-scanner\">Project 3: Log Scanner</a></li><li><a href=\"#chapter-35-project-4-backup-script\">Project 4: Backup Script</a></li><li><a href=\"#chapter-36-project-5-system-info-report\">Project 5: System Info Report</a></li><li><a href=\"#chapter-37-project-6-mp3-folder-inspector\">Project 6: MP3 Folder Inspector</a></li><li><a href=\"#chapter-38-project-7-simple-cli-tool\">Project 7: Simple CLI Tool</a></li></ol>\n<h2 id=\"bash-beginner-to-intermediate-guide-part-6-automation-and-next-steps\">Part 6: Automation and Next Steps</h2>\n<ol><li><a href=\"#chapter-39-aliases-and-shell-functions\">Aliases and Shell Functions</a></li><li><a href=\"#chapter-40-cron-jobs\">Cron Jobs</a></li><li><a href=\"#chapter-41-systemd-user-services\">Systemd User Services</a></li><li><a href=\"#chapter-42-when-to-use-bash-vs-python\">When To Use Bash vs Python</a></li><li><a href=\"#chapter-43-final-bash-checklist\">Final Bash Checklist</a></li><li><a href=\"#chapter-44-cheat-sheets\">Cheat Sheets</a></li></ol>\n<hr />\n<h1 id=\"bash-beginner-to-intermediate-guide-part-1-terminal-survival-2\">Part 1: Terminal Survival</h1>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-1-what-bash-is\">Chapter 1: What Bash Is</h2>\n<p>Bash stands for <strong>Bourne Again SHell</strong>.</p>\n<p>It is both:</p>\n<ol><li>A command-line interface</li><li>A scripting language</li></ol>\n<p>When you type this:</p>\n<pre><code class=\"language-bash\">ls</code></pre>\n<p>Bash reads your command, figures out what program you want to run, starts that program, and shows you the result.</p>\n<p>When you write this:</p>\n<pre><code class=\"language-bash\">for file in *.txt; do\n  echo &quot;$file&quot;\ndone</code></pre>\n<p>Bash is acting like a programming language.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-bash-is-a-shell\">Bash Is a Shell</h2>\n<p>A shell is a program that lets you talk to your operating system.</p>\n<p>You type:</p>\n<pre><code class=\"language-bash\">pwd</code></pre>\n<p>The shell responds with your current location:</p>\n<pre><code class=\"language-bash\">/home/xander/projects</code></pre>\n<p>You type:</p>\n<pre><code class=\"language-bash\">mkdir demo</code></pre>\n<p>The shell creates a folder named <code>demo</code>.</p>\n<p>You type:</p>\n<pre><code class=\"language-bash\">python app.py</code></pre>\n<p>The shell runs Python and passes it the file <code>app.py</code>.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-bash-is-also-a-script-runner\">Bash Is Also a Script Runner</h2>\n<p>A Bash script is a text file full of commands.</p>\n<p>Example:</p>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\n\necho &quot;Starting cleanup...&quot;\nmkdir -p ~/Backups\necho &quot;Done.&quot;</code></pre>\n<p>Save that as:</p>\n<pre><code class=\"language-text\">cleanup.sh</code></pre>\n<p>Then run:</p>\n<pre><code class=\"language-bash\">bash cleanup.sh</code></pre>\n<p>Or make it executable:</p>\n<pre><code class=\"language-bash\">chmod +x cleanup.sh\n./cleanup.sh</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-what-bash-is-good-at\">What Bash Is Good At</h2>\n<p>Bash is excellent for:</p>\n<ul><li>Running programs</li><li>Moving files</li><li>Searching folders</li><li>Processing text</li><li>Automating setup</li><li>Calling scripts</li><li>Running backups</li><li>Creating project templates</li><li>Starting/stopping services</li><li>Combining small tools into bigger workflows</li></ul>\n<p>Example:</p>\n<pre><code class=\"language-bash\">mkdir -p ~/Projects/myapp/{src,tests,docs}\ntouch ~/Projects/myapp/README.md\ntouch ~/Projects/myapp/src/main.py</code></pre>\n<p>That creates a small project structure fast.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-what-bash-is-bad-at\">What Bash Is Bad At</h2>\n<p>Bash gets awkward when you need:</p>\n<ul><li>Complex nested data</li><li>Large applications</li><li>Many dependencies</li><li>Object-oriented design</li><li>Heavy parsing</li><li>Complex JSON work</li><li>Long-term maintainability</li></ul>\n<p>Example of a warning sign:</p>\n<pre><code class=\"language-bash\">if [[ &quot;$status&quot; == &quot;active&quot; &amp;&amp; &quot;$role&quot; == &quot;admin&quot; &amp;&amp; &quot;$region&quot; == &quot;east&quot; &amp;&amp; &quot;$tier&quot; == &quot;premium&quot; ]]; then\n  ...\nfi</code></pre>\n<p>At a certain point, you probably want Python.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge\">Mini Challenge</h2>\n<p>Open a terminal and run:</p>\n<pre><code class=\"language-bash\">echo &quot;Hello from Bash&quot;\npwd\nwhoami\ndate</code></pre>\n<p>Then answer:</p>\n<ol><li>What does each command print?</li><li>Which command tells you where you are?</li><li>Which command tells you who you are logged in as?</li></ol>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-2-the-terminal-mental-model\">Chapter 2: The Terminal Mental Model</h2>\n<p>A terminal session always has a few important pieces:</p>\n<ul><li>A current folder</li><li>An environment</li><li>A user</li><li>A shell</li><li>A set of commands available through your <code>PATH</code></li></ul>\n<p>When you run commands, Bash resolves them based on your current context.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-current-directory\">Current Directory</h2>\n<p>Your current directory is where commands operate by default.</p>\n<p>Run:</p>\n<pre><code class=\"language-bash\">pwd</code></pre>\n<p>Example output:</p>\n<pre><code class=\"language-bash\">/home/xander</code></pre>\n<p>That means you are currently in <code>/home/xander</code>.</p>\n<p>Now run:</p>\n<pre><code class=\"language-bash\">ls</code></pre>\n<p>This lists files and folders in your current directory.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-changing-directory\">Changing Directory</h2>\n<p>Use <code>cd</code>:</p>\n<pre><code class=\"language-bash\">cd Downloads</code></pre>\n<p>Go home:</p>\n<pre><code class=\"language-bash\">cd ~</code></pre>\n<p>Go up one level:</p>\n<pre><code class=\"language-bash\">cd ..</code></pre>\n<p>Go to the root of the filesystem:</p>\n<pre><code class=\"language-bash\">cd /</code></pre>\n<p>Go back to the previous directory:</p>\n<pre><code class=\"language-bash\">cd -</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-relative-vs-absolute-paths\">Relative vs Absolute Paths</h2>\n<p>An <strong>absolute path</strong> starts from the root:</p>\n<pre><code class=\"language-bash\">/home/xander/Documents/report.txt</code></pre>\n<p>A <strong>relative path</strong> starts from where you are now:</p>\n<pre><code class=\"language-bash\">Documents/report.txt</code></pre>\n<p>If you are in <code>/home/xander</code>, then these point to the same file:</p>\n<pre><code class=\"language-bash\">/home/xander/Documents/report.txt\nDocuments/report.txt</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-the-prompt\">The Prompt</h2>\n<p>Your terminal prompt might look like:</p>\n<pre><code class=\"language-bash\">xander@pop-os:~/Projects$</code></pre>\n<p>This usually tells you:</p>\n<pre><code class=\"language-text\">username@machine:current_folder$</code></pre>\n<p>The <code>$</code> usually means normal user.</p>\n<p>A <code>#</code> usually means root/admin shell.</p>\n<p>Be careful with <code>#</code>.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-commands-have-this-shape\">Commands Have This Shape</h2>\n<p>Most commands follow this structure:</p>\n<pre><code class=\"language-bash\">command options arguments</code></pre>\n<p>Example:</p>\n<pre><code class=\"language-bash\">ls -la ~/Downloads</code></pre>\n<p>Breakdown:</p>\n<pre><code class=\"language-text\">ls            command\n-la           options\n~/Downloads  argument</code></pre>\n<p>Options modify behavior.</p>\n<p>Arguments tell the command what to act on.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-2\">Mini Challenge</h2>\n<p>Run:</p>\n<pre><code class=\"language-bash\">pwd\ncd ~\npwd\ncd /\npwd\ncd -\npwd</code></pre>\n<p>Explain what changed after each command.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-3-files-folders-and-paths\">Chapter 3: Files, Folders, and Paths</h2>\n<p>Linux treats almost everything like a file.</p>\n<p>Documents are files. Images are files. Devices may appear as files. Configuration is often stored in files. Logs are files. Scripts are files.</p>\n<p>This is one reason Bash is powerful.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-common-folders\">Common Folders</h2>\n<p>Typical Linux folders:</p>\n<pre><code class=\"language-text\">/             root of the filesystem\n/home         user folders\n/home/xander  your home folder\n/etc          system configuration\n/var          logs and variable data\n/tmp          temporary files\n/usr          installed programs and shared resources\n/bin          essential programs\n/dev          device files\n/mnt          mounted drives\n/media        removable drives</code></pre>\n<p>Your personal files usually live under:</p>\n<pre><code class=\"language-bash\">/home/YOUR_USERNAME</code></pre>\n<p>Shortcut:</p>\n<pre><code class=\"language-bash\">~</code></pre>\n<p>So this:</p>\n<pre><code class=\"language-bash\">~/Downloads</code></pre>\n<p>means:</p>\n<pre><code class=\"language-bash\">/home/YOUR_USERNAME/Downloads</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-file-names-matter\">File Names Matter</h2>\n<p>These are different files on Linux:</p>\n<pre><code class=\"language-text\">Song.mp3\nsong.mp3\nSONG.mp3</code></pre>\n<p>Linux is usually case-sensitive.</p>\n<p>Spaces are allowed but annoying:</p>\n<pre><code class=\"language-text\">My Cool File.txt</code></pre>\n<p>You must quote or escape them:</p>\n<pre><code class=\"language-bash\">cat &quot;My Cool File.txt&quot;\ncat My\\ Cool\\ File.txt</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-hidden-files\">Hidden Files</h2>\n<p>Files starting with <code>.</code> are hidden.</p>\n<p>Examples:</p>\n<pre><code class=\"language-text\">.bashrc\n.profile\n.config\n.local</code></pre>\n<p>Show hidden files:</p>\n<pre><code class=\"language-bash\">ls -a</code></pre>\n<p>Show long details too:</p>\n<pre><code class=\"language-bash\">ls -la</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-file-extensions-are-not-magic\">File Extensions Are Not Magic</h2>\n<p>Linux does not depend on extensions as much as Windows.</p>\n<p>This file can still be a script:</p>\n<pre><code class=\"language-text\">backup</code></pre>\n<p>This can be a text file:</p>\n<pre><code class=\"language-text\">notes.data</code></pre>\n<p>To inspect a file type:</p>\n<pre><code class=\"language-bash\">file somefile</code></pre>\n<p>Example:</p>\n<pre><code class=\"language-bash\">file song.mp3</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-3\">Mini Challenge</h2>\n<p>Run:</p>\n<pre><code class=\"language-bash\">cd ~\nls\nls -a\nls -la\nfile ~/.bashrc</code></pre>\n<p>Answer:</p>\n<ol><li>What hidden files do you see?</li><li>What does <code>file ~/.bashrc</code> say?</li><li>What is your home folder path?</li></ol>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-4-basic-commands\">Chapter 4: Basic Commands</h2>\n<p>These are your survival commands.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-pwd\"><code>pwd</code></h2>\n<p>Print current directory:</p>\n<pre><code class=\"language-bash\">pwd</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-ls\"><code>ls</code></h2>\n<p>List files:</p>\n<pre><code class=\"language-bash\">ls</code></pre>\n<p>Long format:</p>\n<pre><code class=\"language-bash\">ls -l</code></pre>\n<p>Show hidden files:</p>\n<pre><code class=\"language-bash\">ls -a</code></pre>\n<p>Human-readable sizes:</p>\n<pre><code class=\"language-bash\">ls -lh</code></pre>\n<p>Common combo:</p>\n<pre><code class=\"language-bash\">ls -lah</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-cd\"><code>cd</code></h2>\n<p>Change directory:</p>\n<pre><code class=\"language-bash\">cd ~/Downloads</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mkdir\"><code>mkdir</code></h2>\n<p>Create a directory:</p>\n<pre><code class=\"language-bash\">mkdir projects</code></pre>\n<p>Create parent directories as needed:</p>\n<pre><code class=\"language-bash\">mkdir -p ~/Projects/bash-guide/examples</code></pre>\n<p>The <code>-p</code> option is extremely useful because it avoids errors if parent folders do not exist.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-touch\"><code>touch</code></h2>\n<p>Create an empty file or update its modified time:</p>\n<pre><code class=\"language-bash\">touch notes.txt</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-cp\"><code>cp</code></h2>\n<p>Copy a file:</p>\n<pre><code class=\"language-bash\">cp notes.txt notes-backup.txt</code></pre>\n<p>Copy a folder recursively:</p>\n<pre><code class=\"language-bash\">cp -r myfolder myfolder-backup</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mv\"><code>mv</code></h2>\n<p>Move or rename:</p>\n<pre><code class=\"language-bash\">mv old.txt new.txt</code></pre>\n<p>Move into a folder:</p>\n<pre><code class=\"language-bash\">mv notes.txt ~/Documents/</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-rm\"><code>rm</code></h2>\n<p>Remove a file:</p>\n<pre><code class=\"language-bash\">rm notes.txt</code></pre>\n<p>Remove a folder recursively:</p>\n<pre><code class=\"language-bash\">rm -r old-folder</code></pre>\n<p>Force remove:</p>\n<pre><code class=\"language-bash\">rm -f file.txt</code></pre>\n<p>Danger combo:</p>\n<pre><code class=\"language-bash\">rm -rf something</code></pre>\n<p>Treat <code>rm -rf</code> like a chainsaw.</p>\n<p>Before deleting many files, preview them with <code>ls</code> or <code>find</code>.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-cat\"><code>cat</code></h2>\n<p>Print a file:</p>\n<pre><code class=\"language-bash\">cat notes.txt</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-less\"><code>less</code></h2>\n<p>View a file page by page:</p>\n<pre><code class=\"language-bash\">less bigfile.txt</code></pre>\n<p>Inside <code>less</code>:</p>\n<pre><code class=\"language-text\">q     quit\n/word search\nn     next match\nspace next page\nb     previous page</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-head\"><code>head</code></h2>\n<p>Show the first lines:</p>\n<pre><code class=\"language-bash\">head file.txt</code></pre>\n<p>Show first 20 lines:</p>\n<pre><code class=\"language-bash\">head -n 20 file.txt</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-tail\"><code>tail</code></h2>\n<p>Show the last lines:</p>\n<pre><code class=\"language-bash\">tail file.txt</code></pre>\n<p>Follow a changing file:</p>\n<pre><code class=\"language-bash\">tail -f app.log</code></pre>\n<p>This is useful for logs.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-clear\"><code>clear</code></h2>\n<p>Clear the terminal screen:</p>\n<pre><code class=\"language-bash\">clear</code></pre>\n<p>Shortcut:</p>\n<pre><code class=\"language-text\">Ctrl + L</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-4\">Mini Challenge</h2>\n<p>Create this structure:</p>\n<pre><code class=\"language-text\">~/bash-practice/\n\u251c\u2500\u2500 notes.txt\n\u251c\u2500\u2500 backups/\n\u2514\u2500\u2500 experiments/</code></pre>\n<p>Using commands only.</p>\n<p>Suggested answer:</p>\n<pre><code class=\"language-bash\">mkdir -p ~/bash-practice/backups\nmkdir -p ~/bash-practice/experiments\ntouch ~/bash-practice/notes.txt</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-5-reading-command-help\">Chapter 5: Reading Command Help</h2>\n<p>You do not need to memorize every option.</p>\n<p>You need to learn how to discover options.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-help\"><code>--help</code></h2>\n<p>Many commands support:</p>\n<pre><code class=\"language-bash\">command --help</code></pre>\n<p>Examples:</p>\n<pre><code class=\"language-bash\">ls --help\ncp --help\ngrep --help</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-man\"><code>man</code></h2>\n<p>Manual pages:</p>\n<pre><code class=\"language-bash\">man ls</code></pre>\n<p>Inside <code>man</code>:</p>\n<pre><code class=\"language-text\">q      quit\n/word  search\nn      next search result</code></pre>\n<p>Example:</p>\n<pre><code class=\"language-bash\">man grep</code></pre>\n<p>Manual pages can feel dense, but they are powerful.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-type\"><code>type</code></h2>\n<p>Find out what a command is:</p>\n<pre><code class=\"language-bash\">type cd\ntype ls\ntype python</code></pre>\n<p>Example outputs:</p>\n<pre><code class=\"language-bash\">cd is a shell builtin\nls is /usr/bin/ls\npython is /usr/bin/python</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-which\"><code>which</code></h2>\n<p>Find the path of a command:</p>\n<pre><code class=\"language-bash\">which python\nwhich bash</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-command-v\"><code>command -v</code></h2>\n<p>Often better for scripts:</p>\n<pre><code class=\"language-bash\">command -v python3</code></pre>\n<p>Check if a command exists:</p>\n<pre><code class=\"language-bash\">if command -v ffmpeg &gt;/dev/null 2&gt;&amp;1; then\n  echo &quot;ffmpeg is installed&quot;\nelse\n  echo &quot;ffmpeg is missing&quot;\nfi</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-5\">Mini Challenge</h2>\n<p>Run:</p>\n<pre><code class=\"language-bash\">type cd\ntype echo\ntype ls\nwhich bash\ncommand -v python3</code></pre>\n<p>Answer:</p>\n<ol><li>Which commands are built into Bash?</li><li>Which commands are external programs?</li><li>Where is Bash installed?</li></ol>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-6-errors-are-information\">Chapter 6: Errors Are Information</h2>\n<p>Errors are not failure. Errors are diagnostic output.</p>\n<p>Example:</p>\n<pre><code class=\"language-bash\">cat missing.txt</code></pre>\n<p>Output:</p>\n<pre><code class=\"language-bash\">cat: missing.txt: No such file or directory</code></pre>\n<p>That tells you:</p>\n<ul><li><code>cat</code> ran</li><li>It tried to open <code>missing.txt</code></li><li>The file does not exist at that path</li></ul>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-common-error-types\">Common Error Types</h2>\n<h3 id=\"bash-beginner-to-intermediate-guide-no-such-file-or-directory\">No such file or directory</h3>\n<pre><code class=\"language-bash\">cd not-a-real-folder</code></pre>\n<p>Means the path does not exist.</p>\n<hr />\n<h3 id=\"bash-beginner-to-intermediate-guide-permission-denied\">Permission denied</h3>\n<pre><code class=\"language-bash\">./script.sh</code></pre>\n<p>Possible output:</p>\n<pre><code class=\"language-bash\">Permission denied</code></pre>\n<p>Maybe the script is not executable.</p>\n<p>Fix:</p>\n<pre><code class=\"language-bash\">chmod +x script.sh</code></pre>\n<hr />\n<h3 id=\"bash-beginner-to-intermediate-guide-command-not-found\">Command not found</h3>\n<pre><code class=\"language-bash\">pythn</code></pre>\n<p>Output:</p>\n<pre><code class=\"language-bash\">pythn: command not found</code></pre>\n<p>Usually means typo or missing program.</p>\n<hr />\n<h3 id=\"bash-beginner-to-intermediate-guide-is-a-directory\">Is a directory</h3>\n<pre><code class=\"language-bash\">cat Documents</code></pre>\n<p>Means you tried to treat a folder like a file.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-standard-output-and-standard-error\">Standard Output and Standard Error</h2>\n<p>Commands usually have:</p>\n<pre><code class=\"language-text\">stdout  normal output\nstderr  error output\nstdin   input</code></pre>\n<p>Example:</p>\n<pre><code class=\"language-bash\">ls existing missing</code></pre>\n<p>Normal output may go to stdout. The error about <code>missing</code> goes to stderr.</p>\n<p>Redirect stderr:</p>\n<pre><code class=\"language-bash\">ls existing missing 2&gt; errors.txt</code></pre>\n<p>Redirect stdout:</p>\n<pre><code class=\"language-bash\">ls existing missing &gt; output.txt</code></pre>\n<p>Redirect both:</p>\n<pre><code class=\"language-bash\">ls existing missing &gt; all.txt 2&gt;&amp;1</code></pre>\n<p>Modern Bash shortcut:</p>\n<pre><code class=\"language-bash\">ls existing missing &amp;&gt; all.txt</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-6\">Mini Challenge</h2>\n<p>Run:</p>\n<pre><code class=\"language-bash\">cat definitely_missing_file.txt\necho $?</code></pre>\n<p>The <code>$?</code> shows the exit code of the previous command.</p>\n<p>Usually:</p>\n<pre><code class=\"language-text\">0 means success\nnon-zero means failure</code></pre>\n<hr />\n<h1 id=\"bash-beginner-to-intermediate-guide-part-2-file-and-text-power-2\">Part 2: File and Text Power</h1>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-7-viewing-files\">Chapter 7: Viewing Files</h2>\n<p>Bash work often starts by inspecting files.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-cat-2\"><code>cat</code></h2>\n<p>Good for small files:</p>\n<pre><code class=\"language-bash\">cat README.md</code></pre>\n<p>Bad for huge files because it floods your terminal.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-less-2\"><code>less</code></h2>\n<p>Better for large files:</p>\n<pre><code class=\"language-bash\">less README.md</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-head-2\"><code>head</code></h2>\n<p>Preview top:</p>\n<pre><code class=\"language-bash\">head README.md</code></pre>\n<p>First 5 lines:</p>\n<pre><code class=\"language-bash\">head -n 5 README.md</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-tail-2\"><code>tail</code></h2>\n<p>Preview bottom:</p>\n<pre><code class=\"language-bash\">tail README.md</code></pre>\n<p>Follow logs:</p>\n<pre><code class=\"language-bash\">tail -f app.log</code></pre>\n<p>Follow the last 100 lines:</p>\n<pre><code class=\"language-bash\">tail -n 100 -f app.log</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-wc\"><code>wc</code></h2>\n<p>Count lines, words, and bytes:</p>\n<pre><code class=\"language-bash\">wc notes.txt</code></pre>\n<p>Output format:</p>\n<pre><code class=\"language-text\">lines words bytes filename</code></pre>\n<p>Only lines:</p>\n<pre><code class=\"language-bash\">wc -l notes.txt</code></pre>\n<p>Only words:</p>\n<pre><code class=\"language-bash\">wc -w notes.txt</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-file\"><code>file</code></h2>\n<p>Identify file type:</p>\n<pre><code class=\"language-bash\">file image.png\nfile script.sh\nfile song.mp3</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-du\"><code>du</code></h2>\n<p>Check disk usage:</p>\n<pre><code class=\"language-bash\">du -sh ~/Downloads</code></pre>\n<p>Breakdown:</p>\n<pre><code class=\"language-text\">-s summary\n-h human-readable</code></pre>\n<p>Show sizes of folders:</p>\n<pre><code class=\"language-bash\">du -h --max-depth=1 ~/Downloads</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-7\">Mini Challenge</h2>\n<p>Pick a folder and run:</p>\n<pre><code class=\"language-bash\">ls -lah\ndu -sh .\nfind . -maxdepth 1 -type f | wc -l</code></pre>\n<p>Answer:</p>\n<ol><li>How many files are in the folder?</li><li>How large is the folder?</li><li>What are the biggest files?</li></ol>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-8-creating-copying-moving-and-removing-files\">Chapter 8: Creating, Copying, Moving, and Removing Files</h2>\n<p>File operations are where Bash starts feeling useful.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-create-files\">Create Files</h2>\n<pre><code class=\"language-bash\">touch notes.txt</code></pre>\n<p>Write text into a file:</p>\n<pre><code class=\"language-bash\">echo &quot;hello&quot; &gt; notes.txt</code></pre>\n<p>Append text:</p>\n<pre><code class=\"language-bash\">echo &quot;another line&quot; &gt;&gt; notes.txt</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-create-folders\">Create Folders</h2>\n<pre><code class=\"language-bash\">mkdir demo</code></pre>\n<p>Nested folders:</p>\n<pre><code class=\"language-bash\">mkdir -p demo/src demo/tests demo/docs</code></pre>\n<p>Brace expansion:</p>\n<pre><code class=\"language-bash\">mkdir -p demo/{src,tests,docs}</code></pre>\n<p>Creates:</p>\n<pre><code class=\"language-text\">demo/src\ndemo/tests\ndemo/docs</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-copy-files\">Copy Files</h2>\n<pre><code class=\"language-bash\">cp notes.txt notes-copy.txt</code></pre>\n<p>Copy into folder:</p>\n<pre><code class=\"language-bash\">cp notes.txt backups/</code></pre>\n<p>Copy folder:</p>\n<pre><code class=\"language-bash\">cp -r project project-backup</code></pre>\n<p>Preserve metadata:</p>\n<pre><code class=\"language-bash\">cp -a project project-backup</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-move-and-rename\">Move and Rename</h2>\n<p>Rename:</p>\n<pre><code class=\"language-bash\">mv old-name.txt new-name.txt</code></pre>\n<p>Move:</p>\n<pre><code class=\"language-bash\">mv notes.txt ~/Documents/</code></pre>\n<p>Move and rename:</p>\n<pre><code class=\"language-bash\">mv notes.txt ~/Documents/important-notes.txt</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-remove-safely\">Remove Safely</h2>\n<p>Delete one file:</p>\n<pre><code class=\"language-bash\">rm notes.txt</code></pre>\n<p>Prompt before deleting:</p>\n<pre><code class=\"language-bash\">rm -i notes.txt</code></pre>\n<p>Delete folder:</p>\n<pre><code class=\"language-bash\">rm -r old-folder</code></pre>\n<p>Prompt recursively:</p>\n<pre><code class=\"language-bash\">rm -ri old-folder</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-safer-delete-pattern\">Safer Delete Pattern</h2>\n<p>Instead of deleting immediately:</p>\n<pre><code class=\"language-bash\">mkdir -p ~/.trash-manual\nmv risky-file.txt ~/.trash-manual/</code></pre>\n<p>This gives you a chance to recover.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-dangerous-command-warning\">Dangerous Command Warning</h2>\n<p>Do not casually run commands like:</p>\n<pre><code class=\"language-bash\">rm -rf /\nrm -rf ~\nrm -rf *\nsudo rm -rf /some/path</code></pre>\n<p>Especially when using variables:</p>\n<pre><code class=\"language-bash\">rm -rf &quot;$target&quot;</code></pre>\n<p>If <code>$target</code> is empty or wrong, you can delete the wrong thing.</p>\n<p>Use guard checks:</p>\n<pre><code class=\"language-bash\">if [[ -z &quot;$target&quot; ]]; then\n  echo &quot;target is empty. Refusing to delete.&quot;\n  exit 1\nfi</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-8\">Mini Challenge</h2>\n<p>Create this:</p>\n<pre><code class=\"language-text\">sandbox/\n\u251c\u2500\u2500 input/\n\u2502   \u2514\u2500\u2500 notes.txt\n\u251c\u2500\u2500 output/\n\u2514\u2500\u2500 archive/</code></pre>\n<p>Then copy <code>notes.txt</code> to <code>archive</code>.</p>\n<p>Suggested commands:</p>\n<pre><code class=\"language-bash\">mkdir -p sandbox/{input,output,archive}\necho &quot;Practice file&quot; &gt; sandbox/input/notes.txt\ncp sandbox/input/notes.txt sandbox/archive/</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-9-wildcards-and-globs\">Chapter 9: Wildcards and Globs</h2>\n<p>Globs let you match files by pattern.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-section\"><code>*</code></h2>\n<p>Matches anything:</p>\n<pre><code class=\"language-bash\">ls *.txt</code></pre>\n<p>Shows all <code>.txt</code> files in the current directory.</p>\n<pre><code class=\"language-bash\">ls file*</code></pre>\n<p>Shows files starting with <code>file</code>.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-section-2\"><code>?</code></h2>\n<p>Matches one character:</p>\n<pre><code class=\"language-bash\">ls file?.txt</code></pre>\n<p>Matches:</p>\n<pre><code class=\"language-text\">file1.txt\nfileA.txt</code></pre>\n<p>Does not match:</p>\n<pre><code class=\"language-text\">file10.txt</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-character-sets\">Character Sets</h2>\n<pre><code class=\"language-bash\">ls file[123].txt</code></pre>\n<p>Matches:</p>\n<pre><code class=\"language-text\">file1.txt\nfile2.txt\nfile3.txt</code></pre>\n<p>Range:</p>\n<pre><code class=\"language-bash\">ls file[a-z].txt</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-brace-expansion\">Brace Expansion</h2>\n<p>Brace expansion creates multiple strings:</p>\n<pre><code class=\"language-bash\">echo {one,two,three}</code></pre>\n<p>Output:</p>\n<pre><code class=\"language-text\">one two three</code></pre>\n<p>Useful:</p>\n<pre><code class=\"language-bash\">mkdir -p project/{src,tests,docs}</code></pre>\n<p>Create multiple files:</p>\n<pre><code class=\"language-bash\">touch chapter-{01..10}.md</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-preview-before-acting\">Preview Before Acting</h2>\n<p>Before moving or deleting with globs, preview:</p>\n<pre><code class=\"language-bash\">printf &#x27;%s\\n&#x27; *.mp3</code></pre>\n<p>Then act:</p>\n<pre><code class=\"language-bash\">mv *.mp3 Music/</code></pre>\n<p>Do not do this blindly:</p>\n<pre><code class=\"language-bash\">rm *.txt</code></pre>\n<p>Instead:</p>\n<pre><code class=\"language-bash\">printf &#x27;%s\\n&#x27; *.txt\nrm -i *.txt</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-9\">Mini Challenge</h2>\n<p>Create ten files:</p>\n<pre><code class=\"language-bash\">touch file-{1..10}.txt</code></pre>\n<p>Then list:</p>\n<pre><code class=\"language-bash\">ls file-?.txt\nls file-1*.txt</code></pre>\n<p>What is the difference?</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-10-searching-files-and-text\">Chapter 10: Searching Files and Text</h2>\n<p>Searching is one of the most useful command-line skills.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-search-file-names-with-find\">Search File Names With <code>find</code></h2>\n<p>Find files:</p>\n<pre><code class=\"language-bash\">find . -type f</code></pre>\n<p>Find directories:</p>\n<pre><code class=\"language-bash\">find . -type d</code></pre>\n<p>Find by name:</p>\n<pre><code class=\"language-bash\">find . -name &quot;*.txt&quot;</code></pre>\n<p>Case-insensitive:</p>\n<pre><code class=\"language-bash\">find . -iname &quot;*.MP3&quot;</code></pre>\n<p>Limit depth:</p>\n<pre><code class=\"language-bash\">find . -maxdepth 2 -type f</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-search-text-with-grep\">Search Text With <code>grep</code></h2>\n<p>Search inside a file:</p>\n<pre><code class=\"language-bash\">grep &quot;error&quot; app.log</code></pre>\n<p>Case-insensitive:</p>\n<pre><code class=\"language-bash\">grep -i &quot;error&quot; app.log</code></pre>\n<p>Show line numbers:</p>\n<pre><code class=\"language-bash\">grep -n &quot;error&quot; app.log</code></pre>\n<p>Search recursively:</p>\n<pre><code class=\"language-bash\">grep -R &quot;TODO&quot; .</code></pre>\n<p>Search recursively with line numbers:</p>\n<pre><code class=\"language-bash\">grep -Rni &quot;TODO&quot; .</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-common-grep-options\">Common <code>grep</code> Options</h2>\n<pre><code class=\"language-text\">-i   ignore case\n-n   show line numbers\n-R   recursive\n-v   invert match\n-l   show only matching filenames\n-c   count matches</code></pre>\n<p>Examples:</p>\n<pre><code class=\"language-bash\">grep -Rni &quot;password&quot; .\ngrep -Rli &quot;api_key&quot; .\ngrep -v &quot;DEBUG&quot; app.log\ngrep -c &quot;ERROR&quot; app.log</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-ripgrep-optional-upgrade\"><code>ripgrep</code> Optional Upgrade</h2>\n<p>If installed, <code>rg</code> is often faster and nicer than <code>grep</code>.</p>\n<pre><code class=\"language-bash\">rg &quot;TODO&quot;\nrg -i &quot;error&quot;\nrg &quot;function_name&quot; src/</code></pre>\n<p>Install on Debian/Ubuntu/Pop!_OS:</p>\n<pre><code class=\"language-bash\">sudo apt install ripgrep</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-10\">Mini Challenge</h2>\n<p>Create a file:</p>\n<pre><code class=\"language-bash\">cat &gt; app.log &lt;&lt;&#x27;EOF&#x27;\nINFO Starting app\nWARN Missing config\nERROR Failed to connect\nINFO Retrying\nERROR Failed again\nEOF</code></pre>\n<p>Then run:</p>\n<pre><code class=\"language-bash\">grep &quot;ERROR&quot; app.log\ngrep -n &quot;ERROR&quot; app.log\ngrep -c &quot;ERROR&quot; app.log\ngrep -v &quot;INFO&quot; app.log</code></pre>\n<p>Explain each output.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-11-pipes-and-redirects\">Chapter 11: Pipes and Redirects</h2>\n<p>This is where Bash becomes magic.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-redirect-output-to-a-file\">Redirect Output to a File</h2>\n<p>Overwrite:</p>\n<pre><code class=\"language-bash\">echo &quot;hello&quot; &gt; message.txt</code></pre>\n<p>Append:</p>\n<pre><code class=\"language-bash\">echo &quot;world&quot; &gt;&gt; message.txt</code></pre>\n<p>Read:</p>\n<pre><code class=\"language-bash\">cat message.txt</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-redirect-input\">Redirect Input</h2>\n<pre><code class=\"language-bash\">wc -l &lt; message.txt</code></pre>\n<p>This sends the contents of <code>message.txt</code> into <code>wc</code>.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-pipes\">Pipes</h2>\n<p>A pipe sends the output of one command into another:</p>\n<pre><code class=\"language-bash\">cat app.log | grep &quot;ERROR&quot;</code></pre>\n<p>Better:</p>\n<pre><code class=\"language-bash\">grep &quot;ERROR&quot; app.log</code></pre>\n<p>But pipes shine when chaining tools:</p>\n<pre><code class=\"language-bash\">grep &quot;ERROR&quot; app.log | wc -l</code></pre>\n<p>This counts error lines.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-example-top-file-extensions\">Example: Top File Extensions</h2>\n<pre><code class=\"language-bash\">find . -type f \\\n  | sed &#x27;s/.*\\.//&#x27; \\\n  | sort \\\n  | uniq -c \\\n  | sort -nr \\\n  | head</code></pre>\n<p>This pipeline:</p>\n<ol><li>Finds files</li><li>Extracts extensions</li><li>Sorts them</li><li>Counts unique values</li><li>Sorts by count</li><li>Shows the top results</li></ol>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-tee\"><code>tee</code></h2>\n<p>Write output to screen and file:</p>\n<pre><code class=\"language-bash\">ls -lah | tee listing.txt</code></pre>\n<p>Append with <code>tee</code>:</p>\n<pre><code class=\"language-bash\">echo &quot;new log line&quot; | tee -a app.log</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-redirect-errors\">Redirect Errors</h2>\n<p>stderr only:</p>\n<pre><code class=\"language-bash\">command 2&gt; errors.txt</code></pre>\n<p>stdout only:</p>\n<pre><code class=\"language-bash\">command &gt; output.txt</code></pre>\n<p>Both stdout and stderr:</p>\n<pre><code class=\"language-bash\">command &gt; output.txt 2&gt;&amp;1</code></pre>\n<p>Shortcut:</p>\n<pre><code class=\"language-bash\">command &amp;&gt; output.txt</code></pre>\n<p>Discard output:</p>\n<pre><code class=\"language-bash\">command &gt;/dev/null</code></pre>\n<p>Discard errors:</p>\n<pre><code class=\"language-bash\">command 2&gt;/dev/null</code></pre>\n<p>Discard both:</p>\n<pre><code class=\"language-bash\">command &gt;/dev/null 2&gt;&amp;1</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-11\">Mini Challenge</h2>\n<p>Create a file with several lines, then run:</p>\n<pre><code class=\"language-bash\">cat file.txt | wc -l\ncat file.txt | sort\ncat file.txt | sort | uniq\ncat file.txt | sort | uniq -c</code></pre>\n<p>Explain what changes after each pipe.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-12-text-processing-basics\">Chapter 12: Text Processing Basics</h2>\n<p>Bash often means text processing.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-sort\"><code>sort</code></h2>\n<p>Sort lines:</p>\n<pre><code class=\"language-bash\">sort names.txt</code></pre>\n<p>Reverse:</p>\n<pre><code class=\"language-bash\">sort -r names.txt</code></pre>\n<p>Numeric sort:</p>\n<pre><code class=\"language-bash\">sort -n numbers.txt</code></pre>\n<p>Human-readable size sort:</p>\n<pre><code class=\"language-bash\">du -h * | sort -h</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-uniq\"><code>uniq</code></h2>\n<p>Remove adjacent duplicates:</p>\n<pre><code class=\"language-bash\">uniq names.txt</code></pre>\n<p>Usually use with <code>sort</code>:</p>\n<pre><code class=\"language-bash\">sort names.txt | uniq</code></pre>\n<p>Count duplicates:</p>\n<pre><code class=\"language-bash\">sort names.txt | uniq -c</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-cut\"><code>cut</code></h2>\n<p>Extract columns.</p>\n<p>Example CSV-like file:</p>\n<pre><code class=\"language-text\">name,age,city\nMaya,30,Indianapolis\nJordan,25,Chicago</code></pre>\n<p>Get first column:</p>\n<pre><code class=\"language-bash\">cut -d &#x27;,&#x27; -f 1 people.csv</code></pre>\n<p>Breakdown:</p>\n<pre><code class=\"language-text\">-d &#x27;,&#x27;   delimiter is comma\n-f 1     field 1</code></pre>\n<p>Get city:</p>\n<pre><code class=\"language-bash\">cut -d &#x27;,&#x27; -f 3 people.csv</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-tr\"><code>tr</code></h2>\n<p>Translate or delete characters.</p>\n<p>Lowercase to uppercase:</p>\n<pre><code class=\"language-bash\">echo &quot;hello&quot; | tr &#x27;a-z&#x27; &#x27;A-Z&#x27;</code></pre>\n<p>Spaces to newlines:</p>\n<pre><code class=\"language-bash\">echo &quot;one two three&quot; | tr &#x27; &#x27; &#x27;\\n&#x27;</code></pre>\n<p>Delete characters:</p>\n<pre><code class=\"language-bash\">echo &quot;hello!!!&quot; | tr -d &#x27;!&#x27;</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-sed\"><code>sed</code></h2>\n<p>Stream editor.</p>\n<p>Replace first match per line:</p>\n<pre><code class=\"language-bash\">sed &#x27;s/error/ERROR/&#x27; app.log</code></pre>\n<p>Replace all matches per line:</p>\n<pre><code class=\"language-bash\">sed &#x27;s/error/ERROR/g&#x27; app.log</code></pre>\n<p>In-place edit:</p>\n<pre><code class=\"language-bash\">sed -i &#x27;s/old/new/g&#x27; file.txt</code></pre>\n<p>Safer backup edit:</p>\n<pre><code class=\"language-bash\">sed -i.bak &#x27;s/old/new/g&#x27; file.txt</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-awk\"><code>awk</code></h2>\n<p>Pattern scanning and column processing.</p>\n<p>Print first column:</p>\n<pre><code class=\"language-bash\">awk &#x27;{print $1}&#x27; file.txt</code></pre>\n<p>Print first and third:</p>\n<pre><code class=\"language-bash\">awk &#x27;{print $1, $3}&#x27; file.txt</code></pre>\n<p>Sum numbers in column 2:</p>\n<pre><code class=\"language-bash\">awk &#x27;{sum += $2} END {print sum}&#x27; numbers.txt</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-12\">Mini Challenge</h2>\n<p>Create:</p>\n<pre><code class=\"language-bash\">cat &gt; people.csv &lt;&lt;&#x27;EOF&#x27;\nname,age,city\nMaya,30,Indianapolis\nJordan,25,Chicago\nSam,41,Detroit\nEOF</code></pre>\n<p>Then run:</p>\n<pre><code class=\"language-bash\">cut -d &#x27;,&#x27; -f 1 people.csv\ncut -d &#x27;,&#x27; -f 3 people.csv\ntail -n +2 people.csv | cut -d &#x27;,&#x27; -f 2</code></pre>\n<p>Explain why <code>tail -n +2</code> is useful.</p>\n<hr />\n<h1 id=\"bash-beginner-to-intermediate-guide-part-3-bash-scripting-basics-2\">Part 3: Bash Scripting Basics</h1>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-13-your-first-bash-script\">Chapter 13: Your First Bash Script</h2>\n<p>A script is a file containing commands.</p>\n<p>Create a file:</p>\n<pre><code class=\"language-bash\">nano hello.sh</code></pre>\n<p>Put this inside:</p>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\n\necho &quot;Hello from a Bash script!&quot;\necho &quot;Current folder: $(pwd)&quot;\necho &quot;Current user: $(whoami)&quot;</code></pre>\n<p>Run:</p>\n<pre><code class=\"language-bash\">bash hello.sh</code></pre>\n<p>Or make executable:</p>\n<pre><code class=\"language-bash\">chmod +x hello.sh\n./hello.sh</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-the-shebang\">The Shebang</h2>\n<p>This line:</p>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash</code></pre>\n<p>tells the system to run the script with Bash.</p>\n<p>Use it at the top of Bash scripts.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-script-file-names\">Script File Names</h2>\n<p>Common endings:</p>\n<pre><code class=\"language-text\">.sh\n.bash</code></pre>\n<p>But extension is optional.</p>\n<p>These can all be scripts:</p>\n<pre><code class=\"language-text\">backup.sh\nbackup\ndeploy\nclean-downloads</code></pre>\n<p>For learning, use <code>.sh</code>.</p>\n<p>For real command-line tools, extensionless names can feel cleaner.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-comments\">Comments</h2>\n<pre><code class=\"language-bash\"># This is a comment\necho &quot;This runs&quot;</code></pre>\n<p>Comments explain why, not just what.</p>\n<p>Bad:</p>\n<pre><code class=\"language-bash\"># Echo hello\necho &quot;hello&quot;</code></pre>\n<p>Better:</p>\n<pre><code class=\"language-bash\"># Confirm the script started before doing file operations.\necho &quot;Starting cleanup...&quot;</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-13\">Mini Challenge</h2>\n<p>Write a script named <code>system-check.sh</code> that prints:</p>\n<ul><li>Current user</li><li>Current folder</li><li>Current date</li><li>Disk usage of your home folder</li></ul>\n<p>Suggested commands:</p>\n<pre><code class=\"language-bash\">whoami\npwd\ndate\ndu -sh ~</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-14-variables\">Chapter 14: Variables</h2>\n<p>Variables store values.</p>\n<pre><code class=\"language-bash\">name=&quot;Xander&quot;\necho &quot;$name&quot;</code></pre>\n<p>Important:</p>\n<pre><code class=\"language-bash\">name = &quot;Xander&quot;   # wrong\nname=&quot;Xander&quot;     # right</code></pre>\n<p>Bash does not allow spaces around <code>=</code> in variable assignment.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-use-quotes-around-variables\">Use Quotes Around Variables</h2>\n<p>Prefer:</p>\n<pre><code class=\"language-bash\">echo &quot;$name&quot;</code></pre>\n<p>Not:</p>\n<pre><code class=\"language-bash\">echo $name</code></pre>\n<p>Why?</p>\n<p>If the value contains spaces, unquoted variables can break commands.</p>\n<p>Example:</p>\n<pre><code class=\"language-bash\">file=&quot;My Notes.txt&quot;\ncat &quot;$file&quot;</code></pre>\n<p>This works.</p>\n<p>This may fail:</p>\n<pre><code class=\"language-bash\">cat $file</code></pre>\n<p>Bash sees:</p>\n<pre><code class=\"language-bash\">cat My Notes.txt</code></pre>\n<p>as two different arguments.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-common-variable-examples\">Common Variable Examples</h2>\n<pre><code class=\"language-bash\">project_name=&quot;demo&quot;\nbase_dir=&quot;$HOME/Projects&quot;\ntarget=&quot;$base_dir/$project_name&quot;\n\necho &quot;$target&quot;</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-read-user-input\">Read User Input</h2>\n<pre><code class=\"language-bash\">read -r name\necho &quot;Hello, $name&quot;</code></pre>\n<p>Prompt:</p>\n<pre><code class=\"language-bash\">read -r -p &quot;Project name: &quot; project\necho &quot;Creating $project&quot;</code></pre>\n<p>The <code>-r</code> prevents backslash weirdness.</p>\n<p>Use it by default.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-environment-variables\">Environment Variables</h2>\n<p>Environment variables are available to programs.</p>\n<p>Examples:</p>\n<pre><code class=\"language-bash\">echo &quot;$HOME&quot;\necho &quot;$PATH&quot;\necho &quot;$USER&quot;\necho &quot;$SHELL&quot;</code></pre>\n<p>Set one temporarily:</p>\n<pre><code class=\"language-bash\">MY_MODE=dev ./script.sh</code></pre>\n<p>Inside script:</p>\n<pre><code class=\"language-bash\">echo &quot;$MY_MODE&quot;</code></pre>\n<p>Export one:</p>\n<pre><code class=\"language-bash\">export MY_MODE=dev</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-14\">Mini Challenge</h2>\n<p>Write a script that asks for a project name and creates:</p>\n<pre><code class=\"language-text\">~/Projects/project-name/\n\u251c\u2500\u2500 README.md\n\u251c\u2500\u2500 src/\n\u2514\u2500\u2500 tests/</code></pre>\n<p>Starter:</p>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\n\nread -r -p &quot;Project name: &quot; project\ntarget=&quot;$HOME/Projects/$project&quot;\n\nmkdir -p &quot;$target/src&quot; &quot;$target/tests&quot;\ntouch &quot;$target/README.md&quot;\n\necho &quot;Created $target&quot;</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-15-quoting-rules\">Chapter 15: Quoting Rules</h2>\n<p>Quoting is one of the most important Bash skills.</p>\n<p>Bash has three major quote styles:</p>\n<pre><code class=\"language-bash\">&quot;double quotes&quot;\n&#x27;single quotes&#x27;\n\\ escaping</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-double-quotes\">Double Quotes</h2>\n<p>Double quotes allow variables to expand:</p>\n<pre><code class=\"language-bash\">name=&quot;Maya&quot;\necho &quot;Hello, $name&quot;</code></pre>\n<p>Output:</p>\n<pre><code class=\"language-text\">Hello, Maya</code></pre>\n<p>Use double quotes around variables almost always.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-single-quotes\">Single Quotes</h2>\n<p>Single quotes prevent expansion:</p>\n<pre><code class=\"language-bash\">name=&quot;Maya&quot;\necho &#x27;Hello, $name&#x27;</code></pre>\n<p>Output:</p>\n<pre><code class=\"language-text\">Hello, $name</code></pre>\n<p>Useful when you want literal text.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-escaping\">Escaping</h2>\n<p>Use backslash to escape one character:</p>\n<pre><code class=\"language-bash\">echo &quot;She said \\&quot;hello\\&quot;&quot;</code></pre>\n<p>Use backslash for spaces:</p>\n<pre><code class=\"language-bash\">cat My\\ File.txt</code></pre>\n<p>But quotes are usually cleaner:</p>\n<pre><code class=\"language-bash\">cat &quot;My File.txt&quot;</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-the-golden-rule\">The Golden Rule</h2>\n<p>Use this:</p>\n<pre><code class=\"language-bash\">&quot;$variable&quot;</code></pre>\n<p>almost always.</p>\n<p>Especially for paths:</p>\n<pre><code class=\"language-bash\">rm &quot;$target&quot;\ncp &quot;$source&quot; &quot;$destination&quot;\nmv &quot;$old_name&quot; &quot;$new_name&quot;</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-word-splitting\">Word Splitting</h2>\n<p>Bash splits unquoted variables on spaces.</p>\n<pre><code class=\"language-bash\">file=&quot;My Notes.txt&quot;\necho $file</code></pre>\n<p>Bash sees two words:</p>\n<pre><code class=\"language-text\">My\nNotes.txt</code></pre>\n<p>Quoted:</p>\n<pre><code class=\"language-bash\">echo &quot;$file&quot;</code></pre>\n<p>Bash sees one argument.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-15\">Mini Challenge</h2>\n<p>Create a file with spaces:</p>\n<pre><code class=\"language-bash\">touch &quot;my cool file.txt&quot;</code></pre>\n<p>Try:</p>\n<pre><code class=\"language-bash\">ls my cool file.txt\nls &quot;my cool file.txt&quot;</code></pre>\n<p>Explain why the first one fails.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-16-command-substitution\">Chapter 16: Command Substitution</h2>\n<p>Command substitution stores command output.</p>\n<pre><code class=\"language-bash\">today=&quot;$(date +%F)&quot;\necho &quot;$today&quot;</code></pre>\n<p>Example output:</p>\n<pre><code class=\"language-text\">2026-05-16</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-old-style-vs-new-style\">Old Style vs New Style</h2>\n<p>Old style:</p>\n<pre><code class=\"language-bash\">today=`date +%F`</code></pre>\n<p>Preferred:</p>\n<pre><code class=\"language-bash\">today=&quot;$(date +%F)&quot;</code></pre>\n<p>The <code>$()</code> form is easier to read and nest.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-useful-examples\">Useful Examples</h2>\n<p>Current date:</p>\n<pre><code class=\"language-bash\">date_stamp=&quot;$(date +%Y-%m-%d)&quot;</code></pre>\n<p>Current username:</p>\n<pre><code class=\"language-bash\">current_user=&quot;$(whoami)&quot;</code></pre>\n<p>Number of files:</p>\n<pre><code class=\"language-bash\">file_count=&quot;$(find . -type f | wc -l)&quot;</code></pre>\n<p>Git branch:</p>\n<pre><code class=\"language-bash\">branch=&quot;$(git branch --show-current)&quot;</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-be-careful-with-multi-line-output\">Be Careful With Multi-Line Output</h2>\n<p>This:</p>\n<pre><code class=\"language-bash\">files=&quot;$(find . -type f)&quot;</code></pre>\n<p>stores multiple lines in one variable.</p>\n<p>Sometimes okay. Sometimes awkward.</p>\n<p>For processing files, loops or arrays are often better.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-16\">Mini Challenge</h2>\n<p>Write a script that creates a backup folder with today\u2019s date:</p>\n<pre><code class=\"language-bash\">backup_dir=&quot;$HOME/Backups/backup-$(date +%F)&quot;\nmkdir -p &quot;$backup_dir&quot;\necho &quot;Created $backup_dir&quot;</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-17-script-arguments\">Chapter 17: Script Arguments</h2>\n<p>Arguments let you pass values into a script.</p>\n<p>Script:</p>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\n\necho &quot;First argument: $1&quot;\necho &quot;Second argument: $2&quot;\necho &quot;All arguments: $@&quot;\necho &quot;Number of arguments: $#&quot;</code></pre>\n<p>Run:</p>\n<pre><code class=\"language-bash\">./args.sh apple banana cherry</code></pre>\n<p>Output:</p>\n<pre><code class=\"language-text\">First argument: apple\nSecond argument: banana\nAll arguments: apple banana cherry\nNumber of arguments: 3</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-special-argument-variables\">Special Argument Variables</h2>\n<pre><code class=\"language-text\">$0   script name\n$1   first argument\n$2   second argument\n$#   number of arguments\n$@   all arguments as separate values\n$*   all arguments as one string-ish value</code></pre>\n<p>Prefer <code>\"$@\"</code> when forwarding arguments.</p>\n<p>Example:</p>\n<pre><code class=\"language-bash\">for arg in &quot;$@&quot;; do\n  echo &quot;Argument: $arg&quot;\ndone</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-validate-required-arguments\">Validate Required Arguments</h2>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\n\nif [[ $# -lt 1 ]]; then\n  echo &quot;Usage: $0 FILE&quot;\n  exit 1\nfi\n\nfile=&quot;$1&quot;\necho &quot;You gave me: $file&quot;</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-example-count-lines\">Example: Count Lines</h2>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\n\nif [[ $# -ne 1 ]]; then\n  echo &quot;Usage: $0 FILE&quot;\n  exit 1\nfi\n\nfile=&quot;$1&quot;\n\nif [[ ! -f &quot;$file&quot; ]]; then\n  echo &quot;Error: file does not exist: $file&quot;\n  exit 1\nfi\n\nwc -l &quot;$file&quot;</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-17\">Mini Challenge</h2>\n<p>Write a script:</p>\n<pre><code class=\"language-bash\">./make-note.sh &quot;idea&quot;</code></pre>\n<p>It should create:</p>\n<pre><code class=\"language-text\">idea-YYYY-MM-DD.txt</code></pre>\n<p>Starter:</p>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\n\nif [[ $# -ne 1 ]]; then\n  echo &quot;Usage: $0 NOTE_NAME&quot;\n  exit 1\nfi\n\nname=&quot;$1&quot;\nfile=&quot;${name}-$(date +%F).txt&quot;\n\ntouch &quot;$file&quot;\necho &quot;Created $file&quot;</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-18-exit-codes\">Chapter 18: Exit Codes</h2>\n<p>Every command exits with a status code.</p>\n<pre><code class=\"language-text\">0     success\n1-255 failure or special meaning</code></pre>\n<p>Check the previous command:</p>\n<pre><code class=\"language-bash\">echo $?</code></pre>\n<p>Example:</p>\n<pre><code class=\"language-bash\">ls existing-file\necho $?</code></pre>\n<p>Likely:</p>\n<pre><code class=\"language-text\">0</code></pre>\n<p>Now:</p>\n<pre><code class=\"language-bash\">ls missing-file\necho $?</code></pre>\n<p>Likely:</p>\n<pre><code class=\"language-text\">2</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-use-exit-codes-in-scripts\">Use Exit Codes in Scripts</h2>\n<pre><code class=\"language-bash\">mkdir project\n\nif [[ $? -eq 0 ]]; then\n  echo &quot;Created project&quot;\nelse\n  echo &quot;Failed to create project&quot;\nfi</code></pre>\n<p>Better:</p>\n<pre><code class=\"language-bash\">if mkdir project; then\n  echo &quot;Created project&quot;\nelse\n  echo &quot;Failed to create project&quot;\nfi</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-section-3\"><code>&amp;&amp;</code></h2>\n<p>Run next command only if previous succeeded:</p>\n<pre><code class=\"language-bash\">mkdir demo &amp;&amp; cd demo</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-section-4\"><code>||</code></h2>\n<p>Run next command only if previous failed:</p>\n<pre><code class=\"language-bash\">cd demo || echo &quot;Could not enter demo&quot;</code></pre>\n<p>Common pattern:</p>\n<pre><code class=\"language-bash\">cd &quot;$project_dir&quot; || exit 1</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-combine\">Combine</h2>\n<pre><code class=\"language-bash\">mkdir demo &amp;&amp; echo &quot;created&quot; || echo &quot;failed&quot;</code></pre>\n<p>Be careful with complex <code>&amp;&amp; ||</code> chains. For scripts, <code>if</code> is often clearer.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-18\">Mini Challenge</h2>\n<p>Run:</p>\n<pre><code class=\"language-bash\">true\necho $?\n\nfalse\necho $?</code></pre>\n<p>Then:</p>\n<pre><code class=\"language-bash\">false || echo &quot;false failed&quot;\ntrue &amp;&amp; echo &quot;true succeeded&quot;</code></pre>\n<p>Explain what happened.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-19-conditionals\">Chapter 19: Conditionals</h2>\n<p>Conditionals let scripts make decisions.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-basic-if\">Basic <code>if</code></h2>\n<pre><code class=\"language-bash\">if [[ condition ]]; then\n  echo &quot;yes&quot;\nfi</code></pre>\n<p>Example:</p>\n<pre><code class=\"language-bash\">name=&quot;Xander&quot;\n\nif [[ &quot;$name&quot; == &quot;Xander&quot; ]]; then\n  echo &quot;Welcome back&quot;\nfi</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-else\"><code>else</code></h2>\n<pre><code class=\"language-bash\">if [[ &quot;$name&quot; == &quot;Xander&quot; ]]; then\n  echo &quot;Welcome back&quot;\nelse\n  echo &quot;Who are you?&quot;\nfi</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-elif\"><code>elif</code></h2>\n<pre><code class=\"language-bash\">if [[ &quot;$choice&quot; == &quot;1&quot; ]]; then\n  echo &quot;Start&quot;\nelif [[ &quot;$choice&quot; == &quot;2&quot; ]]; then\n  echo &quot;Stop&quot;\nelse\n  echo &quot;Unknown choice&quot;\nfi</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-file-tests\">File Tests</h2>\n<pre><code class=\"language-bash\">[[ -f &quot;$path&quot; ]]   # regular file\n[[ -d &quot;$path&quot; ]]   # directory\n[[ -e &quot;$path&quot; ]]   # exists\n[[ -r &quot;$path&quot; ]]   # readable\n[[ -w &quot;$path&quot; ]]   # writable\n[[ -x &quot;$path&quot; ]]   # executable\n[[ -s &quot;$path&quot; ]]   # exists and not empty</code></pre>\n<p>Example:</p>\n<pre><code class=\"language-bash\">if [[ -f &quot;$file&quot; ]]; then\n  echo &quot;File exists&quot;\nelse\n  echo &quot;File missing&quot;\nfi</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-string-tests\">String Tests</h2>\n<pre><code class=\"language-bash\">[[ -z &quot;$value&quot; ]]      # empty\n[[ -n &quot;$value&quot; ]]      # not empty\n[[ &quot;$a&quot; == &quot;$b&quot; ]]     # equal\n[[ &quot;$a&quot; != &quot;$b&quot; ]]     # not equal</code></pre>\n<p>Example:</p>\n<pre><code class=\"language-bash\">if [[ -z &quot;$username&quot; ]]; then\n  echo &quot;Username is empty&quot;\nfi</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-number-tests\">Number Tests</h2>\n<p>Inside <code>[[ ]]</code>:</p>\n<pre><code class=\"language-bash\">[[ &quot;$age&quot; -eq 18 ]]    # equal\n[[ &quot;$age&quot; -ne 18 ]]    # not equal\n[[ &quot;$age&quot; -gt 18 ]]    # greater than\n[[ &quot;$age&quot; -ge 18 ]]    # greater or equal\n[[ &quot;$age&quot; -lt 18 ]]    # less than\n[[ &quot;$age&quot; -le 18 ]]    # less or equal</code></pre>\n<p>You can also use arithmetic syntax:</p>\n<pre><code class=\"language-bash\">if (( age &gt;= 18 )); then\n  echo &quot;Adult&quot;\nfi</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-combining-conditions\">Combining Conditions</h2>\n<p>AND:</p>\n<pre><code class=\"language-bash\">if [[ -f &quot;$file&quot; &amp;&amp; -r &quot;$file&quot; ]]; then\n  echo &quot;Readable file&quot;\nfi</code></pre>\n<p>OR:</p>\n<pre><code class=\"language-bash\">if [[ &quot;$mode&quot; == &quot;dev&quot; || &quot;$mode&quot; == &quot;test&quot; ]]; then\n  echo &quot;Safe mode&quot;\nfi</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-19\">Mini Challenge</h2>\n<p>Write a script that accepts a path and says whether it is:</p>\n<ul><li>A file</li><li>A directory</li><li>Missing</li></ul>\n<p>Starter:</p>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\n\npath=&quot;$1&quot;\n\nif [[ -f &quot;$path&quot; ]]; then\n  echo &quot;File&quot;\nelif [[ -d &quot;$path&quot; ]]; then\n  echo &quot;Directory&quot;\nelse\n  echo &quot;Missing&quot;\nfi</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-20-loops\">Chapter 20: Loops</h2>\n<p>Loops repeat work.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-for-loop-over-words\"><code>for</code> Loop Over Words</h2>\n<pre><code class=\"language-bash\">for name in Maya Jordan Sam; do\n  echo &quot;Hello, $name&quot;\ndone</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-loop-over-files\">Loop Over Files</h2>\n<pre><code class=\"language-bash\">for file in *.txt; do\n  echo &quot;Found text file: $file&quot;\ndone</code></pre>\n<p>Important issue: if no <code>.txt</code> files exist, Bash may leave <code>*.txt</code> unchanged.</p>\n<p>Safer:</p>\n<pre><code class=\"language-bash\">shopt -s nullglob\n\nfor file in *.txt; do\n  echo &quot;Found text file: $file&quot;\ndone</code></pre>\n<p><code>nullglob</code> makes non-matching globs expand to nothing.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-c-style-loop\">C-Style Loop</h2>\n<pre><code class=\"language-bash\">for (( i=1; i&lt;=5; i++ )); do\n  echo &quot;$i&quot;\ndone</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-while-loop\"><code>while</code> Loop</h2>\n<pre><code class=\"language-bash\">count=1\n\nwhile (( count &lt;= 5 )); do\n  echo &quot;$count&quot;\n  ((count++))\ndone</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-read-file-line-by-line\">Read File Line By Line</h2>\n<pre><code class=\"language-bash\">while IFS= read -r line; do\n  echo &quot;Line: $line&quot;\ndone &lt; file.txt</code></pre>\n<p>This pattern preserves spaces and backslashes better than simpler versions.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-menu-loop\">Menu Loop</h2>\n<pre><code class=\"language-bash\">while true; do\n  echo &quot;1) Say hello&quot;\n  echo &quot;2) Show date&quot;\n  echo &quot;3) Quit&quot;\n\n  read -r -p &quot;Choose: &quot; choice\n\n  if [[ &quot;$choice&quot; == &quot;1&quot; ]]; then\n    echo &quot;Hello&quot;\n  elif [[ &quot;$choice&quot; == &quot;2&quot; ]]; then\n    date\n  elif [[ &quot;$choice&quot; == &quot;3&quot; ]]; then\n    break\n  else\n    echo &quot;Unknown choice&quot;\n  fi\ndone</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-break-and-continue\"><code>break</code> and <code>continue</code></h2>\n<p><code>break</code> exits a loop:</p>\n<pre><code class=\"language-bash\">for item in a b stop c; do\n  if [[ &quot;$item&quot; == &quot;stop&quot; ]]; then\n    break\n  fi\n  echo &quot;$item&quot;\ndone</code></pre>\n<p><code>continue</code> skips to the next iteration:</p>\n<pre><code class=\"language-bash\">for item in a skip b; do\n  if [[ &quot;$item&quot; == &quot;skip&quot; ]]; then\n    continue\n  fi\n  echo &quot;$item&quot;\ndone</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-20\">Mini Challenge</h2>\n<p>Write a script that loops over all <code>.jpg</code> files and prints:</p>\n<pre><code class=\"language-text\">Found image: filename.jpg</code></pre>\n<p>Bonus: Handle <code>.jpeg</code> and <code>.png</code>.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-21-functions\">Chapter 21: Functions</h2>\n<p>Functions are named chunks of reusable logic.</p>\n<pre><code class=\"language-bash\">say_hello() {\n  echo &quot;Hello&quot;\n}\n\nsay_hello</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-function-with-arguments\">Function With Arguments</h2>\n<pre><code class=\"language-bash\">greet() {\n  local name=&quot;$1&quot;\n  echo &quot;Hello, $name&quot;\n}\n\ngreet &quot;Maya&quot;\ngreet &quot;Jordan&quot;</code></pre>\n<p>Use <code>local</code> for variables inside functions when possible.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-return-values-vs-output\">Return Values vs Output</h2>\n<p>Bash functions usually return data by printing it.</p>\n<pre><code class=\"language-bash\">make_slug() {\n  local input=&quot;$1&quot;\n  echo &quot;$input&quot; | tr &#x27;A-Z &#x27; &#x27;a-z-&#x27;\n}\n\nslug=&quot;$(make_slug &quot;My Cool Project&quot;)&quot;\necho &quot;$slug&quot;</code></pre>\n<p>Function exit status:</p>\n<pre><code class=\"language-bash\">check_file() {\n  local file=&quot;$1&quot;\n\n  if [[ -f &quot;$file&quot; ]]; then\n    return 0\n  else\n    return 1\n  fi\n}\n\nif check_file &quot;notes.txt&quot;; then\n  echo &quot;File exists&quot;\nfi</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-example-logging-function\">Example: Logging Function</h2>\n<pre><code class=\"language-bash\">log() {\n  local message=&quot;$1&quot;\n  echo &quot;[$(date &#x27;+%Y-%m-%d %H:%M:%S&#x27;)] $message&quot;\n}\n\nlog &quot;Starting script&quot;\nlog &quot;Finished&quot;</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-example-require-command\">Example: Require Command</h2>\n<pre><code class=\"language-bash\">require_command() {\n  local command_name=&quot;$1&quot;\n\n  if ! command -v &quot;$command_name&quot; &gt;/dev/null 2&gt;&amp;1; then\n    echo &quot;Missing required command: $command_name&quot;\n    exit 1\n  fi\n}\n\nrequire_command &quot;ffmpeg&quot;\nrequire_command &quot;python3&quot;</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-21\">Mini Challenge</h2>\n<p>Write functions for:</p>\n<ul><li><code>log</code></li><li><code>die</code></li><li><code>require_command</code></li></ul>\n<p>Starter:</p>\n<pre><code class=\"language-bash\">log() {\n  echo &quot;[$(date &#x27;+%H:%M:%S&#x27;)] $*&quot;\n}\n\ndie() {\n  echo &quot;Error: $*&quot; &gt;&amp;2\n  exit 1\n}\n\nrequire_command() {\n  command -v &quot;$1&quot; &gt;/dev/null 2&gt;&amp;1 || die &quot;Missing command: $1&quot;\n}</code></pre>\n<hr />\n<h1 id=\"bash-beginner-to-intermediate-guide-part-4-intermediate-bash-2\">Part 4: Intermediate Bash</h1>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-22-safe-scripting-habits\">Chapter 22: Safe Scripting Habits</h2>\n<p>Bash can automate powerful actions, which means it can also automate mistakes.</p>\n<p>Build safety into your scripts.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-start-with-strict-ish-mode\">Start With Strict-ish Mode</h2>\n<p>Common starting point:</p>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\nset -euo pipefail</code></pre>\n<p>Meaning:</p>\n<pre><code class=\"language-text\">set -e      exit on many command failures\nset -u      error on unset variables\npipefail    fail pipeline if any command fails</code></pre>\n<p>This is useful, but not magic. You still need to write carefully.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-add-ifs\">Add <code>IFS</code></h2>\n<p>Sometimes people add:</p>\n<pre><code class=\"language-bash\">IFS=$&#x27;\\n\\t&#x27;</code></pre>\n<p>This changes how Bash splits words. It can help avoid some space-related issues, but it can also surprise beginners.</p>\n<p>Use it when you understand why.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-use-dry-run-mode\">Use Dry Run Mode</h2>\n<p>For scripts that move/delete/change files, add dry run mode.</p>\n<pre><code class=\"language-bash\">dry_run=true\n\nrun() {\n  if [[ &quot;$dry_run&quot; == true ]]; then\n    echo &quot;[DRY RUN] $*&quot;\n  else\n    &quot;$@&quot;\n  fi\n}\n\nrun mkdir -p &quot;$HOME/Test&quot;</code></pre>\n<p>This lets users preview actions before doing them.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-confirm-dangerous-actions\">Confirm Dangerous Actions</h2>\n<pre><code class=\"language-bash\">read -r -p &quot;Delete $target? Type YES: &quot; answer\n\nif [[ &quot;$answer&quot; != &quot;YES&quot; ]]; then\n  echo &quot;Cancelled&quot;\n  exit 0\nfi\n\nrm -r &quot;$target&quot;</code></pre>\n<p>Require something stronger than <code>y</code>.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-guard-against-empty-variables\">Guard Against Empty Variables</h2>\n<p>Danger:</p>\n<pre><code class=\"language-bash\">rm -rf &quot;$target&quot;</code></pre>\n<p>Safer:</p>\n<pre><code class=\"language-bash\">if [[ -z &quot;${target:-}&quot; ]]; then\n  echo &quot;target is empty. Refusing.&quot;\n  exit 1\nfi\n\nrm -rf &quot;$target&quot;</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-use-full-paths-in-automation\">Use Full Paths in Automation</h2>\n<p>Interactive:</p>\n<pre><code class=\"language-bash\">rm file.txt</code></pre>\n<p>Automation:</p>\n<pre><code class=\"language-bash\">rm &quot;$HOME/some-folder/file.txt&quot;</code></pre>\n<p>Full paths reduce surprises.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-22\">Mini Challenge</h2>\n<p>Take a file-moving script and add:</p>\n<ul><li><code>dry_run=true</code></li><li>a <code>run</code> function</li><li>confirmation before destructive actions</li></ul>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-23-working-with-files-safely\">Chapter 23: Working With Files Safely</h2>\n<p>Filenames can contain spaces, tabs, newlines, dashes, and weird characters.</p>\n<p>A robust script respects that.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-bad-pattern\">Bad Pattern</h2>\n<pre><code class=\"language-bash\">for file in $(find . -type f); do\n  echo &quot;$file&quot;\ndone</code></pre>\n<p>This breaks on spaces.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-better-pattern-with-find-print0\">Better Pattern With <code>find -print0</code></h2>\n<pre><code class=\"language-bash\">find . -type f -print0 | while IFS= read -r -d &#x27;&#x27; file; do\n  echo &quot;File: $file&quot;\ndone</code></pre>\n<p>This uses null characters as separators, which handles weird filenames better.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-end-of-options\"><code>--</code> End of Options</h2>\n<p>If a filename starts with a dash, commands may think it is an option.</p>\n<p>Example filename:</p>\n<pre><code class=\"language-text\">-danger.txt</code></pre>\n<p>Safer:</p>\n<pre><code class=\"language-bash\">rm -- &quot;$file&quot;\nmv -- &quot;$source&quot; &quot;$target&quot;\ncp -- &quot;$source&quot; &quot;$target&quot;</code></pre>\n<p><code>--</code> means \u201cstop reading options.\u201d</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-check-before-overwriting\">Check Before Overwriting</h2>\n<pre><code class=\"language-bash\">if [[ -e &quot;$target&quot; ]]; then\n  echo &quot;Refusing to overwrite: $target&quot;\n  exit 1\nfi\n\ncp -- &quot;$source&quot; &quot;$target&quot;</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-atomic-ish-writes\">Atomic-ish Writes</h2>\n<p>Instead of writing directly to an important file:</p>\n<pre><code class=\"language-bash\">generate_config &gt; config.json</code></pre>\n<p>Use temp file then move:</p>\n<pre><code class=\"language-bash\">tmp=&quot;$(mktemp)&quot;\ngenerate_config &gt; &quot;$tmp&quot;\nmv &quot;$tmp&quot; config.json</code></pre>\n<p>This reduces risk of leaving a half-written file.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-temporary-files\">Temporary Files</h2>\n<pre><code class=\"language-bash\">tmp=&quot;$(mktemp)&quot;\necho &quot;Temporary file: $tmp&quot;</code></pre>\n<p>Temporary directory:</p>\n<pre><code class=\"language-bash\">tmpdir=&quot;$(mktemp -d)&quot;\necho &quot;Temporary directory: $tmpdir&quot;</code></pre>\n<p>Clean up with trap:</p>\n<pre><code class=\"language-bash\">tmpdir=&quot;$(mktemp -d)&quot;\n\ncleanup() {\n  rm -rf &quot;$tmpdir&quot;\n}\n\ntrap cleanup EXIT</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-23\">Mini Challenge</h2>\n<p>Write a script that safely creates a temporary directory, writes a file inside it, prints the path, and automatically deletes it when the script exits.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-24-arrays\">Chapter 24: Arrays</h2>\n<p>Arrays store multiple values.</p>\n<pre><code class=\"language-bash\">names=(&quot;Maya&quot; &quot;Jordan&quot; &quot;Sam&quot;)\n\necho &quot;${names[0]}&quot;\necho &quot;${names[1]}&quot;</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-loop-over-array\">Loop Over Array</h2>\n<pre><code class=\"language-bash\">for name in &quot;${names[@]}&quot;; do\n  echo &quot;$name&quot;\ndone</code></pre>\n<p>Always quote <code>\"${array[@]}\"</code>.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-add-to-array\">Add to Array</h2>\n<pre><code class=\"language-bash\">names+=(&quot;Taylor&quot;)</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-number-of-items\">Number of Items</h2>\n<pre><code class=\"language-bash\">echo &quot;${#names[@]}&quot;</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-array-of-commands-or-files\">Array of Commands or Files</h2>\n<pre><code class=\"language-bash\">files=(&quot;notes.txt&quot; &quot;My File.txt&quot; &quot;report.md&quot;)\n\nfor file in &quot;${files[@]}&quot;; do\n  echo &quot;Processing $file&quot;\ndone</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-build-array-from-find\">Build Array From Find</h2>\n<p>This can be okay for simple filenames:</p>\n<pre><code class=\"language-bash\">mapfile -t files &lt; &lt;(find . -type f -name &quot;*.txt&quot;)\n\nfor file in &quot;${files[@]}&quot;; do\n  echo &quot;$file&quot;\ndone</code></pre>\n<p>For maximum weird-filename safety, use null-separated handling:</p>\n<pre><code class=\"language-bash\">files=()\n\nwhile IFS= read -r -d &#x27;&#x27; file; do\n  files+=(&quot;$file&quot;)\ndone &lt; &lt;(find . -type f -name &quot;*.txt&quot; -print0)</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-24\">Mini Challenge</h2>\n<p>Create an array of folder names:</p>\n<pre><code class=\"language-bash\">folders=(&quot;src&quot; &quot;tests&quot; &quot;docs&quot; &quot;scripts&quot;)</code></pre>\n<p>Loop over it and create each folder.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-25-case-statements\">Chapter 25: Case Statements</h2>\n<p><code>case</code> is great for menus and command handling.</p>\n<pre><code class=\"language-bash\">case &quot;$choice&quot; in\n  start)\n    echo &quot;Starting&quot;\n    ;;\n  stop)\n    echo &quot;Stopping&quot;\n    ;;\n  restart)\n    echo &quot;Restarting&quot;\n    ;;\n  *)\n    echo &quot;Unknown choice&quot;\n    ;;\nesac</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-menu-example\">Menu Example</h2>\n<pre><code class=\"language-bash\">read -r -p &quot;Command: &quot; command\n\ncase &quot;$command&quot; in\n  add)\n    echo &quot;Adding item&quot;\n    ;;\n  list)\n    echo &quot;Listing items&quot;\n    ;;\n  quit|exit)\n    echo &quot;Goodbye&quot;\n    ;;\n  *)\n    echo &quot;Unknown command: $command&quot;\n    ;;\nesac</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-pattern-matching\">Pattern Matching</h2>\n<pre><code class=\"language-bash\">case &quot;$file&quot; in\n  *.jpg|*.jpeg|*.png)\n    echo &quot;Image file&quot;\n    ;;\n  *.mp3|*.wav|*.flac)\n    echo &quot;Audio file&quot;\n    ;;\n  *.txt|*.md)\n    echo &quot;Text file&quot;\n    ;;\n  *)\n    echo &quot;Other file&quot;\n    ;;\nesac</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-25\">Mini Challenge</h2>\n<p>Write a script that accepts a filename and prints whether it appears to be:</p>\n<ul><li>Image</li><li>Audio</li><li>Video</li><li>Text</li><li>Other</li></ul>\n<p>Use <code>case</code>.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-26-logging\">Chapter 26: Logging</h2>\n<p>Logging helps you understand what a script did.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-simple-logging-function\">Simple Logging Function</h2>\n<pre><code class=\"language-bash\">log() {\n  echo &quot;[$(date &#x27;+%Y-%m-%d %H:%M:%S&#x27;)] $*&quot;\n}\n\nlog &quot;Starting backup&quot;\nlog &quot;Backup complete&quot;</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-log-to-file\">Log to File</h2>\n<pre><code class=\"language-bash\">log_file=&quot;$HOME/script.log&quot;\n\nlog() {\n  echo &quot;[$(date &#x27;+%Y-%m-%d %H:%M:%S&#x27;)] $*&quot; | tee -a &quot;$log_file&quot;\n}</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-separate-info-and-error\">Separate Info and Error</h2>\n<pre><code class=\"language-bash\">info() {\n  echo &quot;[INFO] $*&quot;\n}\n\nerror() {\n  echo &quot;[ERROR] $*&quot; &gt;&amp;2\n}</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-verbose-mode\">Verbose Mode</h2>\n<pre><code class=\"language-bash\">verbose=false\n\nlog_debug() {\n  if [[ &quot;$verbose&quot; == true ]]; then\n    echo &quot;[DEBUG] $*&quot;\n  fi\n}</code></pre>\n<p>Parse flag:</p>\n<pre><code class=\"language-bash\">if [[ &quot;${1:-}&quot; == &quot;--verbose&quot; ]]; then\n  verbose=true\nfi</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-26\">Mini Challenge</h2>\n<p>Add logging to a file organizer script:</p>\n<ul><li>Log when script starts</li><li>Log each file moved</li><li>Log when script finishes</li><li>Log errors to stderr</li></ul>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-27-debugging-bash-scripts\">Chapter 27: Debugging Bash Scripts</h2>\n<p>Debugging Bash means learning to inspect what Bash is actually doing.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-set-x\"><code>set -x</code></h2>\n<p>Print commands as they run:</p>\n<pre><code class=\"language-bash\">set -x\necho &quot;hello&quot;\nset +x</code></pre>\n<p>Run whole script with tracing:</p>\n<pre><code class=\"language-bash\">bash -x script.sh</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-set-e\"><code>set -e</code></h2>\n<p>Exit on command failure:</p>\n<pre><code class=\"language-bash\">set -e</code></pre>\n<p>Useful, but can surprise you in conditionals and pipelines.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-set-u\"><code>set -u</code></h2>\n<p>Error on unset variables:</p>\n<pre><code class=\"language-bash\">set -u</code></pre>\n<p>This catches typos:</p>\n<pre><code class=\"language-bash\">echo &quot;$usrename&quot;</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-pipefail\"><code>pipefail</code></h2>\n<p>Without pipefail, this may hide failure:</p>\n<pre><code class=\"language-bash\">missing_command | sort</code></pre>\n<p>With pipefail:</p>\n<pre><code class=\"language-bash\">set -o pipefail</code></pre>\n<p>The pipeline fails if any part fails.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-print-variables\">Print Variables</h2>\n<p>Sometimes the best debug tool is boring:</p>\n<pre><code class=\"language-bash\">echo &quot;DEBUG: target=$target&quot;</code></pre>\n<p>More explicit:</p>\n<pre><code class=\"language-bash\">printf &#x27;DEBUG: target=&lt;%s&gt;\\n&#x27; &quot;$target&quot;</code></pre>\n<p>The angle brackets help reveal spaces.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-shellcheck\">ShellCheck</h2>\n<p>ShellCheck is a linter for shell scripts.</p>\n<p>Install:</p>\n<pre><code class=\"language-bash\">sudo apt install shellcheck</code></pre>\n<p>Run:</p>\n<pre><code class=\"language-bash\">shellcheck script.sh</code></pre>\n<p>It catches many common Bash mistakes.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-common-bugs\">Common Bugs</h2>\n<h3 id=\"bash-beginner-to-intermediate-guide-spaces-around-equals\">Spaces around equals</h3>\n<p>Wrong:</p>\n<pre><code class=\"language-bash\">name = &quot;Maya&quot;</code></pre>\n<p>Right:</p>\n<pre><code class=\"language-bash\">name=&quot;Maya&quot;</code></pre>\n<hr />\n<h3 id=\"bash-beginner-to-intermediate-guide-missing-quotes\">Missing quotes</h3>\n<p>Risky:</p>\n<pre><code class=\"language-bash\">rm $file</code></pre>\n<p>Better:</p>\n<pre><code class=\"language-bash\">rm -- &quot;$file&quot;</code></pre>\n<hr />\n<h3 id=\"bash-beginner-to-intermediate-guide-using-when-is-better\">Using <code>[</code> when <code>[[</code> is better</h3>\n<p>Prefer Bash\u2019s:</p>\n<pre><code class=\"language-bash\">[[ &quot;$name&quot; == &quot;Maya&quot; ]]</code></pre>\n<p>over older:</p>\n<pre><code class=\"language-bash\">[ &quot;$name&quot; = &quot;Maya&quot; ]</code></pre>\n<hr />\n<h3 id=\"bash-beginner-to-intermediate-guide-looping-over-ls\">Looping over <code>ls</code></h3>\n<p>Bad:</p>\n<pre><code class=\"language-bash\">for file in $(ls); do\n  echo &quot;$file&quot;\ndone</code></pre>\n<p>Better:</p>\n<pre><code class=\"language-bash\">for file in *; do\n  echo &quot;$file&quot;\ndone</code></pre>\n<p>Or for recursive:</p>\n<pre><code class=\"language-bash\">find . -type f -print0 | while IFS= read -r -d &#x27;&#x27; file; do\n  echo &quot;$file&quot;\ndone</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-27\">Mini Challenge</h2>\n<p>Create a buggy script:</p>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\n\nfile = &quot;My File.txt&quot;\ncat $file</code></pre>\n<p>Run:</p>\n<pre><code class=\"language-bash\">shellcheck buggy.sh</code></pre>\n<p>Fix the script.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-28-using-find\">Chapter 28: Using <code>find</code></h2>\n<p><code>find</code> searches directories.</p>\n<p>Basic:</p>\n<pre><code class=\"language-bash\">find . -type f</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-find-files-by-name\">Find Files By Name</h2>\n<pre><code class=\"language-bash\">find . -type f -name &quot;*.txt&quot;</code></pre>\n<p>Case-insensitive:</p>\n<pre><code class=\"language-bash\">find . -type f -iname &quot;*.jpg&quot;</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-find-directories\">Find Directories</h2>\n<pre><code class=\"language-bash\">find . -type d</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-limit-depth\">Limit Depth</h2>\n<pre><code class=\"language-bash\">find . -maxdepth 1 -type f\nfind . -maxdepth 2 -type f</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-find-by-size\">Find By Size</h2>\n<p>Larger than 100MB:</p>\n<pre><code class=\"language-bash\">find . -type f -size +100M</code></pre>\n<p>Smaller than 10KB:</p>\n<pre><code class=\"language-bash\">find . -type f -size -10k</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-find-by-modified-time\">Find By Modified Time</h2>\n<p>Modified in last 7 days:</p>\n<pre><code class=\"language-bash\">find . -type f -mtime -7</code></pre>\n<p>Modified more than 30 days ago:</p>\n<pre><code class=\"language-bash\">find . -type f -mtime +30</code></pre>\n<p>Modified in last 60 minutes:</p>\n<pre><code class=\"language-bash\">find . -type f -mmin -60</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-find-empty-files-or-directories\">Find Empty Files or Directories</h2>\n<pre><code class=\"language-bash\">find . -empty</code></pre>\n<p>Only empty files:</p>\n<pre><code class=\"language-bash\">find . -type f -empty</code></pre>\n<p>Only empty directories:</p>\n<pre><code class=\"language-bash\">find . -type d -empty</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-execute-command\">Execute Command</h2>\n<p>Print file info:</p>\n<pre><code class=\"language-bash\">find . -type f -name &quot;*.txt&quot; -exec file {} \\;</code></pre>\n<p>Copy matching files:</p>\n<pre><code class=\"language-bash\">find . -type f -name &quot;*.txt&quot; -exec cp {} backup/ \\;</code></pre>\n<p>Use <code>+</code> to pass many files at once:</p>\n<pre><code class=\"language-bash\">find . -type f -name &quot;*.txt&quot; -exec grep -n &quot;TODO&quot; {} +</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-safer-null-output\">Safer Null Output</h2>\n<pre><code class=\"language-bash\">find . -type f -print0</code></pre>\n<p>Use with while loop:</p>\n<pre><code class=\"language-bash\">find . -type f -print0 | while IFS= read -r -d &#x27;&#x27; file; do\n  echo &quot;$file&quot;\ndone</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-28\">Mini Challenge</h2>\n<p>Find:</p>\n<ol><li>All <code>.log</code> files</li><li>All files larger than 50MB</li><li>All files modified in the last day</li><li>All empty directories</li></ol>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-29-using-xargs\">Chapter 29: Using <code>xargs</code></h2>\n<p><code>xargs</code> builds command arguments from input.</p>\n<p>Example:</p>\n<pre><code class=\"language-bash\">find . -type f -name &quot;*.log&quot; | xargs wc -l</code></pre>\n<p>This finds log files and runs <code>wc -l</code> on them.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-problem-with-spaces\">Problem With Spaces</h2>\n<p>This can break on filenames with spaces:</p>\n<pre><code class=\"language-bash\">find . -type f | xargs file</code></pre>\n<p>Safer:</p>\n<pre><code class=\"language-bash\">find . -type f -print0 | xargs -0 file</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-preview-with-echo\">Preview With <code>echo</code></h2>\n<p>Before deleting:</p>\n<pre><code class=\"language-bash\">find . -type f -name &quot;*.tmp&quot; -print0 | xargs -0 echo rm --</code></pre>\n<p>Actually delete:</p>\n<pre><code class=\"language-bash\">find . -type f -name &quot;*.tmp&quot; -print0 | xargs -0 rm --</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-limit-arguments\">Limit Arguments</h2>\n<p>Run one at a time:</p>\n<pre><code class=\"language-bash\">find . -type f -name &quot;*.txt&quot; -print0 | xargs -0 -n 1 file</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-replace-placeholder\">Replace Placeholder</h2>\n<pre><code class=\"language-bash\">find . -type f -name &quot;*.txt&quot; -print0 | xargs -0 -I {} echo &quot;Found: {}&quot;</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-find-exec-vs-xargs\"><code>find -exec</code> vs <code>xargs</code></h2>\n<p>Use <code>find -exec</code> when you want simplicity:</p>\n<pre><code class=\"language-bash\">find . -type f -name &quot;*.txt&quot; -exec file {} \\;</code></pre>\n<p>Use <code>xargs</code> when you want efficient batching:</p>\n<pre><code class=\"language-bash\">find . -type f -name &quot;*.txt&quot; -print0 | xargs -0 file</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-29\">Mini Challenge</h2>\n<p>Find all <code>.bak</code> files and preview the delete command before deleting them.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-30-using-sed\">Chapter 30: Using <code>sed</code></h2>\n<p><code>sed</code> edits streams of text.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-substitute-text\">Substitute Text</h2>\n<pre><code class=\"language-bash\">sed &#x27;s/old/new/&#x27; file.txt</code></pre>\n<p>Replaces first occurrence per line.</p>\n<p>All occurrences:</p>\n<pre><code class=\"language-bash\">sed &#x27;s/old/new/g&#x27; file.txt</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-in-place-edit\">In-Place Edit</h2>\n<pre><code class=\"language-bash\">sed -i &#x27;s/old/new/g&#x27; file.txt</code></pre>\n<p>Safer backup:</p>\n<pre><code class=\"language-bash\">sed -i.bak &#x27;s/old/new/g&#x27; file.txt</code></pre>\n<p>Creates:</p>\n<pre><code class=\"language-text\">file.txt\nfile.txt.bak</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-delete-lines-matching-pattern\">Delete Lines Matching Pattern</h2>\n<pre><code class=\"language-bash\">sed &#x27;/DEBUG/d&#x27; app.log</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-print-specific-lines\">Print Specific Lines</h2>\n<pre><code class=\"language-bash\">sed -n &#x27;1,10p&#x27; file.txt</code></pre>\n<p>Print lines 1 through 10.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-replace-paths\">Replace Paths</h2>\n<p>If replacement contains slashes, use a different delimiter:</p>\n<pre><code class=\"language-bash\">sed &#x27;s|/old/path|/new/path|g&#x27; config.txt</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-30\">Mini Challenge</h2>\n<p>Create:</p>\n<pre><code class=\"language-bash\">cat &gt; config.txt &lt;&lt;&#x27;EOF&#x27;\nmode=dev\nurl=http://localhost:3000\ndebug=true\nEOF</code></pre>\n<p>Use <code>sed</code> to change:</p>\n<pre><code class=\"language-text\">mode=prod\ndebug=false</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-31-using-awk\">Chapter 31: Using <code>awk</code></h2>\n<p><code>awk</code> is excellent for column-based text.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-print-columns\">Print Columns</h2>\n<pre><code class=\"language-bash\">awk &#x27;{print $1}&#x27; file.txt\nawk &#x27;{print $1, $3}&#x27; file.txt</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-use-custom-delimiter\">Use Custom Delimiter</h2>\n<p>CSV:</p>\n<pre><code class=\"language-bash\">awk -F &#x27;,&#x27; &#x27;{print $1}&#x27; people.csv</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-skip-header\">Skip Header</h2>\n<pre><code class=\"language-bash\">awk -F &#x27;,&#x27; &#x27;NR &gt; 1 {print $1}&#x27; people.csv</code></pre>\n<p><code>NR</code> is the current line number.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-filter-rows\">Filter Rows</h2>\n<p>Print rows where column 2 is greater than 30:</p>\n<pre><code class=\"language-bash\">awk -F &#x27;,&#x27; &#x27;$2 &gt; 30 {print $0}&#x27; people.csv</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-sum-values\">Sum Values</h2>\n<pre><code class=\"language-bash\">awk &#x27;{sum += $1} END {print sum}&#x27; numbers.txt</code></pre>\n<p>Average:</p>\n<pre><code class=\"language-bash\">awk &#x27;{sum += $1; count++} END {print sum / count}&#x27; numbers.txt</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-pretty-output\">Pretty Output</h2>\n<pre><code class=\"language-bash\">awk -F &#x27;,&#x27; &#x27;NR &gt; 1 {print &quot;Name:&quot;, $1, &quot;| City:&quot;, $3}&#x27; people.csv</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-31\">Mini Challenge</h2>\n<p>Create:</p>\n<pre><code class=\"language-bash\">cat &gt; sales.csv &lt;&lt;&#x27;EOF&#x27;\nname,amount\nwebsite,100\nhosting,25\nmaintenance,50\nEOF</code></pre>\n<p>Use <code>awk</code> to sum the <code>amount</code> column.</p>\n<p>Suggested:</p>\n<pre><code class=\"language-bash\">awk -F &#x27;,&#x27; &#x27;NR &gt; 1 {sum += $2} END {print sum}&#x27; sales.csv</code></pre>\n<hr />\n<h1 id=\"bash-beginner-to-intermediate-guide-part-5-real-projects-2\">Part 5: Real Projects</h1>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-32-project-1-downloads-cleaner\">Chapter 32: Project 1: Downloads Cleaner</h2>\n<p>Goal:</p>\n<p>Create a script that organizes files in <code>~/Downloads</code> by extension.</p>\n<p>Example:</p>\n<pre><code class=\"language-text\">Downloads/\n\u251c\u2500\u2500 image.png\n\u251c\u2500\u2500 song.mp3\n\u251c\u2500\u2500 notes.txt</code></pre>\n<p>After:</p>\n<pre><code class=\"language-text\">Downloads/\n\u251c\u2500\u2500 png/\n\u2502   \u2514\u2500\u2500 image.png\n\u251c\u2500\u2500 mp3/\n\u2502   \u2514\u2500\u2500 song.mp3\n\u2514\u2500\u2500 txt/\n    \u2514\u2500\u2500 notes.txt</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-version-1-basic-cleaner\">Version 1: Basic Cleaner</h2>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\n\nset -euo pipefail\nshopt -s nullglob\n\nsource_dir=&quot;$HOME/Downloads&quot;\n\nfor file in &quot;$source_dir&quot;/*; do\n  if [[ ! -f &quot;$file&quot; ]]; then\n    continue\n  fi\n\n  filename=&quot;$(basename &quot;$file&quot;)&quot;\n  extension=&quot;${filename##*.}&quot;\n\n  if [[ &quot;$filename&quot; == &quot;$extension&quot; ]]; then\n    extension=&quot;no-extension&quot;\n  fi\n\n  target_dir=&quot;$source_dir/$extension&quot;\n  mkdir -p &quot;$target_dir&quot;\n\n  mv -- &quot;$file&quot; &quot;$target_dir/&quot;\n  echo &quot;Moved $filename -&gt; $extension/&quot;\ndone</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-version-2-dry-run-mode\">Version 2: Dry Run Mode</h2>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\n\nset -euo pipefail\nshopt -s nullglob\n\nsource_dir=&quot;$HOME/Downloads&quot;\ndry_run=true\n\nrun() {\n  if [[ &quot;$dry_run&quot; == true ]]; then\n    echo &quot;[DRY RUN] $*&quot;\n  else\n    &quot;$@&quot;\n  fi\n}\n\nfor file in &quot;$source_dir&quot;/*; do\n  if [[ ! -f &quot;$file&quot; ]]; then\n    continue\n  fi\n\n  filename=&quot;$(basename &quot;$file&quot;)&quot;\n  extension=&quot;${filename##*.}&quot;\n\n  if [[ &quot;$filename&quot; == &quot;$extension&quot; ]]; then\n    extension=&quot;no-extension&quot;\n  fi\n\n  target_dir=&quot;$source_dir/$extension&quot;\n\n  run mkdir -p &quot;$target_dir&quot;\n  run mv -- &quot;$file&quot; &quot;$target_dir/&quot;\ndone</code></pre>\n<p>Change:</p>\n<pre><code class=\"language-bash\">dry_run=false</code></pre>\n<p>when you trust it.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-improvements\">Improvements</h2>\n<p>Add:</p>\n<ul><li><code>--dry-run</code> flag</li><li><code>--apply</code> flag</li><li>skip hidden files</li><li>lowercase extensions</li><li>log file</li><li>collision handling if target already exists</li></ul>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-challenge\">Challenge</h2>\n<p>Modify the cleaner so <code>.jpg</code>, <code>.jpeg</code>, and <code>.png</code> all go into an <code>images</code> folder.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-33-project-2-project-bootstrapper\">Chapter 33: Project 2: Project Bootstrapper</h2>\n<p>Goal:</p>\n<p>Create new project folders quickly.</p>\n<p>Usage:</p>\n<pre><code class=\"language-bash\">./new-project.sh my-app</code></pre>\n<p>Creates:</p>\n<pre><code class=\"language-text\">my-app/\n\u251c\u2500\u2500 README.md\n\u251c\u2500\u2500 src/\n\u251c\u2500\u2500 tests/\n\u251c\u2500\u2500 docs/\n\u2514\u2500\u2500 scripts/</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-script\">Script</h2>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\n\nset -euo pipefail\n\nif [[ $# -ne 1 ]]; then\n  echo &quot;Usage: $0 PROJECT_NAME&quot;\n  exit 1\nfi\n\nproject_name=&quot;$1&quot;\ntarget=&quot;$HOME/Projects/$project_name&quot;\n\nif [[ -e &quot;$target&quot; ]]; then\n  echo &quot;Error: target already exists: $target&quot; &gt;&amp;2\n  exit 1\nfi\n\nmkdir -p &quot;$target&quot;/{src,tests,docs,scripts}\n\ncat &gt; &quot;$target/README.md&quot; &lt;&lt;EOF\n# $project_name\n\n## Description\n\nTODO\n\n## Usage\n\nTODO\nEOF\n\ncat &gt; &quot;$target/.gitignore&quot; &lt;&lt;&#x27;EOF&#x27;\n__pycache__/\n*.pyc\n.env\n.DS_Store\nEOF\n\necho &quot;Created project at $target&quot;</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-add-git\">Add Git</h2>\n<pre><code class=\"language-bash\">if command -v git &gt;/dev/null 2&gt;&amp;1; then\n  git -C &quot;$target&quot; init\nfi</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-challenge-2\">Challenge</h2>\n<p>Add a <code>--python</code> flag that also creates:</p>\n<pre><code class=\"language-text\">pyproject.toml\nsrc/project_name/__init__.py</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-34-project-3-log-scanner\">Chapter 34: Project 3: Log Scanner</h2>\n<p>Goal:</p>\n<p>Scan logs for important lines.</p>\n<p>Usage:</p>\n<pre><code class=\"language-bash\">./scan-log.sh app.log</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-script-2\">Script</h2>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\n\nset -euo pipefail\n\nif [[ $# -ne 1 ]]; then\n  echo &quot;Usage: $0 LOG_FILE&quot;\n  exit 1\nfi\n\nlog_file=&quot;$1&quot;\n\nif [[ ! -f &quot;$log_file&quot; ]]; then\n  echo &quot;Error: not a file: $log_file&quot; &gt;&amp;2\n  exit 1\nfi\n\necho &quot;Log report for: $log_file&quot;\necho\n\necho &quot;Error count:&quot;\ngrep -ci &quot;error&quot; &quot;$log_file&quot; || true\n\necho\necho &quot;Warning count:&quot;\ngrep -ci &quot;warn&quot; &quot;$log_file&quot; || true\n\necho\necho &quot;Last 10 important lines:&quot;\ngrep -Ei &quot;error|warn|failed|exception&quot; &quot;$log_file&quot; | tail -n 10 || true</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-why-true\">Why <code>|| true</code>?</h2>\n<p>With <code>set -e</code>, <code>grep</code> exits non-zero when it finds no matches.</p>\n<p>That does not always mean the script should fail.</p>\n<p>So:</p>\n<pre><code class=\"language-bash\">grep -ci &quot;error&quot; &quot;$log_file&quot; || true</code></pre>\n<p>means:</p>\n<blockquote><p>If grep finds nothing, keep going.</p></blockquote>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-challenge-3\">Challenge</h2>\n<p>Add:</p>\n<ul><li>output report file</li><li>timestamp</li><li>top repeated error messages</li><li>support scanning an entire folder of logs</li></ul>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-35-project-4-backup-script\">Chapter 35: Project 4: Backup Script</h2>\n<p>Goal:</p>\n<p>Create dated backups of a folder.</p>\n<p>Usage:</p>\n<pre><code class=\"language-bash\">./backup-folder.sh ~/Documents ~/Backups</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-script-3\">Script</h2>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\n\nset -euo pipefail\n\nif [[ $# -ne 2 ]]; then\n  echo &quot;Usage: $0 SOURCE_DIR BACKUP_ROOT&quot;\n  exit 1\nfi\n\nsource_dir=&quot;$1&quot;\nbackup_root=&quot;$2&quot;\n\nif [[ ! -d &quot;$source_dir&quot; ]]; then\n  echo &quot;Error: source is not a directory: $source_dir&quot; &gt;&amp;2\n  exit 1\nfi\n\nmkdir -p &quot;$backup_root&quot;\n\nsource_name=&quot;$(basename &quot;$source_dir&quot;)&quot;\ntimestamp=&quot;$(date &#x27;+%Y-%m-%d_%H-%M-%S&#x27;)&quot;\nbackup_name=&quot;${source_name}_${timestamp}.tar.gz&quot;\nbackup_path=&quot;$backup_root/$backup_name&quot;\n\ntar -czf &quot;$backup_path&quot; -C &quot;$(dirname &quot;$source_dir&quot;)&quot; &quot;$source_name&quot;\n\necho &quot;Created backup:&quot;\necho &quot;$backup_path&quot;</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-restore-preview\">Restore Preview</h2>\n<p>List contents:</p>\n<pre><code class=\"language-bash\">tar -tzf backup.tar.gz | head</code></pre>\n<p>Extract:</p>\n<pre><code class=\"language-bash\">tar -xzf backup.tar.gz</code></pre>\n<p>Extract to folder:</p>\n<pre><code class=\"language-bash\">mkdir restored\ntar -xzf backup.tar.gz -C restored</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-challenge-4\">Challenge</h2>\n<p>Add:</p>\n<ul><li><code>--dry-run</code></li><li>backup size display</li><li>delete backups older than 30 days</li><li>exclude cache folders</li></ul>\n<p>Example exclude:</p>\n<pre><code class=\"language-bash\">tar --exclude=&#x27;__pycache__&#x27; --exclude=&#x27;.git&#x27; -czf &quot;$backup_path&quot; ...</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-36-project-5-system-info-report\">Chapter 36: Project 5: System Info Report</h2>\n<p>Goal:</p>\n<p>Generate a readable system report.</p>\n<p>Usage:</p>\n<pre><code class=\"language-bash\">./system-report.sh</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-script-4\">Script</h2>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\n\nset -euo pipefail\n\nreport=&quot;$HOME/system-report-$(date +%F).txt&quot;\n\n{\n  echo &quot;# System Report&quot;\n  echo\n  echo &quot;Generated: $(date)&quot;\n  echo &quot;User: $(whoami)&quot;\n  echo &quot;Host: $(hostname)&quot;\n  echo\n  echo &quot;## OS&quot;\n  uname -a\n  echo\n  echo &quot;## Disk Usage&quot;\n  df -h\n  echo\n  echo &quot;## Home Folder Size&quot;\n  du -sh &quot;$HOME&quot;\n  echo\n  echo &quot;## Memory&quot;\n  free -h || true\n  echo\n  echo &quot;## Top Processes&quot;\n  ps aux --sort=-%mem | head -n 10\n} &gt; &quot;$report&quot;\n\necho &quot;Created report: $report&quot;</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-challenge-5\">Challenge</h2>\n<p>Add:</p>\n<ul><li>CPU info</li><li>GPU info</li><li>network info</li><li>installed package count</li><li>uptime</li><li>battery status if laptop</li></ul>\n<p>Useful commands:</p>\n<pre><code class=\"language-bash\">uptime\nlscpu\nlsblk\nip addr\nnmcli device status</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-37-project-6-mp3-folder-inspector\">Chapter 37: Project 6: MP3 Folder Inspector</h2>\n<p>Goal:</p>\n<p>Inspect a music folder and find suspicious files.</p>\n<p>This is useful when some music files play and others do not.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-requirements\">Requirements</h2>\n<p>Useful tools:</p>\n<pre><code class=\"language-bash\">file\nfind\nffprobe\nffmpeg</code></pre>\n<p>Install:</p>\n<pre><code class=\"language-bash\">sudo apt install ffmpeg</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-basic-inspector\">Basic Inspector</h2>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\n\nset -euo pipefail\n\nif [[ $# -ne 1 ]]; then\n  echo &quot;Usage: $0 MUSIC_FOLDER&quot;\n  exit 1\nfi\n\nmusic_dir=&quot;$1&quot;\n\nif [[ ! -d &quot;$music_dir&quot; ]]; then\n  echo &quot;Error: not a directory: $music_dir&quot; &gt;&amp;2\n  exit 1\nfi\n\nfind &quot;$music_dir&quot; -type f -iname &quot;*.mp3&quot; -print0 |\nwhile IFS= read -r -d &#x27;&#x27; file; do\n  echo &quot;==== $file ====&quot;\n  file &quot;$file&quot;\n  ffprobe -v error -show_entries format=duration,format_name,bit_rate \\\n    -of default=noprint_wrappers=1 &quot;$file&quot; || echo &quot;ffprobe failed&quot;\n  echo\ndone</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-find-non-mp3-files-with-mp3-extension\">Find Non-MP3 Files With MP3 Extension</h2>\n<pre><code class=\"language-bash\">find &quot;$music_dir&quot; -type f -iname &quot;*.mp3&quot; -print0 |\nwhile IFS= read -r -d &#x27;&#x27; file; do\n  mime=&quot;$(file --mime-type -b &quot;$file&quot;)&quot;\n\n  if [[ &quot;$mime&quot; != audio/* ]]; then\n    echo &quot;Suspicious: $file&quot;\n    echo &quot;  MIME: $mime&quot;\n  fi\ndone</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-challenge-6\">Challenge</h2>\n<p>Create a report showing:</p>\n<ul><li>filename</li><li>detected MIME type</li><li>duration</li><li>bitrate</li><li>files where <code>ffprobe</code> fails</li></ul>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-38-project-7-simple-cli-tool\">Chapter 38: Project 7: Simple CLI Tool</h2>\n<p>Goal:</p>\n<p>Build a reusable Bash CLI with subcommands.</p>\n<p>Usage:</p>\n<pre><code class=\"language-bash\">./tool.sh hello\n./tool.sh date\n./tool.sh backup ~/Documents</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-script-5\">Script</h2>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\n\nset -euo pipefail\n\nshow_help() {\n  cat &lt;&lt;&#x27;EOF&#x27;\nUsage: tool.sh COMMAND [ARGS]\n\nCommands:\n  hello             Print greeting\n  date              Show current date\n  backup DIR        Create backup of directory\n  help              Show this help\nEOF\n}\n\ncmd=&quot;${1:-help}&quot;\n\ncase &quot;$cmd&quot; in\n  hello)\n    echo &quot;Hello&quot;\n    ;;\n\n  date)\n    date\n    ;;\n\n  backup)\n    dir=&quot;${2:-}&quot;\n\n    if [[ -z &quot;$dir&quot; ]]; then\n      echo &quot;Usage: $0 backup DIR&quot; &gt;&amp;2\n      exit 1\n    fi\n\n    if [[ ! -d &quot;$dir&quot; ]]; then\n      echo &quot;Error: not a directory: $dir&quot; &gt;&amp;2\n      exit 1\n    fi\n\n    backup=&quot;$HOME/backup-$(basename &quot;$dir&quot;)-$(date +%F).tar.gz&quot;\n    tar -czf &quot;$backup&quot; -C &quot;$(dirname &quot;$dir&quot;)&quot; &quot;$(basename &quot;$dir&quot;)&quot;\n    echo &quot;Created $backup&quot;\n    ;;\n\n  help|--help|-h)\n    show_help\n    ;;\n\n  *)\n    echo &quot;Unknown command: $cmd&quot; &gt;&amp;2\n    show_help\n    exit 1\n    ;;\nesac</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-challenge-7\">Challenge</h2>\n<p>Add subcommands:</p>\n<pre><code class=\"language-text\">list-large-files DIR\ncount-files DIR\nfind-text DIR PATTERN</code></pre>\n<hr />\n<h1 id=\"bash-beginner-to-intermediate-guide-part-6-automation-and-next-steps-2\">Part 6: Automation and Next Steps</h1>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-39-aliases-and-shell-functions\">Chapter 39: Aliases and Shell Functions</h2>\n<p>Aliases and functions make repeated commands faster.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-aliases\">Aliases</h2>\n<p>Add to <code>~/.bashrc</code>:</p>\n<pre><code class=\"language-bash\">alias ll=&#x27;ls -lah&#x27;\nalias gs=&#x27;git status&#x27;\nalias c=&#x27;clear&#x27;</code></pre>\n<p>Reload:</p>\n<pre><code class=\"language-bash\">source ~/.bashrc</code></pre>\n<p>Now run:</p>\n<pre><code class=\"language-bash\">ll</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-alias-with-safety\">Alias With Safety</h2>\n<pre><code class=\"language-bash\">alias rm=&#x27;rm -i&#x27;\nalias cp=&#x27;cp -i&#x27;\nalias mv=&#x27;mv -i&#x27;</code></pre>\n<p>This asks before overwriting/deleting.</p>\n<p>Some people love this. Some people dislike it because scripts should not depend on aliases.</p>\n<p>Aliases usually do not apply inside non-interactive scripts.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-shell-functions\">Shell Functions</h2>\n<p>Functions are better for more complex shortcuts.</p>\n<p>Add to <code>~/.bashrc</code>:</p>\n<pre><code class=\"language-bash\">mkcd() {\n  mkdir -p &quot;$1&quot; &amp;&amp; cd &quot;$1&quot;\n}</code></pre>\n<p>Use:</p>\n<pre><code class=\"language-bash\">mkcd new-folder</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-function-example-extract-archives\">Function Example: Extract Archives</h2>\n<pre><code class=\"language-bash\">extract() {\n  if [[ ! -f &quot;$1&quot; ]]; then\n    echo &quot;Not a file: $1&quot; &gt;&amp;2\n    return 1\n  fi\n\n  case &quot;$1&quot; in\n    *.tar.gz|*.tgz) tar -xzf &quot;$1&quot; ;;\n    *.tar.bz2) tar -xjf &quot;$1&quot; ;;\n    *.tar.xz) tar -xJf &quot;$1&quot; ;;\n    *.zip) unzip &quot;$1&quot; ;;\n    *) echo &quot;Unknown archive type: $1&quot; &gt;&amp;2; return 1 ;;\n  esac\n}</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-32\">Mini Challenge</h2>\n<p>Create aliases/functions for:</p>\n<ul><li>jumping to your projects folder</li><li>making and entering a folder</li><li>showing disk usage of current folder</li><li>finding large files</li></ul>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-40-cron-jobs\">Chapter 40: Cron Jobs</h2>\n<p>Cron runs commands on a schedule.</p>\n<p>Edit cron jobs:</p>\n<pre><code class=\"language-bash\">crontab -e</code></pre>\n<p>List cron jobs:</p>\n<pre><code class=\"language-bash\">crontab -l</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-cron-format\">Cron Format</h2>\n<pre><code class=\"language-text\">minute hour day-of-month month day-of-week command</code></pre>\n<p>Example:</p>\n<pre><code class=\"language-text\">0 9 * * * echo &quot;Good morning&quot; &gt;&gt; ~/cron-test.log</code></pre>\n<p>Runs every day at 9:00.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-common-schedules\">Common Schedules</h2>\n<p>Every minute:</p>\n<pre><code class=\"language-text\">* * * * * command</code></pre>\n<p>Every hour:</p>\n<pre><code class=\"language-text\">0 * * * * command</code></pre>\n<p>Every day at midnight:</p>\n<pre><code class=\"language-text\">0 0 * * * command</code></pre>\n<p>Every Monday at 9:30:</p>\n<pre><code class=\"language-text\">30 9 * * 1 command</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-use-full-paths\">Use Full Paths</h2>\n<p>Cron has a smaller environment than your terminal.</p>\n<p>Instead of:</p>\n<pre><code class=\"language-text\">0 1 * * * backup.sh</code></pre>\n<p>Use:</p>\n<pre><code class=\"language-text\">0 1 * * * /home/xander/scripts/backup.sh &gt;&gt; /home/xander/logs/backup.log 2&gt;&amp;1</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-cron-script-tips\">Cron Script Tips</h2>\n<p>In scripts run by cron:</p>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\nset -euo pipefail\n\nPATH=&quot;/usr/local/bin:/usr/bin:/bin&quot;</code></pre>\n<p>Use absolute paths where practical.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-33\">Mini Challenge</h2>\n<p>Create a cron job that writes the date to a log file every hour.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-41-systemd-user-services\">Chapter 41: Systemd User Services</h2>\n<p>For more serious background automation on Linux, systemd user services can be better than cron.</p>\n<p>Use this when you want:</p>\n<ul><li>a service that starts on login</li><li>automatic restart</li><li>logs through <code>journalctl</code></li><li>better lifecycle control</li></ul>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-user-service-folder\">User Service Folder</h2>\n<pre><code class=\"language-bash\">mkdir -p ~/.config/systemd/user</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-example-service\">Example Service</h2>\n<p>Create:</p>\n<pre><code class=\"language-bash\">nano ~/.config/systemd/user/my-script.service</code></pre>\n<p>Content:</p>\n<pre><code class=\"language-ini\">[Unit]\nDescription=My Bash Script Service\n\n[Service]\nExecStart=/home/xander/scripts/my-script.sh\nRestart=on-failure\nWorkingDirectory=/home/xander\n\n[Install]\nWantedBy=default.target</code></pre>\n<p>Reload:</p>\n<pre><code class=\"language-bash\">systemctl --user daemon-reload</code></pre>\n<p>Start:</p>\n<pre><code class=\"language-bash\">systemctl --user start my-script.service</code></pre>\n<p>Enable at login:</p>\n<pre><code class=\"language-bash\">systemctl --user enable my-script.service</code></pre>\n<p>Check status:</p>\n<pre><code class=\"language-bash\">systemctl --user status my-script.service</code></pre>\n<p>View logs:</p>\n<pre><code class=\"language-bash\">journalctl --user -u my-script.service -f</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-timer-instead-of-cron\">Timer Instead of Cron</h2>\n<p>A systemd timer can run a service on a schedule.</p>\n<p>Service:</p>\n<pre><code class=\"language-ini\">[Unit]\nDescription=Run backup script\n\n[Service]\nType=oneshot\nExecStart=/home/xander/scripts/backup.sh</code></pre>\n<p>Timer:</p>\n<pre><code class=\"language-ini\">[Unit]\nDescription=Run backup script daily\n\n[Timer]\nOnCalendar=daily\nPersistent=true\n\n[Install]\nWantedBy=timers.target</code></pre>\n<p>Enable timer:</p>\n<pre><code class=\"language-bash\">systemctl --user daemon-reload\nsystemctl --user enable --now backup.timer</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-mini-challenge-34\">Mini Challenge</h2>\n<p>Create a user service for a script that appends the current date to a log file every time it runs.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-42-when-to-use-bash-vs-python\">Chapter 42: When To Use Bash vs Python</h2>\n<p>Use Bash when:</p>\n<ul><li>You are running commands</li><li>You are moving files</li><li>You are connecting tools</li><li>You are writing small automation</li><li>You are processing simple text</li><li>You are managing system tasks</li></ul>\n<p>Use Python when:</p>\n<ul><li>You need complex logic</li><li>You need data structures</li><li>You need APIs</li><li>You need JSON-heavy processing</li><li>You need tests and maintainability</li><li>You need a bigger application</li><li>You are doing serious parsing</li></ul>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-bash-example\">Bash Example</h2>\n<p>Rename a bunch of files:</p>\n<pre><code class=\"language-bash\">for file in *.txt; do\n  mv -- &quot;$file&quot; &quot;${file%.txt}.md&quot;\ndone</code></pre>\n<p>Bash is perfect.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-python-example\">Python Example</h2>\n<p>Read a JSON file, group records by customer, calculate totals, output reports.</p>\n<p>Use Python.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-hybrid-approach\">Hybrid Approach</h2>\n<p>Bash can call Python:</p>\n<pre><code class=\"language-bash\">python3 process_data.py input.json output.csv</code></pre>\n<p>Python can call shell commands:</p>\n<pre><code class=\"language-python\">import subprocess\n\nsubprocess.run([&quot;ls&quot;, &quot;-lah&quot;], check=True)</code></pre>\n<p>Good systems often use both.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-rule-of-thumb\">Rule of Thumb</h2>\n<p>If your Bash script has:</p>\n<ul><li>lots of nested conditionals</li><li>many arrays</li><li>complicated parsing</li><li>more than 200-300 lines</li><li>difficult tests</li><li>lots of edge cases</li></ul>\n<p>consider switching to Python.</p>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-43-final-bash-checklist\">Chapter 43: Final Bash Checklist</h2>\n<p>You are moving into intermediate Bash territory when you can comfortably do these things:</p>\n<pre><code class=\"language-text\">[ ] Navigate the filesystem\n[ ] Understand absolute and relative paths\n[ ] Use ls, cd, pwd, mkdir, touch, cp, mv, rm safely\n[ ] Use grep to search text\n[ ] Use find to search files\n[ ] Use pipes and redirects\n[ ] Read and write files from scripts\n[ ] Use variables correctly\n[ ] Quote variables correctly\n[ ] Accept script arguments\n[ ] Validate inputs\n[ ] Use conditionals\n[ ] Use loops\n[ ] Use functions\n[ ] Understand exit codes\n[ ] Use set -euo pipefail carefully\n[ ] Add dry-run mode to risky scripts\n[ ] Use ShellCheck\n[ ] Use sed for simple replacements\n[ ] Use awk for column processing\n[ ] Use cron or systemd timers for automation\n[ ] Know when to switch to Python</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-chapter-44-cheat-sheets\">Chapter 44: Cheat Sheets</h2>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-navigation\">Navigation</h2>\n<pre><code class=\"language-bash\">pwd                 # show current directory\nls                  # list files\nls -lah             # detailed list including hidden files\ncd folder           # enter folder\ncd ..               # go up\ncd ~                # go home\ncd -                # previous directory</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-file-operations\">File Operations</h2>\n<pre><code class=\"language-bash\">touch file.txt                  # create empty file\nmkdir folder                    # create folder\nmkdir -p a/b/c                  # create nested folders\ncp source target                # copy file\ncp -r folder backup             # copy folder\nmv old new                      # move/rename\nrm file                         # delete file\nrm -r folder                    # delete folder\nrm -i file                      # confirm delete</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-viewing-files\">Viewing Files</h2>\n<pre><code class=\"language-bash\">cat file.txt                    # print file\nless file.txt                   # page through file\nhead file.txt                   # first 10 lines\ntail file.txt                   # last 10 lines\ntail -f app.log                 # follow log\nwc -l file.txt                  # count lines\nfile something                  # identify file type</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-searching\">Searching</h2>\n<pre><code class=\"language-bash\">grep &quot;text&quot; file.txt            # search file\ngrep -i &quot;text&quot; file.txt         # ignore case\ngrep -n &quot;text&quot; file.txt         # show line numbers\ngrep -R &quot;text&quot; .                # recursive search\nfind . -type f                  # find files\nfind . -name &quot;*.txt&quot;            # find by name\nfind . -size +100M              # find big files\nfind . -mtime -7                # modified in last 7 days</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-pipes-and-redirects\">Pipes and Redirects</h2>\n<pre><code class=\"language-bash\">command &gt; file.txt              # overwrite output\ncommand &gt;&gt; file.txt             # append output\ncommand 2&gt; errors.txt           # redirect errors\ncommand &gt; out.txt 2&gt;&amp;1          # redirect output and errors\ncommand1 | command2             # pipe output\ncommand | tee file.txt          # screen and file</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-script-template\">Script Template</h2>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\n\nset -euo pipefail\n\nmain() {\n  echo &quot;Hello&quot;\n}\n\nmain &quot;$@&quot;</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-arguments\">Arguments</h2>\n<pre><code class=\"language-bash\">$0       # script name\n$1       # first argument\n$2       # second argument\n$#       # number of arguments\n&quot;$@&quot;     # all arguments, safely separated</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-tests\">Tests</h2>\n<pre><code class=\"language-bash\">[[ -f &quot;$path&quot; ]]       # file exists\n[[ -d &quot;$path&quot; ]]       # directory exists\n[[ -e &quot;$path&quot; ]]       # anything exists\n[[ -z &quot;$value&quot; ]]      # empty string\n[[ -n &quot;$value&quot; ]]      # non-empty string\n[[ &quot;$a&quot; == &quot;$b&quot; ]]     # strings equal\n(( number &gt; 10 ))      # arithmetic test</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-loops\">Loops</h2>\n<pre><code class=\"language-bash\">for file in *.txt; do\n  echo &quot;$file&quot;\ndone</code></pre>\n<pre><code class=\"language-bash\">while IFS= read -r line; do\n  echo &quot;$line&quot;\ndone &lt; file.txt</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-functions\">Functions</h2>\n<pre><code class=\"language-bash\">log() {\n  echo &quot;[$(date &#x27;+%H:%M:%S&#x27;)] $*&quot;\n}\n\ndie() {\n  echo &quot;Error: $*&quot; &gt;&amp;2\n  exit 1\n}</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-safer-file-loop\">Safer File Loop</h2>\n<pre><code class=\"language-bash\">find . -type f -print0 |\nwhile IFS= read -r -d &#x27;&#x27; file; do\n  echo &quot;$file&quot;\ndone</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-dry-run-helper\">Dry Run Helper</h2>\n<pre><code class=\"language-bash\">dry_run=true\n\nrun() {\n  if [[ &quot;$dry_run&quot; == true ]]; then\n    echo &quot;[DRY RUN] $*&quot;\n  else\n    &quot;$@&quot;\n  fi\n}</code></pre>\n<hr />\n<h2 id=\"bash-beginner-to-intermediate-guide-good-habits\">Good Habits</h2>\n<ul><li>Quote variables: <code>\"$file\"</code></li><li>Use <code>--</code> before file arguments: <code>rm -- \"$file\"</code></li><li>Preview before deleting</li><li>Add dry-run mode to risky scripts</li><li>Use <code>shellcheck</code></li><li>Use full paths in cron jobs</li><li>Prefer <code>[[ ]]</code> in Bash</li><li>Prefer <code>\"$@\"</code> for argument forwarding</li><li>Prefer <code>$(command)</code> over backticks</li><li>Use Python when logic gets too complex</li></ul>\n<hr />\n<h1 id=\"bash-beginner-to-intermediate-guide-final-practice-path\">Final Practice Path</h1>\n<p>To really learn Bash, do this:</p>\n<ol><li>Spend one day only using terminal navigation commands.</li><li>Write tiny scripts that print system information.</li><li>Write a file organizer with dry-run mode.</li><li>Write a backup script.</li><li>Write a log scanner.</li><li>Add arguments and help text to each script.</li><li>Run ShellCheck on everything.</li><li>Turn your favorite script into a reusable command in <code>~/bin</code>.</li><li>Schedule one script with cron or systemd.</li><li>Rewrite the messiest Bash script in Python and compare.</li></ol>\n<p>The goal is not to become a Bash monk.</p>\n<p>The goal is to become dangerous in a safe, controlled, useful way.</p>\n<hr />\n<h1 id=\"bash-beginner-to-intermediate-guide-recommended-mini-projects\">Recommended Mini Projects</h1>\n<h2 id=\"bash-beginner-to-intermediate-guide-beginner\">Beginner</h2>\n<ul><li>note creator</li><li>folder maker</li><li>file counter</li><li>log viewer</li><li>simple backup script</li></ul>\n<h2 id=\"bash-beginner-to-intermediate-guide-early-intermediate\">Early Intermediate</h2>\n<ul><li>downloads organizer</li><li>duplicate filename finder</li><li>project bootstrapper</li><li>script installer</li><li>config backup tool</li></ul>\n<h2 id=\"bash-beginner-to-intermediate-guide-intermediate\">Intermediate</h2>\n<ul><li>log analyzer</li><li>music folder inspector</li><li>system health report</li><li>cron-managed backup script</li><li>systemd user service</li><li>command-line toolkit with subcommands</li></ul>\n<hr />\n<h1 id=\"bash-beginner-to-intermediate-guide-closing-note\">Closing Note</h1>\n<p>Bash is the language of \u201cmake the computer do the boring thing.\u201d</p>\n<p>Learn enough syntax to be safe. Learn enough commands to be useful. Learn enough scripting to automate your own workflow.</p>\n<p>After that, Bash becomes one of the best companions for Python, Git, Linux, servers, AI tools, media workflows, and every strange little project you decide to build next.</p>"
     },
     {
-      id: "booking",
-      title: "Booking Site",
-      category: "Booking Site — $300 setup + $70/mo",
-      summary: "End-to-end workflow for the Booking Site package. Booking-ready site connected to the client's existing provider.",
-      content: [
+      "id": "linux-power-user-beginner-to-intermediate-guide",
+      "title": "Linux Power User Guide: Beginner to Intermediate",
+      "navLabel": "Linux Guide",
+      "summary": "*A practical field manual for learning Linux as a controllable, inspectable system \u2014 not a mysterious box with a desktop on top.*",
+      "href": "linux-power-user-beginner-to-intermediate-guide.html",
+      "icon": "Linux",
+      "sections": [
         {
-          heading: "Intake",
-          body: "Collect everything from the Business Site intake, plus: which booking provider the client uses (Calendly, Square Appointments, Acuity, etc.), their main booking URL, each service with name/price/duration, and team members who offer each service."
+          "id": "linux-power-user-beginner-to-intermediate-guide-goal-of-this-guide",
+          "title": "Goal of This Guide",
+          "level": 2
         },
         {
-          heading: "Scope",
-          body: "Explicitly confirm before starting: booking platform integration is link and embed only. No custom scheduling logic, no live availability sync, no customer account system, no payment processing beyond the client's existing provider. Send the booking scope-boundaries doc."
+          "id": "linux-power-user-beginner-to-intermediate-guide-part-1-linux-mental-model",
+          "title": "Part 1 \u2014 Linux Mental Model",
+          "level": 2
         },
         {
-          heading: "Build",
-          body: "Use the booking site template. Fill site-config.js completely before touching any HTML — business info, all services with correct IDs, all team members with IDs that match service offeredBy fields, booking mode, and main booking URL."
+          "id": "linux-power-user-beginner-to-intermediate-guide-part-2-terminal-survival",
+          "title": "Part 2 \u2014 Terminal Survival",
+          "level": 2
         },
         {
-          heading: "Test",
-          body: "Run through the full booking flow on desktop and a real mobile device before sending the staging link. Click every booking link. Submit the request form. Check console for zero errors."
+          "id": "linux-power-user-beginner-to-intermediate-guide-part-3-files-and-folders",
+          "title": "Part 3 \u2014 Files and Folders",
+          "level": 2
         },
         {
-          heading: "Launch",
-          body: "Same pre-launch checklist as other packages. The booking flow is the most critical thing to verify on production — test it yourself before sending the delivery message. Confirm the client's booking provider is connected and working."
+          "id": "linux-power-user-beginner-to-intermediate-guide-part-4-text-processing",
+          "title": "Part 4 \u2014 Text Processing",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-part-5-permissions-and-users",
+          "title": "Part 5 \u2014 Permissions and Users",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-part-6-software-management",
+          "title": "Part 6 \u2014 Software Management",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-part-7-processes-and-resources",
+          "title": "Part 7 \u2014 Processes and Resources",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-part-8-services-and-logs",
+          "title": "Part 8 \u2014 Services and Logs",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-part-9-storage-and-backups",
+          "title": "Part 9 \u2014 Storage and Backups",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-part-10-networking",
+          "title": "Part 10 \u2014 Networking",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-part-11-automation",
+          "title": "Part 11 \u2014 Automation",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-part-12-practical-labs",
+          "title": "Part 12 \u2014 Practical Labs",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-part-13-troubleshooting-playbooks",
+          "title": "Part 13 \u2014 Troubleshooting Playbooks",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-part-14-cheat-sheets",
+          "title": "Part 14 \u2014 Cheat Sheets",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-shell",
+          "title": "Shell",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-terminal",
+          "title": "Terminal",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-bash",
+          "title": "Bash",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-kernel",
+          "title": "Kernel",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-distribution",
+          "title": "Distribution",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-root",
+          "title": "Root",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-sudo",
+          "title": "sudo",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-package",
+          "title": "Package",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-process",
+          "title": "Process",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-pid",
+          "title": "PID",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-service",
+          "title": "Service",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-systemd",
+          "title": "systemd",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-journalctl",
+          "title": "journalctl",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-mount",
+          "title": "Mount",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-path",
+          "title": "PATH",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-environment-variable",
+          "title": "Environment Variable",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-pipe",
+          "title": "Pipe",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-redirection",
+          "title": "Redirection",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-ssh",
+          "title": "SSH",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-dns",
+          "title": "DNS",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-port",
+          "title": "Port",
+          "level": 2
+        },
+        {
+          "id": "linux-power-user-beginner-to-intermediate-guide-firewall",
+          "title": "Firewall",
+          "level": 2
         }
-      ]
+      ],
+      "contentHtml": "<h1 id=\"linux-power-user-beginner-to-intermediate-guide-linux-power-user-guide-beginner-to-intermediate\">Linux Power User Guide: Beginner to Intermediate</h1>\n<p><em>A practical field manual for learning Linux as a controllable, inspectable system \u2014 not a mysterious box with a desktop on top.</em></p>\n<hr />\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-goal-of-this-guide\">Goal of This Guide</h2>\n<p>This guide is for someone who already uses Linux or wants to use Linux seriously, and wants to move from:</p>\n<blockquote><p>\u201cI can open apps and run a few commands.\u201d</p></blockquote>\n<p>into:</p>\n<blockquote><p>\u201cI can inspect the system, manage files, understand permissions, troubleshoot apps, read logs, control services, diagnose networking, automate repetitive work, and recover from common mistakes.\u201d</p></blockquote>\n<p>By the end, you should be comfortable with:</p>\n<ul><li>Terminal navigation</li><li>Files and folders</li><li>Permissions and ownership</li><li>Package installation</li><li>Processes and resource monitoring</li><li>Services with <code>systemctl</code></li><li>Logs with <code>journalctl</code></li><li>Disks, mounts, and storage</li><li>Networking basics</li><li>SSH and remote access</li><li>Backups with <code>rsync</code></li><li>Bash aliases, functions, and scripts</li><li>Safe troubleshooting habits</li></ul>\n<p>This guide is written for Ubuntu/Pop!_OS/Debian-style systems first, but most ideas apply broadly across Linux.</p>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-table-of-contents\">Table of Contents</h1>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-part-1-linux-mental-model\">Part 1 \u2014 Linux Mental Model</h2>\n<ol><li><a href=\"#1-what-linux-is\">What Linux Is</a></li><li><a href=\"#2-the-layers-of-a-linux-system\">The Layers of a Linux System</a></li><li><a href=\"#3-the-filesystem-map\">The Filesystem Map</a></li><li><a href=\"#4-the-power-user-mindset\">The Power User Mindset</a></li></ol>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-part-2-terminal-survival\">Part 2 \u2014 Terminal Survival</h2>\n<ol><li><a href=\"#5-command-anatomy\">Command Anatomy</a></li><li><a href=\"#6-navigation\">Navigation</a></li><li><a href=\"#7-listing-and-inspecting-files\">Listing and Inspecting Files</a></li><li><a href=\"#8-getting-help\">Getting Help</a></li><li><a href=\"#9-history-completion-and-shortcuts\">History, Completion, and Shortcuts</a></li></ol>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-part-3-files-and-folders\">Part 3 \u2014 Files and Folders</h2>\n<ol><li><a href=\"#10-creating-files-and-directories\">Creating Files and Directories</a></li><li><a href=\"#11-copying-moving-and-renaming\">Copying, Moving, and Renaming</a></li><li><a href=\"#12-deleting-safely\">Deleting Safely</a></li><li><a href=\"#13-viewing-files\">Viewing Files</a></li><li><a href=\"#14-finding-files\">Finding Files</a></li><li><a href=\"#15-hidden-files-and-config-folders\">Hidden Files and Config Folders</a></li></ol>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-part-4-text-processing\">Part 4 \u2014 Text Processing</h2>\n<ol><li><a href=\"#16-grep\">grep</a></li><li><a href=\"#17-pipes\">Pipes</a></li><li><a href=\"#18-redirection\">Redirection</a></li><li><a href=\"#19-sort-uniq-wc-cut\">sort, uniq, wc, cut</a></li><li><a href=\"#20-sed-and-awk-basics\">sed and awk Basics</a></li></ol>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-part-5-permissions-and-users\">Part 5 \u2014 Permissions and Users</h2>\n<ol><li><a href=\"#21-users-and-groups\">Users and Groups</a></li><li><a href=\"#22-understanding-permissions\">Understanding Permissions</a></li><li><a href=\"#23-chmod\">chmod</a></li><li><a href=\"#24-chown\">chown</a></li><li><a href=\"#25-sudo\">sudo</a></li><li><a href=\"#26-executable-scripts\">Executable Scripts</a></li></ol>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-part-6-software-management\">Part 6 \u2014 Software Management</h2>\n<ol><li><a href=\"#27-apt\">apt</a></li><li><a href=\"#28-deb-files\">deb Files</a></li><li><a href=\"#29-flatpak\">Flatpak</a></li><li><a href=\"#30-appimages\">AppImages</a></li><li><a href=\"#31-python-virtual-environments\">Python Virtual Environments</a></li></ol>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-part-7-processes-and-resources\">Part 7 \u2014 Processes and Resources</h2>\n<ol><li><a href=\"#32-processes\">Processes</a></li><li><a href=\"#33-top-htop-and-btop\">top, htop, and btop</a></li><li><a href=\"#34-killing-processes\">Killing Processes</a></li><li><a href=\"#35-cpu-ram-and-load\">CPU, RAM, and Load</a></li><li><a href=\"#36-startup-apps\">Startup Apps</a></li></ol>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-part-8-services-and-logs\">Part 8 \u2014 Services and Logs</h2>\n<ol><li><a href=\"#37-systemd\">systemd</a></li><li><a href=\"#38-systemctl\">systemctl</a></li><li><a href=\"#39-journalctl\">journalctl</a></li><li><a href=\"#40-creating-a-user-service\">Creating a User Service</a></li></ol>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-part-9-storage-and-backups\">Part 9 \u2014 Storage and Backups</h2>\n<ol><li><a href=\"#41-disk-usage\">Disk Usage</a></li><li><a href=\"#42-block-devices-and-mounts\">Block Devices and Mounts</a></li><li><a href=\"#43-usb-drives\">USB Drives</a></li><li><a href=\"#44-archives\">Archives</a></li><li><a href=\"#45-rsync\">rsync</a></li><li><a href=\"#46-backup-strategy\">Backup Strategy</a></li></ol>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-part-10-networking\">Part 10 \u2014 Networking</h2>\n<ol><li><a href=\"#47-network-mental-model\">Network Mental Model</a></li><li><a href=\"#48-ip-commands\">ip Commands</a></li><li><a href=\"#49-ping-curl-wget\">ping, curl, wget</a></li><li><a href=\"#50-dns-troubleshooting\">DNS Troubleshooting</a></li><li><a href=\"#51-ports-and-listening-services\">Ports and Listening Services</a></li><li><a href=\"#52-ssh\">SSH</a></li><li><a href=\"#53-scp-and-remote-rsync\">scp and Remote rsync</a></li><li><a href=\"#54-firewall-basics\">Firewall Basics</a></li></ol>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-part-11-automation\">Part 11 \u2014 Automation</h2>\n<ol><li><a href=\"#55-environment-variables\">Environment Variables</a></li><li><a href=\"#56-path\">PATH</a></li><li><a href=\"#57-aliases\">Aliases</a></li><li><a href=\"#58-shell-functions\">Shell Functions</a></li><li><a href=\"#59-bash-scripts\">Bash Scripts</a></li><li><a href=\"#60-cron\">cron</a></li></ol>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-part-12-practical-labs\">Part 12 \u2014 Practical Labs</h2>\n<ol><li><a href=\"#61-lab-system-report-script\">Lab: System Report Script</a></li><li><a href=\"#62-lab-downloads-organizer\">Lab: Downloads Organizer</a></li><li><a href=\"#63-lab-find-large-files\">Lab: Find Large Files</a></li><li><a href=\"#64-lab-local-web-server\">Lab: Local Web Server</a></li><li><a href=\"#65-lab-backup-script\">Lab: Backup Script</a></li><li><a href=\"#66-lab-service-watcher\">Lab: Service Watcher</a></li></ol>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-part-13-troubleshooting-playbooks\">Part 13 \u2014 Troubleshooting Playbooks</h2>\n<ol><li><a href=\"#67-app-will-not-open\">App Will Not Open</a></li><li><a href=\"#68-internet-is-broken\">Internet Is Broken</a></li><li><a href=\"#69-disk-is-full\">Disk Is Full</a></li><li><a href=\"#70-audio-is-broken\">Audio Is Broken</a></li><li><a href=\"#71-permission-denied\">Permission Denied</a></li><li><a href=\"#72-updates-fail\">Updates Fail</a></li></ol>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-part-14-cheat-sheets\">Part 14 \u2014 Cheat Sheets</h2>\n<ol><li><a href=\"#73-daily-commands\">Daily Commands</a></li><li><a href=\"#74-dangerous-commands\">Dangerous Commands</a></li><li><a href=\"#75-glossary\">Glossary</a></li></ol>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-part-1-linux-mental-model-2\">Part 1 \u2014 Linux Mental Model</h1>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-1-what-linux-is\">1. What Linux Is</h1>\n<p>Linux is not just \u201cthe desktop.\u201d A Linux system is a stack of parts working together.</p>\n<p>At the center is the <strong>Linux kernel</strong>, which manages hardware, memory, processes, filesystems, and networking.</p>\n<p>A <strong>Linux distribution</strong> packages the kernel with tools, a package manager, system defaults, and often a desktop environment.</p>\n<p>Examples of distributions:</p>\n<pre><code class=\"language-text\">Ubuntu\nPop!_OS\nDebian\nFedora\nArch\nLinux Mint\nopenSUSE</code></pre>\n<p>A <strong>desktop environment</strong> is the graphical interface.</p>\n<p>Examples:</p>\n<pre><code class=\"language-text\">GNOME\nKDE Plasma\nXFCE\nCinnamon\nCOSMIC</code></pre>\n<p>A <strong>shell</strong> is the command interpreter. The most common one is Bash.</p>\n<p>When you type this:</p>\n<pre><code class=\"language-bash\">ls</code></pre>\n<p>You are asking the shell to run a program called <code>ls</code>.</p>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-2-the-layers-of-a-linux-system\">2. The Layers of a Linux System</h1>\n<p>Think of Linux like this:</p>\n<pre><code class=\"language-text\">Applications\nDesktop environment\nShell and command-line tools\nSystem services\nKernel\nHardware</code></pre>\n<p>This matters because a problem in one layer does not always mean the whole system is broken.</p>\n<p>Examples:</p>\n<ul><li>A frozen app does not mean Linux crashed.</li><li>A broken settings panel does not mean networking is impossible.</li><li>A missing desktop icon does not mean the app is not installed.</li><li>A failed GUI update may still be fixable from the terminal.</li></ul>\n<p>Power user instinct:</p>\n<blockquote><p>When the surface lies, inspect the layer underneath.</p></blockquote>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-3-the-filesystem-map\">3. The Filesystem Map</h1>\n<p>Linux has one filesystem tree starting at <code>/</code>.</p>\n<p>Important folders:</p>\n<pre><code class=\"language-text\">/             root of the filesystem\n/home         user folders\n/etc          system configuration\n/var          logs, caches, changing data\n/usr          installed programs and shared data\n/bin          essential commands\n/sbin         system commands\n/tmp          temporary files\n/media        auto-mounted removable drives\n/mnt          manual mount points\n/dev          device files\n/proc         virtual system/process info\n/boot         boot files and kernels\n/root         root user&#x27;s home folder</code></pre>\n<p>Your personal home folder is:</p>\n<pre><code class=\"language-text\">/home/yourusername</code></pre>\n<p>Shortcut:</p>\n<pre><code class=\"language-text\">~</code></pre>\n<p>So these are the same idea:</p>\n<pre><code class=\"language-bash\">cd /home/xander\ncd ~\ncd</code></pre>\n<p>Common user folders:</p>\n<pre><code class=\"language-text\">~/Desktop\n~/Documents\n~/Downloads\n~/Music\n~/Pictures\n~/Videos\n~/.config\n~/.local\n~/.cache</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-4-the-power-user-mindset\">4. The Power User Mindset</h1>\n<p>A beginner asks:</p>\n<blockquote><p>\u201cWhat button do I click?\u201d</p></blockquote>\n<p>A power user asks:</p>\n<blockquote><p>\u201cWhat process, file, service, permission, log, or network path is involved?\u201d</p></blockquote>\n<p>That gives you a method.</p>\n<p>When something breaks, ask:</p>\n<pre><code class=\"language-text\">Where am I?\nWhat changed?\nWhat command reveals the state?\nWhat logs exist?\nWhat process is running?\nWhat file is being read?\nWhat permission is blocking this?\nWhat network path is failing?\nWhat can I safely test next?</code></pre>\n<p>Linux becomes much less scary when you treat it as inspectable.</p>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-part-2-terminal-survival-2\">Part 2 \u2014 Terminal Survival</h1>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-5-command-anatomy\">5. Command Anatomy</h1>\n<p>Most commands look like this:</p>\n<pre><code class=\"language-bash\">command options arguments</code></pre>\n<p>Example:</p>\n<pre><code class=\"language-bash\">ls -la ~/Downloads</code></pre>\n<p>Breakdown:</p>\n<pre><code class=\"language-text\">ls           command\n-la          options\n~/Downloads argument</code></pre>\n<p>Short options often use one dash:</p>\n<pre><code class=\"language-bash\">ls -l</code></pre>\n<p>Long options often use two dashes:</p>\n<pre><code class=\"language-bash\">ls --all</code></pre>\n<p>Some options can be combined:</p>\n<pre><code class=\"language-bash\">ls -la</code></pre>\n<p>is like:</p>\n<pre><code class=\"language-bash\">ls -l -a</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-6-navigation\">6. Navigation</h1>\n<p>Show current location:</p>\n<pre><code class=\"language-bash\">pwd</code></pre>\n<p>Change directory:</p>\n<pre><code class=\"language-bash\">cd ~/Downloads</code></pre>\n<p>Go home:</p>\n<pre><code class=\"language-bash\">cd</code></pre>\n<p>Go up one level:</p>\n<pre><code class=\"language-bash\">cd ..</code></pre>\n<p>Go up two levels:</p>\n<pre><code class=\"language-bash\">cd ../..</code></pre>\n<p>Go to previous directory:</p>\n<pre><code class=\"language-bash\">cd -</code></pre>\n<p>Special path symbols:</p>\n<pre><code class=\"language-text\">.    current directory\n..   parent directory\n~    home directory\n/    root directory</code></pre>\n<p>Examples:</p>\n<pre><code class=\"language-bash\">ls .\nls ..\nls ~\nls /</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-7-listing-and-inspecting-files\">7. Listing and Inspecting Files</h1>\n<p>Basic list:</p>\n<pre><code class=\"language-bash\">ls</code></pre>\n<p>Long list:</p>\n<pre><code class=\"language-bash\">ls -l</code></pre>\n<p>Show hidden files:</p>\n<pre><code class=\"language-bash\">ls -a</code></pre>\n<p>Long list including hidden files:</p>\n<pre><code class=\"language-bash\">ls -la</code></pre>\n<p>Human-readable file sizes:</p>\n<pre><code class=\"language-bash\">ls -lh</code></pre>\n<p>Sort by modification time:</p>\n<pre><code class=\"language-bash\">ls -lt</code></pre>\n<p>Reverse order:</p>\n<pre><code class=\"language-bash\">ls -ltr</code></pre>\n<p>Example <code>ls -l</code> output:</p>\n<pre><code class=\"language-text\">-rw-r--r-- 1 xander xander  1234 May 16 12:00 notes.txt\ndrwxr-xr-x 2 xander xander  4096 May 16 12:00 Projects</code></pre>\n<p>First character:</p>\n<pre><code class=\"language-text\">-    regular file\nd    directory\nl    symbolic link</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-8-getting-help\">8. Getting Help</h1>\n<p>Quick help:</p>\n<pre><code class=\"language-bash\">command --help</code></pre>\n<p>Manual page:</p>\n<pre><code class=\"language-bash\">man command</code></pre>\n<p>Example:</p>\n<pre><code class=\"language-bash\">man ls</code></pre>\n<p>Inside <code>man</code>:</p>\n<pre><code class=\"language-text\">q       quit\n/word   search\nn       next match\nSpace   next page\nb       previous page</code></pre>\n<p>Find what a command is:</p>\n<pre><code class=\"language-bash\">type cd\ntype ls</code></pre>\n<p>Find executable path:</p>\n<pre><code class=\"language-bash\">which python3\ncommand -v git</code></pre>\n<p>Short description:</p>\n<pre><code class=\"language-bash\">whatis ls</code></pre>\n<p>Search manual descriptions:</p>\n<pre><code class=\"language-bash\">apropos network</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-9-history-completion-and-shortcuts\">9. History, Completion, and Shortcuts</h1>\n<p>Show history:</p>\n<pre><code class=\"language-bash\">history</code></pre>\n<p>Run previous command:</p>\n<pre><code class=\"language-bash\">!!</code></pre>\n<p>Search command history:</p>\n<pre><code class=\"language-text\">Ctrl + R</code></pre>\n<p>Useful shortcuts:</p>\n<pre><code class=\"language-text\">Tab          autocomplete\nCtrl + C     cancel command\nCtrl + L     clear screen\nCtrl + A     start of line\nCtrl + E     end of line\nCtrl + U     delete before cursor\nCtrl + K     delete after cursor\nCtrl + W     delete previous word\nUp Arrow     previous command\nDown Arrow   next command</code></pre>\n<p>Tab completion is a superpower. Use it constantly.</p>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-part-3-files-and-folders-2\">Part 3 \u2014 Files and Folders</h1>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-10-creating-files-and-directories\">10. Creating Files and Directories</h1>\n<p>Create a directory:</p>\n<pre><code class=\"language-bash\">mkdir Projects</code></pre>\n<p>Create nested directories:</p>\n<pre><code class=\"language-bash\">mkdir -p Projects/python/scripts</code></pre>\n<p>Create an empty file:</p>\n<pre><code class=\"language-bash\">touch notes.txt</code></pre>\n<p>Write text to a file:</p>\n<pre><code class=\"language-bash\">echo &quot;hello&quot; &gt; notes.txt</code></pre>\n<p>Append text:</p>\n<pre><code class=\"language-bash\">echo &quot;another line&quot; &gt;&gt; notes.txt</code></pre>\n<p>Create a project skeleton:</p>\n<pre><code class=\"language-bash\">mkdir -p my-project/{src,tests,docs,scripts}\ntouch my-project/README.md\ntouch my-project/.gitignore</code></pre>\n<p>Result:</p>\n<pre><code class=\"language-text\">my-project/\n\u251c\u2500\u2500 src/\n\u251c\u2500\u2500 tests/\n\u251c\u2500\u2500 docs/\n\u251c\u2500\u2500 scripts/\n\u251c\u2500\u2500 README.md\n\u2514\u2500\u2500 .gitignore</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-11-copying-moving-and-renaming\">11. Copying, Moving, and Renaming</h1>\n<p>Copy a file:</p>\n<pre><code class=\"language-bash\">cp notes.txt notes-backup.txt</code></pre>\n<p>Copy a directory:</p>\n<pre><code class=\"language-bash\">cp -r project project-backup</code></pre>\n<p>Copy while preserving attributes:</p>\n<pre><code class=\"language-bash\">cp -a project project-backup</code></pre>\n<p>Move a file:</p>\n<pre><code class=\"language-bash\">mv notes.txt ~/Documents/</code></pre>\n<p>Rename a file:</p>\n<pre><code class=\"language-bash\">mv old-name.txt new-name.txt</code></pre>\n<p>Move and rename:</p>\n<pre><code class=\"language-bash\">mv notes.txt ~/Documents/linux-notes.txt</code></pre>\n<p>Ask before overwrite:</p>\n<pre><code class=\"language-bash\">cp -i file.txt backup.txt\nmv -i file.txt destination.txt</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-12-deleting-safely\">12. Deleting Safely</h1>\n<p>Delete a file:</p>\n<pre><code class=\"language-bash\">rm file.txt</code></pre>\n<p>Delete an empty directory:</p>\n<pre><code class=\"language-bash\">rmdir folder</code></pre>\n<p>Delete a directory and its contents:</p>\n<pre><code class=\"language-bash\">rm -r folder</code></pre>\n<p>Ask before deleting:</p>\n<pre><code class=\"language-bash\">rm -i file.txt\nrm -ri folder</code></pre>\n<p>Danger command:</p>\n<pre><code class=\"language-bash\">rm -rf folder</code></pre>\n<p><code>rm -rf</code> means recursive, forceful deletion. There is usually no trash.</p>\n<p>Before using it, check:</p>\n<pre><code class=\"language-bash\">pwd\nls -la</code></pre>\n<p>Safer pattern:</p>\n<pre><code class=\"language-bash\">mkdir -p ~/.trash-manual\nmv unwanted-file ~/.trash-manual/</code></pre>\n<p>Then clean later:</p>\n<pre><code class=\"language-bash\">rm -ri ~/.trash-manual/*</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-13-viewing-files\">13. Viewing Files</h1>\n<p>Print small file:</p>\n<pre><code class=\"language-bash\">cat file.txt</code></pre>\n<p>View large file:</p>\n<pre><code class=\"language-bash\">less file.txt</code></pre>\n<p>First lines:</p>\n<pre><code class=\"language-bash\">head file.txt\nhead -n 20 file.txt</code></pre>\n<p>Last lines:</p>\n<pre><code class=\"language-bash\">tail file.txt\ntail -n 50 file.txt</code></pre>\n<p>Follow a changing file:</p>\n<pre><code class=\"language-bash\">tail -f app.log</code></pre>\n<p>Detect file type:</p>\n<pre><code class=\"language-bash\">file unknown-file</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-14-finding-files\">14. Finding Files</h1>\n<p>Find by name:</p>\n<pre><code class=\"language-bash\">find ~/Downloads -name &quot;*.mp3&quot;</code></pre>\n<p>Case-insensitive:</p>\n<pre><code class=\"language-bash\">find ~/Downloads -iname &quot;*.jpg&quot;</code></pre>\n<p>Find only files:</p>\n<pre><code class=\"language-bash\">find . -type f</code></pre>\n<p>Find only directories:</p>\n<pre><code class=\"language-bash\">find . -type d</code></pre>\n<p>Find big files:</p>\n<pre><code class=\"language-bash\">find ~ -type f -size +500M</code></pre>\n<p>Find recently modified files:</p>\n<pre><code class=\"language-bash\">find ~ -type f -mtime -1</code></pre>\n<p>Run command on results:</p>\n<pre><code class=\"language-bash\">find ~/Downloads -type f -name &quot;*.mp3&quot; -exec ls -lh {} \\;</code></pre>\n<p>Install fast locate search:</p>\n<pre><code class=\"language-bash\">sudo apt install plocate\nsudo updatedb\nlocate filename</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-15-hidden-files-and-config-folders\">15. Hidden Files and Config Folders</h1>\n<p>Files beginning with <code>.</code> are hidden.</p>\n<p>Examples:</p>\n<pre><code class=\"language-text\">.bashrc\n.profile\n.config\n.local\n.ssh</code></pre>\n<p>Show them:</p>\n<pre><code class=\"language-bash\">ls -la</code></pre>\n<p>Important user config locations:</p>\n<pre><code class=\"language-text\">~/.config\n~/.local/share\n~/.local/bin\n~/.cache\n~/.ssh</code></pre>\n<p>A lot of Linux personalization lives in hidden files.</p>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-part-4-text-processing-2\">Part 4 \u2014 Text Processing</h1>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-16-grep\">16. grep</h1>\n<p>Search inside a file:</p>\n<pre><code class=\"language-bash\">grep &quot;error&quot; app.log</code></pre>\n<p>Case-insensitive:</p>\n<pre><code class=\"language-bash\">grep -i &quot;error&quot; app.log</code></pre>\n<p>Show line numbers:</p>\n<pre><code class=\"language-bash\">grep -n &quot;error&quot; app.log</code></pre>\n<p>Recursive search:</p>\n<pre><code class=\"language-bash\">grep -R &quot;TODO&quot; .</code></pre>\n<p>Recursive, case-insensitive, line numbers:</p>\n<pre><code class=\"language-bash\">grep -Rni &quot;TODO&quot; .</code></pre>\n<p>Exclude folders:</p>\n<pre><code class=\"language-bash\">grep -Rni &quot;TODO&quot; . --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=.venv</code></pre>\n<p>Search multiple patterns:</p>\n<pre><code class=\"language-bash\">grep -E &quot;error|failed|warning&quot; app.log</code></pre>\n<p>Invert match:</p>\n<pre><code class=\"language-bash\">grep -v &quot;debug&quot; app.log</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-17-pipes\">17. Pipes</h1>\n<p>A pipe sends output from one command into another.</p>\n<pre><code class=\"language-bash\">command1 | command2</code></pre>\n<p>Examples:</p>\n<pre><code class=\"language-bash\">ls -la | less\nps aux | grep firefox\nfind . -name &quot;*.py&quot; | wc -l\ndu -h ~/Downloads | sort -h | tail</code></pre>\n<p>The Linux philosophy:</p>\n<blockquote><p>Small tools become powerful when combined.</p></blockquote>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-18-redirection\">18. Redirection</h1>\n<p>Overwrite a file:</p>\n<pre><code class=\"language-bash\">echo &quot;hello&quot; &gt; notes.txt</code></pre>\n<p>Append to a file:</p>\n<pre><code class=\"language-bash\">echo &quot;another line&quot; &gt;&gt; notes.txt</code></pre>\n<p>Redirect errors:</p>\n<pre><code class=\"language-bash\">command 2&gt; errors.txt</code></pre>\n<p>Redirect output and errors:</p>\n<pre><code class=\"language-bash\">command &gt; output.txt 2&gt;&amp;1</code></pre>\n<p>Shortcut:</p>\n<pre><code class=\"language-bash\">command &amp;&gt; output.txt</code></pre>\n<p>Discard output:</p>\n<pre><code class=\"language-bash\">command &gt; /dev/null</code></pre>\n<p>Discard output and errors:</p>\n<pre><code class=\"language-bash\">command &amp;&gt; /dev/null</code></pre>\n<p>Use <code>tee</code> to show and save output:</p>\n<pre><code class=\"language-bash\">ls -la | tee listing.txt</code></pre>\n<p>Append with <code>tee</code>:</p>\n<pre><code class=\"language-bash\">ls -la | tee -a listing.txt</code></pre>\n<p>Use with sudo:</p>\n<pre><code class=\"language-bash\">echo &quot;text&quot; | sudo tee /etc/example.conf</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-19-sort-uniq-wc-cut\">19. sort, uniq, wc, cut</h1>\n<p>Count lines:</p>\n<pre><code class=\"language-bash\">wc -l file.txt</code></pre>\n<p>Count words:</p>\n<pre><code class=\"language-bash\">wc -w file.txt</code></pre>\n<p>Sort lines:</p>\n<pre><code class=\"language-bash\">sort names.txt</code></pre>\n<p>Unique lines:</p>\n<pre><code class=\"language-bash\">sort names.txt | uniq</code></pre>\n<p>Count duplicates:</p>\n<pre><code class=\"language-bash\">sort names.txt | uniq -c | sort -nr</code></pre>\n<p>Cut first field split by comma:</p>\n<pre><code class=\"language-bash\">cut -d &#x27;,&#x27; -f 1 file.csv</code></pre>\n<p>Example: most used commands in shell history:</p>\n<pre><code class=\"language-bash\">history | awk &#x27;{print $2}&#x27; | sort | uniq -c | sort -nr | head</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-20-sed-and-awk-basics\">20. sed and awk Basics</h1>\n<p><code>sed</code> edits text streams.</p>\n<p>Replace first match per line:</p>\n<pre><code class=\"language-bash\">sed &#x27;s/old/new/&#x27; file.txt</code></pre>\n<p>Replace all matches:</p>\n<pre><code class=\"language-bash\">sed &#x27;s/old/new/g&#x27; file.txt</code></pre>\n<p>Edit file in place:</p>\n<pre><code class=\"language-bash\">sed -i &#x27;s/old/new/g&#x27; file.txt</code></pre>\n<p>Make backup while editing:</p>\n<pre><code class=\"language-bash\">sed -i.bak &#x27;s/old/new/g&#x27; file.txt</code></pre>\n<p><code>awk</code> works well with columns.</p>\n<p>Print first column:</p>\n<pre><code class=\"language-bash\">awk &#x27;{print $1}&#x27; file.txt</code></pre>\n<p>Print first and third columns:</p>\n<pre><code class=\"language-bash\">awk &#x27;{print $1, $3}&#x27; file.txt</code></pre>\n<p>Disk usage summary:</p>\n<pre><code class=\"language-bash\">df -h | awk &#x27;{print $1, $5, $6}&#x27;</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-part-5-permissions-and-users-2\">Part 5 \u2014 Permissions and Users</h1>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-21-users-and-groups\">21. Users and Groups</h1>\n<p>Show current user:</p>\n<pre><code class=\"language-bash\">whoami</code></pre>\n<p>Show user and group IDs:</p>\n<pre><code class=\"language-bash\">id</code></pre>\n<p>Show groups:</p>\n<pre><code class=\"language-bash\">groups</code></pre>\n<p>Show logged-in users:</p>\n<pre><code class=\"language-bash\">who</code></pre>\n<p><code>root</code> is the administrator account. Most of the time, you use <code>sudo</code> instead of logging in as root.</p>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-22-understanding-permissions\">22. Understanding Permissions</h1>\n<p>Run:</p>\n<pre><code class=\"language-bash\">ls -l</code></pre>\n<p>Example:</p>\n<pre><code class=\"language-text\">-rw-r--r-- 1 xander xander 1234 notes.txt\ndrwxr-xr-x 2 xander xander 4096 scripts</code></pre>\n<p>Permissions:</p>\n<pre><code class=\"language-text\">rw- r-- r--</code></pre>\n<p>Three groups:</p>\n<pre><code class=\"language-text\">owner\ngroup\nothers</code></pre>\n<p>Letters:</p>\n<pre><code class=\"language-text\">r = read\nw = write\nx = execute</code></pre>\n<p>For files:</p>\n<pre><code class=\"language-text\">read    view file\nwrite   edit file\nexecute run file as program/script</code></pre>\n<p>For directories:</p>\n<pre><code class=\"language-text\">read    list directory\nwrite   create/delete/rename inside\nexecute enter/access directory</code></pre>\n<p>Common modes:</p>\n<pre><code class=\"language-text\">644 normal file\n755 executable script or directory\n600 private file\n700 private directory</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-23-chmod\">23. chmod</h1>\n<p>Make script executable:</p>\n<pre><code class=\"language-bash\">chmod +x script.sh</code></pre>\n<p>Remove executable bit:</p>\n<pre><code class=\"language-bash\">chmod -x script.sh</code></pre>\n<p>Set normal file permissions:</p>\n<pre><code class=\"language-bash\">chmod 644 file.txt</code></pre>\n<p>Set executable permissions:</p>\n<pre><code class=\"language-bash\">chmod 755 script.sh</code></pre>\n<p>Set private key permissions:</p>\n<pre><code class=\"language-bash\">chmod 600 ~/.ssh/id_ed25519</code></pre>\n<p>Set private directory permissions:</p>\n<pre><code class=\"language-bash\">chmod 700 ~/.ssh</code></pre>\n<p>Avoid random:</p>\n<pre><code class=\"language-bash\">chmod -R 777 folder</code></pre>\n<p>That usually creates more problems than it solves.</p>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-24-chown\">24. chown</h1>\n<p>Change owner:</p>\n<pre><code class=\"language-bash\">sudo chown user file.txt</code></pre>\n<p>Change owner and group:</p>\n<pre><code class=\"language-bash\">sudo chown user:group file.txt</code></pre>\n<p>Recursive ownership change:</p>\n<pre><code class=\"language-bash\">sudo chown -R user:group folder</code></pre>\n<p>Common fix after accidentally using sudo inside your own project:</p>\n<pre><code class=\"language-bash\">sudo chown -R &quot;$USER:$USER&quot; ~/Projects/my-project</code></pre>\n<p>Be precise with recursive ownership changes.</p>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-25-sudo\">25. sudo</h1>\n<p><code>sudo</code> runs a command with elevated privileges.</p>\n<p>Examples:</p>\n<pre><code class=\"language-bash\">sudo apt update\nsudo systemctl restart NetworkManager\nsudo nano /etc/hosts</code></pre>\n<p>Use sudo for:</p>\n<pre><code class=\"language-text\">Installing packages\nEditing system config\nManaging system services\nChanging files outside your home folder\nMounting system devices</code></pre>\n<p>Be suspicious of sudo when:</p>\n<pre><code class=\"language-text\">Running random internet scripts\nFixing normal project permissions\nRunning pip/npm in your home folder\nDeleting files\nStarting graphical apps</code></pre>\n<p>Power rule:</p>\n<blockquote><p>Use sudo because the task requires system privileges, not because you do not understand the error.</p></blockquote>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-26-executable-scripts\">26. Executable Scripts</h1>\n<p>Create script:</p>\n<pre><code class=\"language-bash\">nano hello.sh</code></pre>\n<p>Content:</p>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\n\necho &quot;Hello from Linux&quot;</code></pre>\n<p>Make executable:</p>\n<pre><code class=\"language-bash\">chmod +x hello.sh</code></pre>\n<p>Run:</p>\n<pre><code class=\"language-bash\">./hello.sh</code></pre>\n<p>The first line is the shebang:</p>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash</code></pre>\n<p>It tells Linux what interpreter to use.</p>\n<p>Put personal scripts in:</p>\n<pre><code class=\"language-bash\">mkdir -p ~/.local/bin</code></pre>\n<p>Move script:</p>\n<pre><code class=\"language-bash\">mv hello.sh ~/.local/bin/hello</code></pre>\n<p>Make sure PATH includes it:</p>\n<pre><code class=\"language-bash\">echo &quot;$PATH&quot;</code></pre>\n<p>If needed, add to <code>~/.bashrc</code>:</p>\n<pre><code class=\"language-bash\">export PATH=&quot;$HOME/.local/bin:$PATH&quot;</code></pre>\n<p>Reload:</p>\n<pre><code class=\"language-bash\">source ~/.bashrc</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-part-6-software-management-2\">Part 6 \u2014 Software Management</h1>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-27-apt\">27. apt</h1>\n<p>Update package lists:</p>\n<pre><code class=\"language-bash\">sudo apt update</code></pre>\n<p>Upgrade packages:</p>\n<pre><code class=\"language-bash\">sudo apt upgrade</code></pre>\n<p>Install package:</p>\n<pre><code class=\"language-bash\">sudo apt install package-name</code></pre>\n<p>Remove package:</p>\n<pre><code class=\"language-bash\">sudo apt remove package-name</code></pre>\n<p>Remove package and config:</p>\n<pre><code class=\"language-bash\">sudo apt purge package-name</code></pre>\n<p>Remove unused packages:</p>\n<pre><code class=\"language-bash\">sudo apt autoremove</code></pre>\n<p>Search:</p>\n<pre><code class=\"language-bash\">apt search keyword</code></pre>\n<p>Show info:</p>\n<pre><code class=\"language-bash\">apt show package-name</code></pre>\n<p>Useful installs:</p>\n<pre><code class=\"language-bash\">sudo apt install curl wget git htop btop tree unzip zip jq ripgrep fd-find ncdu lsof</code></pre>\n<p>For scripts, <code>apt-get</code> is often preferred:</p>\n<pre><code class=\"language-bash\">sudo apt-get update\nsudo apt-get install -y git</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-28-deb-files\">28. deb Files</h1>\n<p>Install local <code>.deb</code> file:</p>\n<pre><code class=\"language-bash\">sudo apt install ./package.deb</code></pre>\n<p>The <code>./</code> matters.</p>\n<p>Alternative:</p>\n<pre><code class=\"language-bash\">sudo dpkg -i package.deb\nsudo apt install -f</code></pre>\n<p>Usually, prefer:</p>\n<pre><code class=\"language-bash\">sudo apt install ./package.deb</code></pre>\n<p>because apt handles dependencies better.</p>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-29-flatpak\">29. Flatpak</h1>\n<p>Check Flatpak:</p>\n<pre><code class=\"language-bash\">flatpak --version</code></pre>\n<p>Search:</p>\n<pre><code class=\"language-bash\">flatpak search app-name</code></pre>\n<p>Install:</p>\n<pre><code class=\"language-bash\">flatpak install flathub app-id</code></pre>\n<p>Run:</p>\n<pre><code class=\"language-bash\">flatpak run app-id</code></pre>\n<p>List installed:</p>\n<pre><code class=\"language-bash\">flatpak list</code></pre>\n<p>Update:</p>\n<pre><code class=\"language-bash\">flatpak update</code></pre>\n<p>Uninstall:</p>\n<pre><code class=\"language-bash\">flatpak uninstall app-id</code></pre>\n<p>Flatpak apps are sandboxed. If one cannot access a folder/device, install Flatseal:</p>\n<pre><code class=\"language-bash\">flatpak install flathub com.github.tchx84.Flatseal</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-30-appimages\">30. AppImages</h1>\n<p>AppImages are portable application files.</p>\n<p>Make executable:</p>\n<pre><code class=\"language-bash\">chmod +x SomeApp.AppImage</code></pre>\n<p>Run:</p>\n<pre><code class=\"language-bash\">./SomeApp.AppImage</code></pre>\n<p>Suggested folder:</p>\n<pre><code class=\"language-bash\">mkdir -p ~/Applications\nmv SomeApp.AppImage ~/Applications/</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-31-python-virtual-environments\">31. Python Virtual Environments</h1>\n<p>Create environment:</p>\n<pre><code class=\"language-bash\">python3 -m venv .venv</code></pre>\n<p>Activate:</p>\n<pre><code class=\"language-bash\">source .venv/bin/activate</code></pre>\n<p>Install package:</p>\n<pre><code class=\"language-bash\">pip install requests</code></pre>\n<p>Freeze dependencies:</p>\n<pre><code class=\"language-bash\">pip freeze &gt; requirements.txt</code></pre>\n<p>Deactivate:</p>\n<pre><code class=\"language-bash\">deactivate</code></pre>\n<p>Recreate later:</p>\n<pre><code class=\"language-bash\">python3 -m venv .venv\nsource .venv/bin/activate\npip install -r requirements.txt</code></pre>\n<p>Add to <code>.gitignore</code>:</p>\n<pre><code class=\"language-gitignore\">.venv/\n__pycache__/\n*.pyc</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-part-7-processes-and-resources-2\">Part 7 \u2014 Processes and Resources</h1>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-32-processes\">32. Processes</h1>\n<p>A process is a running program.</p>\n<p>Show processes:</p>\n<pre><code class=\"language-bash\">ps aux</code></pre>\n<p>Search:</p>\n<pre><code class=\"language-bash\">ps aux | grep firefox</code></pre>\n<p>Better:</p>\n<pre><code class=\"language-bash\">pgrep -a firefox</code></pre>\n<p>Process tree:</p>\n<pre><code class=\"language-bash\">pstree</code></pre>\n<p>Install if needed:</p>\n<pre><code class=\"language-bash\">sudo apt install psmisc</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-33-top-htop-and-btop\">33. top, htop, and btop</h1>\n<p>Live system monitor:</p>\n<pre><code class=\"language-bash\">top</code></pre>\n<p>Quit:</p>\n<pre><code class=\"language-text\">q</code></pre>\n<p>Better monitor:</p>\n<pre><code class=\"language-bash\">sudo apt install htop\nhtop</code></pre>\n<p>In <code>htop</code>:</p>\n<pre><code class=\"language-text\">F3 search\nF4 filter\nF9 kill\nF10 quit</code></pre>\n<p>Even nicer:</p>\n<pre><code class=\"language-bash\">sudo apt install btop\nbtop</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-34-killing-processes\">34. Killing Processes</h1>\n<p>Kill by PID:</p>\n<pre><code class=\"language-bash\">kill PID</code></pre>\n<p>Force kill:</p>\n<pre><code class=\"language-bash\">kill -9 PID</code></pre>\n<p>Kill by name:</p>\n<pre><code class=\"language-bash\">pkill app-name</code></pre>\n<p>Force by name:</p>\n<pre><code class=\"language-bash\">pkill -9 app-name</code></pre>\n<p>Find process first:</p>\n<pre><code class=\"language-bash\">pgrep -a obs</code></pre>\n<p>Try normal kill before force kill.</p>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-35-cpu-ram-and-load\">35. CPU, RAM, and Load</h1>\n<p>Memory:</p>\n<pre><code class=\"language-bash\">free -h</code></pre>\n<p>CPU:</p>\n<pre><code class=\"language-bash\">lscpu</code></pre>\n<p>System load:</p>\n<pre><code class=\"language-bash\">uptime</code></pre>\n<p>Disk space:</p>\n<pre><code class=\"language-bash\">df -h</code></pre>\n<p>Machine summary:</p>\n<pre><code class=\"language-bash\">hostnamectl</code></pre>\n<p>Kernel:</p>\n<pre><code class=\"language-bash\">uname -a</code></pre>\n<p>Quick report:</p>\n<pre><code class=\"language-bash\">hostnamectl\nuname -a\nfree -h\ndf -h\nlscpu</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-36-startup-apps\">36. Startup Apps</h1>\n<p>User autostart folder:</p>\n<pre><code class=\"language-bash\">ls ~/.config/autostart</code></pre>\n<p>System autostart folder:</p>\n<pre><code class=\"language-bash\">ls /etc/xdg/autostart</code></pre>\n<p>Open user autostart:</p>\n<pre><code class=\"language-bash\">xdg-open ~/.config/autostart</code></pre>\n<p>Disable manually:</p>\n<pre><code class=\"language-bash\">mkdir -p ~/.config/autostart-disabled\nmv ~/.config/autostart/app.desktop ~/.config/autostart-disabled/</code></pre>\n<p>User services:</p>\n<pre><code class=\"language-bash\">systemctl --user list-units --type=service</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-part-8-services-and-logs-2\">Part 8 \u2014 Services and Logs</h1>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-37-systemd\">37. systemd</h1>\n<p>Many Linux systems use <code>systemd</code> to manage services.</p>\n<p>A service is a background program.</p>\n<p>Examples:</p>\n<pre><code class=\"language-text\">NetworkManager\nssh\nbluetooth\ncups\npipewire\ntailscaled</code></pre>\n<p>systemd can:</p>\n<ul><li>Start services</li><li>Stop services</li><li>Restart services</li><li>Enable services at boot</li><li>Show status</li><li>Store logs</li></ul>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-38-systemctl\">38. systemctl</h1>\n<p>Check service:</p>\n<pre><code class=\"language-bash\">systemctl status service-name</code></pre>\n<p>Start:</p>\n<pre><code class=\"language-bash\">sudo systemctl start service-name</code></pre>\n<p>Stop:</p>\n<pre><code class=\"language-bash\">sudo systemctl stop service-name</code></pre>\n<p>Restart:</p>\n<pre><code class=\"language-bash\">sudo systemctl restart service-name</code></pre>\n<p>Enable at boot:</p>\n<pre><code class=\"language-bash\">sudo systemctl enable service-name</code></pre>\n<p>Enable and start now:</p>\n<pre><code class=\"language-bash\">sudo systemctl enable --now service-name</code></pre>\n<p>Disable:</p>\n<pre><code class=\"language-bash\">sudo systemctl disable service-name</code></pre>\n<p>Show failed services:</p>\n<pre><code class=\"language-bash\">systemctl --failed</code></pre>\n<p>User services:</p>\n<pre><code class=\"language-bash\">systemctl --user status service-name\nsystemctl --user restart service-name\nsystemctl --user enable --now service-name</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-39-journalctl\">39. journalctl</h1>\n<p>Read logs:</p>\n<pre><code class=\"language-bash\">journalctl</code></pre>\n<p>Go to end:</p>\n<pre><code class=\"language-bash\">journalctl -e</code></pre>\n<p>Follow live:</p>\n<pre><code class=\"language-bash\">journalctl -f</code></pre>\n<p>Logs for service:</p>\n<pre><code class=\"language-bash\">journalctl -u service-name</code></pre>\n<p>Recent service logs:</p>\n<pre><code class=\"language-bash\">journalctl -u service-name -e</code></pre>\n<p>Follow service logs:</p>\n<pre><code class=\"language-bash\">journalctl -u service-name -f</code></pre>\n<p>Logs from current boot:</p>\n<pre><code class=\"language-bash\">journalctl -b</code></pre>\n<p>Previous boot:</p>\n<pre><code class=\"language-bash\">journalctl -b -1</code></pre>\n<p>Errors this boot:</p>\n<pre><code class=\"language-bash\">journalctl -p err -b</code></pre>\n<p>Logs since a time:</p>\n<pre><code class=\"language-bash\">journalctl --since &quot;1 hour ago&quot;</code></pre>\n<p>User service logs:</p>\n<pre><code class=\"language-bash\">journalctl --user -u service-name</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-40-creating-a-user-service\">40. Creating a User Service</h1>\n<p>Create folders:</p>\n<pre><code class=\"language-bash\">mkdir -p ~/.config/systemd/user\nmkdir -p ~/scripts</code></pre>\n<p>Create script:</p>\n<pre><code class=\"language-bash\">nano ~/scripts/hello-service.sh</code></pre>\n<p>Content:</p>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\ndate &gt;&gt; &quot;$HOME/hello-service.log&quot;\necho &quot;Service ran&quot; &gt;&gt; &quot;$HOME/hello-service.log&quot;</code></pre>\n<p>Make executable:</p>\n<pre><code class=\"language-bash\">chmod +x ~/scripts/hello-service.sh</code></pre>\n<p>Create service:</p>\n<pre><code class=\"language-bash\">nano ~/.config/systemd/user/hello.service</code></pre>\n<p>Content:</p>\n<pre><code class=\"language-ini\">[Unit]\nDescription=Hello User Service\n\n[Service]\nType=oneshot\nExecStart=%h/scripts/hello-service.sh\n\n[Install]\nWantedBy=default.target</code></pre>\n<p>Reload:</p>\n<pre><code class=\"language-bash\">systemctl --user daemon-reload</code></pre>\n<p>Start:</p>\n<pre><code class=\"language-bash\">systemctl --user start hello.service</code></pre>\n<p>Check:</p>\n<pre><code class=\"language-bash\">systemctl --user status hello.service\ncat ~/hello-service.log</code></pre>\n<p>Enable at login:</p>\n<pre><code class=\"language-bash\">systemctl --user enable hello.service</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-part-9-storage-and-backups-2\">Part 9 \u2014 Storage and Backups</h1>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-41-disk-usage\">41. Disk Usage</h1>\n<p>Filesystem space:</p>\n<pre><code class=\"language-bash\">df -h</code></pre>\n<p>Folder size:</p>\n<pre><code class=\"language-bash\">du -sh ~/Downloads</code></pre>\n<p>Current folder item sizes:</p>\n<pre><code class=\"language-bash\">du -sh *</code></pre>\n<p>Sort by size:</p>\n<pre><code class=\"language-bash\">du -sh * | sort -h</code></pre>\n<p>Interactive disk explorer:</p>\n<pre><code class=\"language-bash\">sudo apt install ncdu\nncdu ~</code></pre>\n<p>Find huge files:</p>\n<pre><code class=\"language-bash\">find ~ -type f -size +1G -exec ls -lh {} \\; 2&gt;/dev/null</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-42-block-devices-and-mounts\">42. Block Devices and Mounts</h1>\n<p>Show drives and partitions:</p>\n<pre><code class=\"language-bash\">lsblk</code></pre>\n<p>Show filesystems:</p>\n<pre><code class=\"language-bash\">lsblk -f</code></pre>\n<p>Show mounted filesystems:</p>\n<pre><code class=\"language-bash\">findmnt</code></pre>\n<p>Common mount locations:</p>\n<pre><code class=\"language-text\">/media/username/drive-name\n/mnt/manual-mount</code></pre>\n<p>Manual mount:</p>\n<pre><code class=\"language-bash\">sudo mkdir -p /mnt/usb\nsudo mount /dev/sdX1 /mnt/usb</code></pre>\n<p>Unmount:</p>\n<pre><code class=\"language-bash\">sudo umount /mnt/usb</code></pre>\n<p>Do not guess device names. Use <code>lsblk -f</code> first.</p>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-43-usb-drives\">43. USB Drives</h1>\n<p>After plugging in:</p>\n<pre><code class=\"language-bash\">lsblk -f</code></pre>\n<p>Check auto-mounted drives:</p>\n<pre><code class=\"language-bash\">ls /media/$USER</code></pre>\n<p>Unmount safely:</p>\n<pre><code class=\"language-bash\">udisksctl unmount -b /dev/sdX1</code></pre>\n<p>Power off:</p>\n<pre><code class=\"language-bash\">udisksctl power-off -b /dev/sdX</code></pre>\n<p>Commands like these erase data:</p>\n<pre><code class=\"language-bash\">mkfs.ext4 /dev/sdX1\ndd if=image.iso of=/dev/sdX</code></pre>\n<p>Triple-check before formatting or writing images.</p>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-44-archives\">44. Archives</h1>\n<p>Create tar.gz:</p>\n<pre><code class=\"language-bash\">tar -czf archive.tar.gz folder/</code></pre>\n<p>Extract tar.gz:</p>\n<pre><code class=\"language-bash\">tar -xzf archive.tar.gz</code></pre>\n<p>List contents:</p>\n<pre><code class=\"language-bash\">tar -tzf archive.tar.gz</code></pre>\n<p>Create zip:</p>\n<pre><code class=\"language-bash\">zip -r archive.zip folder/</code></pre>\n<p>Extract zip:</p>\n<pre><code class=\"language-bash\">unzip archive.zip</code></pre>\n<p>Archive with date:</p>\n<pre><code class=\"language-bash\">tar -czf &quot;backup-$(date +%Y-%m-%d).tar.gz&quot; folder/</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-45-rsync\">45. rsync</h1>\n<p>Basic sync:</p>\n<pre><code class=\"language-bash\">rsync -av source/ destination/</code></pre>\n<p>Dry run:</p>\n<pre><code class=\"language-bash\">rsync -av --dry-run source/ destination/</code></pre>\n<p>Mirror with delete:</p>\n<pre><code class=\"language-bash\">rsync -av --delete source/ destination/</code></pre>\n<p>Use dry run before <code>--delete</code>.</p>\n<p>Exclude folders:</p>\n<pre><code class=\"language-bash\">rsync -av --exclude &quot;.git&quot; --exclude &quot;node_modules&quot; project/ backup/project/</code></pre>\n<p>Trailing slash matters:</p>\n<pre><code class=\"language-bash\">rsync -av source/ destination/</code></pre>\n<p>copies contents of <code>source</code>.</p>\n<pre><code class=\"language-bash\">rsync -av source destination/</code></pre>\n<p>copies the folder itself.</p>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-46-backup-strategy\">46. Backup Strategy</h1>\n<p>Good backups have:</p>\n<pre><code class=\"language-text\">multiple copies\ndifferent locations\neasy restore\na schedule\ntested recovery</code></pre>\n<p>Simple backup script:</p>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\nset -euo pipefail\n\nDEST=&quot;/media/$USER/Backup&quot;\n\nrsync -av --delete &quot;$HOME/Documents/&quot; &quot;$DEST/Documents/&quot;\nrsync -av --delete &quot;$HOME/Projects/&quot; &quot;$DEST/Projects/&quot;\nrsync -av &quot;$HOME/.bashrc&quot; &quot;$DEST/configs/bashrc&quot;\nrsync -av &quot;$HOME/.gitconfig&quot; &quot;$DEST/configs/gitconfig&quot;</code></pre>\n<p>Test restore occasionally:</p>\n<pre><code class=\"language-bash\">mkdir /tmp/restore-test\ntar -xzf backup.tar.gz -C /tmp/restore-test</code></pre>\n<p>A backup you have never restored is only a hopeful rumor.</p>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-part-10-networking-2\">Part 10 \u2014 Networking</h1>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-47-network-mental-model\">47. Network Mental Model</h1>\n<p>For internet to work, you need:</p>\n<pre><code class=\"language-text\">Network interface\nIP address\nDefault route/gateway\nDNS resolver\nReachable remote service</code></pre>\n<p>Troubleshooting order:</p>\n<pre><code class=\"language-text\">1. Is Wi-Fi/Ethernet connected?\n2. Do I have an IP address?\n3. Do I have a default route?\n4. Can I ping an IP?\n5. Does DNS work?\n6. Can I reach the actual website/service?</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-48-ip-commands\">48. ip Commands</h1>\n<p>Show addresses:</p>\n<pre><code class=\"language-bash\">ip addr</code></pre>\n<p>Short:</p>\n<pre><code class=\"language-bash\">ip a</code></pre>\n<p>Show routes:</p>\n<pre><code class=\"language-bash\">ip route</code></pre>\n<p>Short:</p>\n<pre><code class=\"language-bash\">ip r</code></pre>\n<p>Show interfaces:</p>\n<pre><code class=\"language-bash\">ip link</code></pre>\n<p>Find default route:</p>\n<pre><code class=\"language-bash\">ip route | grep default</code></pre>\n<p>Common interface names:</p>\n<pre><code class=\"language-text\">lo          loopback\nwlan0       old Wi-Fi naming\nwlp...      newer Wi-Fi naming\neth0        old Ethernet naming\nenp...      newer Ethernet naming\ntailscale0  Tailscale interface</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-49-ping-curl-wget\">49. ping, curl, wget</h1>\n<p>Ping IP:</p>\n<pre><code class=\"language-bash\">ping 1.1.1.1</code></pre>\n<p>Ping domain:</p>\n<pre><code class=\"language-bash\">ping example.com</code></pre>\n<p>Stop ping:</p>\n<pre><code class=\"language-text\">Ctrl + C</code></pre>\n<p>Fetch headers:</p>\n<pre><code class=\"language-bash\">curl -I https://example.com</code></pre>\n<p>Follow redirects:</p>\n<pre><code class=\"language-bash\">curl -L https://example.com</code></pre>\n<p>Download with curl:</p>\n<pre><code class=\"language-bash\">curl -L -o file.zip https://example.com/file.zip</code></pre>\n<p>Download with wget:</p>\n<pre><code class=\"language-bash\">wget https://example.com/file.zip</code></pre>\n<p>Continue partial download:</p>\n<pre><code class=\"language-bash\">wget -c https://example.com/file.zip</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-50-dns-troubleshooting\">50. DNS Troubleshooting</h1>\n<p>Check resolver:</p>\n<pre><code class=\"language-bash\">resolvectl status</code></pre>\n<p>Query domain:</p>\n<pre><code class=\"language-bash\">resolvectl query example.com</code></pre>\n<p>Install DNS tools:</p>\n<pre><code class=\"language-bash\">sudo apt install dnsutils</code></pre>\n<p>Use dig:</p>\n<pre><code class=\"language-bash\">dig example.com</code></pre>\n<p>Query specific DNS server:</p>\n<pre><code class=\"language-bash\">dig @1.1.1.1 example.com</code></pre>\n<p>If <code>ping 1.1.1.1</code> works but <code>ping example.com</code> fails, suspect DNS.</p>\n<p>Restart NetworkManager:</p>\n<pre><code class=\"language-bash\">sudo systemctl restart NetworkManager</code></pre>\n<p>Logs:</p>\n<pre><code class=\"language-bash\">journalctl -u NetworkManager -e</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-51-ports-and-listening-services\">51. Ports and Listening Services</h1>\n<p>Check listening ports:</p>\n<pre><code class=\"language-bash\">ss -tulpn</code></pre>\n<p>With process names:</p>\n<pre><code class=\"language-bash\">sudo ss -tulpn</code></pre>\n<p>Filter:</p>\n<pre><code class=\"language-bash\">sudo ss -tulpn | grep :8000</code></pre>\n<p>Install lsof:</p>\n<pre><code class=\"language-bash\">sudo apt install lsof</code></pre>\n<p>Check port:</p>\n<pre><code class=\"language-bash\">sudo lsof -i :8000</code></pre>\n<p>Kill process on port:</p>\n<pre><code class=\"language-bash\">sudo lsof -i :8000\nkill PID</code></pre>\n<p>Common ports:</p>\n<pre><code class=\"language-text\">22    SSH\n80    HTTP\n443   HTTPS\n3000  common dev server\n5000  common local app\n8000  Python local server\n8080  alternate web server</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-52-ssh\">52. SSH</h1>\n<p>Connect:</p>\n<pre><code class=\"language-bash\">ssh user@host</code></pre>\n<p>Example:</p>\n<pre><code class=\"language-bash\">ssh xander@192.168.1.50</code></pre>\n<p>Generate key:</p>\n<pre><code class=\"language-bash\">ssh-keygen -t ed25519 -C &quot;your-email@example.com&quot;</code></pre>\n<p>Files:</p>\n<pre><code class=\"language-text\">~/.ssh/id_ed25519      private key\n~/.ssh/id_ed25519.pub  public key</code></pre>\n<p>Do not share the private key.</p>\n<p>Copy key:</p>\n<pre><code class=\"language-bash\">ssh-copy-id user@host</code></pre>\n<p>SSH config:</p>\n<pre><code class=\"language-bash\">nano ~/.ssh/config</code></pre>\n<p>Example:</p>\n<pre><code class=\"language-sshconfig\">Host home-server\n    HostName 192.168.1.50\n    User xander\n    Port 22</code></pre>\n<p>Connect:</p>\n<pre><code class=\"language-bash\">ssh home-server</code></pre>\n<p>Permissions:</p>\n<pre><code class=\"language-bash\">chmod 700 ~/.ssh\nchmod 600 ~/.ssh/id_ed25519\nchmod 644 ~/.ssh/id_ed25519.pub\nchmod 600 ~/.ssh/config</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-53-scp-and-remote-rsync\">53. scp and Remote rsync</h1>\n<p>Copy local file to remote:</p>\n<pre><code class=\"language-bash\">scp file.txt user@host:/home/user/</code></pre>\n<p>Copy remote file to local:</p>\n<pre><code class=\"language-bash\">scp user@host:/home/user/file.txt .</code></pre>\n<p>Copy folder:</p>\n<pre><code class=\"language-bash\">scp -r folder user@host:/home/user/</code></pre>\n<p>Better for backups:</p>\n<pre><code class=\"language-bash\">rsync -av folder/ user@host:/home/user/folder/</code></pre>\n<p>Pull remote folder:</p>\n<pre><code class=\"language-bash\">rsync -av user@host:/home/user/folder/ ./folder/</code></pre>\n<p>Dry run:</p>\n<pre><code class=\"language-bash\">rsync -av --dry-run folder/ user@host:/home/user/folder/</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-54-firewall-basics\">54. Firewall Basics</h1>\n<p>UFW status:</p>\n<pre><code class=\"language-bash\">sudo ufw status</code></pre>\n<p>Allow SSH:</p>\n<pre><code class=\"language-bash\">sudo ufw allow ssh</code></pre>\n<p>Enable firewall:</p>\n<pre><code class=\"language-bash\">sudo ufw enable</code></pre>\n<p>Allow port:</p>\n<pre><code class=\"language-bash\">sudo ufw allow 8000/tcp</code></pre>\n<p>Deny port:</p>\n<pre><code class=\"language-bash\">sudo ufw deny 8000/tcp</code></pre>\n<p>Delete rule:</p>\n<pre><code class=\"language-bash\">sudo ufw delete allow 8000/tcp</code></pre>\n<p>If connected over SSH, allow SSH before enabling UFW or you may lock yourself out.</p>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-part-11-automation-2\">Part 11 \u2014 Automation</h1>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-55-environment-variables\">55. Environment Variables</h1>\n<p>Show environment:</p>\n<pre><code class=\"language-bash\">env</code></pre>\n<p>Show variable:</p>\n<pre><code class=\"language-bash\">echo &quot;$HOME&quot;\necho &quot;$USER&quot;\necho &quot;$PATH&quot;</code></pre>\n<p>Set variable for current shell:</p>\n<pre><code class=\"language-bash\">export MY_VAR=&quot;hello&quot;</code></pre>\n<p>Use for one command:</p>\n<pre><code class=\"language-bash\">DEBUG=1 python app.py</code></pre>\n<p>Persistent variable in <code>~/.bashrc</code>:</p>\n<pre><code class=\"language-bash\">export EDITOR=&quot;nano&quot;</code></pre>\n<p>Reload:</p>\n<pre><code class=\"language-bash\">source ~/.bashrc</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-56-path\">56. PATH</h1>\n<p><code>PATH</code> tells the shell where to find commands.</p>\n<p>Show:</p>\n<pre><code class=\"language-bash\">echo &quot;$PATH&quot;</code></pre>\n<p>Add personal bin:</p>\n<pre><code class=\"language-bash\">mkdir -p ~/.local/bin</code></pre>\n<p>Add to <code>~/.bashrc</code>:</p>\n<pre><code class=\"language-bash\">export PATH=&quot;$HOME/.local/bin:$PATH&quot;</code></pre>\n<p>Reload:</p>\n<pre><code class=\"language-bash\">source ~/.bashrc</code></pre>\n<p>Check command location:</p>\n<pre><code class=\"language-bash\">command -v my-command</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-57-aliases\">57. Aliases</h1>\n<p>Add to <code>~/.bashrc</code>:</p>\n<pre><code class=\"language-bash\">alias ll=&#x27;ls -lah&#x27;\nalias gs=&#x27;git status&#x27;\nalias gl=&#x27;git log --oneline --graph --decorate --all&#x27;\nalias update=&#x27;sudo apt update &amp;&amp; sudo apt upgrade&#x27;</code></pre>\n<p>Reload:</p>\n<pre><code class=\"language-bash\">source ~/.bashrc</code></pre>\n<p>List aliases:</p>\n<pre><code class=\"language-bash\">alias</code></pre>\n<p>Aliases are good for shortcuts. Use functions for more complex behavior.</p>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-58-shell-functions\">58. Shell Functions</h1>\n<p>Function example:</p>\n<pre><code class=\"language-bash\">mkcd() {\n    mkdir -p &quot;$1&quot; &amp;&amp; cd &quot;$1&quot;\n}</code></pre>\n<p>Use:</p>\n<pre><code class=\"language-bash\">mkcd new-project</code></pre>\n<p>Archive extractor:</p>\n<pre><code class=\"language-bash\">extract() {\n    if [ -f &quot;$1&quot; ]; then\n        case &quot;$1&quot; in\n            *.tar.gz|*.tgz) tar -xzf &quot;$1&quot; ;;\n            *.tar.bz2) tar -xjf &quot;$1&quot; ;;\n            *.tar.xz) tar -xJf &quot;$1&quot; ;;\n            *.zip) unzip &quot;$1&quot; ;;\n            *) echo &quot;Unknown archive type: $1&quot; ;;\n        esac\n    else\n        echo &quot;File not found: $1&quot;\n    fi\n}</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-59-bash-scripts\">59. Bash Scripts</h1>\n<p>Safe script starter:</p>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\nset -euo pipefail</code></pre>\n<p>Meaning:</p>\n<pre><code class=\"language-text\">-e  exit on error\n-u  fail on undefined variables\n-o pipefail  fail if any command in a pipe fails</code></pre>\n<p>Arguments:</p>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\nset -euo pipefail\n\nNAME=&quot;${1:-friend}&quot;\necho &quot;Hello, $NAME&quot;</code></pre>\n<p>Run:</p>\n<pre><code class=\"language-bash\">./hello.sh Xander</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-60-cron\">60. cron</h1>\n<p>Edit crontab:</p>\n<pre><code class=\"language-bash\">crontab -e</code></pre>\n<p>List crontab:</p>\n<pre><code class=\"language-bash\">crontab -l</code></pre>\n<p>Format:</p>\n<pre><code class=\"language-text\">minute hour day-of-month month day-of-week command</code></pre>\n<p>Every day at 9 AM:</p>\n<pre><code class=\"language-cron\">0 9 * * * /home/xander/scripts/daily.sh</code></pre>\n<p>Every 15 minutes:</p>\n<pre><code class=\"language-cron\">*/15 * * * * /home/xander/scripts/check.sh</code></pre>\n<p>Every Monday at 8 AM:</p>\n<pre><code class=\"language-cron\">0 8 * * 1 /home/xander/scripts/weekly.sh</code></pre>\n<p>Cron has a limited environment. Use absolute paths and log output:</p>\n<pre><code class=\"language-cron\">0 9 * * * /home/xander/scripts/backup.sh &gt;&gt; /home/xander/backup.log 2&gt;&amp;1</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-part-12-practical-labs-2\">Part 12 \u2014 Practical Labs</h1>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-61-lab-system-report-script\">61. Lab: System Report Script</h1>\n<p>Create:</p>\n<pre><code class=\"language-bash\">mkdir -p ~/scripts\nnano ~/scripts/sysreport.sh</code></pre>\n<p>Content:</p>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\nset -euo pipefail\n\necho &quot;## System&quot;\nhostnamectl\n\necho\n\necho &quot;## Kernel&quot;\nuname -a\n\necho\n\necho &quot;## Memory&quot;\nfree -h\n\necho\n\necho &quot;## Disk&quot;\ndf -h\n\necho\n\necho &quot;## Network&quot;\nip addr\n\necho\n\necho &quot;## Failed Services&quot;\nsystemctl --failed || true</code></pre>\n<p>Run:</p>\n<pre><code class=\"language-bash\">chmod +x ~/scripts/sysreport.sh\n~/scripts/sysreport.sh</code></pre>\n<p>Save report:</p>\n<pre><code class=\"language-bash\">~/scripts/sysreport.sh &gt; ~/system-report.txt</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-62-lab-downloads-organizer\">62. Lab: Downloads Organizer</h1>\n<p>Dry-run report:</p>\n<pre><code class=\"language-bash\">find ~/Downloads -maxdepth 1 -type f | while read -r file; do\n    name=&quot;$(basename &quot;$file&quot;)&quot;\n    ext=&quot;${name##*.}&quot;\n    if [ &quot;$name&quot; = &quot;$ext&quot; ]; then ext=&quot;no-extension&quot;; fi\n    echo &quot;$name -&gt; $ext/&quot;\ndone</code></pre>\n<p>Organizer script:</p>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\nset -euo pipefail\n\nDOWNLOADS=&quot;$HOME/Downloads&quot;\n\nfind &quot;$DOWNLOADS&quot; -maxdepth 1 -type f | while read -r file; do\n    name=&quot;$(basename &quot;$file&quot;)&quot;\n    ext=&quot;${name##*.}&quot;\n\n    if [ &quot;$name&quot; = &quot;$ext&quot; ]; then\n        ext=&quot;no-extension&quot;\n    fi\n\n    ext=&quot;$(echo &quot;$ext&quot; | tr &#x27;[:upper:]&#x27; &#x27;[:lower:]&#x27;)&quot;\n    target=&quot;$DOWNLOADS/$ext&quot;\n\n    mkdir -p &quot;$target&quot;\n    mv -i &quot;$file&quot; &quot;$target/&quot;\ndone</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-63-lab-find-large-files\">63. Lab: Find Large Files</h1>\n<p>Command:</p>\n<pre><code class=\"language-bash\">find ~ -type f -size +500M -exec ls -lh {} \\; 2&gt;/dev/null</code></pre>\n<p>Script:</p>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\nset -euo pipefail\n\nDIR=&quot;${1:-$HOME}&quot;\nSIZE=&quot;${2:-100M}&quot;\n\nfind &quot;$DIR&quot; -type f -size +&quot;$SIZE&quot; -printf &#x27;%s %p\\n&#x27; 2&gt;/dev/null \\\n  | sort -n \\\n  | tail -20 \\\n  | numfmt --field=1 --to=iec</code></pre>\n<p>Run:</p>\n<pre><code class=\"language-bash\">./bigfiles.sh ~/Downloads 50M</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-64-lab-local-web-server\">64. Lab: Local Web Server</h1>\n<p>Go to a folder:</p>\n<pre><code class=\"language-bash\">cd ~/Projects/my-site</code></pre>\n<p>Start server:</p>\n<pre><code class=\"language-bash\">python3 -m http.server 8000</code></pre>\n<p>Open:</p>\n<pre><code class=\"language-text\">http://localhost:8000</code></pre>\n<p>Find local IP:</p>\n<pre><code class=\"language-bash\">hostname -I</code></pre>\n<p>Check port:</p>\n<pre><code class=\"language-bash\">ss -tulpn | grep :8000</code></pre>\n<p>Stop:</p>\n<pre><code class=\"language-text\">Ctrl + C</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-65-lab-backup-script\">65. Lab: Backup Script</h1>\n<p>Create:</p>\n<pre><code class=\"language-bash\">nano ~/scripts/backup-projects.sh</code></pre>\n<p>Content:</p>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\nset -euo pipefail\n\nSOURCE=&quot;$HOME/Projects/&quot;\nDEST=&quot;$HOME/Backups/Projects/&quot;\n\nmkdir -p &quot;$DEST&quot;\nrsync -av --delete &quot;$SOURCE&quot; &quot;$DEST&quot;</code></pre>\n<p>Dry run first:</p>\n<pre><code class=\"language-bash\">rsync -av --delete --dry-run &quot;$HOME/Projects/&quot; &quot;$HOME/Backups/Projects/&quot;</code></pre>\n<p>Run:</p>\n<pre><code class=\"language-bash\">chmod +x ~/scripts/backup-projects.sh\n~/scripts/backup-projects.sh</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-66-lab-service-watcher\">66. Lab: Service Watcher</h1>\n<p>Create:</p>\n<pre><code class=\"language-bash\">nano ~/scripts/check-service.sh</code></pre>\n<p>Content:</p>\n<pre><code class=\"language-bash\">#!/usr/bin/env bash\nset -euo pipefail\n\nSERVICE=&quot;${1:-NetworkManager}&quot;\n\nif systemctl is-active --quiet &quot;$SERVICE&quot;; then\n    echo &quot;$SERVICE is running&quot;\nelse\n    echo &quot;$SERVICE is NOT running&quot;\n    systemctl status &quot;$SERVICE&quot; --no-pager || true\nfi</code></pre>\n<p>Run:</p>\n<pre><code class=\"language-bash\">chmod +x ~/scripts/check-service.sh\n~/scripts/check-service.sh NetworkManager</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-part-13-troubleshooting-playbooks-2\">Part 13 \u2014 Troubleshooting Playbooks</h1>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-67-app-will-not-open\">67. App Will Not Open</h1>\n<p>Run app from terminal:</p>\n<pre><code class=\"language-bash\">app-name</code></pre>\n<p>Find executable:</p>\n<pre><code class=\"language-bash\">command -v app-name</code></pre>\n<p>Check recent logs:</p>\n<pre><code class=\"language-bash\">journalctl --since &quot;10 minutes ago&quot; -e</code></pre>\n<p>If Flatpak:</p>\n<pre><code class=\"language-bash\">flatpak list\nflatpak run app.id.Name</code></pre>\n<p>Reinstall apt package:</p>\n<pre><code class=\"language-bash\">sudo apt install --reinstall package-name</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-68-internet-is-broken\">68. Internet Is Broken</h1>\n<p>Check IP:</p>\n<pre><code class=\"language-bash\">ip addr</code></pre>\n<p>Check route:</p>\n<pre><code class=\"language-bash\">ip route</code></pre>\n<p>Ping IP:</p>\n<pre><code class=\"language-bash\">ping 1.1.1.1</code></pre>\n<p>Check DNS:</p>\n<pre><code class=\"language-bash\">resolvectl query example.com</code></pre>\n<p>Restart NetworkManager:</p>\n<pre><code class=\"language-bash\">sudo systemctl restart NetworkManager</code></pre>\n<p>Logs:</p>\n<pre><code class=\"language-bash\">journalctl -u NetworkManager -e</code></pre>\n<p>NetworkManager CLI:</p>\n<pre><code class=\"language-bash\">nmcli device\nnmcli connection show</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-69-disk-is-full\">69. Disk Is Full</h1>\n<p>Check filesystems:</p>\n<pre><code class=\"language-bash\">df -h</code></pre>\n<p>Check home folder:</p>\n<pre><code class=\"language-bash\">du -sh ~</code></pre>\n<p>Top folders:</p>\n<pre><code class=\"language-bash\">du -sh ~/* 2&gt;/dev/null | sort -h</code></pre>\n<p>Use ncdu:</p>\n<pre><code class=\"language-bash\">ncdu ~</code></pre>\n<p>Clean apt cache:</p>\n<pre><code class=\"language-bash\">sudo apt clean\nsudo apt autoremove</code></pre>\n<p>Journal size:</p>\n<pre><code class=\"language-bash\">journalctl --disk-usage</code></pre>\n<p>Vacuum logs:</p>\n<pre><code class=\"language-bash\">sudo journalctl --vacuum-time=7d</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-70-audio-is-broken\">70. Audio Is Broken</h1>\n<p>Check PipeWire services:</p>\n<pre><code class=\"language-bash\">systemctl --user status pipewire\nsystemctl --user status pipewire-pulse\nsystemctl --user status wireplumber</code></pre>\n<p>Restart audio stack:</p>\n<pre><code class=\"language-bash\">systemctl --user restart pipewire pipewire-pulse wireplumber</code></pre>\n<p>List outputs:</p>\n<pre><code class=\"language-bash\">pactl list short sinks</code></pre>\n<p>List inputs:</p>\n<pre><code class=\"language-bash\">pactl list short sources</code></pre>\n<p>Install volume control:</p>\n<pre><code class=\"language-bash\">sudo apt install pavucontrol\npavucontrol</code></pre>\n<p>Check output device, input device, muted state, and app-specific volume.</p>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-71-permission-denied\">71. Permission Denied</h1>\n<p>Inspect:</p>\n<pre><code class=\"language-bash\">ls -la</code></pre>\n<p>Script not executable:</p>\n<pre><code class=\"language-bash\">chmod +x script.sh\n./script.sh</code></pre>\n<p>Project files owned by root:</p>\n<pre><code class=\"language-bash\">sudo chown -R &quot;$USER:$USER&quot; ~/Projects/my-project</code></pre>\n<p>Need to edit system file:</p>\n<pre><code class=\"language-bash\">sudo nano /etc/hosts</code></pre>\n<p>Avoid using this as a lazy fix:</p>\n<pre><code class=\"language-bash\">chmod -R 777 folder</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-72-updates-fail\">72. Updates Fail</h1>\n<p>Update:</p>\n<pre><code class=\"language-bash\">sudo apt update</code></pre>\n<p>Fix broken install:</p>\n<pre><code class=\"language-bash\">sudo apt --fix-broken install</code></pre>\n<p>Configure interrupted packages:</p>\n<pre><code class=\"language-bash\">sudo dpkg --configure -a</code></pre>\n<p>Remove unused packages:</p>\n<pre><code class=\"language-bash\">sudo apt autoremove</code></pre>\n<p>Clean cache:</p>\n<pre><code class=\"language-bash\">sudo apt clean</code></pre>\n<p>Held packages:</p>\n<pre><code class=\"language-bash\">apt-mark showhold</code></pre>\n<p>Check apt/dpkg processes:</p>\n<pre><code class=\"language-bash\">ps aux | grep -E &quot;apt|dpkg&quot;</code></pre>\n<p>Do not delete lock files unless you understand why the lock exists.</p>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-part-14-cheat-sheets-2\">Part 14 \u2014 Cheat Sheets</h1>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-73-daily-commands\">73. Daily Commands</h1>\n<p>Navigation:</p>\n<pre><code class=\"language-bash\">pwd\nls -la\ncd folder\ncd ..\ncd ~</code></pre>\n<p>Files:</p>\n<pre><code class=\"language-bash\">touch file\nmkdir folder\nmkdir -p a/b/c\ncp file copy\ncp -r folder backup\nmv old new\nrm file\nrm -r folder</code></pre>\n<p>Viewing:</p>\n<pre><code class=\"language-bash\">cat file\nless file\nhead file\ntail file\ntail -f log\nfile unknown</code></pre>\n<p>Searching:</p>\n<pre><code class=\"language-bash\">find . -name &quot;*.py&quot;\ngrep -Rni &quot;text&quot; .\nlocate filename</code></pre>\n<p>System:</p>\n<pre><code class=\"language-bash\">hostnamectl\nuname -a\nfree -h\ndf -h\nlsblk -f\nip addr\nip route</code></pre>\n<p>Packages:</p>\n<pre><code class=\"language-bash\">sudo apt update\nsudo apt upgrade\nsudo apt install package\nsudo apt remove package</code></pre>\n<p>Processes:</p>\n<pre><code class=\"language-bash\">ps aux\npgrep -a name\nhtop\nkill PID\npkill name</code></pre>\n<p>Services:</p>\n<pre><code class=\"language-bash\">systemctl status service\nsudo systemctl restart service\nsystemctl --failed\njournalctl -u service -e</code></pre>\n<p>Networking:</p>\n<pre><code class=\"language-bash\">ping 1.1.1.1\ncurl -I https://example.com\nresolvectl status\nss -tulpn\nssh user@host</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-74-dangerous-commands\">74. Dangerous Commands</h1>\n<p>These commands are not always wrong, but they deserve respect.</p>\n<p>Recursive delete:</p>\n<pre><code class=\"language-bash\">rm -rf path</code></pre>\n<p>Overwrite disk:</p>\n<pre><code class=\"language-bash\">dd if=image.iso of=/dev/sdX</code></pre>\n<p>Format partition:</p>\n<pre><code class=\"language-bash\">mkfs.ext4 /dev/sdX1</code></pre>\n<p>Recursive permission change:</p>\n<pre><code class=\"language-bash\">chmod -R 777 path</code></pre>\n<p>Recursive ownership change:</p>\n<pre><code class=\"language-bash\">sudo chown -R user:user path</code></pre>\n<p>Run remote script:</p>\n<pre><code class=\"language-bash\">curl URL | bash</code></pre>\n<p>Safer remote script pattern:</p>\n<pre><code class=\"language-bash\">curl -L URL -o install.sh\nless install.sh\nbash install.sh</code></pre>\n<p>Fork bomb \u2014 do not run:</p>\n<pre><code class=\"language-bash\">:(){ :|:&amp; };:</code></pre>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-75-glossary\">75. Glossary</h1>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-shell\">Shell</h2>\n<p>Program that interprets commands.</p>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-terminal\">Terminal</h2>\n<p>App that lets you interact with a shell.</p>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-bash\">Bash</h2>\n<p>A common Linux shell.</p>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-kernel\">Kernel</h2>\n<p>Core of the operating system.</p>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-distribution\">Distribution</h2>\n<p>Packaged Linux operating system.</p>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-root\">Root</h2>\n<p>Administrator user.</p>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-sudo\">sudo</h2>\n<p>Run a command with elevated privileges.</p>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-package\">Package</h2>\n<p>Installable software bundle.</p>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-process\">Process</h2>\n<p>Running program.</p>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-pid\">PID</h2>\n<p>Process ID.</p>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-service\">Service</h2>\n<p>Background program managed by the system.</p>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-systemd\">systemd</h2>\n<p>System and service manager.</p>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-journalctl\">journalctl</h2>\n<p>Tool for reading systemd logs.</p>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-mount\">Mount</h2>\n<p>Attach a filesystem to a directory.</p>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-path\">PATH</h2>\n<p>List of folders where the shell searches for commands.</p>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-environment-variable\">Environment Variable</h2>\n<p>Named value available to programs.</p>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-pipe\">Pipe</h2>\n<p>Send output from one command into another.</p>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-redirection\">Redirection</h2>\n<p>Send output to a file or another stream.</p>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-ssh\">SSH</h2>\n<p>Secure remote login protocol.</p>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-dns\">DNS</h2>\n<p>System that turns names into IP addresses.</p>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-port\">Port</h2>\n<p>Network endpoint number where a service listens.</p>\n<h2 id=\"linux-power-user-beginner-to-intermediate-guide-firewall\">Firewall</h2>\n<p>Rules controlling network traffic.</p>\n<hr />\n<h1 id=\"linux-power-user-beginner-to-intermediate-guide-final-learning-path\">Final Learning Path</h1>\n<p>Learn in this order:</p>\n<pre><code class=\"language-text\">1. pwd, cd, ls\n2. touch, mkdir, cp, mv, rm\n3. cat, less, head, tail\n4. find and grep\n5. pipes and redirection\n6. chmod, chown, sudo\n7. apt and app installation\n8. ps, htop, kill\n9. systemctl\n10. journalctl\n11. df, du, lsblk, mount\n12. ip, ping, curl, resolvectl, ss\n13. SSH\n14. rsync backups\n15. aliases, PATH, scripts\n16. cron\n17. troubleshooting playbooks</code></pre>\n<p>The real milestone is not memorizing commands.</p>\n<p>The real milestone is being able to calmly ask:</p>\n<pre><code class=\"language-text\">Where am I?\nWhat changed?\nWhat is running?\nWhat failed?\nWhat do the logs say?\nWhat can I safely try next?</code></pre>\n<p>That is Linux power user territory.</p>\n<p>Not wizardry.</p>\n<p>Just controlled curiosity with root access.</p>"
     },
     {
-      id: "enterprise",
-      title: "Enterprise Site",
-      category: "Enterprise Site — $600 setup + starting at $70/mo",
-      summary: "Workflow for Enterprise projects. Scope is defined per engagement — never assume.",
-      content: [
+      "id": "git-github-beginner-to-intermediate-guide",
+      "title": "Git + GitHub Beginner to Intermediate Guide",
+      "navLabel": "Git + GitHub",
+      "summary": "*A practical field manual for learning version control, GitHub workflows, and repo survival skills.*",
+      "href": "git-github-beginner-to-intermediate-guide.html",
+      "icon": "Git",
+      "sections": [
         {
-          heading: "Pre-Engagement",
-          body: "Enterprise projects require a scoping call before any quote is confirmed. Do not start work based on a price alone. Scope must be documented and approved in writing before work begins."
+          "id": "git-github-beginner-to-intermediate-guide-who-this-guide-is-for",
+          "title": "Who This Guide Is For",
+          "level": 2
         },
         {
-          heading: "Scope",
-          body: "Enterprise scope is defined per project. Common additions: custom backend features, employee login, advanced payment flows, multi-location support, API integrations. Each is a separate line item — never bundled. Be explicit about what each line item includes and excludes."
+          "id": "git-github-beginner-to-intermediate-guide-part-1-mental-model",
+          "title": "Part 1: Mental Model",
+          "level": 2
         },
         {
-          heading: "Payment",
-          body: "Enterprise requires a deposit — typically 50% — before work begins. Do not start builds without confirmed payment. For projects over $1,000, use milestone payments tied to deliverables."
+          "id": "git-github-beginner-to-intermediate-guide-part-2-setup",
+          "title": "Part 2: Setup",
+          "level": 2
         },
         {
-          heading: "Build",
-          body: "Enterprise builds may not follow standard templates. Document any custom architecture decisions in NOTES.md. Keep a running change log in the project folder. If the scope changes during the build, write a change order before continuing."
+          "id": "git-github-beginner-to-intermediate-guide-part-3-local-git-basics",
+          "title": "Part 3: Local Git Basics",
+          "level": 2
         },
         {
-          heading: "Delivery",
-          body: "Enterprise delivery requires a handoff call, written client sign-off, and a documented support period — typically 30 days post-launch for bug fixes only. New features after launch are billed separately."
+          "id": "git-github-beginner-to-intermediate-guide-part-4-github-basics",
+          "title": "Part 4: GitHub Basics",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-part-5-everyday-project-workflow",
+          "title": "Part 5: Everyday Project Workflow",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-part-6-branches-and-merging",
+          "title": "Part 6: Branches and Merging",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-part-7-fixing-mistakes",
+          "title": "Part 7: Fixing Mistakes",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-part-8-github-features",
+          "title": "Part 8: GitHub Features",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-part-9-intermediate-git",
+          "title": "Part 9: Intermediate Git",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-part-10-repo-safety-and-professional-habits",
+          "title": "Part 10: Repo Safety and Professional Habits",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-part-11-projects",
+          "title": "Part 11: Projects",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-part-12-cheat-sheets",
+          "title": "Part 12: Cheat Sheets",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-git",
+          "title": "Git",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-github",
+          "title": "GitHub",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-simple-analogy",
+          "title": "Simple Analogy",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-1-working-directory",
+          "title": "1. Working Directory",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-2-local-repository",
+          "title": "2. Local Repository",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-3-remote-repository",
+          "title": "3. Remote Repository",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-mental-model",
+          "title": "Mental Model",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-what-each-step-means",
+          "title": "What Each Step Means",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-the-golden-rule",
+          "title": "The Golden Rule",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-linux-pop-os-ubuntu",
+          "title": "Linux / Pop!_OS / Ubuntu",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-fedora",
+          "title": "Fedora",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-arch",
+          "title": "Arch",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-macos",
+          "title": "macOS",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-windows",
+          "title": "Windows",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-set-the-default-branch-name",
+          "title": "Set the Default Branch Name",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-set-a-default-editor",
+          "title": "Set a Default Editor",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-useful-aliases",
+          "title": "Useful Aliases",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-install-github-cli-on-ubuntu-pop-os",
+          "title": "Install GitHub CLI on Ubuntu / Pop!_OS",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-log-in",
+          "title": "Log In",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-https-vs-ssh",
+          "title": "HTTPS vs SSH",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-personal-access-tokens",
+          "title": "Personal Access Tokens",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-untracked",
+          "title": "Untracked",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-modified",
+          "title": "Modified",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-staged",
+          "title": "Staged",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-clean",
+          "title": "Clean",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-habit",
+          "title": "Habit",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-commit-message-pattern",
+          "title": "Commit Message Pattern",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-see-your-commits",
+          "title": "See Your Commits",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-example",
+          "title": "Example",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-why-this-matters",
+          "title": "Why This Matters",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-option-a-github-website",
+          "title": "Option A: GitHub Website",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-option-b-github-cli",
+          "title": "Option B: GitHub CLI",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-push",
+          "title": "Push",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-pull",
+          "title": "Pull",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-fetch",
+          "title": "Fetch",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-push-vs-pull",
+          "title": "Push vs Pull",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-safe-habit",
+          "title": "Safe Habit",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-clone-with-github-cli",
+          "title": "Clone with GitHub CLI",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-where-to-clone",
+          "title": "Where to Clone",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-why-so-many-checks",
+          "title": "Why So Many Checks?",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-simple-version",
+          "title": "Simple Version",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-good-commit-examples",
+          "title": "Good Commit Examples",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-bad-commit-examples",
+          "title": "Bad Commit Examples",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-commit-often-around-risk",
+          "title": "Commit Often Around Risk",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-the-ai-coding-rule",
+          "title": "The AI Coding Rule",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-basic-readme-template",
+          "title": "Basic README Template",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-readme-rule",
+          "title": "README Rule",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-important",
+          "title": "Important",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-never-commit-these",
+          "title": "Never Commit These",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-mental-model-2",
+          "title": "Mental Model",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-when-to-use-a-branch",
+          "title": "When to Use a Branch",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-example-workflow",
+          "title": "Example Workflow",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-merge-flow",
+          "title": "Merge Flow",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-fast-forward-merge",
+          "title": "Fast-Forward Merge",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-merge-commit",
+          "title": "Merge Commit",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-conflict-markers",
+          "title": "Conflict Markers",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-conflict-survival-steps",
+          "title": "Conflict Survival Steps",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-abort-a-merge",
+          "title": "Abort a Merge",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-safer-rule",
+          "title": "Safer Rule",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-danger",
+          "title": "Danger",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-warning",
+          "title": "Warning",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-when-to-use-revert",
+          "title": "When to Use Revert",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-mental-model-3",
+          "title": "Mental Model",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-soft-reset",
+          "title": "Soft Reset",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-mixed-reset",
+          "title": "Mixed Reset",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-hard-reset",
+          "title": "Hard Reset",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-big-warning",
+          "title": "Big Warning",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-reflog-rule",
+          "title": "Reflog Rule",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-good-issue-template",
+          "title": "Good Issue Template",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-example-issue",
+          "title": "Example Issue",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-labels",
+          "title": "Labels",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-prs-let-you",
+          "title": "PRs Let You",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-basic-pr-flow",
+          "title": "Basic PR Flow",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-good-pr-description",
+          "title": "Good PR Description",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-fork-workflow",
+          "title": "Fork Workflow",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-keep-your-fork-updated",
+          "title": "Keep Your Fork Updated",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-remote-names",
+          "title": "Remote Names",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-create-a-tag",
+          "title": "Create a Tag",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-annotated-tag",
+          "title": "Annotated Tag",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-semantic-versioning",
+          "title": "Semantic Versioning",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-example-versions",
+          "title": "Example Versions",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-github-cli-release",
+          "title": "GitHub CLI Release",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-basic-static-site-structure",
+          "title": "Basic Static Site Structure",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-publish-from-a-branch",
+          "title": "Publish from a Branch",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-basic-steps",
+          "title": "Basic Steps",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-important-safety-note",
+          "title": "Important Safety Note",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-userorganization-site",
+          "title": "User/Organization Site",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-project-site",
+          "title": "Project Site",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-custom-domains",
+          "title": "Custom Domains",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-check-auth",
+          "title": "Check Auth",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-create-repo",
+          "title": "Create Repo",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-clone-repo",
+          "title": "Clone Repo",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-view-repo",
+          "title": "View Repo",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-create-issue",
+          "title": "Create Issue",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-list-issues",
+          "title": "List Issues",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-create-pull-request",
+          "title": "Create Pull Request",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-view-pr",
+          "title": "View PR",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-create-release",
+          "title": "Create Release",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-why-use-gh",
+          "title": "Why Use `gh`?",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-simple-python-test-workflow",
+          "title": "Simple Python Test Workflow",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-simple-static-site-check",
+          "title": "Simple Static Site Check",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-actions-rule",
+          "title": "Actions Rule",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-stash-rule",
+          "title": "Stash Rule",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-example-2",
+          "title": "Example",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-warning-2",
+          "title": "Warning",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-merge-vs-rebase",
+          "title": "Merge vs Rebase",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-beginner-rule",
+          "title": "Beginner Rule",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-important-warning",
+          "title": "Important Warning",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-interactive-rebase",
+          "title": "Interactive Rebase",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-beginner-friendly-alternative",
+          "title": "Beginner-Friendly Alternative",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-common-multi-remote-setup",
+          "title": "Common Multi-Remote Setup",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-rename-a-remote",
+          "title": "Rename a Remote",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-change-remote-url",
+          "title": "Change Remote URL",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-example-3",
+          "title": "Example",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-beginner-rule-2",
+          "title": "Beginner Rule",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-use-env",
+          "title": "Use `.env`",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-if-you-accidentally-commit-a-secret",
+          "title": "If You Accidentally Commit a Secret",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-basic-secret-scan",
+          "title": "Basic Secret Scan",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-simple-website-repo",
+          "title": "Simple Website Repo",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-python-cli-repo",
+          "title": "Python CLI Repo",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-documentation-repo",
+          "title": "Documentation Repo",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-general-rule",
+          "title": "General Rule",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-issues",
+          "title": "Issues",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-labels-2",
+          "title": "Labels",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-milestones",
+          "title": "Milestones",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-project-boards",
+          "title": "Project Boards",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-practical-solo-workflow",
+          "title": "Practical Solo Workflow",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-recommended-setup",
+          "title": "Recommended Setup",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-branches",
+          "title": "Branches",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-suggested-flow",
+          "title": "Suggested Flow",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-example-commits",
+          "title": "Example Commits",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-client-safety-rule",
+          "title": "Client Safety Rule",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-good-branch-names",
+          "title": "Good Branch Names",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-good-commit-strategy",
+          "title": "Good Commit Strategy",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-recommended-routine",
+          "title": "Recommended Routine",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-personal-project-rule",
+          "title": "Personal Project Rule",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-steps",
+          "title": "Steps",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-challenge",
+          "title": "Challenge",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-files",
+          "title": "Files",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-challenge-2",
+          "title": "Challenge",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-challenge-3",
+          "title": "Challenge",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-challenge-4",
+          "title": "Challenge",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-challenge-5",
+          "title": "Challenge",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-start-work",
+          "title": "Start Work",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-see-changes",
+          "title": "See Changes",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-save-work",
+          "title": "Save Work",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-new-branch",
+          "title": "New Branch",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-push-new-branch",
+          "title": "Push New Branch",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-merge-branch",
+          "title": "Merge Branch",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-view-history",
+          "title": "View History",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-check-remotes",
+          "title": "Check Remotes",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-what-is-happening",
+          "title": "What is happening?",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-what-changed",
+          "title": "What changed?",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-what-did-i-stage",
+          "title": "What did I stage?",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-undo-unstaged-changes-to-one-file",
+          "title": "Undo unstaged changes to one file",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-unstage-a-file",
+          "title": "Unstage a file",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-abort-merge",
+          "title": "Abort merge",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-save-messy-work-temporarily",
+          "title": "Save messy work temporarily",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-recover-lost-commit",
+          "title": "Recover lost commit",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-reset-local-branch-to-match-github",
+          "title": "Reset local branch to match GitHub",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-backup-before-dangerous-command",
+          "title": "Backup Before Dangerous Command",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-repository",
+          "title": "Repository",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-commit",
+          "title": "Commit",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-branch",
+          "title": "Branch",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-merge",
+          "title": "Merge",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-remote",
+          "title": "Remote",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-origin",
+          "title": "Origin",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-clone",
+          "title": "Clone",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-push-2",
+          "title": "Push",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-pull-2",
+          "title": "Pull",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-fetch-2",
+          "title": "Fetch",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-staging",
+          "title": "Staging",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-working-tree",
+          "title": "Working Tree",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-head",
+          "title": "HEAD",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-tag",
+          "title": "Tag",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-release",
+          "title": "Release",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-fork",
+          "title": "Fork",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-pull-request",
+          "title": "Pull Request",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-conflict",
+          "title": "Conflict",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-rebase",
+          "title": "Rebase",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-stash",
+          "title": "Stash",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-reflog",
+          "title": "Reflog",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-git-2",
+          "title": "Git",
+          "level": 2
+        },
+        {
+          "id": "git-github-beginner-to-intermediate-guide-github-2",
+          "title": "GitHub",
+          "level": 2
         }
-      ]
-    }
-  ],
-
-  // ─── Editing Guides ───────────────────────────────────────────────────────────
-
-  editing: [
+      ],
+      "contentHtml": "<h1 id=\"git-github-beginner-to-intermediate-guide-git-github-beginner-to-intermediate-guide\">Git + GitHub Beginner to Intermediate Guide</h1>\n<p><em>A practical field manual for learning version control, GitHub workflows, and repo survival skills.</em></p>\n<hr />\n<h2 id=\"git-github-beginner-to-intermediate-guide-who-this-guide-is-for\">Who This Guide Is For</h2>\n<p>This guide is for someone who wants to move from:</p>\n<blockquote><p>\"I can download code from GitHub, but I do not really understand what is happening.\"</p></blockquote>\n<p>to:</p>\n<blockquote><p>\"I can create repos, commit changes, push to GitHub, work with branches, fix common mistakes, publish simple sites, and manage my projects without fear.\"</p></blockquote>\n<p>This is not meant to turn you into a Git wizard overnight. It is meant to make you <strong>dangerous in the good way</strong>.</p>\n<p>By the end, you should be able to:</p>\n<ul><li>Understand the difference between Git and GitHub</li><li>Create a local repository</li><li>Track changes</li><li>Commit work safely</li><li>Push projects to GitHub</li><li>Clone repositories</li><li>Use branches without panicking</li><li>Merge changes</li><li>Handle basic conflicts</li><li>Use <code>.gitignore</code></li><li>Recover from common mistakes</li><li>Use GitHub Issues, Pull Requests, Releases, and Pages</li><li>Build a sane workflow for personal and client projects</li></ul>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-table-of-contents\">Table of Contents</h1>\n<h2 id=\"git-github-beginner-to-intermediate-guide-part-1-mental-model\">Part 1: Mental Model</h2>\n<ol><li><a href=\"#1-git-vs-github\">Git vs GitHub</a></li><li><a href=\"#2-the-three-main-places-your-code-lives\">The Three Main Places Your Code Lives</a></li><li><a href=\"#3-the-normal-git-workflow\">The Normal Git Workflow</a></li></ol>\n<h2 id=\"git-github-beginner-to-intermediate-guide-part-2-setup\">Part 2: Setup</h2>\n<ol><li><a href=\"#4-installing-git\">Installing Git</a></li><li><a href=\"#5-configuring-your-identity\">Configuring Your Identity</a></li><li><a href=\"#6-setting-up-github-access\">Setting Up GitHub Access</a></li></ol>\n<h2 id=\"git-github-beginner-to-intermediate-guide-part-3-local-git-basics\">Part 3: Local Git Basics</h2>\n<ol><li><a href=\"#7-creating-a-repository\">Creating a Repository</a></li><li><a href=\"#8-checking-status\">Checking Status</a></li><li><a href=\"#9-adding-files\">Adding Files</a></li><li><a href=\"#10-committing-changes\">Committing Changes</a></li><li><a href=\"#11-viewing-history\">Viewing History</a></li><li><a href=\"#12-seeing-what-changed\">Seeing What Changed</a></li></ol>\n<h2 id=\"git-github-beginner-to-intermediate-guide-part-4-github-basics\">Part 4: GitHub Basics</h2>\n<ol><li><a href=\"#13-creating-a-github-repository\">Creating a GitHub Repository</a></li><li><a href=\"#14-connecting-local-git-to-github\">Connecting Local Git to GitHub</a></li><li><a href=\"#15-pushing-and-pulling\">Pushing and Pulling</a></li><li><a href=\"#16-cloning-repositories\">Cloning Repositories</a></li></ol>\n<h2 id=\"git-github-beginner-to-intermediate-guide-part-5-everyday-project-workflow\">Part 5: Everyday Project Workflow</h2>\n<ol><li><a href=\"#17-the-safe-solo-developer-workflow\">The Safe Solo Developer Workflow</a></li><li><a href=\"#18-good-commit-habits\">Good Commit Habits</a></li><li><a href=\"#19-readme-files\">README Files</a></li><li><a href=\"#20-ignoring-files-with-gitignore\">Ignoring Files with .gitignore</a></li></ol>\n<h2 id=\"git-github-beginner-to-intermediate-guide-part-6-branches-and-merging\">Part 6: Branches and Merging</h2>\n<ol><li><a href=\"#21-what-branches-are\">What Branches Are</a></li><li><a href=\"#22-creating-and-switching-branches\">Creating and Switching Branches</a></li><li><a href=\"#23-merging-branches\">Merging Branches</a></li><li><a href=\"#24-handling-merge-conflicts\">Handling Merge Conflicts</a></li><li><a href=\"#25-deleting-branches\">Deleting Branches</a></li></ol>\n<h2 id=\"git-github-beginner-to-intermediate-guide-part-7-fixing-mistakes\">Part 7: Fixing Mistakes</h2>\n<ol><li><a href=\"#26-undoing-uncommitted-changes\">Undoing Uncommitted Changes</a></li><li><a href=\"#27-unstaging-files\">Unstaging Files</a></li><li><a href=\"#28-changing-the-last-commit\">Changing the Last Commit</a></li><li><a href=\"#29-reverting-a-commit\">Reverting a Commit</a></li><li><a href=\"#30-reset-soft-mixed-and-hard\">Reset: Soft, Mixed, and Hard</a></li><li><a href=\"#31-using-reflog-as-a-time-machine\">Using Reflog as a Time Machine</a></li></ol>\n<h2 id=\"git-github-beginner-to-intermediate-guide-part-8-github-features\">Part 8: GitHub Features</h2>\n<ol><li><a href=\"#32-issues\">Issues</a></li><li><a href=\"#33-pull-requests\">Pull Requests</a></li><li><a href=\"#34-forks\">Forks</a></li><li><a href=\"#35-releases-and-tags\">Releases and Tags</a></li><li><a href=\"#36-github-pages\">GitHub Pages</a></li><li><a href=\"#37-github-cli\">GitHub CLI</a></li><li><a href=\"#38-github-actions-intro\">GitHub Actions Intro</a></li></ol>\n<h2 id=\"git-github-beginner-to-intermediate-guide-part-9-intermediate-git\">Part 9: Intermediate Git</h2>\n<ol><li><a href=\"#39-stashing-work\">Stashing Work</a></li><li><a href=\"#40-cherry-picking\">Cherry-Picking</a></li><li><a href=\"#41-rebasing\">Rebasing</a></li><li><a href=\"#42-squashing-commits\">Squashing Commits</a></li><li><a href=\"#43-working-with-multiple-remotes\">Working with Multiple Remotes</a></li><li><a href=\"#44-git-worktrees\">Git Worktrees</a></li></ol>\n<h2 id=\"git-github-beginner-to-intermediate-guide-part-10-repo-safety-and-professional-habits\">Part 10: Repo Safety and Professional Habits</h2>\n<ol><li><a href=\"#45-never-commit-secrets\">Never Commit Secrets</a></li><li><a href=\"#46-repo-structure\">Repo Structure</a></li><li><a href=\"#47-project-boards-and-milestones\">Project Boards and Milestones</a></li><li><a href=\"#48-client-project-workflow\">Client Project Workflow</a></li><li><a href=\"#49-personal-project-workflow\">Personal Project Workflow</a></li></ol>\n<h2 id=\"git-github-beginner-to-intermediate-guide-part-11-projects\">Part 11: Projects</h2>\n<ol><li><a href=\"#project-1-track-a-notes-folder\">Project 1: Track a Notes Folder</a></li><li><a href=\"#project-2-publish-a-static-website\">Project 2: Publish a Static Website</a></li><li><a href=\"#project-3-build-a-python-cli-repo\">Project 3: Build a Python CLI Repo</a></li><li><a href=\"#project-4-use-branches-like-a-real-workflow\">Project 4: Use Branches Like a Real Workflow</a></li><li><a href=\"#project-5-create-a-release\">Project 5: Create a Release</a></li></ol>\n<h2 id=\"git-github-beginner-to-intermediate-guide-part-12-cheat-sheets\">Part 12: Cheat Sheets</h2>\n<ol><li><a href=\"#daily-commands\">Daily Commands</a></li><li><a href=\"#emergency-commands\">Emergency Commands</a></li><li><a href=\"#glossary\">Glossary</a></li><li><a href=\"#official-docs-to-bookmark\">Official Docs to Bookmark</a></li></ol>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-part-1-mental-model-2\">Part 1: Mental Model</h1>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-1-git-vs-github\">1. Git vs GitHub</h1>\n<p>This is the first thing to get clear.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-git\">Git</h2>\n<p><strong>Git</strong> is the tool on your computer that tracks changes in your project.</p>\n<p>It watches files and remembers snapshots of your work.</p>\n<p>Git answers questions like:</p>\n<ul><li>What changed?</li><li>Who changed it?</li><li>When did it change?</li><li>Can I go back?</li><li>Can I try something risky without destroying the stable version?</li></ul>\n<p>Git works locally. You can use Git with no internet.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-github\">GitHub</h2>\n<p><strong>GitHub</strong> is a website and cloud service for storing Git repositories online.</p>\n<p>GitHub gives you:</p>\n<ul><li>Remote backups</li><li>Public or private repositories</li><li>Collaboration tools</li><li>Issues</li><li>Pull requests</li><li>Releases</li><li>GitHub Pages</li><li>GitHub Actions</li><li>Project management tools</li></ul>\n<h2 id=\"git-github-beginner-to-intermediate-guide-simple-analogy\">Simple Analogy</h2>\n<p>Think of Git like a <strong>save system</strong> for your project.</p>\n<p>Think of GitHub like a <strong>cloud library</strong> where those saved projects can live, sync, and be shared.</p>\n<pre><code class=\"language-text\">Git    = local version control tool\nGitHub = online hosting and collaboration platform</code></pre>\n<p>You can use Git without GitHub.</p>\n<p>You cannot really use GitHub repositories properly without Git.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-2-the-three-main-places-your-code-lives\">2. The Three Main Places Your Code Lives</h1>\n<p>When working with Git, your code usually exists in three places.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-1-working-directory\">1. Working Directory</h2>\n<p>This is your actual project folder.</p>\n<p>Example:</p>\n<pre><code class=\"language-text\">~/Projects/my-website/</code></pre>\n<p>This is where you edit files.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-2-local-repository\">2. Local Repository</h2>\n<p>This is the hidden <code>.git</code> folder inside your project.</p>\n<pre><code class=\"language-text\">my-website/\n\u251c\u2500\u2500 index.html\n\u251c\u2500\u2500 styles.css\n\u2514\u2500\u2500 .git/</code></pre>\n<p>The <code>.git</code> folder stores history, branches, commits, and tracking data.</p>\n<p>Do not randomly edit files inside <code>.git</code>.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-3-remote-repository\">3. Remote Repository</h2>\n<p>This is the version hosted somewhere else, usually GitHub.</p>\n<p>Example:</p>\n<pre><code class=\"language-text\">https://github.com/yourname/my-website</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-mental-model\">Mental Model</h2>\n<pre><code class=\"language-text\">Working directory = what you are editing now\nLocal repo        = saved history on your computer\nRemote repo       = saved copy on GitHub</code></pre>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-3-the-normal-git-workflow\">3. The Normal Git Workflow</h1>\n<p>The basic Git loop is:</p>\n<pre><code class=\"language-text\">edit files\ncheck status\nstage changes\ncommit changes\npush to GitHub</code></pre>\n<p>In command form:</p>\n<pre><code class=\"language-bash\">git status\ngit add .\ngit commit -m &quot;Describe what changed&quot;\ngit push</code></pre>\n<p>This is the daily rhythm.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-what-each-step-means\">What Each Step Means</h2>\n<h3 id=\"git-github-beginner-to-intermediate-guide-git-status\"><code>git status</code></h3>\n<p>Shows what changed.</p>\n<h3 id=\"git-github-beginner-to-intermediate-guide-git-add\"><code>git add</code></h3>\n<p>Chooses what changes should go into the next commit.</p>\n<h3 id=\"git-github-beginner-to-intermediate-guide-git-commit\"><code>git commit</code></h3>\n<p>Creates a saved snapshot.</p>\n<h3 id=\"git-github-beginner-to-intermediate-guide-git-push\"><code>git push</code></h3>\n<p>Uploads your commits to GitHub.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-the-golden-rule\">The Golden Rule</h2>\n<p>Commit when you reach a meaningful checkpoint.</p>\n<p>Not every 3 seconds.</p>\n<p>Not once every 3 months.</p>\n<p>A good commit usually represents one understandable change.</p>\n<p>Examples:</p>\n<pre><code class=\"language-text\">Add homepage hero section\nFix mobile navigation layout\nCreate initial Flask app structure\nAdd MP3 conversion script\nUpdate README install instructions</code></pre>\n<p>Bad examples:</p>\n<pre><code class=\"language-text\">stuff\nchanges\nasdf\nfinal\nfinal final\nreal final\nplease work</code></pre>\n<p>Those happen to everybody, but try not to live there.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-part-2-setup-2\">Part 2: Setup</h1>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-4-installing-git\">4. Installing Git</h1>\n<h2 id=\"git-github-beginner-to-intermediate-guide-linux-pop-os-ubuntu\">Linux / Pop!_OS / Ubuntu</h2>\n<pre><code class=\"language-bash\">sudo apt update\nsudo apt install git</code></pre>\n<p>Check that it worked:</p>\n<pre><code class=\"language-bash\">git --version</code></pre>\n<p>You should see something like:</p>\n<pre><code class=\"language-text\">git version 2.x.x</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-fedora\">Fedora</h2>\n<pre><code class=\"language-bash\">sudo dnf install git</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-arch\">Arch</h2>\n<pre><code class=\"language-bash\">sudo pacman -S git</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-macos\">macOS</h2>\n<p>If you have Homebrew:</p>\n<pre><code class=\"language-bash\">brew install git</code></pre>\n<p>Or install Apple's command-line tools:</p>\n<pre><code class=\"language-bash\">xcode-select --install</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-windows\">Windows</h2>\n<p>Install Git for Windows.</p>\n<p>After installing, you can use:</p>\n<ul><li>Git Bash</li><li>PowerShell</li><li>Windows Terminal</li><li>VS Code terminal</li></ul>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-5-configuring-your-identity\">5. Configuring Your Identity</h1>\n<p>Git needs to know who is making commits.</p>\n<p>Set your name:</p>\n<pre><code class=\"language-bash\">git config --global user.name &quot;Your Name&quot;</code></pre>\n<p>Set your email:</p>\n<pre><code class=\"language-bash\">git config --global user.email &quot;you@example.com&quot;</code></pre>\n<p>Check your config:</p>\n<pre><code class=\"language-bash\">git config --global --list</code></pre>\n<p>Example output:</p>\n<pre><code class=\"language-text\">user.name=Your Name\nuser.email=you@example.com</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-set-the-default-branch-name\">Set the Default Branch Name</h2>\n<p>Modern Git projects usually use <code>main</code>.</p>\n<pre><code class=\"language-bash\">git config --global init.defaultBranch main</code></pre>\n<p>Now new repos start on <code>main</code> instead of <code>master</code>.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-set-a-default-editor\">Set a Default Editor</h2>\n<p>For nano:</p>\n<pre><code class=\"language-bash\">git config --global core.editor &quot;nano&quot;</code></pre>\n<p>For VS Code:</p>\n<pre><code class=\"language-bash\">git config --global core.editor &quot;code --wait&quot;</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-useful-aliases\">Useful Aliases</h2>\n<p>Aliases make common commands shorter.</p>\n<pre><code class=\"language-bash\">git config --global alias.st status\ngit config --global alias.co checkout\ngit config --global alias.br branch\ngit config --global alias.cm &quot;commit -m&quot;\ngit config --global alias.lg &quot;log --oneline --graph --decorate --all&quot;</code></pre>\n<p>Now you can run:</p>\n<pre><code class=\"language-bash\">git st\ngit lg</code></pre>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-6-setting-up-github-access\">6. Setting Up GitHub Access</h1>\n<p>You have a few common options:</p>\n<ol><li>HTTPS with GitHub CLI</li><li>SSH keys</li><li>Personal Access Token</li></ol>\n<p>For most beginners, the easiest path is:</p>\n<blockquote><p>Install GitHub CLI and run <code>gh auth login</code>.</p></blockquote>\n<h2 id=\"git-github-beginner-to-intermediate-guide-install-github-cli-on-ubuntu-pop-os\">Install GitHub CLI on Ubuntu / Pop!_OS</h2>\n<p>GitHub CLI package availability may vary by distro version. The simplest first attempt is:</p>\n<pre><code class=\"language-bash\">sudo apt update\nsudo apt install gh</code></pre>\n<p>Check:</p>\n<pre><code class=\"language-bash\">gh --version</code></pre>\n<p>If your distro does not provide it or gives an old version, use the official GitHub CLI installation instructions.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-log-in\">Log In</h2>\n<pre><code class=\"language-bash\">gh auth login</code></pre>\n<p>Recommended beginner choices:</p>\n<pre><code class=\"language-text\">GitHub.com\nHTTPS\nAuthenticate Git with GitHub credentials? Yes\nLogin with browser</code></pre>\n<p>After logging in:</p>\n<pre><code class=\"language-bash\">gh auth status</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-https-vs-ssh\">HTTPS vs SSH</h2>\n<h3 id=\"git-github-beginner-to-intermediate-guide-https\">HTTPS</h3>\n<p>HTTPS remotes look like this:</p>\n<pre><code class=\"language-text\">https://github.com/username/repo.git</code></pre>\n<p>Pros:</p>\n<ul><li>Easier to set up</li><li>Works well with GitHub CLI</li><li>Good for beginners</li></ul>\n<h3 id=\"git-github-beginner-to-intermediate-guide-ssh\">SSH</h3>\n<p>SSH remotes look like this:</p>\n<pre><code class=\"language-text\">git@github.com:username/repo.git</code></pre>\n<p>Pros:</p>\n<ul><li>Great once set up</li><li>No token prompts during normal usage</li><li>Common for dev machines</li></ul>\n<p>Cons:</p>\n<ul><li>Requires SSH key setup</li><li>Slightly more confusing at first</li></ul>\n<h2 id=\"git-github-beginner-to-intermediate-guide-personal-access-tokens\">Personal Access Tokens</h2>\n<p>A Personal Access Token, or PAT, is like a password replacement for GitHub command-line/API access.</p>\n<p>Important rules:</p>\n<ul><li>Treat tokens like passwords.</li><li>Do not paste them into scripts.</li><li>Do not commit them.</li><li>Prefer fine-grained tokens when possible.</li><li>Give tokens only the permissions they need.</li><li>Set expiration dates when possible.</li></ul>\n<p>For most beginner Git usage, GitHub CLI is easier and safer than manually managing tokens.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-part-3-local-git-basics-2\">Part 3: Local Git Basics</h1>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-7-creating-a-repository\">7. Creating a Repository</h1>\n<p>A repository is a project tracked by Git.</p>\n<p>Create a folder:</p>\n<pre><code class=\"language-bash\">mkdir my-first-repo\ncd my-first-repo</code></pre>\n<p>Start Git tracking:</p>\n<pre><code class=\"language-bash\">git init</code></pre>\n<p>You should see:</p>\n<pre><code class=\"language-text\">Initialized empty Git repository</code></pre>\n<p>Create a file:</p>\n<pre><code class=\"language-bash\">echo &quot;# My First Repo&quot; &gt; README.md</code></pre>\n<p>Check status:</p>\n<pre><code class=\"language-bash\">git status</code></pre>\n<p>You will see that <code>README.md</code> is untracked.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-8-checking-status\">8. Checking Status</h1>\n<p><code>git status</code> is your dashboard.</p>\n<p>Run it constantly.</p>\n<pre><code class=\"language-bash\">git status</code></pre>\n<p>Possible states:</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-untracked\">Untracked</h2>\n<p>Git sees the file, but it is not tracking it yet.</p>\n<pre><code class=\"language-text\">Untracked files:\n  README.md</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-modified\">Modified</h2>\n<p>Git knows the file and sees that it changed.</p>\n<pre><code class=\"language-text\">modified: README.md</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-staged\">Staged</h2>\n<p>The file is ready to be committed.</p>\n<pre><code class=\"language-text\">Changes to be committed:\n  new file: README.md</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-clean\">Clean</h2>\n<p>Nothing new to commit.</p>\n<pre><code class=\"language-text\">nothing to commit, working tree clean</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-habit\">Habit</h2>\n<p>Before doing anything scary:</p>\n<pre><code class=\"language-bash\">git status</code></pre>\n<p>After doing anything scary:</p>\n<pre><code class=\"language-bash\">git status</code></pre>\n<p>Git status is the flashlight in the cave.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-9-adding-files\">9. Adding Files</h1>\n<p>Before a change can be committed, it must be staged.</p>\n<p>Stage one file:</p>\n<pre><code class=\"language-bash\">git add README.md</code></pre>\n<p>Stage everything:</p>\n<pre><code class=\"language-bash\">git add .</code></pre>\n<p>Stage all tracked and untracked changes:</p>\n<pre><code class=\"language-bash\">git add -A</code></pre>\n<p>For beginners, this is usually fine:</p>\n<pre><code class=\"language-bash\">git add .</code></pre>\n<p>But before doing it, check:</p>\n<pre><code class=\"language-bash\">git status</code></pre>\n<p>Do not blindly add secret files, giant build folders, or random junk.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-10-committing-changes\">10. Committing Changes</h1>\n<p>A commit is a saved checkpoint.</p>\n<pre><code class=\"language-bash\">git commit -m &quot;Add README&quot;</code></pre>\n<p>A good commit message says what changed.</p>\n<p>Examples:</p>\n<pre><code class=\"language-bash\">git commit -m &quot;Add homepage layout&quot;\ngit commit -m &quot;Fix navbar spacing on mobile&quot;\ngit commit -m &quot;Create initial Python package structure&quot;\ngit commit -m &quot;Add OBS recording notes&quot;</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-commit-message-pattern\">Commit Message Pattern</h2>\n<p>Use this simple pattern:</p>\n<pre><code class=\"language-text\">Verb + what changed</code></pre>\n<p>Examples:</p>\n<pre><code class=\"language-text\">Add contact form\nFix footer alignment\nUpdate package descriptions\nRemove unused script\nCreate project roadmap</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-see-your-commits\">See Your Commits</h2>\n<pre><code class=\"language-bash\">git log</code></pre>\n<p>Compact version:</p>\n<pre><code class=\"language-bash\">git log --oneline</code></pre>\n<p>Pretty graph version:</p>\n<pre><code class=\"language-bash\">git log --oneline --graph --decorate --all</code></pre>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-11-viewing-history\">11. Viewing History</h1>\n<p>Use:</p>\n<pre><code class=\"language-bash\">git log</code></pre>\n<p>This shows full commit history.</p>\n<p>Use:</p>\n<pre><code class=\"language-bash\">git log --oneline</code></pre>\n<p>This shows a compact version:</p>\n<pre><code class=\"language-text\">a1b2c3d Add README\ne4f5g6h Create homepage</code></pre>\n<p>To see what changed in a specific commit:</p>\n<pre><code class=\"language-bash\">git show a1b2c3d</code></pre>\n<p>To see files changed in a commit:</p>\n<pre><code class=\"language-bash\">git show --stat a1b2c3d</code></pre>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-12-seeing-what-changed\">12. Seeing What Changed</h1>\n<p>Before staging:</p>\n<pre><code class=\"language-bash\">git diff</code></pre>\n<p>After staging:</p>\n<pre><code class=\"language-bash\">git diff --staged</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-example\">Example</h2>\n<p>Edit <code>README.md</code>:</p>\n<pre><code class=\"language-markdown\"># My First Repo\n\nThis is my Git practice project.</code></pre>\n<p>Run:</p>\n<pre><code class=\"language-bash\">git diff</code></pre>\n<p>You will see the line that changed.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-why-this-matters\">Why This Matters</h2>\n<p><code>git diff</code> prevents mystery commits.</p>\n<p>Before committing, you can ask:</p>\n<blockquote><p>Am I about to save exactly what I think I am saving?</p></blockquote>\n<p>That one habit prevents a lot of nonsense.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-part-4-github-basics-2\">Part 4: GitHub Basics</h1>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-13-creating-a-github-repository\">13. Creating a GitHub Repository</h1>\n<p>You can create a repo through the GitHub website or with GitHub CLI.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-option-a-github-website\">Option A: GitHub Website</h2>\n<ol><li>Go to GitHub.</li><li>Click <strong>New repository</strong>.</li><li>Choose a name.</li><li>Choose public or private.</li><li>Create the repository.</li></ol>\n<p>For a new project, you can let GitHub create:</p>\n<ul><li>README</li><li><code>.gitignore</code></li><li>License</li></ul>\n<p>But if you already created the project locally, avoid initializing the remote with files unless you know how to merge them.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-option-b-github-cli\">Option B: GitHub CLI</h2>\n<p>From inside your project folder:</p>\n<pre><code class=\"language-bash\">gh repo create</code></pre>\n<p>Follow the prompts.</p>\n<p>Common choices:</p>\n<pre><code class=\"language-text\">Push an existing local repository to GitHub\nPublic or private\nAdd remote? Yes\nPush? Yes</code></pre>\n<p>You can also do it directly:</p>\n<pre><code class=\"language-bash\">gh repo create my-project --private --source=. --remote=origin --push</code></pre>\n<p>For public:</p>\n<pre><code class=\"language-bash\">gh repo create my-project --public --source=. --remote=origin --push</code></pre>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-14-connecting-local-git-to-github\">14. Connecting Local Git to GitHub</h1>\n<p>A remote is a nickname for an online repository.</p>\n<p>The default remote is usually called <code>origin</code>.</p>\n<p>Add a remote:</p>\n<pre><code class=\"language-bash\">git remote add origin https://github.com/username/repo.git</code></pre>\n<p>Check remotes:</p>\n<pre><code class=\"language-bash\">git remote -v</code></pre>\n<p>You should see:</p>\n<pre><code class=\"language-text\">origin  https://github.com/username/repo.git (fetch)\norigin  https://github.com/username/repo.git (push)</code></pre>\n<p>Push your first commit:</p>\n<pre><code class=\"language-bash\">git push -u origin main</code></pre>\n<p>The <code>-u</code> connects your local <code>main</code> branch to the remote <code>main</code> branch.</p>\n<p>After that, you can usually just run:</p>\n<pre><code class=\"language-bash\">git push</code></pre>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-15-pushing-and-pulling\">15. Pushing and Pulling</h1>\n<h2 id=\"git-github-beginner-to-intermediate-guide-push\">Push</h2>\n<p>Upload your local commits to GitHub:</p>\n<pre><code class=\"language-bash\">git push</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-pull\">Pull</h2>\n<p>Download remote changes and merge them into your branch:</p>\n<pre><code class=\"language-bash\">git pull</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-fetch\">Fetch</h2>\n<p>Download remote information without merging:</p>\n<pre><code class=\"language-bash\">git fetch</code></pre>\n<p>Then inspect:</p>\n<pre><code class=\"language-bash\">git status\ngit log --oneline --graph --decorate --all</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-push-vs-pull\">Push vs Pull</h2>\n<pre><code class=\"language-text\">push = send my commits to GitHub\npull = bring GitHub commits to me\nfetch = check GitHub without changing my files</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-safe-habit\">Safe Habit</h2>\n<p>Before starting work:</p>\n<pre><code class=\"language-bash\">git pull</code></pre>\n<p>After finishing work:</p>\n<pre><code class=\"language-bash\">git status\ngit add .\ngit commit -m &quot;Describe change&quot;\ngit push</code></pre>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-16-cloning-repositories\">16. Cloning Repositories</h1>\n<p>Cloning copies a repository from GitHub to your computer.</p>\n<pre><code class=\"language-bash\">git clone https://github.com/username/repo.git</code></pre>\n<p>Then:</p>\n<pre><code class=\"language-bash\">cd repo</code></pre>\n<p>Check status:</p>\n<pre><code class=\"language-bash\">git status</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-clone-with-github-cli\">Clone with GitHub CLI</h2>\n<pre><code class=\"language-bash\">gh repo clone username/repo</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-where-to-clone\">Where to Clone</h2>\n<p>Make a projects folder:</p>\n<pre><code class=\"language-bash\">mkdir -p ~/Projects\ncd ~/Projects\ngit clone https://github.com/username/repo.git</code></pre>\n<p>Now your projects live somewhere sane.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-part-5-everyday-project-workflow-2\">Part 5: Everyday Project Workflow</h1>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-17-the-safe-solo-developer-workflow\">17. The Safe Solo Developer Workflow</h1>\n<p>For most personal projects, use this loop:</p>\n<pre><code class=\"language-bash\">cd ~/Projects/my-project\ngit pull\ngit status</code></pre>\n<p>Work on files.</p>\n<p>Then:</p>\n<pre><code class=\"language-bash\">git status\ngit diff\ngit add .\ngit diff --staged\ngit commit -m &quot;Describe the change&quot;\ngit push</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-why-so-many-checks\">Why So Many Checks?</h2>\n<p>Because Git is powerful, and power plus guessing equals chaos.</p>\n<p>This flow lets you see:</p>\n<ul><li>What changed before staging</li><li>What is staged before committing</li><li>Whether your work is saved locally</li><li>Whether your work is backed up online</li></ul>\n<h2 id=\"git-github-beginner-to-intermediate-guide-simple-version\">Simple Version</h2>\n<p>Once you are comfortable:</p>\n<pre><code class=\"language-bash\">git pull\n# edit files\ngit add .\ngit commit -m &quot;Update thing&quot;\ngit push</code></pre>\n<p>But when something feels weird, slow down and use the full version.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-18-good-commit-habits\">18. Good Commit Habits</h1>\n<p>A commit should be:</p>\n<ul><li>Small enough to understand</li><li>Big enough to matter</li><li>Focused on one purpose</li></ul>\n<h2 id=\"git-github-beginner-to-intermediate-guide-good-commit-examples\">Good Commit Examples</h2>\n<pre><code class=\"language-text\">Add pricing card layout\nFix broken contact form validation\nUpdate Python install instructions\nCreate first version of file organizer script\nRemove unused CSS variables</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-bad-commit-examples\">Bad Commit Examples</h2>\n<pre><code class=\"language-text\">stuff\nupdate\nmisc changes\nfinal\noops\nidk</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-commit-often-around-risk\">Commit Often Around Risk</h2>\n<p>Commit before:</p>\n<ul><li>Big refactors</li><li>Deleting files</li><li>AI-generated changes</li><li>Reorganizing folders</li><li>Dependency upgrades</li><li>Major CSS layout changes</li><li>Database migrations</li></ul>\n<p>The commit becomes a checkpoint you can return to.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-the-ai-coding-rule\">The AI Coding Rule</h2>\n<p>Before giving a repo to an AI agent:</p>\n<pre><code class=\"language-bash\">git status\ngit add .\ngit commit -m &quot;Checkpoint before AI changes&quot;</code></pre>\n<p>After the agent changes things:</p>\n<pre><code class=\"language-bash\">git status\ngit diff</code></pre>\n<p>Then decide whether to keep, edit, or revert.</p>\n<p>This is an extremely useful habit.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-19-readme-files\">19. README Files</h1>\n<p>A <code>README.md</code> explains what the project is.</p>\n<p>Every serious repo should have one.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-basic-readme-template\">Basic README Template</h2>\n<pre><code class=\"language-markdown\"># Project Name\n\nShort description of what this project does.\n\n## Features\n\n- Feature one\n- Feature two\n- Feature three\n\n## Requirements\n\n- Python 3.12+\n- Node.js 20+\n- Git\n\n## Installation\n</code></pre>\n<p>git clone https://github.com/username/project.git cd project</p>\n<pre><code>\n## Usage\n</code></pre>\n<p>python main.py</p>\n<pre><code>\n## Project Structure\n</code></pre>\n<p>project/ \u251c\u2500\u2500 src/ \u251c\u2500\u2500 tests/ \u251c\u2500\u2500 docs/ \u2514\u2500\u2500 README.md</p>\n<pre><code>\n## Notes\n\nAnything important to know.</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-readme-rule\">README Rule</h2>\n<p>A future version of you should be able to open the repo six months later and understand what is going on.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-20-ignoring-files-with-gitignore\">20. Ignoring Files with .gitignore</h1>\n<p><code>.gitignore</code> tells Git what not to track.</p>\n<p>Create one:</p>\n<pre><code class=\"language-bash\">touch .gitignore</code></pre>\n<p>Example Python <code>.gitignore</code>:</p>\n<pre><code class=\"language-gitignore\">.venv/\n__pycache__/\n*.pyc\n.env\ndist/\nbuild/\n*.egg-info/</code></pre>\n<p>Example Node/web <code>.gitignore</code>:</p>\n<pre><code class=\"language-gitignore\">node_modules/\n.env\ndist/\nbuild/\n.cache/</code></pre>\n<p>Example general <code>.gitignore</code>:</p>\n<pre><code class=\"language-gitignore\">.DS_Store\nThumbs.db\n*.log\n.env\n.env.*\nsecrets/</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-important\">Important</h2>\n<p>If a file is already tracked, adding it to <code>.gitignore</code> does not automatically remove it from Git tracking.</p>\n<p>To stop tracking a file but keep it locally:</p>\n<pre><code class=\"language-bash\">git rm --cached filename</code></pre>\n<p>Example:</p>\n<pre><code class=\"language-bash\">git rm --cached .env\ngit commit -m &quot;Stop tracking env file&quot;</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-never-commit-these\">Never Commit These</h2>\n<ul><li><code>.env</code></li><li>API keys</li><li>Passwords</li><li>Private keys</li><li>Customer secrets</li><li>Production database dumps</li><li>Personal documents</li><li>Large generated folders</li><li>Real credentials from config files</li></ul>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-part-6-branches-and-merging-2\">Part 6: Branches and Merging</h1>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-21-what-branches-are\">21. What Branches Are</h1>\n<p>A branch is a separate line of work.</p>\n<p>Branches let you experiment without damaging the stable version.</p>\n<p>The main branch is usually:</p>\n<pre><code class=\"language-text\">main</code></pre>\n<p>Feature branches might be:</p>\n<pre><code class=\"language-text\">feature/contact-form\nfix/mobile-navbar\nexperiment/new-layout\ndocs/update-readme</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-mental-model-2\">Mental Model</h2>\n<pre><code class=\"language-text\">main = stable timeline\nbranch = alternate timeline for work\nmerge = bring alternate timeline back into main</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-when-to-use-a-branch\">When to Use a Branch</h2>\n<p>Use a branch when:</p>\n<ul><li>You are trying something risky</li><li>You are adding a feature</li><li>You are fixing a bug</li><li>You are using an AI coding agent</li><li>You want a clean review before merging</li><li>You are working with other people</li></ul>\n<p>For tiny solo edits, committing directly to <code>main</code> can be fine.</p>\n<p>For serious work, branches are safer.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-22-creating-and-switching-branches\">22. Creating and Switching Branches</h1>\n<p>See current branch:</p>\n<pre><code class=\"language-bash\">git branch</code></pre>\n<p>Create a branch:</p>\n<pre><code class=\"language-bash\">git branch feature/homepage</code></pre>\n<p>Switch to it:</p>\n<pre><code class=\"language-bash\">git switch feature/homepage</code></pre>\n<p>Create and switch in one command:</p>\n<pre><code class=\"language-bash\">git switch -c feature/homepage</code></pre>\n<p>Older syntax:</p>\n<pre><code class=\"language-bash\">git checkout -b feature/homepage</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-example-workflow\">Example Workflow</h2>\n<pre><code class=\"language-bash\">git switch main\ngit pull\ngit switch -c feature/contact-form</code></pre>\n<p>Edit files.</p>\n<pre><code class=\"language-bash\">git add .\ngit commit -m &quot;Add contact form&quot;\ngit push -u origin feature/contact-form</code></pre>\n<p>Now the branch exists locally and on GitHub.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-23-merging-branches\">23. Merging Branches</h1>\n<p>When the branch is ready, merge it into <code>main</code>.</p>\n<p>First switch to main:</p>\n<pre><code class=\"language-bash\">git switch main</code></pre>\n<p>Update main:</p>\n<pre><code class=\"language-bash\">git pull</code></pre>\n<p>Merge:</p>\n<pre><code class=\"language-bash\">git merge feature/contact-form</code></pre>\n<p>Push main:</p>\n<pre><code class=\"language-bash\">git push</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-merge-flow\">Merge Flow</h2>\n<pre><code class=\"language-text\">main\n  \\\n   feature/contact-form</code></pre>\n<p>After merge:</p>\n<pre><code class=\"language-text\">main includes feature/contact-form</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-fast-forward-merge\">Fast-Forward Merge</h2>\n<p>Sometimes Git can simply move <code>main</code> forward.</p>\n<p>That is normal.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-merge-commit\">Merge Commit</h2>\n<p>Sometimes Git creates a merge commit.</p>\n<p>That is also normal.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-24-handling-merge-conflicts\">24. Handling Merge Conflicts</h1>\n<p>A merge conflict happens when Git cannot automatically combine changes.</p>\n<p>Example:</p>\n<p>You changed this line:</p>\n<pre><code class=\"language-text\">Button color: blue</code></pre>\n<p>Someone else changed the same line:</p>\n<pre><code class=\"language-text\">Button color: green</code></pre>\n<p>Git asks you to decide.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-conflict-markers\">Conflict Markers</h2>\n<p>You may see this in a file:</p>\n<pre><code class=\"language-text\">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD\nButton color: blue\n=======\nButton color: green\n&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/colors</code></pre>\n<p>You must edit it manually.</p>\n<p>Choose the final version:</p>\n<pre><code class=\"language-text\">Button color: green</code></pre>\n<p>Then stage and commit:</p>\n<pre><code class=\"language-bash\">git add filename\ngit commit</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-conflict-survival-steps\">Conflict Survival Steps</h2>\n<ol><li>Do not panic.</li><li>Run <code>git status</code>.</li><li>Open the conflicted files.</li><li>Look for <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>.</li><li>Edit the file to the correct final version.</li><li>Save.</li><li>Run tests or open the app.</li><li>Stage the resolved file.</li><li>Commit.</li></ol>\n<h2 id=\"git-github-beginner-to-intermediate-guide-abort-a-merge\">Abort a Merge</h2>\n<p>If things are too messy:</p>\n<pre><code class=\"language-bash\">git merge --abort</code></pre>\n<p>That returns you to before the merge attempt.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-25-deleting-branches\">25. Deleting Branches</h1>\n<p>After a branch is merged, you can delete it.</p>\n<p>Delete local branch:</p>\n<pre><code class=\"language-bash\">git branch -d feature/contact-form</code></pre>\n<p>Force delete local branch:</p>\n<pre><code class=\"language-bash\">git branch -D feature/contact-form</code></pre>\n<p>Delete remote branch:</p>\n<pre><code class=\"language-bash\">git push origin --delete feature/contact-form</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-safer-rule\">Safer Rule</h2>\n<p>Use lowercase <code>-d</code> first.</p>\n<p>Only use uppercase <code>-D</code> when you are sure you want to throw away unmerged work.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-part-7-fixing-mistakes-2\">Part 7: Fixing Mistakes</h1>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-26-undoing-uncommitted-changes\">26. Undoing Uncommitted Changes</h1>\n<p>You edited a file and want to throw away your changes.</p>\n<pre><code class=\"language-bash\">git restore filename</code></pre>\n<p>Restore all modified tracked files:</p>\n<pre><code class=\"language-bash\">git restore .</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-danger\">Danger</h2>\n<p>This discards uncommitted changes.</p>\n<p>If you might want the changes later, use stash instead:</p>\n<pre><code class=\"language-bash\">git stash</code></pre>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-27-unstaging-files\">27. Unstaging Files</h1>\n<p>You ran:</p>\n<pre><code class=\"language-bash\">git add .</code></pre>\n<p>But you staged too much.</p>\n<p>Unstage one file:</p>\n<pre><code class=\"language-bash\">git restore --staged filename</code></pre>\n<p>Unstage everything:</p>\n<pre><code class=\"language-bash\">git restore --staged .</code></pre>\n<p>Your file changes remain. They are just no longer staged.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-28-changing-the-last-commit\">28. Changing the Last Commit</h1>\n<p>You committed but forgot a file.</p>\n<p>Add the file:</p>\n<pre><code class=\"language-bash\">git add forgotten-file.txt</code></pre>\n<p>Amend the commit:</p>\n<pre><code class=\"language-bash\">git commit --amend</code></pre>\n<p>Or amend without changing the message:</p>\n<pre><code class=\"language-bash\">git commit --amend --no-edit</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-warning\">Warning</h2>\n<p>Avoid amending commits that you already pushed if other people may have pulled them.</p>\n<p>For solo projects, amending recent local commits is usually fine.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-29-reverting-a-commit\">29. Reverting a Commit</h1>\n<p><code>git revert</code> creates a new commit that undoes an older commit.</p>\n<p>This is safer than rewriting history.</p>\n<pre><code class=\"language-bash\">git revert COMMIT_ID</code></pre>\n<p>Example:</p>\n<pre><code class=\"language-bash\">git log --oneline\ngit revert a1b2c3d</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-when-to-use-revert\">When to Use Revert</h2>\n<p>Use revert when:</p>\n<ul><li>The bad commit was already pushed</li><li>Other people may have pulled it</li><li>You want history to remain clear</li><li>You want to undo one specific change</li></ul>\n<h2 id=\"git-github-beginner-to-intermediate-guide-mental-model-3\">Mental Model</h2>\n<pre><code class=\"language-text\">commit A added the thing\nrevert commit A removes the thing\nhistory remains honest</code></pre>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-30-reset-soft-mixed-and-hard\">30. Reset: Soft, Mixed, and Hard</h1>\n<p><code>git reset</code> moves your branch pointer.</p>\n<p>It can be useful, but it can also destroy work.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-soft-reset\">Soft Reset</h2>\n<p>Undo commit but keep changes staged:</p>\n<pre><code class=\"language-bash\">git reset --soft HEAD~1</code></pre>\n<p>Use when:</p>\n<blockquote><p>I committed too early and want to redo the commit.</p></blockquote>\n<h2 id=\"git-github-beginner-to-intermediate-guide-mixed-reset\">Mixed Reset</h2>\n<p>Undo commit and unstage changes:</p>\n<pre><code class=\"language-bash\">git reset HEAD~1</code></pre>\n<p>Use when:</p>\n<blockquote><p>I want the changes back in my working directory.</p></blockquote>\n<h2 id=\"git-github-beginner-to-intermediate-guide-hard-reset\">Hard Reset</h2>\n<p>Undo commit and delete changes:</p>\n<pre><code class=\"language-bash\">git reset --hard HEAD~1</code></pre>\n<p>Use when:</p>\n<blockquote><p>I want this gone completely.</p></blockquote>\n<h2 id=\"git-github-beginner-to-intermediate-guide-big-warning\">Big Warning</h2>\n<p><code>--hard</code> discards changes.</p>\n<p>Before using it:</p>\n<pre><code class=\"language-bash\">git status\ngit log --oneline</code></pre>\n<p>If nervous, make a backup branch first:</p>\n<pre><code class=\"language-bash\">git branch backup-before-reset</code></pre>\n<p>Then reset.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-31-using-reflog-as-a-time-machine\">31. Using Reflog as a Time Machine</h1>\n<p><code>git reflog</code> shows where your HEAD and branches recently pointed.</p>\n<p>It can help recover commits after resets, rebases, or accidental chaos.</p>\n<pre><code class=\"language-bash\">git reflog</code></pre>\n<p>Example output:</p>\n<pre><code class=\"language-text\">a1b2c3d HEAD@{0}: reset: moving to HEAD~1\ne4f5g6h HEAD@{1}: commit: Add feature</code></pre>\n<p>Recover by creating a branch at the old commit:</p>\n<pre><code class=\"language-bash\">git branch recovered-work e4f5g6h</code></pre>\n<p>Switch to it:</p>\n<pre><code class=\"language-bash\">git switch recovered-work</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-reflog-rule\">Reflog Rule</h2>\n<p>When you think:</p>\n<blockquote><p>I lost my commit.</p></blockquote>\n<p>Try:</p>\n<pre><code class=\"language-bash\">git reflog</code></pre>\n<p>Git is usually less forgetful than you think.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-part-8-github-features-2\">Part 8: GitHub Features</h1>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-32-issues\">32. Issues</h1>\n<p>Issues are GitHub's built-in task cards.</p>\n<p>Use them for:</p>\n<ul><li>Bugs</li><li>Feature ideas</li><li>To-do lists</li><li>Client requests</li><li>Research tasks</li><li>Questions</li><li>Roadmap items</li></ul>\n<h2 id=\"git-github-beginner-to-intermediate-guide-good-issue-template\">Good Issue Template</h2>\n<pre><code class=\"language-markdown\">## Goal\n\nWhat needs to happen?\n\n## Why\n\nWhy does this matter?\n\n## Tasks\n\n- [ ] Task one\n- [ ] Task two\n- [ ] Task three\n\n## Notes\n\nExtra context, links, screenshots, or decisions.</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-example-issue\">Example Issue</h2>\n<pre><code class=\"language-markdown\">## Goal\n\nAdd a contact form to the NexSite demo page.\n\n## Why\n\nVisitors need a clear way to request a quote.\n\n## Tasks\n\n- [ ] Add form HTML\n- [ ] Style form section\n- [ ] Add success/error states\n- [ ] Connect submission handler\n- [ ] Test on mobile\n\n## Notes\n\nKeep it simple. Name, email, business name, message.</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-labels\">Labels</h2>\n<p>Useful labels:</p>\n<pre><code class=\"language-text\">bug\nfeature\ndocs\ngood first issue\nneeds review\nclient request\nblocked\nhigh priority</code></pre>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-33-pull-requests\">33. Pull Requests</h1>\n<p>A Pull Request, or PR, is a request to merge one branch into another.</p>\n<p>Usually:</p>\n<pre><code class=\"language-text\">feature branch -&gt; main</code></pre>\n<p>PRs are useful even when working alone because they create a review checkpoint.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-prs-let-you\">PRs Let You</h2>\n<ul><li>Review changed files</li><li>Discuss decisions</li><li>Run checks</li><li>Link issues</li><li>Leave comments</li><li>Merge safely</li><li>Document what changed</li></ul>\n<h2 id=\"git-github-beginner-to-intermediate-guide-basic-pr-flow\">Basic PR Flow</h2>\n<pre><code class=\"language-bash\">git switch main\ngit pull\ngit switch -c feature/new-section\n# edit files\ngit add .\ngit commit -m &quot;Add new section&quot;\ngit push -u origin feature/new-section</code></pre>\n<p>Then on GitHub:</p>\n<ol><li>Open Pull Request.</li><li>Review files.</li><li>Merge when ready.</li><li>Delete branch.</li></ol>\n<h2 id=\"git-github-beginner-to-intermediate-guide-good-pr-description\">Good PR Description</h2>\n<pre><code class=\"language-markdown\">## Summary\n\nAdds a new services section to the homepage.\n\n## Changes\n\n- Added services section HTML\n- Added responsive CSS grid\n- Updated navigation link\n\n## Testing\n\n- Viewed on desktop\n- Viewed on mobile width\n- Checked links\n\n## Notes\n\nNo backend changes.</code></pre>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-34-forks\">34. Forks</h1>\n<p>A fork is your own copy of someone else's GitHub repository.</p>\n<p>Use forks when:</p>\n<ul><li>You want to contribute to a repo you do not own</li><li>You want to experiment with someone else's project</li><li>You want your own version of an open-source project</li></ul>\n<h2 id=\"git-github-beginner-to-intermediate-guide-fork-workflow\">Fork Workflow</h2>\n<ol><li>Fork the repo on GitHub.</li><li>Clone your fork.</li><li>Create a branch.</li><li>Commit changes.</li><li>Push to your fork.</li><li>Open a PR to the original repo.</li></ol>\n<h2 id=\"git-github-beginner-to-intermediate-guide-keep-your-fork-updated\">Keep Your Fork Updated</h2>\n<p>Add the original repo as <code>upstream</code>:</p>\n<pre><code class=\"language-bash\">git remote add upstream https://github.com/original-owner/original-repo.git</code></pre>\n<p>Fetch upstream:</p>\n<pre><code class=\"language-bash\">git fetch upstream</code></pre>\n<p>Merge upstream main into your main:</p>\n<pre><code class=\"language-bash\">git switch main\ngit merge upstream/main</code></pre>\n<p>Push your updated fork:</p>\n<pre><code class=\"language-bash\">git push origin main</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-remote-names\">Remote Names</h2>\n<pre><code class=\"language-text\">origin   = your fork\nupstream = original repo</code></pre>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-35-releases-and-tags\">35. Releases and Tags</h1>\n<p>A tag marks a specific point in history.</p>\n<p>A release is a GitHub page built around a tag, often with release notes and downloadable assets.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-create-a-tag\">Create a Tag</h2>\n<pre><code class=\"language-bash\">git tag v1.0.0</code></pre>\n<p>Push the tag:</p>\n<pre><code class=\"language-bash\">git push origin v1.0.0</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-annotated-tag\">Annotated Tag</h2>\n<p>Better for real releases:</p>\n<pre><code class=\"language-bash\">git tag -a v1.0.0 -m &quot;First stable release&quot;\ngit push origin v1.0.0</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-semantic-versioning\">Semantic Versioning</h2>\n<p>Common format:</p>\n<pre><code class=\"language-text\">MAJOR.MINOR.PATCH</code></pre>\n<p>Example:</p>\n<pre><code class=\"language-text\">1.4.2</code></pre>\n<p>Meaning:</p>\n<pre><code class=\"language-text\">MAJOR = breaking changes\nMINOR = new features\nPATCH = bug fixes</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-example-versions\">Example Versions</h2>\n<pre><code class=\"language-text\">v0.1.0 = early usable version\nv1.0.0 = first stable version\nv1.0.1 = bug fix\nv1.1.0 = new feature\nv2.0.0 = breaking change</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-github-cli-release\">GitHub CLI Release</h2>\n<pre><code class=\"language-bash\">gh release create v1.0.0 --title &quot;v1.0.0&quot; --notes &quot;First stable release.&quot;</code></pre>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-36-github-pages\">36. GitHub Pages</h1>\n<p>GitHub Pages lets you publish static websites from a GitHub repository.</p>\n<p>Good for:</p>\n<ul><li>Portfolio sites</li><li>Documentation</li><li>Project pages</li><li>HTML/CSS/JS demos</li><li>Simple landing pages</li></ul>\n<h2 id=\"git-github-beginner-to-intermediate-guide-basic-static-site-structure\">Basic Static Site Structure</h2>\n<pre><code class=\"language-text\">my-site/\n\u251c\u2500\u2500 index.html\n\u251c\u2500\u2500 styles.css\n\u251c\u2500\u2500 script.js\n\u2514\u2500\u2500 README.md</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-publish-from-a-branch\">Publish from a Branch</h2>\n<p>Common setup:</p>\n<pre><code class=\"language-text\">Branch: main\nFolder: /</code></pre>\n<p>or:</p>\n<pre><code class=\"language-text\">Branch: main\nFolder: /docs</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-basic-steps\">Basic Steps</h2>\n<ol><li>Push your site files to GitHub.</li><li>Go to repo Settings.</li><li>Go to Pages.</li><li>Choose deploy from branch.</li><li>Select branch and folder.</li><li>Save.</li></ol>\n<h2 id=\"git-github-beginner-to-intermediate-guide-important-safety-note\">Important Safety Note</h2>\n<p>GitHub Pages sites are public on the internet. Do not put private files, secrets, customer data, or hidden credentials into a Pages repo.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-userorganization-site\">User/Organization Site</h2>\n<p>Repo name format:</p>\n<pre><code class=\"language-text\">username.github.io</code></pre>\n<p>Example:</p>\n<pre><code class=\"language-text\">nex-architect.github.io</code></pre>\n<p>That usually publishes at:</p>\n<pre><code class=\"language-text\">https://username.github.io/</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-project-site\">Project Site</h2>\n<p>Regular repo:</p>\n<pre><code class=\"language-text\">my-demo-site</code></pre>\n<p>Usually publishes at:</p>\n<pre><code class=\"language-text\">https://username.github.io/my-demo-site/</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-custom-domains\">Custom Domains</h2>\n<p>You can connect a custom domain, but DNS setup depends on your domain provider.</p>\n<p>Common files/settings:</p>\n<pre><code class=\"language-text\">CNAME file\nGitHub Pages custom domain setting\nDNS records at your provider</code></pre>\n<p>For business sites, Cloudflare Pages may be a better main deployment platform, but GitHub Pages is excellent for docs, demos, and project showcases.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-37-github-cli\">37. GitHub CLI</h1>\n<p>GitHub CLI uses the <code>gh</code> command.</p>\n<p>It lets you work with GitHub from the terminal.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-check-auth\">Check Auth</h2>\n<pre><code class=\"language-bash\">gh auth status</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-create-repo\">Create Repo</h2>\n<pre><code class=\"language-bash\">gh repo create my-project --private --source=. --remote=origin --push</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-clone-repo\">Clone Repo</h2>\n<pre><code class=\"language-bash\">gh repo clone username/repo</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-view-repo\">View Repo</h2>\n<pre><code class=\"language-bash\">gh repo view --web</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-create-issue\">Create Issue</h2>\n<pre><code class=\"language-bash\">gh issue create --title &quot;Fix mobile navbar&quot; --body &quot;Navbar wraps weirdly on small screens.&quot;</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-list-issues\">List Issues</h2>\n<pre><code class=\"language-bash\">gh issue list</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-create-pull-request\">Create Pull Request</h2>\n<pre><code class=\"language-bash\">gh pr create --title &quot;Add contact form&quot; --body &quot;Adds contact form layout and validation.&quot;</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-view-pr\">View PR</h2>\n<pre><code class=\"language-bash\">gh pr view --web</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-create-release\">Create Release</h2>\n<pre><code class=\"language-bash\">gh release create v1.0.0 --title &quot;v1.0.0&quot; --notes &quot;Initial stable release.&quot;</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-why-use-gh\">Why Use <code>gh</code>?</h2>\n<p>Because it reduces browser hopping.</p>\n<p>You can create repos, issues, PRs, releases, and more without leaving the terminal.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-38-github-actions-intro\">38. GitHub Actions Intro</h1>\n<p>GitHub Actions lets GitHub run automated workflows.</p>\n<p>Examples:</p>\n<ul><li>Run tests when code is pushed</li><li>Build a static site</li><li>Deploy documentation</li><li>Check formatting</li><li>Package releases</li><li>Run scripts on schedule</li></ul>\n<p>Actions live in:</p>\n<pre><code class=\"language-text\">.github/workflows/</code></pre>\n<p>Example:</p>\n<pre><code class=\"language-text\">.github/\n\u2514\u2500\u2500 workflows/\n    \u2514\u2500\u2500 test.yml</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-simple-python-test-workflow\">Simple Python Test Workflow</h2>\n<pre><code class=\"language-yaml\">name: Python Checks\n\non:\n  push:\n  pull_request:\n\njobs:\n  test:\n    runs-on: ubuntu-latest\n\n    steps:\n      - name: Check out repo\n        uses: actions/checkout@v4\n\n      - name: Set up Python\n        uses: actions/setup-python@v5\n        with:\n          python-version: &quot;3.12&quot;\n\n      - name: Install dependencies\n        run: |\n          python -m pip install --upgrade pip\n          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi\n\n      - name: Run tests\n        run: |\n          if [ -d tests ]; then python -m pytest; else echo &quot;No tests folder yet&quot;; fi</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-simple-static-site-check\">Simple Static Site Check</h2>\n<pre><code class=\"language-yaml\">name: Static Site Check\n\non:\n  push:\n  pull_request:\n\njobs:\n  check:\n    runs-on: ubuntu-latest\n\n    steps:\n      - name: Check out repo\n        uses: actions/checkout@v4\n\n      - name: List files\n        run: ls -la\n\n      - name: Confirm index exists\n        run: test -f index.html</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-actions-rule\">Actions Rule</h2>\n<p>Start simple.</p>\n<p>Do not build a monster CI pipeline before the project needs one.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-part-9-intermediate-git-2\">Part 9: Intermediate Git</h1>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-39-stashing-work\">39. Stashing Work</h1>\n<p>Stash temporarily shelves uncommitted changes.</p>\n<p>Use it when:</p>\n<ul><li>You need to switch branches</li><li>You want to pull changes but your working tree is dirty</li><li>You are halfway through something and need to pause</li></ul>\n<p>Stash:</p>\n<pre><code class=\"language-bash\">git stash</code></pre>\n<p>Stash with message:</p>\n<pre><code class=\"language-bash\">git stash push -m &quot;halfway through navbar fix&quot;</code></pre>\n<p>List stashes:</p>\n<pre><code class=\"language-bash\">git stash list</code></pre>\n<p>Apply latest stash:</p>\n<pre><code class=\"language-bash\">git stash apply</code></pre>\n<p>Apply and remove latest stash:</p>\n<pre><code class=\"language-bash\">git stash pop</code></pre>\n<p>Drop latest stash:</p>\n<pre><code class=\"language-bash\">git stash drop</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-stash-rule\">Stash Rule</h2>\n<p>Use stash for temporary work, not long-term storage.</p>\n<p>If something matters, commit it to a branch.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-40-cherry-picking\">40. Cherry-Picking</h1>\n<p>Cherry-pick applies one specific commit from another branch.</p>\n<pre><code class=\"language-bash\">git cherry-pick COMMIT_ID</code></pre>\n<p>Example:</p>\n<pre><code class=\"language-bash\">git cherry-pick a1b2c3d</code></pre>\n<p>Use when:</p>\n<ul><li>You need one fix from another branch</li><li>A feature branch has many commits but only one is ready</li><li>You accidentally committed on the wrong branch</li></ul>\n<h2 id=\"git-github-beginner-to-intermediate-guide-example-2\">Example</h2>\n<p>You committed a bug fix on <code>feature/big-redesign</code>, but need it on <code>main</code>.</p>\n<pre><code class=\"language-bash\">git switch main\ngit cherry-pick a1b2c3d\ngit push</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-warning-2\">Warning</h2>\n<p>Cherry-picking copies the change as a new commit. It does not move the original commit.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-41-rebasing\">41. Rebasing</h1>\n<p>Rebase moves commits to a new base.</p>\n<p>Most common use:</p>\n<blockquote><p>Update my feature branch so it sits on top of the latest main.</p></blockquote>\n<pre><code class=\"language-bash\">git switch feature/my-work\ngit fetch origin\ngit rebase origin/main</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-merge-vs-rebase\">Merge vs Rebase</h2>\n<p>Merge preserves the exact branch history.</p>\n<p>Rebase creates a cleaner, linear history.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-beginner-rule\">Beginner Rule</h2>\n<p>Use merge until you are comfortable.</p>\n<p>Use rebase when:</p>\n<ul><li>You understand the branch history</li><li>You are working on your own branch</li><li>You have not shared the branch with others, or your team agrees on rebase usage</li></ul>\n<h2 id=\"git-github-beginner-to-intermediate-guide-important-warning\">Important Warning</h2>\n<p>Do not casually rebase shared branches.</p>\n<p>Rebase rewrites commit history.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-42-squashing-commits\">42. Squashing Commits</h1>\n<p>Squashing combines multiple commits into one.</p>\n<p>Useful when your branch has messy commits like:</p>\n<pre><code class=\"language-text\">Add form\nfix typo\noops\nfix again\nreal fix</code></pre>\n<p>And you want one clean commit:</p>\n<pre><code class=\"language-text\">Add contact form</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-interactive-rebase\">Interactive Rebase</h2>\n<pre><code class=\"language-bash\">git rebase -i HEAD~4</code></pre>\n<p>This opens your editor with recent commits.</p>\n<p>Example:</p>\n<pre><code class=\"language-text\">pick a1b2c3d Add form\npick b2c3d4e fix typo\npick c3d4e5f oops\npick d4e5f6g real fix</code></pre>\n<p>Change some <code>pick</code> entries to <code>squash</code>:</p>\n<pre><code class=\"language-text\">pick a1b2c3d Add form\nsquash b2c3d4e fix typo\nsquash c3d4e5f oops\nsquash d4e5f6g real fix</code></pre>\n<p>Save and close.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-beginner-friendly-alternative\">Beginner-Friendly Alternative</h2>\n<p>On GitHub, when merging a PR, you can often choose:</p>\n<pre><code class=\"language-text\">Squash and merge</code></pre>\n<p>That is simpler.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-43-working-with-multiple-remotes\">43. Working with Multiple Remotes</h1>\n<p>A repo can have multiple remotes.</p>\n<p>Check remotes:</p>\n<pre><code class=\"language-bash\">git remote -v</code></pre>\n<p>Add another remote:</p>\n<pre><code class=\"language-bash\">git remote add backup git@github.com:username/backup-repo.git</code></pre>\n<p>Push to a specific remote:</p>\n<pre><code class=\"language-bash\">git push backup main</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-common-multi-remote-setup\">Common Multi-Remote Setup</h2>\n<p>For forks:</p>\n<pre><code class=\"language-text\">origin   = your fork\nupstream = original repo</code></pre>\n<p>For backups:</p>\n<pre><code class=\"language-text\">origin = GitHub\nmirror = another Git host</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-rename-a-remote\">Rename a Remote</h2>\n<pre><code class=\"language-bash\">git remote rename old-name new-name</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-change-remote-url\">Change Remote URL</h2>\n<pre><code class=\"language-bash\">git remote set-url origin https://github.com/username/new-repo.git</code></pre>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-44-git-worktrees\">44. Git Worktrees</h1>\n<p>Worktrees let you check out multiple branches from the same repo at the same time in separate folders.</p>\n<p>This is useful when:</p>\n<ul><li>You need to compare two branches</li><li>You are working on one branch but need a quick hotfix</li><li>You do not want to stash half-finished work</li></ul>\n<h2 id=\"git-github-beginner-to-intermediate-guide-example-3\">Example</h2>\n<p>From your repo:</p>\n<pre><code class=\"language-bash\">git worktree add ../my-project-hotfix main</code></pre>\n<p>Now you have:</p>\n<pre><code class=\"language-text\">my-project/\nmy-project-hotfix/</code></pre>\n<p>Each folder can be on a different branch.</p>\n<p>List worktrees:</p>\n<pre><code class=\"language-bash\">git worktree list</code></pre>\n<p>Remove worktree:</p>\n<pre><code class=\"language-bash\">git worktree remove ../my-project-hotfix</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-beginner-rule-2\">Beginner Rule</h2>\n<p>You do not need worktrees early.</p>\n<p>But once you do serious repo work, they are ridiculously useful.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-part-10-repo-safety-and-professional-habits-2\">Part 10: Repo Safety and Professional Habits</h1>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-45-never-commit-secrets\">45. Never Commit Secrets</h1>\n<p>Secrets include:</p>\n<ul><li>API keys</li><li>Passwords</li><li>Private SSH keys</li><li>Tokens</li><li><code>.env</code> files</li><li>Client credentials</li><li>Database URLs</li><li>Production config files</li></ul>\n<h2 id=\"git-github-beginner-to-intermediate-guide-use-env\">Use <code>.env</code></h2>\n<p>Example <code>.env</code>:</p>\n<pre><code class=\"language-env\">API_KEY=real-secret-value\nDATABASE_URL=real-secret-value</code></pre>\n<p>Add to <code>.gitignore</code>:</p>\n<pre><code class=\"language-gitignore\">.env\n.env.*</code></pre>\n<p>Create a safe example file:</p>\n<pre><code class=\"language-bash\">touch .env.example</code></pre>\n<p>Example <code>.env.example</code>:</p>\n<pre><code class=\"language-env\">API_KEY=replace-me\nDATABASE_URL=replace-me</code></pre>\n<p>Commit the example file, not the real one.</p>\n<pre><code class=\"language-bash\">git add .gitignore .env.example\ngit commit -m &quot;Add environment example&quot;</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-if-you-accidentally-commit-a-secret\">If You Accidentally Commit a Secret</h2>\n<ol><li>Assume the secret is compromised.</li><li>Revoke or rotate it immediately.</li><li>Remove it from the repo.</li><li>Consider cleaning history if necessary.</li><li>Do not just delete it in a new commit and pretend it never happened.</li></ol>\n<h2 id=\"git-github-beginner-to-intermediate-guide-basic-secret-scan\">Basic Secret Scan</h2>\n<p>Search for suspicious words:</p>\n<pre><code class=\"language-bash\">grep -RniE &quot;api[_-]?key|secret|token|password&quot; .</code></pre>\n<p>Avoid searching huge folders:</p>\n<pre><code class=\"language-bash\">grep -RniE &quot;api[_-]?key|secret|token|password&quot; . --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=.venv</code></pre>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-46-repo-structure\">46. Repo Structure</h1>\n<p>A clean repo is easier to understand.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-simple-website-repo\">Simple Website Repo</h2>\n<pre><code class=\"language-text\">my-site/\n\u251c\u2500\u2500 index.html\n\u251c\u2500\u2500 styles.css\n\u251c\u2500\u2500 script.js\n\u251c\u2500\u2500 assets/\n\u2502   \u251c\u2500\u2500 images/\n\u2502   \u2514\u2500\u2500 icons/\n\u251c\u2500\u2500 README.md\n\u2514\u2500\u2500 .gitignore</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-python-cli-repo\">Python CLI Repo</h2>\n<pre><code class=\"language-text\">my-tool/\n\u251c\u2500\u2500 pyproject.toml\n\u251c\u2500\u2500 README.md\n\u251c\u2500\u2500 .gitignore\n\u251c\u2500\u2500 src/\n\u2502   \u2514\u2500\u2500 my_tool/\n\u2502       \u251c\u2500\u2500 __init__.py\n\u2502       \u2514\u2500\u2500 cli.py\n\u251c\u2500\u2500 tests/\n\u2502   \u2514\u2500\u2500 test_basic.py\n\u2514\u2500\u2500 docs/</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-documentation-repo\">Documentation Repo</h2>\n<pre><code class=\"language-text\">my-docs/\n\u251c\u2500\u2500 README.md\n\u251c\u2500\u2500 guides/\n\u2502   \u251c\u2500\u2500 bash.md\n\u2502   \u251c\u2500\u2500 python.md\n\u2502   \u2514\u2500\u2500 git-github.md\n\u251c\u2500\u2500 assets/\n\u2514\u2500\u2500 index.md</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-general-rule\">General Rule</h2>\n<p>A stranger should be able to open your repo and answer:</p>\n<ul><li>What is this?</li><li>How do I run it?</li><li>Where is the main code?</li><li>Where are the docs?</li><li>What files should I not touch?</li><li>What is the current status?</li></ul>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-47-project-boards-and-milestones\">47. Project Boards and Milestones</h1>\n<p>GitHub can manage work, not just code.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-issues\">Issues</h2>\n<p>Individual tasks.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-labels-2\">Labels</h2>\n<p>Categories.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-milestones\">Milestones</h2>\n<p>Groups of issues for a target release.</p>\n<p>Example milestones:</p>\n<pre><code class=\"language-text\">v0.1 prototype\nv0.2 usable CLI\nv1.0 stable release\nClient launch</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-project-boards\">Project Boards</h2>\n<p>Visual boards for planning.</p>\n<p>Common columns:</p>\n<pre><code class=\"language-text\">Backlog\nReady\nIn Progress\nReview\nDone</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-practical-solo-workflow\">Practical Solo Workflow</h2>\n<p>Create issues for ideas.</p>\n<p>Use labels:</p>\n<pre><code class=\"language-text\">bug\nfeature\ndocs\ncleanup\npriority\nblocked</code></pre>\n<p>Before a coding session, pick 1 to 3 issues.</p>\n<p>Do not try to do the whole universe in one branch.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-48-client-project-workflow\">48. Client Project Workflow</h1>\n<p>For client work, Git can protect you.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-recommended-setup\">Recommended Setup</h2>\n<p>Use a private repo.</p>\n<pre><code class=\"language-text\">client-business-site/\n\u251c\u2500\u2500 README.md\n\u251c\u2500\u2500 client-notes/\n\u251c\u2500\u2500 src/\n\u251c\u2500\u2500 assets/\n\u251c\u2500\u2500 docs/\n\u2514\u2500\u2500 .gitignore</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-branches\">Branches</h2>\n<pre><code class=\"language-text\">main\npreview\nfeature/homepage\nfeature/contact-form\nfix/mobile-header</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-suggested-flow\">Suggested Flow</h2>\n<ol><li>Commit initial intake.</li><li>Commit starter template.</li><li>Commit first client draft.</li><li>Use branch for major changes.</li><li>Use GitHub Pages or Cloudflare Pages preview.</li><li>Tag the launch version.</li></ol>\n<h2 id=\"git-github-beginner-to-intermediate-guide-example-commits\">Example Commits</h2>\n<pre><code class=\"language-text\">Add initial client content\nCreate homepage layout\nAdd booking section\nUpdate colors from client notes\nFix mobile spacing\nPrepare launch version</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-client-safety-rule\">Client Safety Rule</h2>\n<p>Never commit:</p>\n<ul><li>Client passwords</li><li>Private customer lists</li><li>Payment credentials</li><li>Private business documents</li><li>Anything you would not want publicly exposed</li></ul>\n<p>Private repos are not an excuse to be reckless.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-49-personal-project-workflow\">49. Personal Project Workflow</h1>\n<p>For personal projects, Git is your lab notebook.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-good-branch-names\">Good Branch Names</h2>\n<pre><code class=\"language-text\">experiment/audio-engine\nfeature/midi-import\nfix/mp3-metadata\ndocs/usage-guide\ncleanup/remove-old-ui</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-good-commit-strategy\">Good Commit Strategy</h2>\n<p>Commit at moments like:</p>\n<pre><code class=\"language-text\">Before AI agent changes\nAfter working prototype\nBefore major refactor\nAfter tests pass\nBefore packaging attempt\nAfter CLI command works</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-recommended-routine\">Recommended Routine</h2>\n<p>Before work:</p>\n<pre><code class=\"language-bash\">git status\ngit pull</code></pre>\n<p>During work:</p>\n<pre><code class=\"language-bash\">git status\ngit diff</code></pre>\n<p>Checkpoint:</p>\n<pre><code class=\"language-bash\">git add .\ngit commit -m &quot;Checkpoint before refactor&quot;</code></pre>\n<p>After work:</p>\n<pre><code class=\"language-bash\">git push</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-personal-project-rule\">Personal Project Rule</h2>\n<p>A repo should tell the story of how the project became real.</p>\n<p>Not every microscopic thought, but enough checkpoints that future you can recover from bad ideas.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-part-11-projects-2\">Part 11: Projects</h1>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-project-1-track-a-notes-folder\">Project 1: Track a Notes Folder</h1>\n<p>Goal: learn local Git basics.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-steps\">Steps</h2>\n<pre><code class=\"language-bash\">mkdir git-practice-notes\ncd git-practice-notes\ngit init\necho &quot;# Git Practice Notes&quot; &gt; README.md\nmkdir notes\necho &quot;Today I learned Git basics.&quot; &gt; notes/day-1.md\ngit status\ngit add .\ngit commit -m &quot;Add first notes&quot;</code></pre>\n<p>Add more notes:</p>\n<pre><code class=\"language-bash\">echo &quot;Git status shows what changed.&quot; &gt;&gt; notes/day-1.md\ngit diff\ngit add .\ngit commit -m &quot;Update day one notes&quot;</code></pre>\n<p>View history:</p>\n<pre><code class=\"language-bash\">git log --oneline</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-challenge\">Challenge</h2>\n<p>Create:</p>\n<pre><code class=\"language-text\">notes/day-2.md\nnotes/day-3.md</code></pre>\n<p>Commit each day separately.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-project-2-publish-a-static-website\">Project 2: Publish a Static Website</h1>\n<p>Goal: learn GitHub repo creation and Pages.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-files\">Files</h2>\n<pre><code class=\"language-bash\">mkdir github-pages-demo\ncd github-pages-demo\ngit init</code></pre>\n<p>Create <code>index.html</code>:</p>\n<pre><code class=\"language-html\">&lt;!doctype html&gt;\n&lt;html&gt;\n&lt;head&gt;\n  &lt;meta charset=&quot;utf-8&quot;&gt;\n  &lt;title&gt;GitHub Pages Demo&lt;/title&gt;\n  &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;\n&lt;/head&gt;\n&lt;body&gt;\n  &lt;main&gt;\n    &lt;h1&gt;Hello from GitHub Pages&lt;/h1&gt;\n    &lt;p&gt;This site is tracked with Git and hosted from GitHub.&lt;/p&gt;\n  &lt;/main&gt;\n&lt;/body&gt;\n&lt;/html&gt;</code></pre>\n<p>Create <code>styles.css</code>:</p>\n<pre><code class=\"language-css\">body {\n  font-family: system-ui, sans-serif;\n  margin: 2rem;\n  line-height: 1.6;\n}\n\nmain {\n  max-width: 720px;\n}</code></pre>\n<p>Commit:</p>\n<pre><code class=\"language-bash\">git add .\ngit commit -m &quot;Create static site demo&quot;</code></pre>\n<p>Create GitHub repo:</p>\n<pre><code class=\"language-bash\">gh repo create github-pages-demo --public --source=. --remote=origin --push</code></pre>\n<p>Then enable Pages in repo settings.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-challenge-2\">Challenge</h2>\n<p>Add:</p>\n<ul><li>About section</li><li>Contact section</li><li>Footer</li><li>Mobile-friendly CSS</li></ul>\n<p>Commit each meaningful change.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-project-3-build-a-python-cli-repo\">Project 3: Build a Python CLI Repo</h1>\n<p>Goal: learn repo structure.</p>\n<pre><code class=\"language-bash\">mkdir hello-cli\ncd hello-cli\ngit init\nmkdir -p src/hello_cli tests\ntouch src/hello_cli/__init__.py\ntouch src/hello_cli/cli.py\ntouch README.md pyproject.toml .gitignore</code></pre>\n<p><code>.gitignore</code>:</p>\n<pre><code class=\"language-gitignore\">.venv/\n__pycache__/\n*.pyc\ndist/\nbuild/\n*.egg-info/\n.env</code></pre>\n<p><code>src/hello_cli/cli.py</code>:</p>\n<pre><code class=\"language-python\">def main():\n    print(&quot;Hello from the CLI!&quot;)\n\nif __name__ == &quot;__main__&quot;:\n    main()</code></pre>\n<p>Commit:</p>\n<pre><code class=\"language-bash\">git add .\ngit commit -m &quot;Create initial Python CLI structure&quot;</code></pre>\n<p>Run:</p>\n<pre><code class=\"language-bash\">python src/hello_cli/cli.py</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-challenge-3\">Challenge</h2>\n<p>Add:</p>\n<ul><li><code>--name</code> argument</li><li>README usage instructions</li><li>Basic test file</li><li>GitHub repo</li></ul>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-project-4-use-branches-like-a-real-workflow\">Project 4: Use Branches Like a Real Workflow</h1>\n<p>Goal: practice branch workflow.</p>\n<p>Start from any repo.</p>\n<pre><code class=\"language-bash\">git switch main\ngit pull\ngit switch -c feature/readme-improvements</code></pre>\n<p>Edit README.</p>\n<pre><code class=\"language-bash\">git status\ngit diff\ngit add README.md\ngit commit -m &quot;Improve README instructions&quot;\ngit push -u origin feature/readme-improvements</code></pre>\n<p>Open a Pull Request on GitHub.</p>\n<p>Merge it.</p>\n<p>Return locally:</p>\n<pre><code class=\"language-bash\">git switch main\ngit pull\ngit branch -d feature/readme-improvements</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-challenge-4\">Challenge</h2>\n<p>Create three branches:</p>\n<pre><code class=\"language-text\">feature/add-install-section\nfeature/add-usage-section\ndocs/add-roadmap</code></pre>\n<p>Merge each one using a PR.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-project-5-create-a-release\">Project 5: Create a Release</h1>\n<p>Goal: learn tags and releases.</p>\n<p>Make sure your repo is clean:</p>\n<pre><code class=\"language-bash\">git status</code></pre>\n<p>Create tag:</p>\n<pre><code class=\"language-bash\">git tag -a v0.1.0 -m &quot;First preview release&quot;\ngit push origin v0.1.0</code></pre>\n<p>Create GitHub release:</p>\n<pre><code class=\"language-bash\">gh release create v0.1.0 --title &quot;v0.1.0&quot; --notes &quot;First preview release.&quot;</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-challenge-5\">Challenge</h2>\n<p>Write release notes:</p>\n<pre><code class=\"language-markdown\">## Added\n\n- Initial project structure\n- Basic README\n- First working command\n\n## Fixed\n\n- Nothing yet\n\n## Notes\n\nThis is an early preview release.</code></pre>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-part-12-cheat-sheets-2\">Part 12: Cheat Sheets</h1>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-55-daily-commands\">55. Daily Commands</h1>\n<h2 id=\"git-github-beginner-to-intermediate-guide-start-work\">Start Work</h2>\n<pre><code class=\"language-bash\">git status\ngit pull</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-see-changes\">See Changes</h2>\n<pre><code class=\"language-bash\">git status\ngit diff</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-save-work\">Save Work</h2>\n<pre><code class=\"language-bash\">git add .\ngit commit -m &quot;Describe change&quot;\ngit push</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-new-branch\">New Branch</h2>\n<pre><code class=\"language-bash\">git switch main\ngit pull\ngit switch -c feature/name</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-push-new-branch\">Push New Branch</h2>\n<pre><code class=\"language-bash\">git push -u origin feature/name</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-merge-branch\">Merge Branch</h2>\n<pre><code class=\"language-bash\">git switch main\ngit pull\ngit merge feature/name\ngit push</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-view-history\">View History</h2>\n<pre><code class=\"language-bash\">git log --oneline --graph --decorate --all</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-check-remotes\">Check Remotes</h2>\n<pre><code class=\"language-bash\">git remote -v</code></pre>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-56-emergency-commands\">56. Emergency Commands</h1>\n<h2 id=\"git-github-beginner-to-intermediate-guide-what-is-happening\">What is happening?</h2>\n<pre><code class=\"language-bash\">git status</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-what-changed\">What changed?</h2>\n<pre><code class=\"language-bash\">git diff</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-what-did-i-stage\">What did I stage?</h2>\n<pre><code class=\"language-bash\">git diff --staged</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-undo-unstaged-changes-to-one-file\">Undo unstaged changes to one file</h2>\n<pre><code class=\"language-bash\">git restore filename</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-unstage-a-file\">Unstage a file</h2>\n<pre><code class=\"language-bash\">git restore --staged filename</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-abort-merge\">Abort merge</h2>\n<pre><code class=\"language-bash\">git merge --abort</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-save-messy-work-temporarily\">Save messy work temporarily</h2>\n<pre><code class=\"language-bash\">git stash push -m &quot;temporary save&quot;</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-recover-lost-commit\">Recover lost commit</h2>\n<pre><code class=\"language-bash\">git reflog</code></pre>\n<p>Then:</p>\n<pre><code class=\"language-bash\">git branch recovered-work COMMIT_ID</code></pre>\n<h2 id=\"git-github-beginner-to-intermediate-guide-reset-local-branch-to-match-github\">Reset local branch to match GitHub</h2>\n<p>Dangerous. Deletes local changes.</p>\n<pre><code class=\"language-bash\">git fetch origin\ngit reset --hard origin/main</code></pre>\n<p>Use only when you are sure.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-backup-before-dangerous-command\">Backup Before Dangerous Command</h2>\n<pre><code class=\"language-bash\">git branch backup-before-danger</code></pre>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-57-glossary\">57. Glossary</h1>\n<h2 id=\"git-github-beginner-to-intermediate-guide-repository\">Repository</h2>\n<p>A project tracked by Git.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-commit\">Commit</h2>\n<p>A saved snapshot of changes.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-branch\">Branch</h2>\n<p>A separate line of work.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-merge\">Merge</h2>\n<p>Combining one branch into another.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-remote\">Remote</h2>\n<p>An online repo connection, usually GitHub.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-origin\">Origin</h2>\n<p>The default name for your main remote.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-clone\">Clone</h2>\n<p>Copying a remote repo to your computer.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-push-2\">Push</h2>\n<p>Sending local commits to remote.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-pull-2\">Pull</h2>\n<p>Bringing remote changes into your local branch.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-fetch-2\">Fetch</h2>\n<p>Downloading remote info without merging.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-staging\">Staging</h2>\n<p>Selecting changes for the next commit.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-working-tree\">Working Tree</h2>\n<p>Your current editable files.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-head\">HEAD</h2>\n<p>The commit or branch you are currently on.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-tag\">Tag</h2>\n<p>A label for a specific commit, often used for versions.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-release\">Release</h2>\n<p>A GitHub object built around a tag with notes and optional downloadable files.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-fork\">Fork</h2>\n<p>Your copy of someone else's GitHub repo.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-pull-request\">Pull Request</h2>\n<p>A request to merge one branch into another.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-conflict\">Conflict</h2>\n<p>A situation where Git needs human help combining changes.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-rebase\">Rebase</h2>\n<p>Moving commits onto a new base commit.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-stash\">Stash</h2>\n<p>A temporary shelf for uncommitted changes.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-reflog\">Reflog</h2>\n<p>A local record of where HEAD and branches recently pointed.</p>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-58-official-docs-to-bookmark\">58. Official Docs to Bookmark</h1>\n<p>These are worth bookmarking because GitHub and authentication workflows can change over time.</p>\n<h2 id=\"git-github-beginner-to-intermediate-guide-git-2\">Git</h2>\n<ul><li><a href=\"https://git-scm.com/\">Git official site</a></li><li><a href=\"https://git-scm.com/book/en/v2\">Pro Git book</a></li><li><a href=\"https://git-scm.com/docs\">Git reference docs</a></li></ul>\n<h2 id=\"git-github-beginner-to-intermediate-guide-github-2\">GitHub</h2>\n<ul><li><a href=\"https://docs.github.com/\">GitHub Docs</a></li><li><a href=\"https://docs.github.com/en/get-started/git-basics/set-up-git\">Set up Git</a></li><li><a href=\"https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository\">Cloning a repository</a></li><li><a href=\"https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches\">About branches</a></li><li><a href=\"https://docs.github.com/en/github-cli/github-cli/about-github-cli\">GitHub CLI</a></li><li><a href=\"https://docs.github.com/en/pages\">GitHub Pages</a></li><li><a href=\"https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens\">Personal Access Tokens</a></li></ul>\n<hr />\n<h1 id=\"git-github-beginner-to-intermediate-guide-final-learning-path\">Final Learning Path</h1>\n<p>Use this order:</p>\n<pre><code class=\"language-text\">1. Install Git\n2. Configure Git identity\n3. Create local repo\n4. Add and commit files\n5. Create GitHub repo\n6. Push local repo to GitHub\n7. Clone a repo\n8. Use .gitignore\n9. Make branches\n10. Merge branches\n11. Open Pull Requests\n12. Handle conflicts\n13. Recover from mistakes\n14. Create releases\n15. Publish with GitHub Pages\n16. Add basic GitHub Actions</code></pre>\n<p>The real milestone is not memorizing commands.</p>\n<p>The real milestone is when you can say:</p>\n<blockquote><p>\"I know where my work is, I know what changed, I know how to save it, I know how to share it, and I know how to recover if I mess up.\"</p></blockquote>\n<p>That is intermediate Git.</p>\n<p>Not fancy. Not mystical.</p>\n<p>Just controlled chaos with receipts.</p>"
+    },
     {
-      id: "text-content",
-      title: "Editing Text Content",
-      category: "Content",
-      summary: "How to safely update copy, headings, and body text on any NexSite Studio site.",
-      content: [
+      "id": "web-development-handbook-p1",
+      "title": "The Complete Web Development Handbook",
+      "navLabel": "Web Handbook P1",
+      "summary": "**Audience:** Complete beginners through intermediate developers **Goal:** Teach you how websites are engineered, not just copied **Philosophy:** Understand deeply. Build confidently. Maintain sustainably.",
+      "href": "web-development-handbook-p1.html",
+      "icon": "Web 1",
+      "sections": [
         {
-          heading: "Config-driven sites",
-          body: "For any site using a config file (site-config.js, portal-config.js), text content lives in that file — not in the HTML. Change the config, never the HTML directly. The HTML is a template; the config is the content."
+          "id": "web-development-handbook-p1-from-zero-to-professional-html-css-and-javascript",
+          "title": "From Zero to Professional \u2014 HTML, CSS, and JavaScript",
+          "level": 2
         },
         {
-          heading: "Plain HTML sites",
-          body: "Open the relevant .html file. Use Ctrl+F to find the text. Edit the content between the tags. Do not change HTML structure, class names, or attribute values — only the text content inside elements."
+          "id": "web-development-handbook-p1-what-this-part-covers",
+          "title": "What This Part Covers",
+          "level": 2
         },
         {
-          heading: "Validate after editing",
-          body: "After any text change, open the page in a browser locally. Confirm the change appears correctly with no broken layout, no missing content, and no console errors before pushing."
+          "id": "web-development-handbook-p1-11-what-is-a-website",
+          "title": "1.1 \u2014 What Is a Website?",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-12-how-browsers-work",
+          "title": "1.2 \u2014 How Browsers Work",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-13-the-dom-document-object-model",
+          "title": "1.3 \u2014 The DOM (Document Object Model)",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-14-client-vs-server",
+          "title": "1.4 \u2014 Client vs. Server",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-15-how-html-css-and-javascript-relate",
+          "title": "1.5 \u2014 How HTML, CSS, and JavaScript Relate",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-16-rendering-process-simplified",
+          "title": "1.6 \u2014 Rendering Process (Simplified)",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-what-this-part-covers-2",
+          "title": "What This Part Covers",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-21-what-html-is-and-isnt",
+          "title": "2.1 \u2014 What HTML Is (and Isn't)",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-22-document-structure",
+          "title": "2.2 \u2014 Document Structure",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-23-html-syntax",
+          "title": "2.3 \u2014 HTML Syntax",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-24-text-elements",
+          "title": "2.4 \u2014 Text Elements",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-25-structural-elements-semantic-html",
+          "title": "2.5 \u2014 Structural Elements (Semantic HTML)",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-26-lists",
+          "title": "2.6 \u2014 Lists",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-27-links",
+          "title": "2.7 \u2014 Links",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-28-images-and-media",
+          "title": "2.8 \u2014 Images and Media",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-29-tables",
+          "title": "2.9 \u2014 Tables",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-210-forms",
+          "title": "2.10 \u2014 Forms",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-what-this-part-covers-3",
+          "title": "What This Part Covers",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-31-what-cascading-means",
+          "title": "3.1 \u2014 What \"Cascading\" Means",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-32-css-syntax",
+          "title": "3.2 \u2014 CSS Syntax",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-33-selectors",
+          "title": "3.3 \u2014 Selectors",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-34-the-box-model",
+          "title": "3.4 \u2014 The Box Model",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-35-color-in-css",
+          "title": "3.5 \u2014 Color in CSS",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-36-typography-in-css",
+          "title": "3.6 \u2014 Typography in CSS",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-what-this-part-covers-4",
+          "title": "What This Part Covers",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-41-normal-flow-the-default",
+          "title": "4.1 \u2014 Normal Flow (The Default)",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-42-the-display-property",
+          "title": "4.2 \u2014 The `display` Property",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-43-positioning",
+          "title": "4.3 \u2014 Positioning",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-44-flexbox",
+          "title": "4.4 \u2014 Flexbox",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-45-css-grid",
+          "title": "4.5 \u2014 CSS Grid",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-46-flexbox-vs-grid-when-to-use-each",
+          "title": "4.6 \u2014 Flexbox vs Grid: When to Use Each",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-what-this-part-covers-5",
+          "title": "What This Part Covers",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-51-the-viewport",
+          "title": "5.1 \u2014 The Viewport",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-52-media-queries",
+          "title": "5.2 \u2014 Media Queries",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-53-responsive-units",
+          "title": "5.3 \u2014 Responsive Units",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-54-responsive-patterns",
+          "title": "5.4 \u2014 Responsive Patterns",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-what-this-part-covers-6",
+          "title": "What This Part Covers",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-61-font-systems",
+          "title": "6.1 \u2014 Font Systems",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-62-visual-hierarchy",
+          "title": "6.2 \u2014 Visual Hierarchy",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-63-spacing-and-rhythm",
+          "title": "6.3 \u2014 Spacing and Rhythm",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-64-color-theory-for-ui",
+          "title": "6.4 \u2014 Color Theory for UI",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-65-borders-shadows-and-visual-depth",
+          "title": "6.5 \u2014 Borders, Shadows, and Visual Depth",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-what-this-part-covers-7",
+          "title": "What This Part Covers",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-71-css-custom-properties-variables",
+          "title": "7.1 \u2014 CSS Custom Properties (Variables)",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-72-file-organization",
+          "title": "7.2 \u2014 File Organization",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-73-naming-conventions",
+          "title": "7.3 \u2014 Naming Conventions",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-74-reusable-utility-classes",
+          "title": "7.4 \u2014 Reusable Utility Classes",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-what-this-part-covers-8",
+          "title": "What This Part Covers",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-81-what-javascript-is",
+          "title": "8.1 \u2014 What JavaScript Is",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-82-variables",
+          "title": "8.2 \u2014 Variables",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-83-data-types",
+          "title": "8.3 \u2014 Data Types",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-84-functions",
+          "title": "8.4 \u2014 Functions",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-85-arrays",
+          "title": "8.5 \u2014 Arrays",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-86-objects",
+          "title": "8.6 \u2014 Objects",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-87-conditionals",
+          "title": "8.7 \u2014 Conditionals",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-88-loops",
+          "title": "8.8 \u2014 Loops",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-89-scope",
+          "title": "8.9 \u2014 Scope",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-810-async-javascript",
+          "title": "8.10 \u2014 Async JavaScript",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-what-this-part-covers-9",
+          "title": "What This Part Covers",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-91-selecting-elements",
+          "title": "9.1 \u2014 Selecting Elements",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-92-reading-and-modifying-elements",
+          "title": "9.2 \u2014 Reading and Modifying Elements",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-93-creating-and-removing-elements",
+          "title": "9.3 \u2014 Creating and Removing Elements",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-94-event-listeners",
+          "title": "9.4 \u2014 Event Listeners",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p1-95-complete-interactive-components",
+          "title": "9.5 \u2014 Complete Interactive Components",
+          "level": 2
         }
-      ]
+      ],
+      "contentHtml": "<h1 id=\"web-development-handbook-p1-the-complete-web-development-handbook\">The Complete Web Development Handbook</h1>\n<h2 id=\"web-development-handbook-p1-from-zero-to-professional-html-css-and-javascript\">From Zero to Professional \u2014 HTML, CSS, and JavaScript</h2>\n<p><strong>Audience:</strong> Complete beginners through intermediate developers <strong>Goal:</strong> Teach you how websites are engineered, not just copied <strong>Philosophy:</strong> Understand deeply. Build confidently. Maintain sustainably.</p>\n<hr />\n<blockquote><p><strong>How to use this handbook:</strong> Read sequentially your first time through. Return to specific chapters as references. Every concept builds on what came before \u2014 if something doesn't click, the explanation is somewhere in an earlier section.</p></blockquote>\n<hr />\n<h1 id=\"web-development-handbook-p1-table-of-contents\">TABLE OF CONTENTS</h1>\n<ul><li>Part 1 \u2014 How Websites Work</li><li>Part 2 \u2014 HTML Fundamentals</li><li>Part 3 \u2014 CSS Fundamentals</li><li>Part 4 \u2014 Layout Systems</li><li>Part 5 \u2014 Responsive Design</li><li>Part 6 \u2014 Typography &amp; Visual Design</li><li>Part 7 \u2014 CSS Architecture &amp; Organization</li><li>Part 8 \u2014 JavaScript Fundamentals</li><li>Part 9 \u2014 DOM &amp; Interactivity</li><li><em>(continued in Part 2 of handbook)</em></li></ul>\n<hr />\n<hr />\n<h1 id=\"web-development-handbook-p1-part-1-how-websites-work\">PART 1 \u2014 How Websites Work</h1>\n<h2 id=\"web-development-handbook-p1-what-this-part-covers\">What This Part Covers</h2>\n<p>Before writing a single line of code, you need to understand what you're actually building. Most beginners start copying HTML snippets without knowing what a website <em>is</em>. This part fixes that.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-11-what-is-a-website\">1.1 \u2014 What Is a Website?</h2>\n<p>A website is a collection of text files that a browser reads and turns into a visual, interactive experience.</p>\n<p>That's it. At their core, websites are files. Not magic, not black boxes \u2014 files. Text files with specific formatting rules that tell the browser what to display and how.</p>\n<p><strong>The three types of files every website is made of:</strong></p>\n<pre><code>HTML file  \u2192  Structure  \u2192  &quot;What is on the page?&quot;\nCSS file   \u2192  Style      \u2192  &quot;What does it look like?&quot;\nJS file    \u2192  Behavior   \u2192  &quot;What does it do?&quot;</code></pre>\n<p><strong>Analogy:</strong> Think of a website like a building.</p>\n<ul><li>HTML is the <strong>blueprint and walls</strong> \u2014 the actual structure</li><li>CSS is the <strong>paint, furniture, and decoration</strong> \u2014 the appearance</li><li>JavaScript is the <strong>electrical wiring and plumbing</strong> \u2014 the functionality you can't see but depend on</li></ul>\n<p>You could have a building with no paint (HTML-only site \u2014 ugly but works). You could have paint on air (CSS with no HTML \u2014 nothing to style). You need the structure first, then you decorate it, then you wire it up.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-12-how-browsers-work\">1.2 \u2014 How Browsers Work</h2>\n<p>A browser (Chrome, Firefox, Safari, Edge) is a program that:</p>\n<ol><li><strong>Receives files</strong> from a server over the internet</li><li><strong>Reads and interprets</strong> those files</li><li><strong>Renders</strong> (draws) the visual result on your screen</li><li><strong>Listens</strong> for your interactions (clicks, typing, scrolling)</li><li><strong>Updates</strong> the display in response to those interactions</li></ol>\n<p><strong>What happens when you visit a website:</strong></p>\n<pre><code>You type &quot;google.com&quot; in the address bar\n         \u2193\nBrowser asks a DNS server: &quot;What IP address is google.com?&quot;\n         \u2193\nDNS replies: &quot;It&#x27;s at 142.250.80.100&quot;\n         \u2193\nBrowser sends a request to that server: &quot;Please send me your files&quot;\n         \u2193\nServer responds with an HTML file\n         \u2193\nBrowser reads the HTML, finds references to CSS and JS files\n         \u2193\nBrowser requests those additional files\n         \u2193\nBrowser parses all files and builds the DOM (explained below)\n         \u2193\nBrowser calculates layout (where each element goes)\n         \u2193\nBrowser paints pixels on your screen\n         \u2193\nJavaScript runs, adding interactivity</code></pre>\n<p>This entire process happens in under a second on a fast connection.</p>\n<p><strong>Beginner note:</strong> When you're developing locally (working on files on your own computer), you skip the server and DNS steps. The browser reads files directly from your hard drive. This is why you open files like <code>file:///home/user/project/index.html</code> during development.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-13-the-dom-document-object-model\">1.3 \u2014 The DOM (Document Object Model)</h2>\n<p>The DOM is one of the most important concepts in web development, and it confuses almost every beginner because it's invisible.</p>\n<p><strong>What the DOM is:</strong></p>\n<p>When the browser reads your HTML file, it doesn't just display the text. It builds an internal data structure \u2014 a \"tree\" of objects \u2014 that represents every element on the page. This tree is called the Document Object Model.</p>\n<p><strong>Why it matters:</strong></p>\n<p>JavaScript doesn't interact with your HTML file. It interacts with the DOM \u2014 the browser's live in-memory representation of the page. When JavaScript changes the DOM, the browser instantly updates what you see on screen, without reloading the file.</p>\n<p><strong>Visual representation:</strong></p>\n<pre><code>Your HTML file:             The DOM tree the browser builds:\n\n&lt;html&gt;                          Document\n  &lt;head&gt;                           \u2514\u2500\u2500 html\n    &lt;title&gt;My Site&lt;/title&gt;              \u251c\u2500\u2500 head\n  &lt;/head&gt;                               \u2502    \u2514\u2500\u2500 title (&quot;My Site&quot;)\n  &lt;body&gt;                                \u2514\u2500\u2500 body\n    &lt;h1&gt;Hello&lt;/h1&gt;                           \u251c\u2500\u2500 h1 (&quot;Hello&quot;)\n    &lt;p&gt;World&lt;/p&gt;                             \u2514\u2500\u2500 p (&quot;World&quot;)\n  &lt;/body&gt;\n&lt;/html&gt;</code></pre>\n<p>Think of the DOM as a family tree. Each HTML element is a \"node\" in the tree. Elements can have parent nodes (elements that contain them) and child nodes (elements inside them). JavaScript can navigate this tree, find any node, and modify it.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-14-client-vs-server\">1.4 \u2014 Client vs. Server</h2>\n<p>You will hear these terms constantly. Understanding the distinction prevents a lot of confusion.</p>\n<p><strong>Client:</strong> The user's browser. It's called the \"client\" because it requests (is a client to) the server. All HTML, CSS, and JavaScript that you write in this handbook runs in the client \u2014 inside the user's browser, on their device.</p>\n<p><strong>Server:</strong> A computer running software that responds to requests by sending files or data. The server doesn't know about your browser or your screen. It just receives requests and sends responses.</p>\n<p><strong>What runs where:</strong></p>\n<table><tbody>\n<tr><td>Technology</td><td>Runs On</td><td>Can Access</td></tr>\n<tr><td>HTML</td><td>Client (browser)</td><td>What's on the page</td></tr>\n<tr><td>CSS</td><td>Client (browser)</td><td>Visual styling</td></tr>\n<tr><td>JavaScript (frontend)</td><td>Client (browser)</td><td>DOM, browser APIs, user input</td></tr>\n<tr><td>Node.js / Python / etc.</td><td>Server</td><td>Database, file system, secrets</td></tr>\n</tbody></table>\n<p><strong>Why this matters:</strong> Client-side code (HTML/CSS/JS) is visible to everyone. Anyone can open DevTools and see your code. Never put passwords, API keys, or sensitive logic in client-side JavaScript.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-15-how-html-css-and-javascript-relate\">1.5 \u2014 How HTML, CSS, and JavaScript Relate</h2>\n<p>They work together but are completely separate technologies. Each file is independent.</p>\n<p><strong>The HTML file is the entry point.</strong> The browser always starts with an HTML file. From that HTML file, you reference CSS and JavaScript:</p>\n<pre><code class=\"language-html\">&lt;!DOCTYPE html&gt;\n&lt;html&gt;\n  &lt;head&gt;\n    &lt;!-- This tells the browser to load styles.css --&gt;\n    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;\n  &lt;/head&gt;\n  &lt;body&gt;\n    &lt;h1&gt;Hello&lt;/h1&gt;\n\n    &lt;!-- This tells the browser to load script.js --&gt;\n    &lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;\n  &lt;/body&gt;\n&lt;/html&gt;</code></pre>\n<p>The browser reads the HTML file, discovers <code>styles.css</code> and <code>script.js</code>, fetches them, and applies them. If you rename your CSS file but don't update the <code>href</code>, the styles won't load.</p>\n<p><strong>The browser applies CSS automatically</strong> based on selectors (rules about which elements to style). You don't have to \"call\" CSS \u2014 the browser applies all loaded CSS to all matching HTML elements.</p>\n<p><strong>JavaScript runs when explicitly called</strong> \u2014 either when the page loads, or when an event (like a click) triggers it. Unlike CSS, JavaScript doesn't apply passively; it executes code.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-16-rendering-process-simplified\">1.6 \u2014 Rendering Process (Simplified)</h2>\n<p>Understanding how the browser renders a page helps you write faster, more efficient code.</p>\n<p><strong>Step 1: Parse HTML \u2192 Build DOM</strong> The browser reads your HTML top-to-bottom and builds the DOM tree.</p>\n<p><strong>Step 2: Parse CSS \u2192 Build CSSOM</strong> The browser reads your CSS and builds another tree called the CSSOM (CSS Object Model) \u2014 a mapping of which styles apply to which elements.</p>\n<p><strong>Step 3: Combine \u2192 Render Tree</strong> The DOM and CSSOM are combined into a \"render tree\" \u2014 only elements that are actually visible (not <code>display: none</code>) are included.</p>\n<p><strong>Step 4: Layout</strong> The browser calculates the exact pixel position and size of every element on screen. This is called \"layout\" or \"reflow.\"</p>\n<p><strong>Step 5: Paint</strong> The browser draws the pixels \u2014 colors, text, images, borders \u2014 to the screen.</p>\n<p><strong>Step 6: Composite</strong> The browser assembles layers (for things like fixed headers, z-index stacking) and displays the final result.</p>\n<p><strong>Why this matters for you:</strong> Certain JavaScript operations (like reading <code>element.offsetWidth</code>) force the browser to redo the layout step immediately. If you do this repeatedly in a loop, it causes \"layout thrashing\" \u2014 the page becomes slow and janky. Understanding the rendering pipeline helps you avoid these traps.</p>\n<hr />\n<hr />\n<h1 id=\"web-development-handbook-p1-part-2-html-fundamentals\">PART 2 \u2014 HTML Fundamentals</h1>\n<h2 id=\"web-development-handbook-p1-what-this-part-covers-2\">What This Part Covers</h2>\n<p>HTML (HyperText Markup Language) is the structure of every webpage. It tells the browser <em>what</em> content exists \u2014 not what it looks like, not what it does. Just what it is.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-21-what-html-is-and-isnt\">2.1 \u2014 What HTML Is (and Isn't)</h2>\n<p>HTML is a markup language, not a programming language. It does not perform calculations, does not have variables, does not loop or make decisions. It describes content.</p>\n<p><strong>Markup language:</strong> A language that annotates text with tags to indicate structure and meaning.</p>\n<p>A paragraph in a novel is just text. A <code>&lt;p&gt;</code> tag in HTML says \"this is a paragraph \u2014 treat it as such.\"</p>\n<p><strong>Why structure matters:</strong> Browsers, search engines, screen readers, and other tools depend on HTML structure to understand what content means. A search engine doesn't know a line of text is a heading unless you use <code>&lt;h1&gt;</code>. A screen reader doesn't know a list of items is a list unless you use <code>&lt;ul&gt;</code>. HTML gives meaning to content.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-22-document-structure\">2.2 \u2014 Document Structure</h2>\n<p>Every HTML file must follow a basic structure. Think of it as the skeleton that everything hangs on.</p>\n<pre><code class=\"language-html\">&lt;!DOCTYPE html&gt;\n&lt;html lang=&quot;en&quot;&gt;\n  &lt;head&gt;\n    &lt;meta charset=&quot;UTF-8&quot;&gt;\n    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;\n    &lt;title&gt;Page Title&lt;/title&gt;\n    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;\n  &lt;/head&gt;\n  &lt;body&gt;\n    &lt;!-- All visible content goes here --&gt;\n    &lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt;\n  &lt;/body&gt;\n&lt;/html&gt;</code></pre>\n<p><strong>Breaking this down, piece by piece:</strong></p>\n<p><strong><code>&lt;!DOCTYPE html&gt;</code></strong> Not an HTML tag \u2014 it's a declaration. It tells the browser: \"This is an HTML5 document.\" Without it, browsers enter \"quirks mode\" and behave like it's the 1990s. Always include this as the very first line. Always.</p>\n<p><strong><code>&lt;html lang=\"en\"&gt;</code></strong> The root element. Every other element is nested inside it. The <code>lang=\"en\"</code> attribute tells the browser (and screen readers) that the page is in English. Use the appropriate language code for your content.</p>\n<p><strong><code>&lt;head&gt;</code></strong> The head contains information <em>about</em> the page, not content that appears on screen. Think of it as the metadata drawer \u2014 it holds the page title, links to CSS files, information for search engines, and more.</p>\n<p><strong><code>&lt;meta charset=\"UTF-8\"&gt;</code></strong> Tells the browser what character encoding to use. UTF-8 supports virtually every character in every language. Without this, special characters (\u00e9, \u00f1, \u4e2d, etc.) may display as garbage symbols. Always include this as the first tag inside <code>&lt;head&gt;</code>.</p>\n<p><strong><code>&lt;meta name=\"viewport\"&gt;</code></strong> Critical for responsive design. Without this, mobile browsers zoom out to show the full desktop layout, making everything tiny. The <code>width=device-width</code> makes the page as wide as the device's screen. The <code>initial-scale=1.0</code> prevents default zoom. Always include this.</p>\n<p><strong><code>&lt;title&gt;</code></strong> The text that appears in the browser tab and in search engine results. Every page must have a unique, descriptive title.</p>\n<p><strong><code>&lt;body&gt;</code></strong> Everything visible on the page goes inside the body. Text, images, navigation, forms \u2014 all of it lives here.</p>\n<p><strong><code>&lt;script src=\"script.js\"&gt;</code> at the bottom</strong> Scripts are placed at the bottom of the body so they load after the HTML content. If you put a script in <code>&lt;head&gt;</code>, it runs before the DOM elements exist, so any code that tries to select elements will find nothing. Placing scripts last avoids this problem.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-23-html-syntax\">2.3 \u2014 HTML Syntax</h2>\n<p>Understanding syntax means understanding the rules for writing valid HTML.</p>\n<p><strong>Tags:</strong> Most HTML elements consist of an opening tag and a closing tag:</p>\n<pre><code class=\"language-html\">&lt;tagname&gt;Content goes here&lt;/tagname&gt;</code></pre>\n<p><strong>Attributes:</strong> Tags can have attributes \u2014 additional information provided in the opening tag:</p>\n<pre><code class=\"language-html\">&lt;tagname attribute=&quot;value&quot;&gt;Content&lt;/tagname&gt;</code></pre>\n<p>Example:</p>\n<pre><code class=\"language-html\">&lt;a href=&quot;https://example.com&quot;&gt;Click me&lt;/a&gt;</code></pre>\n<p>Here, <code>href</code> is the attribute and its value is the URL.</p>\n<p><strong>Self-closing elements:</strong> Some elements have no content and don't need a closing tag. They're called \"void elements\":</p>\n<pre><code class=\"language-html\">&lt;img src=&quot;photo.jpg&quot; alt=&quot;A landscape&quot;&gt;\n&lt;input type=&quot;text&quot;&gt;\n&lt;br&gt;\n&lt;hr&gt;\n&lt;meta&gt;\n&lt;link&gt;</code></pre>\n<p><strong>Nesting:</strong> Elements can contain other elements. The inner element is \"nested\" inside the outer one:</p>\n<pre><code class=\"language-html\">&lt;p&gt;This is a &lt;strong&gt;very important&lt;/strong&gt; sentence.&lt;/p&gt;</code></pre>\n<p>Rules of nesting:</p>\n<ol><li>Always close inner tags before outer tags</li><li>Never overlap tags incorrectly:</li></ol>\n<ul><li>Wrong: <code>&lt;p&gt;&lt;strong&gt;text&lt;/p&gt;&lt;/strong&gt;</code></li><li>Right: <code>&lt;p&gt;&lt;strong&gt;text&lt;/strong&gt;&lt;/p&gt;</code></li></ul>\n<p><strong>Comments:</strong> Text the browser ignores \u2014 useful for notes to yourself or other developers:</p>\n<pre><code class=\"language-html\">&lt;!-- This is a comment. The browser ignores this. --&gt;</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p1-24-text-elements\">2.4 \u2014 Text Elements</h2>\n<p>Text is the foundation of most web content. HTML provides elements for every type of text content.</p>\n<h3 id=\"web-development-handbook-p1-headings\">Headings</h3>\n<p>HTML has six levels of headings:</p>\n<pre><code class=\"language-html\">&lt;h1&gt;Largest heading \u2014 usually the page title&lt;/h1&gt;\n&lt;h2&gt;Section heading&lt;/h2&gt;\n&lt;h3&gt;Subsection heading&lt;/h3&gt;\n&lt;h4&gt;Sub-subsection heading&lt;/h4&gt;\n&lt;h5&gt;Rarely used&lt;/h5&gt;\n&lt;h6&gt;Smallest heading&lt;/h6&gt;</code></pre>\n<p><strong>Critical rules:</strong></p>\n<ul><li>Use only ONE <code>&lt;h1&gt;</code> per page. It represents the main topic of the entire page.</li><li>Use headings in order \u2014 never skip levels (don't jump from <code>&lt;h1&gt;</code> to <code>&lt;h4&gt;</code>).</li><li>Use headings for structure, not for size. If you want bigger text without it being a heading, use CSS.</li></ul>\n<p><strong>Why this matters:</strong> Screen readers navigate pages by jumping between headings. If your heading structure is wrong, users with visual impairments cannot navigate your page. Search engines also weight content in headings more heavily.</p>\n<h3 id=\"web-development-handbook-p1-paragraphs\">Paragraphs</h3>\n<pre><code class=\"language-html\">&lt;p&gt;This is a paragraph. Browsers automatically add space above and below paragraphs.&lt;/p&gt;\n&lt;p&gt;This is a second paragraph. Notice it starts on a new line with spacing.&lt;/p&gt;</code></pre>\n<p><strong>Common mistake:</strong> Beginners sometimes use <code>&lt;br&gt;</code> tags instead of <code>&lt;p&gt;</code> tags to separate text into \"paragraphs.\" This is wrong. <code>&lt;br&gt;</code> creates a line break within a paragraph. <code>&lt;p&gt;</code> creates a semantically distinct paragraph.</p>\n<h3 id=\"web-development-handbook-p1-inline-text-formatting\">Inline Text Formatting</h3>\n<pre><code class=\"language-html\">&lt;strong&gt;Bold \u2014 semantically means &quot;strongly important&quot;&lt;/strong&gt;\n&lt;b&gt;Bold \u2014 purely visual, no semantic meaning&lt;/b&gt;\n\n&lt;em&gt;Italic \u2014 semantically means &quot;emphasis&quot;&lt;/em&gt;\n&lt;i&gt;Italic \u2014 purely visual, no semantic meaning&lt;/i&gt;\n\n&lt;mark&gt;Highlighted text&lt;/mark&gt;\n&lt;del&gt;Strikethrough \u2014 deleted content&lt;/del&gt;\n&lt;ins&gt;Underline \u2014 inserted content&lt;/ins&gt;\n&lt;sub&gt;Subscript \u2014 like H&lt;sub&gt;2&lt;/sub&gt;O&lt;/sub&gt;\n&lt;sup&gt;Superscript \u2014 like 10&lt;sup&gt;2&lt;/sup&gt;&lt;/sup&gt;\n\n&lt;code&gt;Inline code \u2014 renders in monospace font&lt;/code&gt;\n&lt;kbd&gt;Keyboard input \u2014 like press &lt;kbd&gt;Ctrl+S&lt;/kbd&gt;&lt;/kbd&gt;</code></pre>\n<p><strong>When to use <code>&lt;strong&gt;</code> vs <code>&lt;b&gt;</code>:</strong> Use <code>&lt;strong&gt;</code> when the text is genuinely important \u2014 a warning, a key term, something users must not miss. Screen readers may emphasize <code>&lt;strong&gt;</code> content. Use <code>&lt;b&gt;</code> only when you want visual boldness with no semantic importance (rare).</p>\n<h3 id=\"web-development-handbook-p1-blockquote-and-cite\">Blockquote and Cite</h3>\n<pre><code class=\"language-html\">&lt;blockquote cite=&quot;https://source-url.com&quot;&gt;\n  &lt;p&gt;This is a long quote from another source, displayed as an indented block.&lt;/p&gt;\n&lt;/blockquote&gt;\n\n&lt;p&gt;As Einstein said: &lt;q&gt;Imagination is more important than knowledge.&lt;/q&gt;&lt;/p&gt;</code></pre>\n<p><code>&lt;blockquote&gt;</code> is for multi-line quotes. <code>&lt;q&gt;</code> is for inline quotes (browsers automatically add quotation marks).</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-25-structural-elements-semantic-html\">2.5 \u2014 Structural Elements (Semantic HTML)</h2>\n<p>HTML5 introduced a set of elements that describe the <em>meaning</em> of page sections \u2014 not just how they look, but what role they play. These are called semantic elements.</p>\n<p><strong>Why semantics matter:</strong></p>\n<ol><li><strong>Accessibility</strong> \u2014 Screen readers use semantic elements to help users navigate. A user can jump directly to the <code>&lt;nav&gt;</code> or <code>&lt;main&gt;</code> section.</li><li><strong>SEO</strong> \u2014 Search engines understand that content in <code>&lt;article&gt;</code> is the primary content, not boilerplate.</li><li><strong>Maintainability</strong> \u2014 Another developer reading your HTML can understand the page structure without reading all the CSS.</li><li><strong>Future-proofing</strong> \u2014 Semantic HTML works with technologies that don't even exist yet.</li></ol>\n<p><strong>The key structural elements:</strong></p>\n<pre><code class=\"language-html\">&lt;header&gt;\n  &lt;!-- Site header or section header. Contains navigation, logo, title. --&gt;\n  &lt;!-- NOT the same as &lt;head&gt;. &lt;header&gt; is visible content. --&gt;\n&lt;/header&gt;\n\n&lt;nav&gt;\n  &lt;!-- Navigation links. Primary menu, breadcrumbs, sidebar nav. --&gt;\n  &lt;!-- A page can have multiple &lt;nav&gt; elements. --&gt;\n&lt;/nav&gt;\n\n&lt;main&gt;\n  &lt;!-- The primary content of the page. There should be only ONE &lt;main&gt; per page. --&gt;\n  &lt;!-- Content unique to this page (not repeated on every page like header/footer). --&gt;\n&lt;/main&gt;\n\n&lt;article&gt;\n  &lt;!-- Self-contained content that makes sense on its own. --&gt;\n  &lt;!-- Blog posts, news articles, forum posts, product cards. --&gt;\n  &lt;!-- If you could copy this content to another site and it would still make sense, it&#x27;s an article. --&gt;\n&lt;/article&gt;\n\n&lt;section&gt;\n  &lt;!-- A thematic grouping of content, with its own heading. --&gt;\n  &lt;!-- When you want to divide content into named sections but it doesn&#x27;t qualify as an article. --&gt;\n&lt;/section&gt;\n\n&lt;aside&gt;\n  &lt;!-- Content tangentially related to main content. --&gt;\n  &lt;!-- Sidebars, pull quotes, related links, advertisements. --&gt;\n&lt;/aside&gt;\n\n&lt;footer&gt;\n  &lt;!-- Footer of the page or a section. --&gt;\n  &lt;!-- Copyright, contact info, related links, secondary nav. --&gt;\n&lt;/footer&gt;</code></pre>\n<p><strong>Visual page anatomy:</strong></p>\n<pre><code>\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502              &lt;header&gt;               \u2502  \u2190 Logo, site name, primary nav\n\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524\n\u2502                  \u2502                  \u2502\n\u2502     &lt;main&gt;       \u2502    &lt;aside&gt;       \u2502  \u2190 Primary content + sidebar\n\u2502                  \u2502                  \u2502\n\u2502  \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510  \u2502  Related links   \u2502\n\u2502  \u2502 &lt;article&gt;  \u2502  \u2502  Ads             \u2502\n\u2502  \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518  \u2502  Author bio      \u2502\n\u2502                  \u2502                  \u2502\n\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524\n\u2502              &lt;footer&gt;               \u2502  \u2190 Copyright, links, contact\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518</code></pre>\n<p><strong>The <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> elements:</strong></p>\n<p><code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> are \"generic\" containers \u2014 they have no semantic meaning. They're used when you need to group elements for styling purposes but no semantic element fits.</p>\n<pre><code class=\"language-html\">&lt;div&gt;Block-level container \u2014 takes up full width, starts on new line&lt;/div&gt;\n&lt;span&gt;Inline container \u2014 stays in the flow of text&lt;/span&gt;</code></pre>\n<p><strong>When to use <code>&lt;div&gt;</code>:</strong> Only when no semantic element (header, main, section, article, aside, nav, footer) fits. Do not use <code>&lt;div&gt;</code> for everything \u2014 this is called \"div soup\" and is a beginner mistake.</p>\n<p><strong>Mental model:</strong> Ask yourself \"what is this content?\" If it's navigation \u2192 <code>&lt;nav&gt;</code>. If it's the page's primary content \u2192 <code>&lt;main&gt;</code>. If it's a self-contained article \u2192 <code>&lt;article&gt;</code>. If it's a themed section \u2192 <code>&lt;section&gt;</code>. If none of those fit \u2192 <code>&lt;div&gt;</code>.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-26-lists\">2.6 \u2014 Lists</h2>\n<p>HTML has three types of lists:</p>\n<h3 id=\"web-development-handbook-p1-unordered-lists-bullet-points\">Unordered Lists (bullet points)</h3>\n<pre><code class=\"language-html\">&lt;ul&gt;\n  &lt;li&gt;First item&lt;/li&gt;\n  &lt;li&gt;Second item&lt;/li&gt;\n  &lt;li&gt;Third item&lt;/li&gt;\n&lt;/ul&gt;</code></pre>\n<p>Use when order doesn't matter \u2014 ingredients in a recipe, features of a product, navigation links.</p>\n<h3 id=\"web-development-handbook-p1-ordered-lists-numbered\">Ordered Lists (numbered)</h3>\n<pre><code class=\"language-html\">&lt;ol&gt;\n  &lt;li&gt;First step&lt;/li&gt;\n  &lt;li&gt;Second step&lt;/li&gt;\n  &lt;li&gt;Third step&lt;/li&gt;\n&lt;/ol&gt;</code></pre>\n<p>Use when order matters \u2014 instructions, rankings, steps in a process.</p>\n<h3 id=\"web-development-handbook-p1-definition-lists\">Definition Lists</h3>\n<pre><code class=\"language-html\">&lt;dl&gt;\n  &lt;dt&gt;HTML&lt;/dt&gt;\n  &lt;dd&gt;HyperText Markup Language \u2014 the structure of web pages.&lt;/dd&gt;\n\n  &lt;dt&gt;CSS&lt;/dt&gt;\n  &lt;dd&gt;Cascading Style Sheets \u2014 the styling of web pages.&lt;/dd&gt;\n&lt;/dl&gt;</code></pre>\n<p>Use for glossaries, key-value pairs, FAQ sections (question \u2192 answer).</p>\n<h3 id=\"web-development-handbook-p1-nesting-lists\">Nesting Lists</h3>\n<pre><code class=\"language-html\">&lt;ul&gt;\n  &lt;li&gt;Frontend\n    &lt;ul&gt;\n      &lt;li&gt;HTML&lt;/li&gt;\n      &lt;li&gt;CSS&lt;/li&gt;\n      &lt;li&gt;JavaScript&lt;/li&gt;\n    &lt;/ul&gt;\n  &lt;/li&gt;\n  &lt;li&gt;Backend\n    &lt;ul&gt;\n      &lt;li&gt;Node.js&lt;/li&gt;\n      &lt;li&gt;Python&lt;/li&gt;\n    &lt;/ul&gt;\n  &lt;/li&gt;\n&lt;/ul&gt;</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p1-27-links\">2.7 \u2014 Links</h2>\n<p>Links are what make the web a web \u2014 they connect pages together.</p>\n<pre><code class=\"language-html\">&lt;!-- External link (another website) --&gt;\n&lt;a href=&quot;https://example.com&quot;&gt;Visit Example&lt;/a&gt;\n\n&lt;!-- Internal link (another page in your site) --&gt;\n&lt;a href=&quot;/about.html&quot;&gt;About Us&lt;/a&gt;\n\n&lt;!-- Relative link (relative to current file location) --&gt;\n&lt;a href=&quot;../contact.html&quot;&gt;Contact&lt;/a&gt;\n\n&lt;!-- Link to section on same page (anchor link) --&gt;\n&lt;a href=&quot;#contact-section&quot;&gt;Jump to Contact&lt;/a&gt;\n\n&lt;!-- The target section --&gt;\n&lt;section id=&quot;contact-section&quot;&gt;...&lt;/section&gt;\n\n&lt;!-- Link that opens in new tab --&gt;\n&lt;a href=&quot;https://example.com&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;\n  Open in new tab\n&lt;/a&gt;\n\n&lt;!-- Email link --&gt;\n&lt;a href=&quot;mailto:name@example.com&quot;&gt;Send email&lt;/a&gt;\n\n&lt;!-- Phone link (useful on mobile) --&gt;\n&lt;a href=&quot;tel:+15551234567&quot;&gt;Call us&lt;/a&gt;</code></pre>\n<p><strong>Accessibility critical \u2014 <code>target=\"_blank\"</code>:</strong> When opening links in new tabs, always add <code>rel=\"noopener noreferrer\"</code>. Without <code>noopener</code>, the new tab can access your page's <code>window</code> object \u2014 a security risk. <code>noreferrer</code> prevents the new tab from knowing where the user came from.</p>\n<p><strong>Accessibility critical \u2014 link text:</strong> Link text must describe the destination, not just say \"click here\" or \"read more.\"</p>\n<pre><code class=\"language-html\">&lt;!-- Bad \u2014 tells screen reader users nothing useful --&gt;\n&lt;a href=&quot;/pricing&quot;&gt;Click here&lt;/a&gt;\n\n&lt;!-- Good \u2014 descriptive --&gt;\n&lt;a href=&quot;/pricing&quot;&gt;View pricing plans&lt;/a&gt;</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p1-28-images-and-media\">2.8 \u2014 Images and Media</h2>\n<h3 id=\"web-development-handbook-p1-images\">Images</h3>\n<pre><code class=\"language-html\">&lt;img src=&quot;photo.jpg&quot; alt=&quot;A golden retriever playing in a park&quot; width=&quot;800&quot; height=&quot;600&quot;&gt;</code></pre>\n<p><strong>The <code>alt</code> attribute is required (accessibility):</strong> Alt text is read by screen readers and displayed when an image fails to load. Every <code>&lt;img&gt;</code> must have an <code>alt</code> attribute.</p>\n<ul><li>Descriptive images: write what the image shows</li><li>Decorative images (purely visual, no information content): use empty <code>alt=\"\"</code></li><li>Never use the filename as alt text: <code>alt=\"photo_001_final_v2.jpg\"</code> is useless</li></ul>\n<p><strong>The <code>width</code> and <code>height</code> attributes:</strong> Always include these. They tell the browser how much space to reserve before the image loads, preventing \"layout shift\" \u2014 the annoying jump that happens when an image loads and pushes content down.</p>\n<h3 id=\"web-development-handbook-p1-responsive-images\">Responsive Images</h3>\n<pre><code class=\"language-html\">&lt;!-- picture element: show different images at different sizes --&gt;\n&lt;picture&gt;\n  &lt;source media=&quot;(min-width: 1024px)&quot; srcset=&quot;hero-large.webp&quot;&gt;\n  &lt;source media=&quot;(min-width: 640px)&quot; srcset=&quot;hero-medium.webp&quot;&gt;\n  &lt;img src=&quot;hero-small.webp&quot; alt=&quot;Hero image&quot;&gt;\n&lt;/picture&gt;</code></pre>\n<h3 id=\"web-development-handbook-p1-the-figure-and-figcaption-pattern\">The <code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code> Pattern</h3>\n<p>When an image is referenced from the content (like a chart in an article), wrap it in <code>&lt;figure&gt;</code>:</p>\n<pre><code class=\"language-html\">&lt;figure&gt;\n  &lt;img src=&quot;chart.png&quot; alt=&quot;Bar chart showing revenue growth from 2022-2024&quot;&gt;\n  &lt;figcaption&gt;Figure 1: Revenue grew 47% from 2022 to 2024.&lt;/figcaption&gt;\n&lt;/figure&gt;</code></pre>\n<h3 id=\"web-development-handbook-p1-video-and-audio\">Video and Audio</h3>\n<pre><code class=\"language-html\">&lt;video controls width=&quot;640&quot; height=&quot;360&quot;&gt;\n  &lt;source src=&quot;video.mp4&quot; type=&quot;video/mp4&quot;&gt;\n  &lt;source src=&quot;video.webm&quot; type=&quot;video/webm&quot;&gt;\n  Your browser does not support video.\n&lt;/video&gt;\n\n&lt;audio controls&gt;\n  &lt;source src=&quot;audio.mp3&quot; type=&quot;audio/mpeg&quot;&gt;\n  &lt;source src=&quot;audio.ogg&quot; type=&quot;audio/ogg&quot;&gt;\n  Your browser does not support audio.\n&lt;/audio&gt;</code></pre>\n<p>The fallback text between the tags only shows if the browser doesn't support the element at all (very rare today).</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-29-tables\">2.9 \u2014 Tables</h2>\n<p>Tables are for tabular data \u2014 information that genuinely belongs in rows and columns. Never use tables for page layout (this was done in the 1990s and is now considered a serious mistake).</p>\n<pre><code class=\"language-html\">&lt;table&gt;\n  &lt;thead&gt;\n    &lt;tr&gt;\n      &lt;th scope=&quot;col&quot;&gt;Name&lt;/th&gt;\n      &lt;th scope=&quot;col&quot;&gt;Role&lt;/th&gt;\n      &lt;th scope=&quot;col&quot;&gt;Department&lt;/th&gt;\n    &lt;/tr&gt;\n  &lt;/thead&gt;\n  &lt;tbody&gt;\n    &lt;tr&gt;\n      &lt;td&gt;Alex Kim&lt;/td&gt;\n      &lt;td&gt;Engineer&lt;/td&gt;\n      &lt;td&gt;Frontend&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;td&gt;Jordan Lee&lt;/td&gt;\n      &lt;td&gt;Designer&lt;/td&gt;\n      &lt;td&gt;Product&lt;/td&gt;\n    &lt;/tr&gt;\n  &lt;/tbody&gt;\n  &lt;tfoot&gt;\n    &lt;tr&gt;\n      &lt;td colspan=&quot;3&quot;&gt;Total: 2 employees&lt;/td&gt;\n    &lt;/tr&gt;\n  &lt;/tfoot&gt;\n&lt;/table&gt;</code></pre>\n<p><strong>Elements breakdown:</strong></p>\n<ul><li><code>&lt;table&gt;</code> \u2014 wrapper</li><li><code>&lt;thead&gt;</code> \u2014 header rows (repeats if table spans pages when printed)</li><li><code>&lt;tbody&gt;</code> \u2014 data rows</li><li><code>&lt;tfoot&gt;</code> \u2014 summary rows (totals, notes)</li><li><code>&lt;tr&gt;</code> \u2014 table row</li><li><code>&lt;th&gt;</code> \u2014 header cell (bold and centered by default)</li><li><code>&lt;td&gt;</code> \u2014 data cell</li><li><code>scope=\"col\"</code> \u2014 tells screen readers this <code>&lt;th&gt;</code> describes a column (use <code>scope=\"row\"</code> for row headers)</li><li><code>colspan</code> \u2014 makes a cell span multiple columns</li></ul>\n<hr />\n<h2 id=\"web-development-handbook-p1-210-forms\">2.10 \u2014 Forms</h2>\n<p>Forms are how users provide input \u2014 login, search, checkout, contact. They are complex, with many moving parts.</p>\n<pre><code class=\"language-html\">&lt;form action=&quot;/submit&quot; method=&quot;POST&quot;&gt;\n\n  &lt;!-- Text input --&gt;\n  &lt;div&gt;\n    &lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;\n    &lt;input type=&quot;text&quot; id=&quot;username&quot; name=&quot;username&quot; required\n           placeholder=&quot;Enter your username&quot; autocomplete=&quot;username&quot;&gt;\n  &lt;/div&gt;\n\n  &lt;!-- Password input --&gt;\n  &lt;div&gt;\n    &lt;label for=&quot;password&quot;&gt;Password&lt;/label&gt;\n    &lt;input type=&quot;password&quot; id=&quot;password&quot; name=&quot;password&quot; required\n           autocomplete=&quot;current-password&quot;&gt;\n  &lt;/div&gt;\n\n  &lt;!-- Email input --&gt;\n  &lt;div&gt;\n    &lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;\n    &lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot; required&gt;\n  &lt;/div&gt;\n\n  &lt;!-- Number input --&gt;\n  &lt;div&gt;\n    &lt;label for=&quot;age&quot;&gt;Age&lt;/label&gt;\n    &lt;input type=&quot;number&quot; id=&quot;age&quot; name=&quot;age&quot; min=&quot;1&quot; max=&quot;120&quot;&gt;\n  &lt;/div&gt;\n\n  &lt;!-- Select dropdown --&gt;\n  &lt;div&gt;\n    &lt;label for=&quot;country&quot;&gt;Country&lt;/label&gt;\n    &lt;select id=&quot;country&quot; name=&quot;country&quot;&gt;\n      &lt;option value=&quot;&quot;&gt;Select a country&lt;/option&gt;\n      &lt;option value=&quot;us&quot;&gt;United States&lt;/option&gt;\n      &lt;option value=&quot;uk&quot;&gt;United Kingdom&lt;/option&gt;\n    &lt;/select&gt;\n  &lt;/div&gt;\n\n  &lt;!-- Textarea --&gt;\n  &lt;div&gt;\n    &lt;label for=&quot;message&quot;&gt;Message&lt;/label&gt;\n    &lt;textarea id=&quot;message&quot; name=&quot;message&quot; rows=&quot;5&quot; cols=&quot;40&quot;&gt;&lt;/textarea&gt;\n  &lt;/div&gt;\n\n  &lt;!-- Checkboxes --&gt;\n  &lt;fieldset&gt;\n    &lt;legend&gt;Interests&lt;/legend&gt;\n    &lt;label&gt;\n      &lt;input type=&quot;checkbox&quot; name=&quot;interests&quot; value=&quot;coding&quot;&gt; Coding\n    &lt;/label&gt;\n    &lt;label&gt;\n      &lt;input type=&quot;checkbox&quot; name=&quot;interests&quot; value=&quot;design&quot;&gt; Design\n    &lt;/label&gt;\n  &lt;/fieldset&gt;\n\n  &lt;!-- Radio buttons --&gt;\n  &lt;fieldset&gt;\n    &lt;legend&gt;Preferred contact method&lt;/legend&gt;\n    &lt;label&gt;\n      &lt;input type=&quot;radio&quot; name=&quot;contact&quot; value=&quot;email&quot;&gt; Email\n    &lt;/label&gt;\n    &lt;label&gt;\n      &lt;input type=&quot;radio&quot; name=&quot;contact&quot; value=&quot;phone&quot;&gt; Phone\n    &lt;/label&gt;\n  &lt;/fieldset&gt;\n\n  &lt;!-- Submit button --&gt;\n  &lt;button type=&quot;submit&quot;&gt;Submit Form&lt;/button&gt;\n  &lt;button type=&quot;reset&quot;&gt;Clear Form&lt;/button&gt;\n  &lt;button type=&quot;button&quot; onclick=&quot;doSomething()&quot;&gt;Custom Action&lt;/button&gt;\n\n&lt;/form&gt;</code></pre>\n<p><strong>Critical: <code>&lt;label&gt;</code> and <code>for</code>/<code>id</code> pairing</strong></p>\n<p>Every input must have a <code>&lt;label&gt;</code>. The <code>for</code> attribute of the label must match the <code>id</code> of the input. This:</p>\n<ol><li>Makes clicking the label focus the input (larger click target, better UX)</li><li>Allows screen readers to announce what the input is for</li><li>Is required for accessibility compliance</li></ol>\n<p>Never skip labels, even if you use placeholder text. Placeholder text disappears when the user starts typing and is not a substitute for a label.</p>\n<p><strong>Input types (full list):</strong></p>\n<pre><code class=\"language-html\">&lt;input type=&quot;text&quot;&gt;       &lt;!-- Single-line text --&gt;\n&lt;input type=&quot;password&quot;&gt;   &lt;!-- Hidden characters --&gt;\n&lt;input type=&quot;email&quot;&gt;      &lt;!-- Email validation built in --&gt;\n&lt;input type=&quot;number&quot;&gt;     &lt;!-- Numeric input with arrows --&gt;\n&lt;input type=&quot;tel&quot;&gt;        &lt;!-- Phone number (numeric keyboard on mobile) --&gt;\n&lt;input type=&quot;url&quot;&gt;        &lt;!-- URL format validation --&gt;\n&lt;input type=&quot;search&quot;&gt;     &lt;!-- Search field (clear button in some browsers) --&gt;\n&lt;input type=&quot;date&quot;&gt;       &lt;!-- Date picker --&gt;\n&lt;input type=&quot;time&quot;&gt;       &lt;!-- Time picker --&gt;\n&lt;input type=&quot;color&quot;&gt;      &lt;!-- Color picker --&gt;\n&lt;input type=&quot;range&quot;&gt;      &lt;!-- Slider --&gt;\n&lt;input type=&quot;file&quot;&gt;       &lt;!-- File upload --&gt;\n&lt;input type=&quot;checkbox&quot;&gt;   &lt;!-- Checkbox (checked/unchecked) --&gt;\n&lt;input type=&quot;radio&quot;&gt;      &lt;!-- Radio button (one of many) --&gt;\n&lt;input type=&quot;hidden&quot;&gt;     &lt;!-- Hidden value sent with form (not shown to user) --&gt;\n&lt;input type=&quot;submit&quot;&gt;     &lt;!-- Submit button (prefer &lt;button type=&quot;submit&quot;&gt;) --&gt;</code></pre>\n<p><strong>HTML5 built-in validation attributes:</strong></p>\n<pre><code class=\"language-html\">&lt;input required&gt;                    &lt;!-- Must not be empty --&gt;\n&lt;input minlength=&quot;8&quot;&gt;               &lt;!-- Minimum character count --&gt;\n&lt;input maxlength=&quot;100&quot;&gt;             &lt;!-- Maximum character count --&gt;\n&lt;input min=&quot;0&quot; max=&quot;100&quot;&gt;          &lt;!-- Number range --&gt;\n&lt;input pattern=&quot;[A-Za-z]+&quot;&gt;        &lt;!-- Regex pattern --&gt;</code></pre>\n<p>These work in browsers without JavaScript. They're a first line of defense \u2014 always also validate on the server.</p>\n<hr />\n<hr />\n<h1 id=\"web-development-handbook-p1-part-3-css-fundamentals\">PART 3 \u2014 CSS Fundamentals</h1>\n<h2 id=\"web-development-handbook-p1-what-this-part-covers-3\">What This Part Covers</h2>\n<p>CSS (Cascading Style Sheets) controls every visual aspect of your HTML: colors, sizes, fonts, spacing, layout, animations. CSS is simultaneously simple and incredibly deep. You can learn the basics in hours, but mastering it takes years.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-31-what-cascading-means\">3.1 \u2014 What \"Cascading\" Means</h2>\n<p>The \"C\" in CSS stands for \"Cascading.\" This is one of the most important \u2014 and most confusing \u2014 concepts in CSS.</p>\n<p><strong>Cascading means:</strong> When multiple CSS rules apply to the same element, the browser uses a set of rules to determine which one \"wins.\" Understanding this cascade is the key to understanding why your styles sometimes don't apply.</p>\n<p>The cascade resolves conflicts using three factors, in order of importance:</p>\n<p><strong>1. Specificity (most important)</strong> Some selectors are \"more specific\" than others and override less specific ones:</p>\n<ul><li>Inline styles (<code>style=\"...\"</code>) \u2014 highest specificity, overrides everything</li><li>ID selectors (<code>#id</code>) \u2014 very high specificity</li><li>Class selectors (<code>.class</code>) \u2014 medium specificity</li><li>Element selectors (<code>h1</code>, <code>p</code>) \u2014 low specificity</li></ul>\n<p><strong>2. Source order (when specificity ties)</strong> When two rules have equal specificity, the one that appears later in the CSS file wins.</p>\n<p><strong>3. Inheritance</strong> Some CSS properties (like <code>color</code> and <code>font-family</code>) are inherited by child elements from their parents. Others (like <code>margin</code> and <code>border</code>) are not.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-32-css-syntax\">3.2 \u2014 CSS Syntax</h2>\n<pre><code class=\"language-css\">selector {\n  property: value;\n  another-property: another-value;\n}</code></pre>\n<ul><li><strong>Selector:</strong> Which HTML elements to style</li><li><strong>Declaration block:</strong> Everything between <code>{</code> and <code>}</code></li><li><strong>Declaration:</strong> A single <code>property: value</code> pair</li><li><strong>Property:</strong> What you're changing (<code>color</code>, <code>font-size</code>, <code>margin</code>)</li><li><strong>Value:</strong> What you're changing it to (<code>red</code>, <code>16px</code>, <code>auto</code>)</li></ul>\n<p><strong>Multiple selectors, same rules:</strong></p>\n<pre><code class=\"language-css\">h1, h2, h3 {\n  font-family: Georgia, serif;\n  color: #1a1a1a;\n}</code></pre>\n<p><strong>Comments in CSS:</strong></p>\n<pre><code class=\"language-css\">/* This is a CSS comment */\n/* \n   Multi-line \n   comment \n*/</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p1-33-selectors\">3.3 \u2014 Selectors</h2>\n<p>Selectors are patterns that tell CSS which HTML elements to target.</p>\n<h3 id=\"web-development-handbook-p1-basic-selectors\">Basic Selectors</h3>\n<pre><code class=\"language-css\">/* Element selector \u2014 targets ALL &lt;p&gt; tags */\np { color: black; }\n\n/* Class selector \u2014 targets elements with class=&quot;highlight&quot; */\n.highlight { background: yellow; }\n\n/* ID selector \u2014 targets ONE element with id=&quot;logo&quot; */\n#logo { font-size: 2rem; }\n\n/* Universal selector \u2014 targets EVERYTHING (use sparingly) */\n* { box-sizing: border-box; }</code></pre>\n<h3 id=\"web-development-handbook-p1-combining-selectors\">Combining Selectors</h3>\n<pre><code class=\"language-css\">/* Descendant \u2014 all &lt;a&gt; tags anywhere inside &lt;nav&gt; */\nnav a { color: white; }\n\n/* Direct child \u2014 only &lt;li&gt; that are DIRECT children of &lt;ul&gt; */\nul &gt; li { list-style: none; }\n\n/* Adjacent sibling \u2014 &lt;p&gt; immediately following &lt;h2&gt; */\nh2 + p { font-size: 1.1rem; }\n\n/* General sibling \u2014 all &lt;p&gt; that follow &lt;h2&gt; (not necessarily immediately) */\nh2 ~ p { color: #666; }</code></pre>\n<h3 id=\"web-development-handbook-p1-attribute-selectors\">Attribute Selectors</h3>\n<pre><code class=\"language-css\">/* Has this attribute */\n[disabled] { opacity: 0.5; }\n\n/* Attribute equals value */\n[type=&quot;email&quot;] { border-color: blue; }\n\n/* Attribute starts with value */\n[href^=&quot;https&quot;] { color: green; }\n\n/* Attribute ends with value */\n[href$=&quot;.pdf&quot;] { background: url(pdf-icon.svg) no-repeat; }\n\n/* Attribute contains value */\n[class*=&quot;btn&quot;] { cursor: pointer; }</code></pre>\n<h3 id=\"web-development-handbook-p1-pseudo-classes\">Pseudo-Classes</h3>\n<p>Pseudo-classes target elements based on their state or position.</p>\n<pre><code class=\"language-css\">/* Interaction states */\na:hover       { color: blue; }         /* Mouse is over this element */\na:active      { color: red; }          /* Currently being clicked */\ninput:focus   { outline: 2px solid blue; }  /* Has keyboard focus */\ninput:checked { accent-color: green; } /* Checkbox/radio is checked */\ninput:disabled { opacity: 0.5; }       /* Input is disabled */\n\n/* Position in the DOM */\nli:first-child    { font-weight: bold; }  /* First sibling of its type */\nli:last-child     { margin-bottom: 0; }   /* Last sibling of its type */\nli:nth-child(2)   { background: #eee; }   /* Second child */\nli:nth-child(odd) { background: #f5f5f5; } /* Every odd child */\nli:nth-child(even){ background: white; }   /* Every even child */\n\n/* Content matching */\np:empty { display: none; } /* Has no children */</code></pre>\n<h3 id=\"web-development-handbook-p1-pseudo-elements\">Pseudo-Elements</h3>\n<p>Pseudo-elements let you style specific parts of elements or insert content before/after them.</p>\n<pre><code class=\"language-css\">/* First letter of a paragraph */\np::first-letter { font-size: 2em; }\n\n/* First line of a paragraph */\np::first-line { font-weight: bold; }\n\n/* Insert content before an element */\n.required::before { content: &quot;* &quot;; color: red; }\n\n/* Insert content after an element */\n.external-link::after { content: &quot; \u2197&quot;; }\n\n/* Styling the selected text */\n::selection { background: #2a6ef5; color: white; }\n\n/* Styling placeholder text */\ninput::placeholder { color: #999; font-style: italic; }</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p1-34-the-box-model\">3.4 \u2014 The Box Model</h2>\n<p>This is the single most important concept in CSS layout. Everything in CSS is a box.</p>\n<p>Every HTML element is rendered as a rectangular box consisting of four layers:</p>\n<pre><code>\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502                  MARGIN                  \u2502  \u2190 Space OUTSIDE the border\n\u2502   \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510   \u2502\n\u2502   \u2502             BORDER               \u2502   \u2502  \u2190 The border line\n\u2502   \u2502   \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510   \u2502   \u2502\n\u2502   \u2502   \u2502         PADDING          \u2502   \u2502   \u2502  \u2190 Space INSIDE the border\n\u2502   \u2502   \u2502   \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510   \u2502   \u2502   \u2502\n\u2502   \u2502   \u2502   \u2502     CONTENT      \u2502   \u2502   \u2502   \u2502  \u2190 The actual text/image\n\u2502   \u2502   \u2502   \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518   \u2502   \u2502   \u2502\n\u2502   \u2502   \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518   \u2502   \u2502\n\u2502   \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518   \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518</code></pre>\n<p><strong>Margin:</strong> The space between this element and its neighbors. Transparent \u2014 shows the parent's background.</p>\n<p><strong>Border:</strong> A line around the element. Can have width, style, and color.</p>\n<p><strong>Padding:</strong> Space between the border and the content. Shows the element's own background.</p>\n<p><strong>Content:</strong> The actual text, image, or child elements.</p>\n<h3 id=\"web-development-handbook-p1-the-box-sizing-problem\">The <code>box-sizing</code> Problem</h3>\n<p>By default (<code>box-sizing: content-box</code>), <code>width</code> refers to the content area only. If you set <code>width: 300px; padding: 20px; border: 2px solid;</code>, the total rendered width is <code>300 + 40 + 4 = 344px</code>. This is counterintuitive and causes constant layout confusion.</p>\n<p>Fix it globally at the top of your CSS:</p>\n<pre><code class=\"language-css\">*, *::before, *::after {\n  box-sizing: border-box;\n}</code></pre>\n<p>With <code>border-box</code>, <code>width: 300px</code> means the total width including padding and border is 300px. This is the professional standard and prevents an entire category of layout bugs.</p>\n<h3 id=\"web-development-handbook-p1-margin-border-and-padding-shorthand\">Margin, Border, and Padding Shorthand</h3>\n<pre><code class=\"language-css\">/* All four sides */\nmargin: 16px;\n\n/* Top/bottom, Left/right */\nmargin: 16px 24px;\n\n/* Top, Left/right, Bottom */\nmargin: 8px 16px 24px;\n\n/* Top, Right, Bottom, Left (clockwise from top) */\nmargin: 8px 16px 24px 8px;\n\n/* Individual sides */\nmargin-top: 8px;\nmargin-right: 16px;\nmargin-bottom: 24px;\nmargin-left: 8px;</code></pre>\n<p>Same syntax for <code>padding</code> and <code>border-width</code>.</p>\n<h3 id=\"web-development-handbook-p1-margin-collapse\">Margin Collapse</h3>\n<p>One of the most confusing CSS behaviors: when two block elements are stacked vertically, their margins don't add \u2014 they \"collapse\" into the larger of the two.</p>\n<pre><code class=\"language-css\">.first  { margin-bottom: 32px; }\n.second { margin-top: 16px; }\n/* Actual gap between them: 32px (not 48px) */</code></pre>\n<p>This is intentional and useful for consistent spacing in text content. But it surprises beginners endlessly.</p>\n<p><strong>Margin collapse does NOT happen:</strong></p>\n<ul><li>Between flex or grid children</li><li>When there's a border or padding between the margins</li><li>Between elements in different formatting contexts</li></ul>\n<hr />\n<h2 id=\"web-development-handbook-p1-35-color-in-css\">3.5 \u2014 Color in CSS</h2>\n<p>CSS supports many ways to specify colors:</p>\n<pre><code class=\"language-css\">/* Named colors */\ncolor: red;\ncolor: cornflowerblue;\n\n/* Hexadecimal (most common) */\ncolor: #ff0000;         /* Red */\ncolor: #f00;            /* Shorthand \u2014 same as #ff0000 */\ncolor: #2a6ef580;       /* With alpha channel (opacity) */\n\n/* RGB */\ncolor: rgb(255, 0, 0);\ncolor: rgba(255, 0, 0, 0.5);  /* 50% opacity */\n\n/* HSL (Hue, Saturation, Lightness \u2014 intuitive for designers) */\ncolor: hsl(0, 100%, 50%);           /* Red */\ncolor: hsl(220, 80%, 60%);          /* Blue */\ncolor: hsla(220, 80%, 60%, 0.8);    /* Blue at 80% opacity */\n\n/* Modern syntax (all support alpha) */\ncolor: rgb(255 0 0 / 50%);\ncolor: hsl(220 80% 60% / 80%);</code></pre>\n<p><strong>Background:</strong></p>\n<pre><code class=\"language-css\">background-color: #1a1a1a;\nbackground-image: url(&quot;pattern.png&quot;);\nbackground: linear-gradient(135deg, #667eea, #764ba2);\nbackground: radial-gradient(circle at center, #667eea, #764ba2);\n\n/* Shorthand */\nbackground: #1a1a1a url(&quot;pattern.png&quot;) no-repeat center/cover;</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p1-36-typography-in-css\">3.6 \u2014 Typography in CSS</h2>\n<pre><code class=\"language-css\">/* Font family \u2014 always provide fallbacks */\nfont-family: &#x27;Inter&#x27;, system-ui, -apple-system, sans-serif;\n\n/* Font size */\nfont-size: 16px;        /* Absolute pixels */\nfont-size: 1rem;        /* Relative to root font size */\nfont-size: 1.25em;      /* Relative to parent element&#x27;s font size */\n\n/* Font weight */\nfont-weight: 400;       /* Normal */\nfont-weight: 700;       /* Bold */\nfont-weight: 100;       /* Thin */\nfont-weight: 900;       /* Black */\n\n/* Line height \u2014 controls space between lines */\nline-height: 1.6;       /* Unitless \u2014 recommended. Multiplied by font size. */\nline-height: 24px;      /* Fixed \u2014 not recommended */\n\n/* Letter spacing */\nletter-spacing: 0.05em; /* Slight spacing between characters */\nletter-spacing: -0.02em;/* Tight (for large headings) */\n\n/* Text alignment */\ntext-align: left;\ntext-align: center;\ntext-align: right;\ntext-align: justify;    /* Full-width justified text */\n\n/* Text transform */\ntext-transform: uppercase;\ntext-transform: lowercase;\ntext-transform: capitalize; /* First letter of each word */\n\n/* Text decoration */\ntext-decoration: underline;\ntext-decoration: none;  /* Removes underline from links */\ntext-decoration: line-through;\n\n/* Text overflow (requires width and overflow:hidden) */\nwhite-space: nowrap;\noverflow: hidden;\ntext-overflow: ellipsis; /* Shows &quot;...&quot; when text overflows */</code></pre>\n<hr />\n<hr />\n<h1 id=\"web-development-handbook-p1-part-4-layout-systems\">PART 4 \u2014 Layout Systems</h1>\n<h2 id=\"web-development-handbook-p1-what-this-part-covers-4\">What This Part Covers</h2>\n<p>Layout is how elements are positioned on the page \u2014 how they flow, stack, align, and distribute themselves. Mastering layout is the core skill of frontend development. This part covers every layout system in modern CSS.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-41-normal-flow-the-default\">4.1 \u2014 Normal Flow (The Default)</h2>\n<p>Before applying any layout, understand what browsers do by default \u2014 this is called \"normal flow.\"</p>\n<p><strong>Block elements</strong> (like <code>&lt;p&gt;</code>, <code>&lt;div&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;ul&gt;</code>) stack vertically. Each one starts on a new line and takes up the full available width.</p>\n<p><strong>Inline elements</strong> (like <code>&lt;a&gt;</code>, <code>&lt;span&gt;</code>, <code>&lt;strong&gt;</code>) flow horizontally \u2014 they sit next to each other like words in a sentence. They wrap to the next line when they run out of space.</p>\n<p>Normal flow is actually great for text content. The problems start when you need more complex layouts.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-42-the-display-property\">4.2 \u2014 The <code>display</code> Property</h2>\n<p>The <code>display</code> property fundamentally changes how an element participates in layout.</p>\n<pre><code class=\"language-css\">display: block;        /* Stack vertically, full width */\ndisplay: inline;       /* Flow horizontally, size by content */\ndisplay: inline-block; /* Flow horizontally, but can set width/height */\ndisplay: flex;         /* Flexbox container */\ndisplay: grid;         /* Grid container */\ndisplay: none;         /* Remove from layout entirely (invisible + no space) */</code></pre>\n<p><strong><code>inline-block</code> explained:</strong> Regular inline elements can't have <code>width</code>, <code>height</code>, <code>margin-top</code>, or <code>margin-bottom</code> set on them \u2014 they ignore these. <code>inline-block</code> is a hybrid: the element flows inline (sits next to other elements) but respects box model sizing. Useful for buttons, badges, navigation items.</p>\n<p><strong><code>display: none</code> vs <code>visibility: hidden</code>:</strong> <code>display: none</code> removes the element from layout completely \u2014 it takes no space. <code>visibility: hidden</code> makes the element invisible but it still takes up its space in the layout.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-43-positioning\">4.3 \u2014 Positioning</h2>\n<p>The <code>position</code> property lets you place elements outside of normal flow.</p>\n<pre><code class=\"language-css\">position: static;    /* Default \u2014 normal flow */\nposition: relative;  /* Stays in flow, can offset from natural position */\nposition: absolute;  /* Removed from flow, positioned relative to nearest positioned ancestor */\nposition: fixed;     /* Removed from flow, positioned relative to viewport */\nposition: sticky;    /* Hybrid: flows normally until scrolled to, then sticks */</code></pre>\n<p>With any position other than <code>static</code>, you can use <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code> to offset the element:</p>\n<pre><code class=\"language-css\">.tooltip {\n  position: absolute;\n  top: 100%;      /* Just below its container */\n  left: 50%;      /* Horizontally centered */\n  transform: translateX(-50%);\n}</code></pre>\n<p><strong><code>position: relative</code> as an anchor:</strong> When you use <code>position: absolute</code> on an element, it positions itself relative to the nearest ancestor that has <code>position: relative</code> (or absolute/fixed). If none exists, it positions relative to the document body.</p>\n<pre><code class=\"language-css\">/* Common pattern: parent is relative, child is absolute */\n.card {\n  position: relative;  /* Establishes a positioning context */\n}\n.card-badge {\n  position: absolute;  /* Positioned relative to .card */\n  top: -8px;\n  right: -8px;\n}</code></pre>\n<p><strong><code>position: sticky</code> example \u2014 sticky header:</strong></p>\n<pre><code class=\"language-css\">.sticky-header {\n  position: sticky;\n  top: 0;          /* Sticks to top when scrolled to */\n  z-index: 10;     /* Stay above other content */\n}</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p1-44-flexbox\">4.4 \u2014 Flexbox</h2>\n<p>Flexbox is designed for one-dimensional layout \u2014 arranging items in a row OR a column. It's the most commonly used layout system for UI components.</p>\n<p><strong>The mental model:</strong> You have a container and items inside it. The container controls how items are arranged. Items can optionally control their own behavior.</p>\n<h3 id=\"web-development-handbook-p1-setting-up-flexbox\">Setting Up Flexbox</h3>\n<pre><code class=\"language-css\">.container {\n  display: flex;  /* This element is now a flex container */\n                  /* Its direct children become flex items */\n}</code></pre>\n<h3 id=\"web-development-handbook-p1-direction\">Direction</h3>\n<pre><code class=\"language-css\">flex-direction: row;            /* Default: items in a row (left to right) */\nflex-direction: row-reverse;    /* Right to left */\nflex-direction: column;         /* Items in a column (top to bottom) */\nflex-direction: column-reverse; /* Bottom to top */</code></pre>\n<h3 id=\"web-development-handbook-p1-alignment\">Alignment</h3>\n<p>Flexbox has two axes:</p>\n<ul><li><strong>Main axis:</strong> The direction items flow (controlled by <code>flex-direction</code>)</li><li><strong>Cross axis:</strong> Perpendicular to the main axis</li></ul>\n<pre><code class=\"language-css\">/* Alignment on the MAIN axis */\njustify-content: flex-start;    /* Pack items at the start */\njustify-content: flex-end;      /* Pack items at the end */\njustify-content: center;        /* Center items */\njustify-content: space-between; /* Equal gaps BETWEEN items */\njustify-content: space-around;  /* Equal gaps around items */\njustify-content: space-evenly;  /* Perfectly equal gaps */\n\n/* Alignment on the CROSS axis */\nalign-items: stretch;           /* Default: items stretch to container height */\nalign-items: flex-start;        /* Align to top (in row) or left (in column) */\nalign-items: flex-end;          /* Align to bottom or right */\nalign-items: center;            /* Center on cross axis */\nalign-items: baseline;          /* Align by text baseline */</code></pre>\n<p><strong>Centering anything (the classic flexbox trick):</strong></p>\n<pre><code class=\"language-css\">.center-everything {\n  display: flex;\n  justify-content: center;  /* Center horizontally */\n  align-items: center;      /* Center vertically */\n}</code></pre>\n<h3 id=\"web-development-handbook-p1-wrapping\">Wrapping</h3>\n<pre><code class=\"language-css\">flex-wrap: nowrap;   /* Default: all items on one line, can overflow */\nflex-wrap: wrap;     /* Wrap to next line if they don&#x27;t fit */\nflex-wrap: wrap-reverse; /* Wrap in reverse direction */</code></pre>\n<h3 id=\"web-development-handbook-p1-controlling-individual-items\">Controlling Individual Items</h3>\n<pre><code class=\"language-css\">/* flex: grow shrink basis */\n.item { flex: 1; }              /* Grow to fill space, shrink as needed, basis: 0 */\n.item { flex: 0 0 200px; }      /* Don&#x27;t grow, don&#x27;t shrink, always 200px */\n.item { flex: 2; }              /* Grow at 2x the rate of flex: 1 siblings */\n\n/* Override container alignment for one item */\n.special-item { align-self: flex-end; }\n\n/* Control visual order (independent of DOM order) */\n.first-visually { order: -1; }</code></pre>\n<h3 id=\"web-development-handbook-p1-practical-flexbox-patterns\">Practical Flexbox Patterns</h3>\n<p><strong>Navigation bar:</strong></p>\n<pre><code class=\"language-css\">.navbar {\n  display: flex;\n  justify-content: space-between; /* Logo left, nav right */\n  align-items: center;\n  padding: 0 24px;\n}</code></pre>\n<p><strong>Card footer pushed to bottom:</strong></p>\n<pre><code class=\"language-css\">.card {\n  display: flex;\n  flex-direction: column;\n}\n.card-body {\n  flex: 1;  /* Grows to fill space, pushing footer down */\n}</code></pre>\n<p><strong>Equal-width columns:</strong></p>\n<pre><code class=\"language-css\">.columns {\n  display: flex;\n  gap: 24px;\n}\n.column {\n  flex: 1;  /* Each column grows equally */\n}</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p1-45-css-grid\">4.5 \u2014 CSS Grid</h2>\n<p>Grid is designed for two-dimensional layout \u2014 rows AND columns simultaneously. It's ideal for overall page layouts, complex component arrangements, and any situation where items need to align on both axes.</p>\n<h3 id=\"web-development-handbook-p1-setting-up-grid\">Setting Up Grid</h3>\n<pre><code class=\"language-css\">.container {\n  display: grid;\n}</code></pre>\n<h3 id=\"web-development-handbook-p1-defining-columns-and-rows\">Defining Columns and Rows</h3>\n<pre><code class=\"language-css\">/* Three equal columns */\ngrid-template-columns: 1fr 1fr 1fr;\n\n/* Or use repeat() shorthand */\ngrid-template-columns: repeat(3, 1fr);\n\n/* Mixed sizing: fixed sidebar, flexible main */\ngrid-template-columns: 240px 1fr;\n\n/* Three columns: fixed, flexible, fixed */\ngrid-template-columns: 200px 1fr 200px;\n\n/* Define rows */\ngrid-template-rows: 80px 1fr auto;  /* Header, main (flexible), footer (auto) */</code></pre>\n<p><strong>What is <code>1fr</code>?</strong> <code>fr</code> stands for \"fraction.\" <code>1fr 1fr 1fr</code> means: divide the available space into three equal fractions. <code>2fr 1fr</code> means: divide into three parts, give the first two parts and the second one part.</p>\n<h3 id=\"web-development-handbook-p1-gap\">Gap</h3>\n<pre><code class=\"language-css\">gap: 24px;              /* Equal gap between rows and columns */\nrow-gap: 16px;          /* Only between rows */\ncolumn-gap: 24px;       /* Only between columns */</code></pre>\n<h3 id=\"web-development-handbook-p1-placing-items\">Placing Items</h3>\n<p>By default, grid items flow left-to-right, top-to-bottom into grid cells. You can explicitly place them:</p>\n<pre><code class=\"language-css\">/* Place item starting at column 1, spanning 2 columns */\n.feature-card {\n  grid-column: 1 / 3;   /* From line 1 to line 3 */\n  /* OR */\n  grid-column: 1 / span 2; /* Start at 1, span 2 */\n}\n\n/* Row placement */\n.hero { grid-row: 1 / 2; }</code></pre>\n<h3 id=\"web-development-handbook-p1-template-areas\">Template Areas</h3>\n<p>Named grid areas make complex layouts readable:</p>\n<pre><code class=\"language-css\">.page {\n  display: grid;\n  grid-template-areas:\n    &quot;header  header  header&quot;\n    &quot;sidebar main    main&quot;\n    &quot;footer  footer  footer&quot;;\n  grid-template-columns: 240px 1fr 1fr;\n  grid-template-rows: 80px 1fr 60px;\n}\n\n.site-header { grid-area: header; }\n.site-sidebar { grid-area: sidebar; }\n.site-main    { grid-area: main; }\n.site-footer  { grid-area: footer; }</code></pre>\n<h3 id=\"web-development-handbook-p1-alignment-in-grid\">Alignment in Grid</h3>\n<pre><code class=\"language-css\">/* Align all items within their cells */\nalign-items: start | end | center | stretch;    /* Vertical */\njustify-items: start | end | center | stretch;  /* Horizontal */\n\n/* Align the grid itself within the container */\nalign-content: start | end | center | space-between | space-around;\njustify-content: start | end | center | space-between | space-around;\n\n/* Override for individual items */\n.item {\n  align-self: center;\n  justify-self: end;\n}</code></pre>\n<h3 id=\"web-development-handbook-p1-auto-fill-and-auto-fit-responsive-grids\">Auto-Fill and Auto-Fit (Responsive Grids)</h3>\n<pre><code class=\"language-css\">/* Automatically fill as many columns as fit, minimum 280px each */\ngrid-template-columns: repeat(auto-fill, minmax(280px, 1fr));\n\n/* Same but collapses empty columns */\ngrid-template-columns: repeat(auto-fit, minmax(280px, 1fr));</code></pre>\n<p>This single line creates a fully responsive grid with no media queries. On large screens: many columns. On small screens: fewer. On mobile: one column.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-46-flexbox-vs-grid-when-to-use-each\">4.6 \u2014 Flexbox vs Grid: When to Use Each</h2>\n<p>This is one of the most common questions. Here's the mental model:</p>\n<p><strong>Use Flexbox when:</strong></p>\n<ul><li>You have items in a single row or column</li><li>The layout is driven by the content size (items size themselves)</li><li>You need items to wrap and flow naturally</li><li>Example: navigation bar, button groups, card rows, form rows</li></ul>\n<p><strong>Use Grid when:</strong></p>\n<ul><li>You need items to align on BOTH rows and columns</li><li>The layout is driven by a defined structure</li><li>You're building overall page structure</li><li>Items need to align across rows</li><li>Example: page layout, card grids with aligned content, dashboards</li></ul>\n<p><strong>They work together.</strong> Use Grid for the overall page structure. Use Flexbox inside each grid area for the content within.</p>\n<hr />\n<hr />\n<h1 id=\"web-development-handbook-p1-part-5-responsive-design\">PART 5 \u2014 Responsive Design</h1>\n<h2 id=\"web-development-handbook-p1-what-this-part-covers-5\">What This Part Covers</h2>\n<p>Responsive design means your website works well on every screen size \u2014 from a small phone to a large desktop monitor. This is not optional: in 2024, over 60% of web traffic comes from mobile devices.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-51-the-viewport\">5.1 \u2014 The Viewport</h2>\n<p>The viewport is the visible area of the browser window. On desktop, it's easy \u2014 the viewport is the browser window size. On mobile, it's more complex.</p>\n<p>By default, mobile browsers pretend to have a wide viewport (like a desktop) and then zoom out to fit everything. This makes desktop sites readable on mobile but tiny and hard to use.</p>\n<p>The <code>&lt;meta name=\"viewport\"&gt;</code> tag in your HTML head fixes this:</p>\n<pre><code class=\"language-html\">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code></pre>\n<p>This tells the browser: \"The viewport width is the actual device width. Don't zoom out.\"</p>\n<p>Without this tag, your responsive CSS won't work on mobile.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-52-media-queries\">5.2 \u2014 Media Queries</h2>\n<p>Media queries let you apply different CSS based on the browser window size (and other characteristics).</p>\n<pre><code class=\"language-css\">/* Base styles \u2014 apply always (mobile-first approach) */\n.container {\n  padding: 16px;\n}\n\n/* Applied when screen is 640px or wider */\n@media (min-width: 640px) {\n  .container {\n    padding: 24px;\n  }\n}\n\n/* Applied when screen is 1024px or wider */\n@media (min-width: 1024px) {\n  .container {\n    padding: 32px;\n    max-width: 1200px;\n    margin: 0 auto;\n  }\n}</code></pre>\n<h3 id=\"web-development-handbook-p1-mobile-first-vs-desktop-first\">Mobile-First vs Desktop-First</h3>\n<p><strong>Mobile-first:</strong> Write base styles for mobile. Use <code>min-width</code> media queries to enhance for larger screens.</p>\n<p><strong>Desktop-first:</strong> Write base styles for desktop. Use <code>max-width</code> media queries to simplify for smaller screens.</p>\n<p><strong>Why mobile-first is the professional standard:</strong></p>\n<ul><li>Most users are on mobile \u2014 you start with what most people see</li><li><code>min-width</code> queries add complexity as screens get larger (adds features)</li><li><code>max-width</code> queries remove complexity as screens get smaller (hides features) \u2014 often harder to reason about</li><li>Performance: mobile devices download all CSS; mobile-first ensures the most important styles load first</li></ul>\n<h3 id=\"web-development-handbook-p1-common-breakpoints\">Common Breakpoints</h3>\n<p>These are guidelines, not rules. Break at where your content breaks:</p>\n<pre><code class=\"language-css\">/* Small phones */\n/* No media query needed \u2014 base styles */\n\n/* Large phones, small tablets */\n@media (min-width: 480px) { ... }\n\n/* Tablets */\n@media (min-width: 768px) { ... }\n\n/* Laptops */\n@media (min-width: 1024px) { ... }\n\n/* Desktops */\n@media (min-width: 1280px) { ... }\n\n/* Wide screens */\n@media (min-width: 1536px) { ... }</code></pre>\n<p><strong>Best practice:</strong> Don't use arbitrary breakpoints. Look at your design and add a breakpoint where it starts to break.</p>\n<h3 id=\"web-development-handbook-p1-other-media-query-types\">Other Media Query Types</h3>\n<pre><code class=\"language-css\">/* Device orientation */\n@media (orientation: portrait)  { ... }\n@media (orientation: landscape) { ... }\n\n/* Dark mode preference */\n@media (prefers-color-scheme: dark) { ... }\n\n/* Reduced motion (accessibility) */\n@media (prefers-reduced-motion: reduce) {\n  * { animation: none !important; transition: none !important; }\n}\n\n/* Print styles */\n@media print {\n  .no-print { display: none; }\n  body { font-size: 12pt; }\n}</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p1-53-responsive-units\">5.3 \u2014 Responsive Units</h2>\n<p>Choosing the right CSS units is critical for responsive design.</p>\n<h3 id=\"web-development-handbook-p1-absolute-units-fixed-dont-scale\">Absolute Units (fixed, don't scale)</h3>\n<pre><code class=\"language-css\">px   /* Pixels \u2014 use for borders, shadows, media query breakpoints */\npt   /* Points \u2014 for print stylesheets only */</code></pre>\n<h3 id=\"web-development-handbook-p1-relative-units-scale-with-context\">Relative Units (scale with context)</h3>\n<pre><code class=\"language-css\">/* Relative to root &lt;html&gt; element&#x27;s font size */\nrem  /* Root Em \u2014 1rem = 16px (default), consistent, predictable */\n\n/* Relative to PARENT element&#x27;s font size */\nem   /* Tricky \u2014 compounds when nested. Use with caution. */\n     /* Good use: icon-to-text-size ratios (1.2em icon next to text) */\n\n/* Relative to viewport */\nvw   /* Viewport Width \u2014 100vw = full viewport width */\nvh   /* Viewport Height \u2014 100vh = full viewport height */\nvmin /* Smaller of vw or vh */\nvmax /* Larger of vw or vh */\n\n/* Percentage */\n%    /* Relative to parent element */</code></pre>\n<h3 id=\"web-development-handbook-p1-the-rem-recommendation\">The rem Recommendation</h3>\n<p>Use <code>rem</code> for:</p>\n<ul><li>Font sizes</li><li>Component sizes that should scale with user preferences</li><li>Spacing (padding, margin) in component-level CSS</li></ul>\n<p>Use <code>px</code> for:</p>\n<ul><li>Borders (1px)</li><li>Shadows</li><li>Media query breakpoints (they don't compound with rem)</li></ul>\n<p>Use <code>%</code> for:</p>\n<ul><li>Widths that should fill their container</li><li><code>max-width: 100%</code> on images</li></ul>\n<p><strong>Setting up a rem scale:</strong></p>\n<pre><code class=\"language-css\">/* Setting root font size to 62.5% makes 1rem = 10px for easier math */\n/* Then 1.6rem = 16px, 2.4rem = 24px, etc. */\nhtml {\n  font-size: 62.5%;  /* 10px */\n}\n\nbody {\n  font-size: 1.6rem;  /* 16px */\n}\n\nh1 {\n  font-size: 3.2rem;  /* 32px */\n}</code></pre>\n<p><strong>Note:</strong> This is a common pattern but some developers prefer keeping the default 16px root and just working with rem fractions (<code>1rem = 16px</code>, <code>1.5rem = 24px</code>, etc.). Either approach is fine \u2014 pick one and be consistent.</p>\n<h3 id=\"web-development-handbook-p1-fluid-typography\">Fluid Typography</h3>\n<p>You can make text size scale smoothly between minimum and maximum values using <code>clamp()</code>:</p>\n<pre><code class=\"language-css\">/* font size is between 16px and 24px, scaling with viewport width */\nfont-size: clamp(1rem, 2.5vw, 1.5rem);</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p1-54-responsive-patterns\">5.4 \u2014 Responsive Patterns</h2>\n<h3 id=\"web-development-handbook-p1-the-sidebar-pattern\">The Sidebar Pattern</h3>\n<p>On mobile: sidebar below content (or hidden in a drawer). On desktop: sidebar beside content.</p>\n<pre><code class=\"language-css\">.layout {\n  display: flex;\n  flex-direction: column;  /* Stack on mobile */\n}\n\n.sidebar {\n  order: 2;  /* Below main on mobile */\n}\n\n.main {\n  order: 1;  /* Above sidebar on mobile */\n}\n\n@media (min-width: 768px) {\n  .layout {\n    flex-direction: row;  /* Side by side on desktop */\n  }\n\n  .sidebar {\n    order: 0;   /* Back to normal order */\n    width: 240px;\n    flex-shrink: 0;  /* Don&#x27;t shrink below 240px */\n  }\n}</code></pre>\n<h3 id=\"web-development-handbook-p1-responsive-grid-cards\">Responsive Grid Cards</h3>\n<pre><code class=\"language-css\">.card-grid {\n  display: grid;\n  grid-template-columns: 1fr;  /* One column on mobile */\n  gap: 16px;\n}\n\n@media (min-width: 480px) {\n  .card-grid {\n    grid-template-columns: repeat(2, 1fr);  /* Two columns */\n  }\n}\n\n@media (min-width: 1024px) {\n  .card-grid {\n    grid-template-columns: repeat(3, 1fr);  /* Three columns */\n    gap: 24px;\n  }\n}</code></pre>\n<p>Or use the auto-fill approach and skip media queries:</p>\n<pre><code class=\"language-css\">.card-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));\n  gap: 24px;\n}</code></pre>\n<h3 id=\"web-development-handbook-p1-responsive-navigation\">Responsive Navigation</h3>\n<p>The most common pattern: show a horizontal nav on desktop, hide it and show a hamburger button on mobile.</p>\n<pre><code class=\"language-css\">.nav-links {\n  display: none;  /* Hidden on mobile */\n}\n\n.hamburger-btn {\n  display: block;  /* Visible on mobile */\n}\n\n@media (min-width: 768px) {\n  .nav-links {\n    display: flex;  /* Show links on desktop */\n  }\n\n  .hamburger-btn {\n    display: none;  /* Hide hamburger on desktop */\n  }\n}</code></pre>\n<p>The hamburger button then needs JavaScript to toggle the mobile menu open/closed.</p>\n<hr />\n<hr />\n<h1 id=\"web-development-handbook-p1-part-6-typography-visual-design\">PART 6 \u2014 Typography &amp; Visual Design</h1>\n<h2 id=\"web-development-handbook-p1-what-this-part-covers-6\">What This Part Covers</h2>\n<p>Typography is the art of arranging text to be readable and visually appealing. Visual design is the broader system of making your UI look intentional and professional. These skills separate a site that works from a site that impresses.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-61-font-systems\">6.1 \u2014 Font Systems</h2>\n<h3 id=\"web-development-handbook-p1-web-safe-fonts-vs-web-fonts\">Web-Safe Fonts vs Web Fonts</h3>\n<p><strong>Web-safe fonts</strong> are fonts that come pre-installed on most devices:</p>\n<pre><code class=\"language-css\">font-family: Georgia, &#x27;Times New Roman&#x27;, serif;      /* Serif */\nfont-family: Arial, Helvetica, sans-serif;            /* Sans-serif */\nfont-family: &#x27;Courier New&#x27;, Courier, monospace;       /* Monospace */</code></pre>\n<p><strong>Web fonts</strong> are loaded from external sources (like Google Fonts) and can be any typeface:</p>\n<pre><code class=\"language-html\">&lt;!-- In &lt;head&gt; --&gt;\n&lt;link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;&gt;\n&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;</code></pre>\n<pre><code class=\"language-css\">body {\n  font-family: &#x27;Inter&#x27;, system-ui, sans-serif;\n}</code></pre>\n<p><strong>System UI fonts</strong> (the modern approach):</p>\n<pre><code class=\"language-css\">font-family: system-ui, -apple-system, BlinkMacSystemFont, &#x27;Segoe UI&#x27;, sans-serif;</code></pre>\n<p>This uses the operating system's default UI font \u2014 looks native, loads instantly, no external requests.</p>\n<h3 id=\"web-development-handbook-p1-font-stacks\">Font Stacks</h3>\n<p>Always provide fallbacks. If 'Inter' doesn't load, the browser tries the next font, and so on:</p>\n<pre><code class=\"language-css\">font-family: &#x27;Inter&#x27;, &#x27;Helvetica Neue&#x27;, Arial, sans-serif;</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p1-62-visual-hierarchy\">6.2 \u2014 Visual Hierarchy</h2>\n<p>Hierarchy guides the reader's eye through content in order of importance. Without hierarchy, everything competes for attention and nothing stands out.</p>\n<p><strong>Tools for creating hierarchy:</strong></p>\n<p><strong>Size:</strong> Larger = more important. Your heading should be noticeably larger than body text.</p>\n<p><strong>Weight:</strong> Heavier (bolder) = more important. Bold headings, regular body text.</p>\n<p><strong>Color:</strong> High contrast = more important. Muted text for secondary information.</p>\n<p><strong>Spacing:</strong> Isolated elements draw the eye. Adding whitespace around an element gives it visual weight.</p>\n<p><strong>Position:</strong> Top and left draw the eye first (in left-to-right languages). Important content goes there.</p>\n<h3 id=\"web-development-handbook-p1-type-scale\">Type Scale</h3>\n<p>A type scale is a set of predetermined font sizes that create visual harmony. The most common approach is a modular scale \u2014 each size is the previous multiplied by a ratio.</p>\n<p><strong>Common type scale (1.25 ratio):</strong></p>\n<pre><code class=\"language-css\">:root {\n  --text-xs:   0.75rem;    /* 12px */\n  --text-sm:   0.875rem;   /* 14px */\n  --text-base: 1rem;       /* 16px */\n  --text-lg:   1.25rem;    /* 20px */\n  --text-xl:   1.5rem;     /* 24px */\n  --text-2xl:  2rem;       /* 32px */\n  --text-3xl:  2.5rem;     /* 40px */\n  --text-4xl:  3rem;       /* 48px */\n}</code></pre>\n<p>Use only these predefined sizes. Never use arbitrary values like <code>font-size: 13px</code> or <code>font-size: 22px</code>.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-63-spacing-and-rhythm\">6.3 \u2014 Spacing and Rhythm</h2>\n<p>Visual rhythm is the feeling that space is distributed consistently and intentionally throughout a design.</p>\n<p><strong>The 8-point grid:</strong> Every spacing value is a multiple of 8px (or 4px for small values). This creates automatic consistency.</p>\n<pre><code class=\"language-css\">:root {\n  --space-1:  4px;\n  --space-2:  8px;\n  --space-3:  12px;\n  --space-4:  16px;\n  --space-6:  24px;\n  --space-8:  32px;\n  --space-10: 40px;\n  --space-12: 48px;\n  --space-16: 64px;\n  --space-20: 80px;\n  --space-24: 96px;\n}</code></pre>\n<p><strong>Beginner mistake:</strong> Using arbitrary spacing values everywhere (<code>margin: 13px</code>, <code>padding: 22px</code>). The result looks chaotic because spacing is never visually consistent.</p>\n<p><strong>The spacing rule of thumb:</strong> More spacing = more importance. Use generous spacing around primary content, tighter spacing for secondary elements.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-64-color-theory-for-ui\">6.4 \u2014 Color Theory for UI</h2>\n<p><strong>Color systems in UI design:</strong></p>\n<p><strong>Primary color:</strong> The brand color. Used for primary buttons, links, highlights. Use sparingly.</p>\n<p><strong>Neutral colors:</strong> Grays for text, backgrounds, borders. The majority of your UI is neutral.</p>\n<p><strong>Semantic colors:</strong> Colors with meaning:</p>\n<ul><li>Green = success, positive, safe</li><li>Red = error, danger, destructive</li><li>Yellow/Orange = warning, caution</li><li>Blue = information, links (by convention)</li></ul>\n<p><strong>Color tokens:</strong></p>\n<pre><code class=\"language-css\">:root {\n  /* Brand */\n  --color-primary:       #2a6ef5;\n  --color-primary-light: #6b9ff8;\n  --color-primary-dark:  #1a4fc4;\n\n  /* Semantic */\n  --color-success: #22c55e;\n  --color-warning: #f59e0b;\n  --color-danger:  #ef4444;\n  --color-info:    #3b82f6;\n\n  /* Neutrals (light mode) */\n  --color-bg:       #ffffff;\n  --color-surface:  #f9fafb;\n  --color-border:   #e5e7eb;\n  --color-text:     #111827;\n  --color-muted:    #6b7280;\n}</code></pre>\n<p><strong>Contrast requirements:</strong> Text must have sufficient contrast against its background for readability. The WCAG AA standard requires:</p>\n<ul><li>Normal text: 4.5:1 contrast ratio minimum</li><li>Large text (18px+ or 14px+ bold): 3:1 minimum</li></ul>\n<p>Use a contrast checker tool (like coolors.co/contrast-checker or your browser's DevTools accessibility panel) to verify.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-65-borders-shadows-and-visual-depth\">6.5 \u2014 Borders, Shadows, and Visual Depth</h2>\n<p>These properties add dimensionality and separation between elements.</p>\n<h3 id=\"web-development-handbook-p1-borders\">Borders</h3>\n<pre><code class=\"language-css\">border: 1px solid #e5e7eb;           /* Shorthand: width style color */\nborder-top: 2px solid #2a6ef5;      /* One side only */\nborder-radius: 8px;                   /* Rounded corners */\nborder-radius: 50%;                   /* Circle (for square elements) */\nborder-radius: 16px 4px;             /* Top corners 16, bottom 4 */</code></pre>\n<h3 id=\"web-development-handbook-p1-box-shadows\">Box Shadows</h3>\n<pre><code class=\"language-css\">/* Offset-x  Offset-y  Blur  Spread  Color */\nbox-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);\n\n/* Multiple shadows */\nbox-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 4px 12px rgba(0,0,0,0.05);\n\n/* Inset shadow (inside the element) */\nbox-shadow: inset 0 2px 4px rgba(0,0,0,0.1);\n\n/* No shadow */\nbox-shadow: none;</code></pre>\n<p><strong>Shadow scale:</strong></p>\n<pre><code class=\"language-css\">:root {\n  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);\n  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);\n  --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);\n  --shadow-xl: 0 20px 60px rgba(0,0,0,0.2);\n}</code></pre>\n<hr />\n<hr />\n<h1 id=\"web-development-handbook-p1-part-7-css-architecture-organization\">PART 7 \u2014 CSS Architecture &amp; Organization</h1>\n<h2 id=\"web-development-handbook-p1-what-this-part-covers-7\">What This Part Covers</h2>\n<p>Writing CSS that works is one thing. Writing CSS that is maintainable, scalable, and understandable is another. This part teaches you how to organize and structure your CSS professionally.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-71-css-custom-properties-variables\">7.1 \u2014 CSS Custom Properties (Variables)</h2>\n<p>CSS custom properties \u2014 commonly called \"CSS variables\" \u2014 let you define values once and reuse them everywhere.</p>\n<pre><code class=\"language-css\">:root {\n  --primary-color: #2a6ef5;\n  --font-size-base: 1rem;\n  --spacing-md: 16px;\n}\n\nbutton {\n  background: var(--primary-color);\n  font-size: var(--font-size-base);\n  padding: var(--spacing-md);\n}</code></pre>\n<p><strong>Why use variables:</strong></p>\n<ul><li>Change one value, update everywhere at once</li><li>Consistent values across the entire project</li><li>Enable theming (dark mode, different brand colors)</li><li>Self-documenting \u2014 <code>var(--primary-color)</code> is clearer than <code>#2a6ef5</code></li></ul>\n<p><strong>Variables in media queries:</strong></p>\n<pre><code class=\"language-css\">:root {\n  --container-padding: 16px;\n}\n\n@media (min-width: 768px) {\n  :root {\n    --container-padding: 32px;\n  }\n}\n\n.container {\n  padding: 0 var(--container-padding);\n}</code></pre>\n<p><strong>Dark mode with variables:</strong></p>\n<pre><code class=\"language-css\">:root {\n  --bg: #ffffff;\n  --text: #111827;\n}\n\n@media (prefers-color-scheme: dark) {\n  :root {\n    --bg: #0d0d0d;\n    --text: #e5e7eb;\n  }\n}\n\nbody {\n  background: var(--bg);\n  color: var(--text);\n}</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p1-72-file-organization\">7.2 \u2014 File Organization</h2>\n<p><strong>The simplest structure (small projects):</strong></p>\n<pre><code>project/\n\u251c\u2500\u2500 index.html\n\u251c\u2500\u2500 styles.css\n\u2514\u2500\u2500 script.js</code></pre>\n<p><strong>The scalable structure:</strong></p>\n<pre><code>project/\n\u251c\u2500\u2500 index.html\n\u251c\u2500\u2500 about.html\n\u251c\u2500\u2500 styles/\n\u2502   \u251c\u2500\u2500 base.css         \u2190 Variables, reset, typography\n\u2502   \u251c\u2500\u2500 layout.css       \u2190 Page structure: grid, containers\n\u2502   \u251c\u2500\u2500 components.css   \u2190 Buttons, cards, modals, forms\n\u2502   \u251c\u2500\u2500 utilities.css    \u2190 Helper classes: .text-center, .hidden, etc.\n\u2502   \u2514\u2500\u2500 main.css         \u2190 Imports all others (@import)\n\u251c\u2500\u2500 scripts/\n\u2502   \u251c\u2500\u2500 utils.js\n\u2502   \u2514\u2500\u2500 main.js\n\u2514\u2500\u2500 images/</code></pre>\n<p><strong>In <code>main.css</code>:</strong></p>\n<pre><code class=\"language-css\">@import &#x27;./base.css&#x27;;\n@import &#x27;./layout.css&#x27;;\n@import &#x27;./components.css&#x27;;\n@import &#x27;./utilities.css&#x27;;</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p1-73-naming-conventions\">7.3 \u2014 Naming Conventions</h2>\n<p>Inconsistent naming leads to unmaintainable CSS. The most widely used convention is <strong>BEM</strong> (Block, Element, Modifier).</p>\n<p><strong>BEM structure:</strong></p>\n<pre><code class=\"language-css\">/* Block \u2014 standalone component */\n.card { ... }\n\n/* Element \u2014 part of the block (double underscore) */\n.card__title { ... }\n.card__body { ... }\n.card__footer { ... }\n\n/* Modifier \u2014 variation of block or element (double dash) */\n.card--featured { ... }       /* Featured card */\n.card__title--large { ... }   /* Large title variant */</code></pre>\n<p><strong>HTML example:</strong></p>\n<pre><code class=\"language-html\">&lt;article class=&quot;card card--featured&quot;&gt;\n  &lt;h2 class=&quot;card__title card__title--large&quot;&gt;Article Title&lt;/h2&gt;\n  &lt;div class=&quot;card__body&quot;&gt;Content here&lt;/div&gt;\n  &lt;footer class=&quot;card__footer&quot;&gt;\n    &lt;button class=&quot;btn btn--primary&quot;&gt;Read more&lt;/button&gt;\n  &lt;/footer&gt;\n&lt;/article&gt;</code></pre>\n<p><strong>Benefits of BEM:</strong></p>\n<ul><li>Class names reveal the component hierarchy</li><li>No specificity conflicts (everything is a single class)</li><li>Self-documenting</li><li>Easy to search and replace</li></ul>\n<p><strong>Alternatives:</strong></p>\n<ul><li>Utility classes (Tailwind-style): apply single-purpose classes directly in HTML</li><li>CSS Modules: framework-specific, scoped automatically</li></ul>\n<hr />\n<h2 id=\"web-development-handbook-p1-74-reusable-utility-classes\">7.4 \u2014 Reusable Utility Classes</h2>\n<p>Utility classes are single-purpose classes that apply one style rule. They're useful for spacing and alignment overrides without writing new CSS.</p>\n<pre><code class=\"language-css\">/* Display */\n.hidden     { display: none; }\n.invisible  { visibility: hidden; }\n.block      { display: block; }\n.flex       { display: flex; }\n.grid       { display: grid; }\n\n/* Text */\n.text-left   { text-align: left; }\n.text-center { text-align: center; }\n.text-right  { text-align: right; }\n.text-muted  { color: var(--color-muted); }\n.text-bold   { font-weight: 700; }\n.truncate    { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }\n\n/* Spacing */\n.mt-auto { margin-top: auto; }\n.mx-auto { margin-left: auto; margin-right: auto; }\n\n/* Flex utilities */\n.flex-center { display: flex; justify-content: center; align-items: center; }\n.flex-between { display: flex; justify-content: space-between; align-items: center; }\n.gap-4 { gap: 16px; }\n\n/* Accessibility */\n.sr-only {\n  position: absolute;\n  width: 1px;\n  height: 1px;\n  padding: 0;\n  margin: -1px;\n  overflow: hidden;\n  clip: rect(0, 0, 0, 0);\n  white-space: nowrap;\n  border-width: 0;\n}</code></pre>\n<p><strong><code>.sr-only</code> explained:</strong> Visually hides content but keeps it available to screen readers. Use when you need accessible text that would be redundant visually.</p>\n<hr />\n<hr />\n<h1 id=\"web-development-handbook-p1-part-8-javascript-fundamentals\">PART 8 \u2014 JavaScript Fundamentals</h1>\n<h2 id=\"web-development-handbook-p1-what-this-part-covers-8\">What This Part Covers</h2>\n<p>JavaScript is the programming language of the web. It's what makes websites interactive \u2014 responding to clicks, validating forms, fetching data, updating content without page reloads. This part teaches JavaScript from the absolute beginning.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-81-what-javascript-is\">8.1 \u2014 What JavaScript Is</h2>\n<p>JavaScript is a programming language that runs in the browser. Unlike HTML and CSS (which describe things), JavaScript executes instructions:</p>\n<pre><code class=\"language-js\">// Calculate something\nconst total = 5 + 3;           // total is 8\n\n// Make a decision\nif (total &gt; 5) {\n  console.log(&quot;Greater than 5&quot;);\n}\n\n// Repeat an action\nfor (let i = 0; i &lt; 3; i++) {\n  console.log(i);   // 0, then 1, then 2\n}\n\n// React to user input\ndocument.getElementById(&quot;btn&quot;).addEventListener(&quot;click&quot;, function() {\n  alert(&quot;Button clicked!&quot;);\n});</code></pre>\n<p>JavaScript runs inside the browser after the page loads. It can read the DOM, modify it, respond to events, and communicate with servers.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-82-variables\">8.2 \u2014 Variables</h2>\n<p>Variables store values so you can refer to them by name.</p>\n<pre><code class=\"language-js\">// let \u2014 can be reassigned (use for most things)\nlet count = 0;\ncount = 1;  // OK\n\n// const \u2014 cannot be reassigned (use when value won&#x27;t change)\nconst name = &quot;Alex&quot;;\nname = &quot;Jordan&quot;;  // ERROR: Assignment to constant variable\n\n// var \u2014 old way, avoid in modern code (has scope problems)\nvar oldStyle = true;</code></pre>\n<p><strong>Rule of thumb:</strong> Use <code>const</code> by default. Use <code>let</code> when you know the value needs to change. Never use <code>var</code>.</p>\n<p><strong>Naming conventions:</strong></p>\n<pre><code class=\"language-js\">// camelCase for variables and functions\nconst firstName = &quot;Alex&quot;;\nconst getUserName = () =&gt; { ... };\n\n// SCREAMING_SNAKE_CASE for true constants\nconst MAX_RETRIES = 3;\nconst API_BASE_URL = &quot;https://api.example.com&quot;;\n\n// PascalCase for classes\nclass UserAccount { ... }</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p1-83-data-types\">8.3 \u2014 Data Types</h2>\n<p>JavaScript has several fundamental data types:</p>\n<pre><code class=\"language-js\">// String \u2014 text, surrounded by quotes\nconst greeting = &quot;Hello&quot;;\nconst name = &#x27;World&#x27;;\nconst template = `Hello, ${name}!`;  // Template literal \u2014 can embed expressions\n\n// Number \u2014 integers and decimals\nconst age = 25;\nconst price = 9.99;\nconst negative = -10;\n\n// Boolean \u2014 true or false only\nconst isLoggedIn = true;\nconst hasErrors = false;\n\n// null \u2014 intentionally empty value\nconst selectedItem = null;  // &quot;Nothing is selected&quot;\n\n// undefined \u2014 variable declared but not assigned\nlet uninitializedVar;  // undefined by default\n\n// Array \u2014 ordered list of values\nconst colors = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;];\ncolors[0];  // &quot;red&quot;\ncolors[1];  // &quot;green&quot;\ncolors.length;  // 3\n\n// Object \u2014 key-value pairs\nconst user = {\n  name: &quot;Alex&quot;,\n  age: 25,\n  isAdmin: false\n};\nuser.name;       // &quot;Alex&quot;\nuser[&quot;name&quot;];    // &quot;Alex&quot; (bracket notation, useful when key is dynamic)\nuser.age = 26;   // Modify a property</code></pre>\n<p><strong>Template literals:</strong></p>\n<pre><code class=\"language-js\">const name = &quot;Alex&quot;;\nconst age = 25;\n\n// Old way (concatenation)\nconsole.log(&quot;Hello, &quot; + name + &quot;! You are &quot; + age + &quot; years old.&quot;);\n\n// New way (template literals \u2014 use backticks)\nconsole.log(`Hello, ${name}! You are ${age} years old.`);\n\n// Multi-line strings\nconst html = `\n  &lt;div class=&quot;card&quot;&gt;\n    &lt;h2&gt;${name}&lt;/h2&gt;\n    &lt;p&gt;Age: ${age}&lt;/p&gt;\n  &lt;/div&gt;\n`;</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p1-84-functions\">8.4 \u2014 Functions</h2>\n<p>Functions are reusable blocks of code that perform a task.</p>\n<pre><code class=\"language-js\">// Function declaration\nfunction greet(name) {\n  return `Hello, ${name}!`;\n}\n\n// Function expression\nconst greet = function(name) {\n  return `Hello, ${name}!`;\n};\n\n// Arrow function (modern, most common)\nconst greet = (name) =&gt; {\n  return `Hello, ${name}!`;\n};\n\n// Arrow function shorthand (one-liner return)\nconst greet = (name) =&gt; `Hello, ${name}!`;\n\n// Arrow function with no parameters\nconst sayHello = () =&gt; console.log(&quot;Hello!&quot;);\n\n// Calling a function\nconst result = greet(&quot;Alex&quot;);  // result = &quot;Hello, Alex!&quot;</code></pre>\n<p><strong>Parameters and arguments:</strong></p>\n<ul><li><strong>Parameters</strong> are the variable names in the function definition: <code>(name)</code></li><li><strong>Arguments</strong> are the actual values passed when calling: <code>greet(\"Alex\")</code></li></ul>\n<p><strong>Default parameters:</strong></p>\n<pre><code class=\"language-js\">function createUser(name, role = &quot;member&quot;) {\n  return { name, role };\n}\n\ncreateUser(&quot;Alex&quot;);          // { name: &quot;Alex&quot;, role: &quot;member&quot; }\ncreateUser(&quot;Jordan&quot;, &quot;admin&quot;); // { name: &quot;Jordan&quot;, role: &quot;admin&quot; }</code></pre>\n<p><strong>Rest parameters:</strong></p>\n<pre><code class=\"language-js\">function sum(...numbers) {\n  return numbers.reduce((total, n) =&gt; total + n, 0);\n}\n\nsum(1, 2, 3, 4, 5);  // 15</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p1-85-arrays\">8.5 \u2014 Arrays</h2>\n<p>Arrays are ordered lists. They are one of the most commonly used data structures in JavaScript.</p>\n<pre><code class=\"language-js\">const fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;];\n\n// Accessing\nfruits[0];          // &quot;apple&quot; (first element)\nfruits[fruits.length - 1];  // &quot;cherry&quot; (last element)\n\n// Adding\nfruits.push(&quot;date&quot;);        // Add to end\nfruits.unshift(&quot;avocado&quot;);  // Add to beginning\n\n// Removing\nfruits.pop();               // Remove last element\nfruits.shift();             // Remove first element\n\n// Finding\nfruits.indexOf(&quot;banana&quot;);   // 1 (index) or -1 if not found\nfruits.includes(&quot;cherry&quot;);  // true or false\n\n// Length\nfruits.length;              // 4\n\n// Transforming (these create NEW arrays \u2014 don&#x27;t modify the original)\nconst upper = fruits.map(f =&gt; f.toUpperCase());    // [&quot;APPLE&quot;, &quot;BANANA&quot;, ...]\nconst long = fruits.filter(f =&gt; f.length &gt; 5);     // Only items with &gt;5 chars\nconst total = [1,2,3].reduce((sum, n) =&gt; sum + n, 0); // 6 (sum all)\n\n// Sorting (modifies in place)\nconst sorted = [...fruits].sort();  // Spread first to avoid mutating original\n\n// Slicing (creates new array)\nfruits.slice(0, 2);         // First two items\nfruits.slice(-1);           // Last item\n\n// Joining\nfruits.join(&quot;, &quot;);          // &quot;apple, banana, cherry&quot;\n\n// Spreading\nconst more = [...fruits, &quot;elderberry&quot;];  // New array with extra item\nconst combined = [...array1, ...array2]; // Merge two arrays\n\n// Destructuring\nconst [first, second, ...rest] = fruits;\n// first = &quot;apple&quot;, second = &quot;banana&quot;, rest = [&quot;cherry&quot;, ...]</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p1-86-objects\">8.6 \u2014 Objects</h2>\n<p>Objects store related data and functionality.</p>\n<pre><code class=\"language-js\">const user = {\n  name: &quot;Alex&quot;,\n  age: 25,\n  address: {              // Nested object\n    city: &quot;Portland&quot;,\n    country: &quot;US&quot;\n  },\n  greet() {               // Method (function as object property)\n    return `Hi, I&#x27;m ${this.name}`;\n  }\n};\n\n// Accessing\nuser.name;                // &quot;Alex&quot;\nuser.address.city;        // &quot;Portland&quot;\nuser.greet();             // &quot;Hi, I&#x27;m Alex&quot;\n\n// Adding/modifying\nuser.email = &quot;alex@example.com&quot;;\nuser.age = 26;\n\n// Deleting\ndelete user.age;\n\n// Checking if key exists\n&quot;name&quot; in user;           // true\nuser.hasOwnProperty(&quot;name&quot;);  // true\n\n// Getting all keys/values\nObject.keys(user);        // [&quot;name&quot;, &quot;address&quot;, &quot;greet&quot;, &quot;email&quot;]\nObject.values(user);      // [&quot;Alex&quot;, {...}, function, &quot;alex@example.com&quot;]\nObject.entries(user);     // [[&quot;name&quot;,&quot;Alex&quot;], [&quot;address&quot;,{...}], ...]\n\n// Destructuring\nconst { name, age = 0, email } = user;\n// name = &quot;Alex&quot;, age = 0 (default, since deleted), email = &quot;alex@...&quot;\n\n// Spread (shallow copy / merge)\nconst updated = { ...user, age: 27 };         // Copy with override\nconst merged = { ...defaults, ...overrides };  // Merge two objects</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p1-87-conditionals\">8.7 \u2014 Conditionals</h2>\n<p>Conditionals execute different code based on whether conditions are true or false.</p>\n<pre><code class=\"language-js\">// if / else if / else\nconst score = 85;\n\nif (score &gt;= 90) {\n  console.log(&quot;A&quot;);\n} else if (score &gt;= 80) {\n  console.log(&quot;B&quot;);\n} else if (score &gt;= 70) {\n  console.log(&quot;C&quot;);\n} else {\n  console.log(&quot;F&quot;);\n}\n\n// Ternary operator (condition ? if-true : if-false)\nconst message = score &gt;= 60 ? &quot;Pass&quot; : &quot;Fail&quot;;\n\n// Nullish coalescing (??) \u2014 use right side if left is null or undefined\nconst displayName = user.name ?? &quot;Anonymous&quot;;\n\n// Optional chaining (?.) \u2014 safe access when path might be null\nconst city = user?.address?.city ?? &quot;Unknown&quot;;\n\n// Switch\nswitch (day) {\n  case &quot;Monday&quot;:\n    console.log(&quot;Start of week&quot;);\n    break;\n  case &quot;Friday&quot;:\n    console.log(&quot;End of week&quot;);\n    break;\n  default:\n    console.log(&quot;Midweek&quot;);\n}</code></pre>\n<p><strong>Truthy and Falsy:</strong> In JavaScript, every value is either \"truthy\" (treated as true in a boolean context) or \"falsy\" (treated as false).</p>\n<p>Falsy values: <code>false</code>, <code>0</code>, <code>\"\"</code> (empty string), <code>null</code>, <code>undefined</code>, <code>NaN</code> Everything else is truthy.</p>\n<pre><code class=\"language-js\">if (&quot;hello&quot;) console.log(&quot;truthy&quot;);   // runs\nif (0) console.log(&quot;truthy&quot;);         // does NOT run (0 is falsy)\nif ([]) console.log(&quot;truthy&quot;);        // runs (empty array is truthy!)\nif ({}) console.log(&quot;truthy&quot;);        // runs (empty object is truthy!)</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p1-88-loops\">8.8 \u2014 Loops</h2>\n<p>Loops repeat code.</p>\n<pre><code class=\"language-js\">const fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;];\n\n// for loop\nfor (let i = 0; i &lt; fruits.length; i++) {\n  console.log(i, fruits[i]);\n}\n\n// for...of (iterate values \u2014 use this for arrays)\nfor (const fruit of fruits) {\n  console.log(fruit);\n}\n\n// for...in (iterate keys \u2014 use for objects)\nconst user = { name: &quot;Alex&quot;, age: 25 };\nfor (const key in user) {\n  console.log(key, user[key]);\n}\n\n// while\nlet count = 0;\nwhile (count &lt; 5) {\n  console.log(count);\n  count++;\n}\n\n// Array forEach (functional style)\nfruits.forEach((fruit, index) =&gt; {\n  console.log(index, fruit);\n});\n\n// break and continue\nfor (const fruit of fruits) {\n  if (fruit === &quot;banana&quot;) continue;  // Skip banana\n  if (fruit === &quot;cherry&quot;) break;     // Stop entirely\n  console.log(fruit);\n}</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p1-89-scope\">8.9 \u2014 Scope</h2>\n<p>Scope defines where a variable is accessible.</p>\n<pre><code class=\"language-js\">// Global scope \u2014 accessible everywhere\nconst globalVar = &quot;I am global&quot;;\n\nfunction myFunction() {\n  // Function scope \u2014 only accessible inside this function\n  const localVar = &quot;I am local&quot;;\n  console.log(globalVar);  // Can access global\n  console.log(localVar);   // Can access local\n}\n\nconsole.log(globalVar);  // Works\nconsole.log(localVar);   // ERROR: localVar is not defined\n\n// Block scope (let and const are block-scoped)\nif (true) {\n  let blockVar = &quot;only here&quot;;\n  const alsoBlock = &quot;also only here&quot;;\n  var leaksOut = &quot;I escape the block!&quot;; // var is NOT block-scoped\n}\n\nconsole.log(blockVar);   // ERROR\nconsole.log(leaksOut);   // Works \u2014 var leaks out of blocks!</code></pre>\n<p><strong>Closure:</strong></p>\n<p>A closure is when an inner function \"remembers\" variables from its outer function even after the outer function has finished running.</p>\n<pre><code class=\"language-js\">function makeCounter() {\n  let count = 0;                // This variable is &quot;closed over&quot;\n  return function() {\n    count++;\n    return count;\n  };\n}\n\nconst counter = makeCounter();\ncounter();  // 1\ncounter();  // 2\ncounter();  // 3</code></pre>\n<p>This is one of JavaScript's most powerful features. The inner function (the one returned by <code>makeCounter</code>) has access to <code>count</code> even after <code>makeCounter</code> has returned.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-810-async-javascript\">8.10 \u2014 Async JavaScript</h2>\n<p>JavaScript is single-threaded \u2014 it can only do one thing at a time. But fetching data from a server takes time. If JavaScript waited for the fetch to complete before doing anything else, the page would freeze.</p>\n<p>The solution: asynchronous programming. JavaScript starts the fetch, continues doing other things, and picks up where it left off when the fetch completes.</p>\n<h3 id=\"web-development-handbook-p1-callbacks-old-way\">Callbacks (old way)</h3>\n<pre><code class=\"language-js\">setTimeout(function() {\n  console.log(&quot;This runs after 1 second&quot;);\n}, 1000);</code></pre>\n<h3 id=\"web-development-handbook-p1-promises\">Promises</h3>\n<p>A Promise represents a value that will be available in the future:</p>\n<pre><code class=\"language-js\">const promise = fetch(&quot;https://api.example.com/data&quot;);\n\npromise\n  .then(response =&gt; response.json())   // When fetch succeeds\n  .then(data =&gt; console.log(data))     // When parsing succeeds\n  .catch(error =&gt; console.error(error)); // When anything fails</code></pre>\n<h3 id=\"web-development-handbook-p1-asyncawait-modern-preferred\">Async/Await (modern, preferred)</h3>\n<p><code>async/await</code> makes asynchronous code look and read like synchronous code:</p>\n<pre><code class=\"language-js\">async function loadData() {\n  try {\n    const response = await fetch(&quot;https://api.example.com/data&quot;);\n    const data = await response.json();\n    console.log(data);\n  } catch (error) {\n    console.error(&quot;Failed to load data:&quot;, error);\n  }\n}\n\nloadData();</code></pre>\n<p><strong>Rules:</strong></p>\n<ul><li><code>await</code> can only be used inside <code>async</code> functions</li><li><code>await</code> pauses execution of the current async function until the Promise resolves</li><li>Always wrap <code>await</code> calls in <code>try/catch</code> to handle errors</li></ul>\n<h3 id=\"web-development-handbook-p1-the-fetch-api\">The Fetch API</h3>\n<p>Fetch is the built-in browser API for making HTTP requests:</p>\n<pre><code class=\"language-js\">// GET request\nasync function getUser(id) {\n  const response = await fetch(`/api/users/${id}`);\n  if (!response.ok) {\n    throw new Error(`HTTP error! status: ${response.status}`);\n  }\n  return response.json();\n}\n\n// POST request (send data)\nasync function createUser(userData) {\n  const response = await fetch(&quot;/api/users&quot;, {\n    method: &quot;POST&quot;,\n    headers: {\n      &quot;Content-Type&quot;: &quot;application/json&quot;\n    },\n    body: JSON.stringify(userData)\n  });\n  return response.json();\n}</code></pre>\n<hr />\n<hr />\n<h1 id=\"web-development-handbook-p1-part-9-dom-interactivity\">PART 9 \u2014 DOM &amp; Interactivity</h1>\n<h2 id=\"web-development-handbook-p1-what-this-part-covers-9\">What This Part Covers</h2>\n<p>The DOM (Document Object Model) is how JavaScript interacts with the HTML page. This part teaches you to select elements, modify them, create new ones, and respond to user interactions.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-91-selecting-elements\">9.1 \u2014 Selecting Elements</h2>\n<p>Before you can interact with an element, you must select it.</p>\n<pre><code class=\"language-js\">// By ID (returns one element or null)\nconst header = document.getElementById(&quot;site-header&quot;);\n\n// By CSS selector \u2014 single element (first match)\nconst btn = document.querySelector(&quot;.submit-btn&quot;);\nconst nav = document.querySelector(&quot;nav&quot;);\nconst input = document.querySelector(&quot;#email-input&quot;);\n\n// By CSS selector \u2014 multiple elements (NodeList)\nconst allCards = document.querySelectorAll(&quot;.card&quot;);\nconst allLinks = document.querySelectorAll(&quot;a[href]&quot;);\n\n// Iterating over querySelectorAll results\nallCards.forEach(card =&gt; {\n  console.log(card.textContent);\n});\n\n// Older methods (less flexible, still used)\nconst items = document.getElementsByClassName(&quot;item&quot;);   // HTMLCollection\nconst paras = document.getElementsByTagName(&quot;p&quot;);        // HTMLCollection</code></pre>\n<p><strong>NodeList vs HTMLCollection:</strong> <code>querySelectorAll</code> returns a NodeList, which supports <code>forEach</code>. <code>getElementsByClassName</code> returns an HTMLCollection, which doesn't support <code>forEach</code> directly (convert with <code>Array.from()</code> first).</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-92-reading-and-modifying-elements\">9.2 \u2014 Reading and Modifying Elements</h2>\n<p>Once you have a reference to an element, you can read and modify it.</p>\n<pre><code class=\"language-js\">const elem = document.querySelector(&quot;.card&quot;);\n\n// Reading content\nelem.textContent;    // All text content (no HTML)\nelem.innerHTML;      // All HTML content (including tags)\n\n// Setting content (safe: textContent auto-escapes HTML)\nelem.textContent = &quot;New text content&quot;;\n\n// Setting HTML (unsafe if from user input \u2014 XSS risk!)\nelem.innerHTML = &quot;&lt;strong&gt;Bold text&lt;/strong&gt;&quot;;\n\n// Attributes\nelem.getAttribute(&quot;class&quot;);          // Get attribute value\nelem.setAttribute(&quot;data-id&quot;, &quot;42&quot;);  // Set attribute\nelem.removeAttribute(&quot;disabled&quot;);    // Remove attribute\nelem.hasAttribute(&quot;hidden&quot;);         // Check if attribute exists\n\n// Classes\nelem.classList.add(&quot;active&quot;);        // Add class\nelem.classList.remove(&quot;hidden&quot;);     // Remove class\nelem.classList.toggle(&quot;expanded&quot;);   // Toggle class on/off\nelem.classList.contains(&quot;active&quot;);   // Returns true/false\nelem.classList.replace(&quot;old&quot;, &quot;new&quot;); // Replace class\n\n// Styles (sets inline style \u2014 use sparingly, prefer classes)\nelem.style.color = &quot;red&quot;;\nelem.style.fontSize = &quot;1.5rem&quot;;      // camelCase in JS\nelem.style.display = &quot;none&quot;;\n\n// Getting computed styles (what the browser actually applies)\nconst styles = window.getComputedStyle(elem);\nstyles.color;             // &quot;rgb(255, 0, 0)&quot;\nstyles.fontSize;          // &quot;24px&quot;</code></pre>\n<p><strong>Security warning:</strong> Never use <code>innerHTML</code> with user-provided content. If a user can control what goes into <code>innerHTML</code>, they can inject malicious scripts (XSS \u2014 Cross-Site Scripting). Always use <code>textContent</code> for user-provided text.</p>\n<hr />\n<h2 id=\"web-development-handbook-p1-93-creating-and-removing-elements\">9.3 \u2014 Creating and Removing Elements</h2>\n<pre><code class=\"language-js\">// Create a new element\nconst card = document.createElement(&quot;div&quot;);\ncard.classList.add(&quot;card&quot;);\ncard.textContent = &quot;New card&quot;;\n\n// Append to the DOM\ndocument.body.appendChild(card);             // Add as last child of body\ndocument.querySelector(&quot;.list&quot;).appendChild(card);  // Add to specific parent\n\n// Insert in specific positions\nconst list = document.querySelector(&quot;ul&quot;);\nconst newItem = document.createElement(&quot;li&quot;);\nnewItem.textContent = &quot;New item&quot;;\n\nlist.prepend(newItem);              // Insert as first child\nlist.append(newItem);               // Insert as last child\nlist.insertBefore(newItem, list.children[2]);  // Before 3rd child\n\n// Modern insertion methods\nconst reference = document.querySelector(&quot;.reference-element&quot;);\nreference.before(newItem);          // Insert before this element\nreference.after(newItem);           // Insert after this element\n\n// Remove an element\nconst toRemove = document.querySelector(&quot;.outdated&quot;);\ntoRemove.remove();                  // Remove from DOM\n\n// Clear all children\nlist.innerHTML = &quot;&quot;;                // Fast but unsafe (avoid with user content)\nwhile (list.firstChild) {          // Safer\n  list.removeChild(list.firstChild);\n}</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p1-94-event-listeners\">9.4 \u2014 Event Listeners</h2>\n<p>Events are things that happen in the browser: clicks, key presses, scrolling, form submission, page loading.</p>\n<pre><code class=\"language-js\">const button = document.querySelector(&quot;#my-button&quot;);\n\n// Add an event listener\nbutton.addEventListener(&quot;click&quot;, function(event) {\n  console.log(&quot;Button clicked!&quot;, event);\n});\n\n// Arrow function style\nbutton.addEventListener(&quot;click&quot;, (event) =&gt; {\n  console.log(&quot;Target element:&quot;, event.target);\n});\n\n// Remove an event listener (must use a named function)\nfunction handleClick(event) {\n  console.log(&quot;Clicked&quot;);\n}\nbutton.addEventListener(&quot;click&quot;, handleClick);\nbutton.removeEventListener(&quot;click&quot;, handleClick);\n\n// The event object contains useful information\nbutton.addEventListener(&quot;click&quot;, (event) =&gt; {\n  event.target;           // The element that was clicked\n  event.currentTarget;    // The element the listener is attached to\n  event.type;             // &quot;click&quot;\n  event.preventDefault(); // Prevent default behavior (e.g., stop form submit)\n  event.stopPropagation();// Stop event from bubbling up to parents\n});</code></pre>\n<h3 id=\"web-development-handbook-p1-common-events\">Common Events</h3>\n<pre><code class=\"language-js\">// Mouse events\nelement.addEventListener(&quot;click&quot;, handler);\nelement.addEventListener(&quot;dblclick&quot;, handler);\nelement.addEventListener(&quot;mouseenter&quot;, handler);  // Mouse enters (no bubbling)\nelement.addEventListener(&quot;mouseleave&quot;, handler);  // Mouse leaves\nelement.addEventListener(&quot;mouseover&quot;, handler);   // Mouse enters (bubbles)\nelement.addEventListener(&quot;mousemove&quot;, handler);\n\n// Keyboard events\ndocument.addEventListener(&quot;keydown&quot;, (e) =&gt; {\n  console.log(e.key);      // &quot;Enter&quot;, &quot;Escape&quot;, &quot;a&quot;, &quot;ArrowUp&quot;, etc.\n  console.log(e.code);     // &quot;KeyA&quot;, &quot;Space&quot;, &quot;Enter&quot;\n  console.log(e.ctrlKey);  // true if Ctrl held\n});\ndocument.addEventListener(&quot;keyup&quot;, handler);\n\n// Form events\nform.addEventListener(&quot;submit&quot;, (e) =&gt; {\n  e.preventDefault();  // ALWAYS prevent default to handle with JS\n  // Process form...\n});\ninput.addEventListener(&quot;input&quot;, handler);    // Every character typed\ninput.addEventListener(&quot;change&quot;, handler);   // Value changed and field blurred\ninput.addEventListener(&quot;focus&quot;, handler);    // Field gains focus\ninput.addEventListener(&quot;blur&quot;, handler);     // Field loses focus\n\n// Window events\nwindow.addEventListener(&quot;load&quot;, handler);       // Page fully loaded\nwindow.addEventListener(&quot;resize&quot;, handler);     // Window resized\nwindow.addEventListener(&quot;scroll&quot;, handler);     // Page scrolled\ndocument.addEventListener(&quot;DOMContentLoaded&quot;, handler); // DOM ready (before images)</code></pre>\n<h3 id=\"web-development-handbook-p1-event-delegation\">Event Delegation</h3>\n<p>Instead of attaching a listener to every child element, attach one listener to the parent and check <code>event.target</code>:</p>\n<pre><code class=\"language-js\">// Without delegation: listener on every button (wasteful)\ndocument.querySelectorAll(&quot;.delete-btn&quot;).forEach(btn =&gt; {\n  btn.addEventListener(&quot;click&quot;, handleDelete);\n});\n\n// With delegation: one listener on parent (efficient)\ndocument.querySelector(&quot;.list&quot;).addEventListener(&quot;click&quot;, (event) =&gt; {\n  if (event.target.matches(&quot;.delete-btn&quot;)) {\n    handleDelete(event);\n  }\n});</code></pre>\n<p><strong>Benefits of event delegation:</strong></p>\n<ol><li>Works for dynamically added elements (elements that didn't exist when the listener was attached)</li><li>Only one listener instead of many (better performance)</li><li>Cleaner code</li></ol>\n<hr />\n<h2 id=\"web-development-handbook-p1-95-complete-interactive-components\">9.5 \u2014 Complete Interactive Components</h2>\n<h3 id=\"web-development-handbook-p1-accordion-expandcollapse\">Accordion (Expand/Collapse)</h3>\n<pre><code class=\"language-html\">&lt;div class=&quot;accordion&quot;&gt;\n  &lt;div class=&quot;accordion-item&quot;&gt;\n    &lt;button class=&quot;accordion-trigger&quot; aria-expanded=&quot;false&quot;&gt;\n      What is HTML?\n    &lt;/button&gt;\n    &lt;div class=&quot;accordion-content&quot; hidden&gt;\n      &lt;p&gt;HTML is the structure of web pages.&lt;/p&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n  &lt;div class=&quot;accordion-item&quot;&gt;\n    &lt;button class=&quot;accordion-trigger&quot; aria-expanded=&quot;false&quot;&gt;\n      What is CSS?\n    &lt;/button&gt;\n    &lt;div class=&quot;accordion-content&quot; hidden&gt;\n      &lt;p&gt;CSS is the styling language for web pages.&lt;/p&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;</code></pre>\n<pre><code class=\"language-css\">.accordion-item {\n  border-bottom: 1px solid var(--color-border);\n}\n\n.accordion-trigger {\n  width: 100%;\n  text-align: left;\n  padding: 16px;\n  background: none;\n  border: none;\n  font-size: 1rem;\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n\n.accordion-trigger::after {\n  content: &quot;+&quot;;\n  font-size: 1.5rem;\n  transition: transform 300ms;\n}\n\n.accordion-trigger[aria-expanded=&quot;true&quot;]::after {\n  transform: rotate(45deg);\n}\n\n.accordion-content {\n  padding: 0 16px 16px;\n}\n\n.accordion-content[hidden] {\n  display: none;\n}</code></pre>\n<pre><code class=\"language-js\">document.querySelectorAll(&quot;.accordion-trigger&quot;).forEach(trigger =&gt; {\n  trigger.addEventListener(&quot;click&quot;, () =&gt; {\n    const isOpen = trigger.getAttribute(&quot;aria-expanded&quot;) === &quot;true&quot;;\n    const content = trigger.nextElementSibling;\n\n    trigger.setAttribute(&quot;aria-expanded&quot;, !isOpen);\n    content.hidden = isOpen;\n  });\n});</code></pre>\n<h3 id=\"web-development-handbook-p1-tabs\">Tabs</h3>\n<pre><code class=\"language-html\">&lt;div class=&quot;tabs&quot;&gt;\n  &lt;div role=&quot;tablist&quot; class=&quot;tab-list&quot;&gt;\n    &lt;button role=&quot;tab&quot; aria-selected=&quot;true&quot; aria-controls=&quot;panel-1&quot;&gt;Tab 1&lt;/button&gt;\n    &lt;button role=&quot;tab&quot; aria-selected=&quot;false&quot; aria-controls=&quot;panel-2&quot;&gt;Tab 2&lt;/button&gt;\n    &lt;button role=&quot;tab&quot; aria-selected=&quot;false&quot; aria-controls=&quot;panel-3&quot;&gt;Tab 3&lt;/button&gt;\n  &lt;/div&gt;\n\n  &lt;div role=&quot;tabpanel&quot; id=&quot;panel-1&quot;&gt;Content for Tab 1&lt;/div&gt;\n  &lt;div role=&quot;tabpanel&quot; id=&quot;panel-2&quot; hidden&gt;Content for Tab 2&lt;/div&gt;\n  &lt;div role=&quot;tabpanel&quot; id=&quot;panel-3&quot; hidden&gt;Content for Tab 3&lt;/div&gt;\n&lt;/div&gt;</code></pre>\n<pre><code class=\"language-css\">.tab-list {\n  display: flex;\n  border-bottom: 2px solid var(--color-border);\n  gap: 4px;\n}\n\n[role=&quot;tab&quot;] {\n  padding: 8px 16px;\n  border: none;\n  background: none;\n  cursor: pointer;\n  border-bottom: 2px solid transparent;\n  margin-bottom: -2px; /* Overlap the tablist border */\n  color: var(--color-muted);\n}\n\n[role=&quot;tab&quot;][aria-selected=&quot;true&quot;] {\n  color: var(--color-primary);\n  border-bottom-color: var(--color-primary);\n}\n\n[role=&quot;tabpanel&quot;] {\n  padding: 16px 0;\n}</code></pre>\n<pre><code class=\"language-js\">const tabs = document.querySelectorAll(&quot;[role=&#x27;tab&#x27;]&quot;);\n\ntabs.forEach(tab =&gt; {\n  tab.addEventListener(&quot;click&quot;, () =&gt; {\n    // Deactivate all tabs\n    tabs.forEach(t =&gt; {\n      t.setAttribute(&quot;aria-selected&quot;, &quot;false&quot;);\n      document.getElementById(t.getAttribute(&quot;aria-controls&quot;)).hidden = true;\n    });\n\n    // Activate clicked tab\n    tab.setAttribute(&quot;aria-selected&quot;, &quot;true&quot;);\n    document.getElementById(tab.getAttribute(&quot;aria-controls&quot;)).hidden = false;\n  });\n});</code></pre>\n<h3 id=\"web-development-handbook-p1-modal\">Modal</h3>\n<pre><code class=\"language-html\">&lt;button class=&quot;btn&quot; id=&quot;open-modal&quot;&gt;Open Modal&lt;/button&gt;\n\n&lt;div class=&quot;modal-overlay&quot; id=&quot;my-modal&quot; hidden&gt;\n  &lt;div class=&quot;modal-box&quot; role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-labelledby=&quot;modal-title&quot;&gt;\n    &lt;div class=&quot;modal-header&quot;&gt;\n      &lt;h2 id=&quot;modal-title&quot;&gt;Modal Title&lt;/h2&gt;\n      &lt;button class=&quot;modal-close&quot; aria-label=&quot;Close modal&quot;&gt;&amp;times;&lt;/button&gt;\n    &lt;/div&gt;\n    &lt;div class=&quot;modal-body&quot;&gt;\n      &lt;p&gt;Modal content goes here.&lt;/p&gt;\n    &lt;/div&gt;\n    &lt;div class=&quot;modal-footer&quot;&gt;\n      &lt;button class=&quot;btn btn--ghost modal-close&quot;&gt;Cancel&lt;/button&gt;\n      &lt;button class=&quot;btn btn--primary&quot;&gt;Confirm&lt;/button&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/div&gt;</code></pre>\n<pre><code class=\"language-css\">.modal-overlay {\n  position: fixed;\n  inset: 0;\n  background: rgba(0, 0, 0, 0.6);\n  backdrop-filter: blur(4px);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 100;\n}\n\n.modal-overlay[hidden] {\n  display: none;\n}\n\n.modal-box {\n  background: var(--color-surface);\n  border-radius: 12px;\n  padding: 24px;\n  width: min(500px, 90vw);\n  max-height: 90vh;\n  overflow-y: auto;\n}\n\n.modal-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 16px;\n}\n\n.modal-close {\n  background: none;\n  border: none;\n  font-size: 1.5rem;\n  cursor: pointer;\n  line-height: 1;\n}</code></pre>\n<pre><code class=\"language-js\">const modal = document.getElementById(&quot;my-modal&quot;);\nconst openBtn = document.getElementById(&quot;open-modal&quot;);\nconst closeButtons = document.querySelectorAll(&quot;.modal-close&quot;);\n\nfunction openModal() {\n  modal.hidden = false;\n  document.body.style.overflow = &quot;hidden&quot;; // Prevent background scrolling\n  modal.querySelector(&quot;.modal-close&quot;).focus(); // Focus trap start\n}\n\nfunction closeModal() {\n  modal.hidden = true;\n  document.body.style.overflow = &quot;&quot;;\n  openBtn.focus(); // Return focus to trigger\n}\n\nopenBtn.addEventListener(&quot;click&quot;, openModal);\n\ncloseButtons.forEach(btn =&gt; {\n  btn.addEventListener(&quot;click&quot;, closeModal);\n});\n\n// Close on overlay click\nmodal.addEventListener(&quot;click&quot;, (e) =&gt; {\n  if (e.target === modal) closeModal();\n});\n\n// Close on Escape key\ndocument.addEventListener(&quot;keydown&quot;, (e) =&gt; {\n  if (e.key === &quot;Escape&quot; &amp;&amp; !modal.hidden) closeModal();\n});</code></pre>\n<h3 id=\"web-development-handbook-p1-dark-mode-toggle\">Dark Mode Toggle</h3>\n<pre><code class=\"language-css\">/* In your CSS \u2014 use variables that change */\n:root {\n  --bg: #ffffff;\n  --text: #111827;\n  --surface: #f9fafb;\n}\n\n[data-theme=&quot;dark&quot;] {\n  --bg: #0d0d0d;\n  --text: #e5e7eb;\n  --surface: #1a1a1a;\n}\n\nbody {\n  background: var(--bg);\n  color: var(--text);\n  transition: background 200ms, color 200ms;\n}</code></pre>\n<pre><code class=\"language-js\">const toggle = document.getElementById(&quot;theme-toggle&quot;);\nconst root = document.documentElement;\n\n// Load saved preference\nconst saved = localStorage.getItem(&quot;theme&quot;) || &quot;light&quot;;\nroot.setAttribute(&quot;data-theme&quot;, saved);\n\ntoggle.addEventListener(&quot;click&quot;, () =&gt; {\n  const current = root.getAttribute(&quot;data-theme&quot;);\n  const next = current === &quot;dark&quot; ? &quot;light&quot; : &quot;dark&quot;;\n  root.setAttribute(&quot;data-theme&quot;, next);\n  localStorage.setItem(&quot;theme&quot;, next);\n});</code></pre>\n<h3 id=\"web-development-handbook-p1-form-validation\">Form Validation</h3>\n<pre><code class=\"language-html\">&lt;form id=&quot;signup-form&quot; novalidate&gt;\n  &lt;div class=&quot;form-group&quot;&gt;\n    &lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;\n    &lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot; required&gt;\n    &lt;span class=&quot;error-message&quot; id=&quot;email-error&quot;&gt;&lt;/span&gt;\n  &lt;/div&gt;\n\n  &lt;div class=&quot;form-group&quot;&gt;\n    &lt;label for=&quot;password&quot;&gt;Password&lt;/label&gt;\n    &lt;input type=&quot;password&quot; id=&quot;password&quot; name=&quot;password&quot;\n           required minlength=&quot;8&quot;&gt;\n    &lt;span class=&quot;error-message&quot; id=&quot;password-error&quot;&gt;&lt;/span&gt;\n  &lt;/div&gt;\n\n  &lt;button type=&quot;submit&quot;&gt;Sign Up&lt;/button&gt;\n&lt;/form&gt;</code></pre>\n<pre><code class=\"language-css\">.form-group { margin-bottom: 16px; }\n.form-group label { display: block; margin-bottom: 4px; font-weight: 500; }\n.form-group input { width: 100%; padding: 8px 12px; border: 1px solid var(--color-border); border-radius: 6px; }\n.form-group input:focus { outline: 2px solid var(--color-primary); border-color: transparent; }\n.form-group input.invalid { border-color: var(--color-danger); }\n.error-message { color: var(--color-danger); font-size: 0.875rem; display: block; margin-top: 4px; }</code></pre>\n<pre><code class=\"language-js\">const form = document.getElementById(&quot;signup-form&quot;);\n\nfunction showError(inputId, errorId, message) {\n  const input = document.getElementById(inputId);\n  const error = document.getElementById(errorId);\n  input.classList.add(&quot;invalid&quot;);\n  error.textContent = message;\n  return false;\n}\n\nfunction clearError(inputId, errorId) {\n  document.getElementById(inputId).classList.remove(&quot;invalid&quot;);\n  document.getElementById(errorId).textContent = &quot;&quot;;\n}\n\nform.addEventListener(&quot;submit&quot;, (e) =&gt; {\n  e.preventDefault();\n  let isValid = true;\n\n  const email = document.getElementById(&quot;email&quot;).value;\n  const password = document.getElementById(&quot;password&quot;).value;\n\n  clearError(&quot;email&quot;, &quot;email-error&quot;);\n  clearError(&quot;password&quot;, &quot;password-error&quot;);\n\n  if (!email) {\n    showError(&quot;email&quot;, &quot;email-error&quot;, &quot;Email is required.&quot;);\n    isValid = false;\n  } else if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) {\n    showError(&quot;email&quot;, &quot;email-error&quot;, &quot;Please enter a valid email address.&quot;);\n    isValid = false;\n  }\n\n  if (!password) {\n    showError(&quot;password&quot;, &quot;password-error&quot;, &quot;Password is required.&quot;);\n    isValid = false;\n  } else if (password.length &lt; 8) {\n    showError(&quot;password&quot;, &quot;password-error&quot;, &quot;Password must be at least 8 characters.&quot;);\n    isValid = false;\n  }\n\n  if (isValid) {\n    console.log(&quot;Form is valid \u2014 submit to server&quot;);\n  }\n});</code></pre>\n<hr />\n<p><em>This file covers Parts 1\u20139. Continue reading the companion file for Parts 10\u201318 and the Glossary.</em></p>"
     },
     {
-      id: "images",
-      title: "Swapping Images",
-      category: "Assets",
-      summary: "How to replace images without breaking paths or bloating the repo.",
-      content: [
+      "id": "web-development-handbook-p2",
+      "title": "The Complete Web Development Handbook \u2014 Part 2",
+      "navLabel": "Web Handbook P2",
+      "summary": "*Continues from web_development_handbook_p1.md*",
+      "href": "web-development-handbook-p2.html",
+      "icon": "Web 2",
+      "sections": [
         {
-          heading: "Same filename when possible",
-          body: "Replace images with files of the same name when possible — this avoids updating any src references in HTML or config. Drop the new file into the same location in assets/ and push."
+          "id": "web-development-handbook-p2-parts-1018-and-glossary",
+          "title": "Parts 10\u201318 and Glossary",
+          "level": 2
         },
         {
-          heading: "Different filename",
-          body: "If the new image has a different filename, find all references to the old filename across HTML, CSS, and config files. Use grep to catch every instance. Update them all before pushing — a partial update will leave broken images on some pages."
+          "id": "web-development-handbook-p2-what-this-part-covers",
+          "title": "What This Part Covers",
+          "level": 2
         },
         {
-          heading: "Optimize before upload",
-          body: "Run images through Squoosh (squoosh.app) or a similar tool before adding them to the project. Hero images under 300KB, profile photos under 100KB. Never commit an unoptimized image from a client's phone or email attachment."
+          "id": "web-development-handbook-p2-101-navigation-components",
+          "title": "10.1 \u2014 Navigation Components",
+          "level": 2
         },
         {
-          heading: "File path case sensitivity",
-          body: "Cloudflare Pages runs on Linux, which is case-sensitive. hero-image.jpg and Hero-Image.jpg are different files. Always use lowercase filenames and match the case exactly in your src paths."
+          "id": "web-development-handbook-p2-102-content-components",
+          "title": "10.2 \u2014 Content Components",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-103-layout-components",
+          "title": "10.3 \u2014 Layout Components",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-104-form-components",
+          "title": "10.4 \u2014 Form Components",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-what-this-part-covers-2",
+          "title": "What This Part Covers",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-111-why-accessibility-matters",
+          "title": "11.1 \u2014 Why Accessibility Matters",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-112-semantic-html-and-aria",
+          "title": "11.2 \u2014 Semantic HTML and ARIA",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-113-keyboard-navigation",
+          "title": "11.3 \u2014 Keyboard Navigation",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-114-color-contrast",
+          "title": "11.4 \u2014 Color Contrast",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-115-focus-trap-for-modals",
+          "title": "11.5 \u2014 Focus Trap for Modals",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-116-accessibility-checklist",
+          "title": "11.6 \u2014 Accessibility Checklist",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-what-this-part-covers-3",
+          "title": "What This Part Covers",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-121-opening-devtools",
+          "title": "12.1 \u2014 Opening DevTools",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-122-the-elements-panel",
+          "title": "12.2 \u2014 The Elements Panel",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-123-the-console",
+          "title": "12.3 \u2014 The Console",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-124-the-network-tab",
+          "title": "12.4 \u2014 The Network Tab",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-125-debugging-javascript",
+          "title": "12.5 \u2014 Debugging JavaScript",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-126-the-lighthouse-audit",
+          "title": "12.6 \u2014 The Lighthouse Audit",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-what-this-part-covers-4",
+          "title": "What This Part Covers",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-131-the-single-page-starter",
+          "title": "13.1 \u2014 The Single-Page Starter",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-132-multi-page-structure",
+          "title": "13.2 \u2014 Multi-Page Structure",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-133-scalable-structure",
+          "title": "13.3 \u2014 Scalable Structure",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-134-separating-concerns",
+          "title": "13.4 \u2014 Separating Concerns",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-what-this-part-covers-5",
+          "title": "What This Part Covers",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-141-anatomy-of-a-web-page",
+          "title": "14.1 \u2014 Anatomy of a Web Page",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-142-landing-page-complete-structure",
+          "title": "14.2 \u2014 Landing Page Complete Structure",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-what-this-part-covers-6",
+          "title": "What This Part Covers",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-151-css-transitions",
+          "title": "15.1 \u2014 CSS Transitions",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-152-css-transforms",
+          "title": "15.2 \u2014 CSS Transforms",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-153-css-animations-keyframes",
+          "title": "15.3 \u2014 CSS Animations (Keyframes)",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-154-hover-effects",
+          "title": "15.4 \u2014 Hover Effects",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-155-scroll-animations-with-intersection-observer",
+          "title": "15.5 \u2014 Scroll Animations with Intersection Observer",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-156-performance-considerations",
+          "title": "15.6 \u2014 Performance Considerations",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-what-this-part-covers-7",
+          "title": "What This Part Covers",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-161-how-browsers-load-pages",
+          "title": "16.1 \u2014 How Browsers Load Pages",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-162-image-optimization",
+          "title": "16.2 \u2014 Image Optimization",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-163-reducing-css-and-javascript-size",
+          "title": "16.3 \u2014 Reducing CSS and JavaScript Size",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-164-avoiding-layout-thrashing",
+          "title": "16.4 \u2014 Avoiding Layout Thrashing",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-what-this-part-covers-8",
+          "title": "What This Part Covers",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-171-planning-a-page",
+          "title": "17.1 \u2014 Planning a Page",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-172-wireframing",
+          "title": "17.2 \u2014 Wireframing",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-173-html-first-css-second-js-third",
+          "title": "17.3 \u2014 HTML First, CSS Second, JS Third",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-174-iterative-development",
+          "title": "17.4 \u2014 Iterative Development",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-175-how-professionals-approach-a-new-project",
+          "title": "17.5 \u2014 How Professionals Approach a New Project",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-what-this-part-covers-9",
+          "title": "What This Part Covers",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-181-personal-portfolio-site",
+          "title": "18.1 \u2014 Personal Portfolio Site",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-182-documentation-site",
+          "title": "18.2 \u2014 Documentation Site",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-183-admin-dashboard",
+          "title": "18.3 \u2014 Admin Dashboard",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-html-terms",
+          "title": "HTML Terms",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-css-terms",
+          "title": "CSS Terms",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-javascript-terms",
+          "title": "JavaScript Terms",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-browser-terms",
+          "title": "Browser Terms",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-uiux-terms",
+          "title": "UI/UX Terms",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-responsive-design-terms",
+          "title": "Responsive Design Terms",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-accessibility-terms",
+          "title": "Accessibility Terms",
+          "level": 2
+        },
+        {
+          "id": "web-development-handbook-p2-web-architecture-terms",
+          "title": "Web Architecture Terms",
+          "level": 2
         }
-      ]
+      ],
+      "contentHtml": "<h1 id=\"web-development-handbook-p2-the-complete-web-development-handbook-part-2\">The Complete Web Development Handbook \u2014 Part 2</h1>\n<h2 id=\"web-development-handbook-p2-parts-1018-and-glossary\">Parts 10\u201318 and Glossary</h2>\n<p><em>Continues from web_development_handbook_p1.md</em></p>\n<hr />\n<hr />\n<h1 id=\"web-development-handbook-p2-part-10-component-construction-guide\">PART 10 \u2014 Component Construction Guide</h1>\n<h2 id=\"web-development-handbook-p2-what-this-part-covers\">What This Part Covers</h2>\n<p>A component is a self-contained, reusable piece of UI. Instead of rewriting your navigation from scratch on every page, you build it once as a component and reuse it. This part is a reference library of common UI components, each with complete HTML, CSS, and JavaScript.</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-101-navigation-components\">10.1 \u2014 Navigation Components</h2>\n<h3 id=\"web-development-handbook-p2-horizontal-navbar\">Horizontal Navbar</h3>\n<p>The most common navigation pattern for desktop websites.</p>\n<pre><code class=\"language-html\">&lt;header class=&quot;navbar&quot;&gt;\n  &lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;\n    &lt;span class=&quot;brand-icon&quot;&gt;XK&lt;/span&gt;\n    &lt;span class=&quot;brand-name&quot;&gt;My Site&lt;/span&gt;\n  &lt;/a&gt;\n\n  &lt;nav class=&quot;navbar-nav&quot;&gt;\n    &lt;a href=&quot;/&quot; class=&quot;nav-link active&quot;&gt;Home&lt;/a&gt;\n    &lt;a href=&quot;/about&quot; class=&quot;nav-link&quot;&gt;About&lt;/a&gt;\n    &lt;a href=&quot;/projects&quot; class=&quot;nav-link&quot;&gt;Projects&lt;/a&gt;\n    &lt;a href=&quot;/contact&quot; class=&quot;nav-link&quot;&gt;Contact&lt;/a&gt;\n  &lt;/nav&gt;\n\n  &lt;div class=&quot;navbar-actions&quot;&gt;\n    &lt;button class=&quot;btn btn--primary&quot;&gt;Get Started&lt;/button&gt;\n  &lt;/div&gt;\n\n  &lt;button class=&quot;hamburger&quot; aria-label=&quot;Open navigation&quot; aria-expanded=&quot;false&quot;&gt;\n    &lt;span&gt;&lt;/span&gt;\n    &lt;span&gt;&lt;/span&gt;\n    &lt;span&gt;&lt;/span&gt;\n  &lt;/button&gt;\n&lt;/header&gt;</code></pre>\n<pre><code class=\"language-css\">.navbar {\n  display: flex;\n  align-items: center;\n  gap: 24px;\n  padding: 0 24px;\n  height: 64px;\n  background: var(--color-surface);\n  border-bottom: 1px solid var(--color-border);\n  position: sticky;\n  top: 0;\n  z-index: 50;\n}\n\n.navbar-brand {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  text-decoration: none;\n  color: var(--color-text);\n  font-weight: 700;\n}\n\n.brand-icon {\n  width: 36px;\n  height: 36px;\n  background: var(--color-primary);\n  color: white;\n  border-radius: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: 800;\n  font-size: 0.875rem;\n}\n\n.navbar-nav {\n  display: none;          /* Hidden on mobile */\n  gap: 4px;\n}\n\n.nav-link {\n  padding: 6px 12px;\n  text-decoration: none;\n  color: var(--color-muted);\n  border-radius: 6px;\n  font-size: 0.9rem;\n  transition: color 150ms, background 150ms;\n}\n\n.nav-link:hover {\n  color: var(--color-text);\n  background: rgba(0,0,0,0.05);\n}\n\n.nav-link.active {\n  color: var(--color-primary);\n  background: rgba(42, 110, 245, 0.08);\n}\n\n.navbar-actions {\n  display: none;\n  margin-left: auto;\n}\n\n.hamburger {\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n  margin-left: auto;\n  padding: 8px;\n  background: none;\n  border: none;\n  cursor: pointer;\n}\n\n.hamburger span {\n  display: block;\n  width: 22px;\n  height: 2px;\n  background: var(--color-text);\n  transition: transform 300ms, opacity 300ms;\n}\n\n/* Open state */\n.hamburger[aria-expanded=&quot;true&quot;] span:nth-child(1) {\n  transform: translateY(7px) rotate(45deg);\n}\n.hamburger[aria-expanded=&quot;true&quot;] span:nth-child(2) {\n  opacity: 0;\n}\n.hamburger[aria-expanded=&quot;true&quot;] span:nth-child(3) {\n  transform: translateY(-7px) rotate(-45deg);\n}\n\n/* Mobile menu (appended below navbar) */\n.mobile-menu {\n  display: none;\n  flex-direction: column;\n  padding: 16px;\n  background: var(--color-surface);\n  border-bottom: 1px solid var(--color-border);\n}\n\n.mobile-menu.open {\n  display: flex;\n}\n\n@media (min-width: 768px) {\n  .navbar-nav    { display: flex; }\n  .navbar-actions { display: flex; }\n  .hamburger     { display: none; }\n}</code></pre>\n<pre><code class=\"language-js\">const hamburger = document.querySelector(&quot;.hamburger&quot;);\nconst mobileMenu = document.querySelector(&quot;.mobile-menu&quot;);\n\nhamburger.addEventListener(&quot;click&quot;, () =&gt; {\n  const isOpen = hamburger.getAttribute(&quot;aria-expanded&quot;) === &quot;true&quot;;\n  hamburger.setAttribute(&quot;aria-expanded&quot;, !isOpen);\n  mobileMenu.classList.toggle(&quot;open&quot;);\n});\n\n// Highlight active link based on current URL\ndocument.querySelectorAll(&quot;.nav-link&quot;).forEach(link =&gt; {\n  if (link.href === window.location.href) {\n    link.classList.add(&quot;active&quot;);\n  }\n});</code></pre>\n<p><strong>Accessibility notes:</strong></p>\n<ul><li><code>aria-expanded</code> on hamburger tells screen readers if the menu is open</li><li><code>aria-label</code> on hamburger describes its purpose (it has no visible text)</li><li><code>position: sticky</code> keeps the navbar visible while scrolling</li></ul>\n<hr />\n<h3 id=\"web-development-handbook-p2-sidebar-navigation\">Sidebar Navigation</h3>\n<p>Ideal for applications and documentation sites.</p>\n<pre><code class=\"language-html\">&lt;aside class=&quot;sidebar&quot;&gt;\n  &lt;nav class=&quot;sidebar-nav&quot;&gt;\n    &lt;a class=&quot;sidebar-link active&quot; href=&quot;/&quot;&gt;\n      &lt;svg class=&quot;icon&quot;&gt;...&lt;/svg&gt; Dashboard\n    &lt;/a&gt;\n    &lt;a class=&quot;sidebar-link&quot; href=&quot;/projects&quot;&gt;\n      &lt;svg class=&quot;icon&quot;&gt;...&lt;/svg&gt; Projects\n    &lt;/a&gt;\n\n    &lt;div class=&quot;sidebar-section&quot;&gt;\n      &lt;span class=&quot;sidebar-section-label&quot;&gt;Settings&lt;/span&gt;\n      &lt;a class=&quot;sidebar-link&quot; href=&quot;/settings/profile&quot;&gt;Profile&lt;/a&gt;\n      &lt;a class=&quot;sidebar-link&quot; href=&quot;/settings/billing&quot;&gt;Billing&lt;/a&gt;\n    &lt;/div&gt;\n  &lt;/nav&gt;\n&lt;/aside&gt;</code></pre>\n<pre><code class=\"language-css\">.sidebar {\n  width: 240px;\n  flex-shrink: 0;\n  background: var(--color-surface);\n  border-right: 1px solid var(--color-border);\n  padding: 16px 8px;\n  height: 100vh;\n  position: sticky;\n  top: 0;\n  overflow-y: auto;\n}\n\n.sidebar-link {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 8px 12px;\n  border-radius: 8px;\n  text-decoration: none;\n  color: var(--color-muted);\n  font-size: 0.9rem;\n  transition: background 150ms, color 150ms;\n}\n\n.sidebar-link:hover {\n  background: rgba(0,0,0,0.05);\n  color: var(--color-text);\n}\n\n.sidebar-link.active {\n  background: rgba(42, 110, 245, 0.1);\n  color: var(--color-primary);\n}\n\n.sidebar-section {\n  margin-top: 24px;\n}\n\n.sidebar-section-label {\n  display: block;\n  padding: 4px 12px;\n  font-size: 0.75rem;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.08em;\n  color: var(--color-muted);\n  margin-bottom: 4px;\n}\n\n.icon {\n  width: 18px;\n  height: 18px;\n  flex-shrink: 0;\n}</code></pre>\n<h3 id=\"web-development-handbook-p2-breadcrumbs\">Breadcrumbs</h3>\n<p>Show users where they are in a site hierarchy.</p>\n<pre><code class=\"language-html\">&lt;nav aria-label=&quot;Breadcrumb&quot;&gt;\n  &lt;ol class=&quot;breadcrumb&quot;&gt;\n    &lt;li class=&quot;breadcrumb-item&quot;&gt;\n      &lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;\n    &lt;/li&gt;\n    &lt;li class=&quot;breadcrumb-item&quot;&gt;\n      &lt;a href=&quot;/projects&quot;&gt;Projects&lt;/a&gt;\n    &lt;/li&gt;\n    &lt;li class=&quot;breadcrumb-item&quot; aria-current=&quot;page&quot;&gt;\n      DustVault\n    &lt;/li&gt;\n  &lt;/ol&gt;\n&lt;/nav&gt;</code></pre>\n<pre><code class=\"language-css\">.breadcrumb {\n  list-style: none;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 0;\n  margin: 0;\n  font-size: 0.875rem;\n}\n\n.breadcrumb-item {\n  display: flex;\n  align-items: center;\n  color: var(--color-muted);\n}\n\n.breadcrumb-item:not(:last-child)::after {\n  content: &quot;/&quot;;\n  margin-left: 8px;\n  color: var(--color-border);\n}\n\n.breadcrumb-item a {\n  color: var(--color-muted);\n  text-decoration: none;\n}\n\n.breadcrumb-item a:hover {\n  color: var(--color-primary);\n  text-decoration: underline;\n}\n\n.breadcrumb-item[aria-current=&quot;page&quot;] {\n  color: var(--color-text);\n}</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p2-102-content-components\">10.2 \u2014 Content Components</h2>\n<h3 id=\"web-development-handbook-p2-card\">Card</h3>\n<p>The card is the most versatile component in UI design. It's a container that groups related content.</p>\n<pre><code class=\"language-html\">&lt;article class=&quot;card&quot;&gt;\n  &lt;img class=&quot;card-image&quot; src=&quot;project-thumb.jpg&quot; alt=&quot;Project screenshot&quot;&gt;\n  &lt;div class=&quot;card-body&quot;&gt;\n    &lt;div class=&quot;card-eyebrow&quot;&gt;Project&lt;/div&gt;\n    &lt;h3 class=&quot;card-title&quot;&gt;DustVault&lt;/h3&gt;\n    &lt;p class=&quot;card-description&quot;&gt;\n      Local-first file versioning and AI bundle export tool.\n    &lt;/p&gt;\n  &lt;/div&gt;\n  &lt;footer class=&quot;card-footer&quot;&gt;\n    &lt;span class=&quot;badge badge--success&quot;&gt;88% Complete&lt;/span&gt;\n    &lt;a href=&quot;/projects/dustvault&quot; class=&quot;btn btn--ghost btn--sm&quot;&gt;View \u2192&lt;/a&gt;\n  &lt;/footer&gt;\n&lt;/article&gt;</code></pre>\n<pre><code class=\"language-css\">.card {\n  background: var(--color-surface);\n  border: 1px solid var(--color-border);\n  border-radius: 12px;\n  overflow: hidden;\n  display: flex;\n  flex-direction: column;\n  transition: box-shadow 200ms, transform 200ms;\n}\n\n.card:hover {\n  box-shadow: var(--shadow-md);\n  transform: translateY(-2px);\n}\n\n.card-image {\n  width: 100%;\n  aspect-ratio: 16 / 9;\n  object-fit: cover;\n}\n\n.card-body {\n  padding: 20px;\n  flex: 1;            /* Pushes footer to bottom */\n}\n\n.card-eyebrow {\n  font-size: 0.75rem;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.08em;\n  color: var(--color-primary);\n  margin-bottom: 6px;\n}\n\n.card-title {\n  font-size: 1.1rem;\n  font-weight: 700;\n  margin: 0 0 8px;\n}\n\n.card-description {\n  font-size: 0.9rem;\n  color: var(--color-muted);\n  line-height: 1.5;\n  margin: 0;\n}\n\n.card-footer {\n  padding: 16px 20px;\n  border-top: 1px solid var(--color-border);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}</code></pre>\n<h3 id=\"web-development-handbook-p2-progress-bar\">Progress Bar</h3>\n<p>Communicate completeness or loading progress.</p>\n<pre><code class=\"language-html\">&lt;div class=&quot;progress-bar&quot; role=&quot;progressbar&quot; aria-valuenow=&quot;75&quot;\n     aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; aria-label=&quot;Project completion&quot;&gt;\n  &lt;div class=&quot;progress-fill&quot; style=&quot;width: 75%&quot;&gt;&lt;/div&gt;\n&lt;/div&gt;\n&lt;span class=&quot;progress-label&quot;&gt;75% complete&lt;/span&gt;</code></pre>\n<pre><code class=\"language-css\">.progress-bar {\n  height: 8px;\n  background: var(--color-border);\n  border-radius: 9999px;\n  overflow: hidden;\n}\n\n.progress-fill {\n  height: 100%;\n  background: linear-gradient(90deg, var(--color-primary), #2da87e);\n  border-radius: 9999px;\n  transition: width 600ms ease;\n}\n\n.progress-label {\n  font-size: 0.875rem;\n  color: var(--color-muted);\n  margin-top: 4px;\n  display: block;\n}</code></pre>\n<h3 id=\"web-development-handbook-p2-badge-pill\">Badge / Pill</h3>\n<p>Small label used to indicate status, category, or count.</p>\n<pre><code class=\"language-html\">&lt;span class=&quot;badge badge--success&quot;&gt;Active&lt;/span&gt;\n&lt;span class=&quot;badge badge--warning&quot;&gt;Pending&lt;/span&gt;\n&lt;span class=&quot;badge badge--danger&quot;&gt;Deprecated&lt;/span&gt;\n&lt;span class=&quot;badge badge--neutral&quot;&gt;Draft&lt;/span&gt;</code></pre>\n<pre><code class=\"language-css\">.badge {\n  display: inline-flex;\n  align-items: center;\n  padding: 2px 10px;\n  border-radius: 9999px;\n  font-size: 0.75rem;\n  font-weight: 600;\n  text-transform: uppercase;\n  letter-spacing: 0.05em;\n}\n\n.badge--success {\n  background: rgba(34, 197, 94, 0.12);\n  color: #16a34a;\n}\n.badge--warning {\n  background: rgba(245, 158, 11, 0.12);\n  color: #d97706;\n}\n.badge--danger {\n  background: rgba(239, 68, 68, 0.12);\n  color: #dc2626;\n}\n.badge--neutral {\n  background: var(--color-border);\n  color: var(--color-muted);\n}</code></pre>\n<h3 id=\"web-development-handbook-p2-alert-notification\">Alert / Notification</h3>\n<p>Communicate important messages to users.</p>\n<pre><code class=\"language-html\">&lt;div class=&quot;alert alert--success&quot; role=&quot;alert&quot;&gt;\n  &lt;svg class=&quot;alert-icon&quot; aria-hidden=&quot;true&quot;&gt;...&lt;/svg&gt;\n  &lt;div&gt;\n    &lt;strong class=&quot;alert-title&quot;&gt;Success!&lt;/strong&gt;\n    &lt;p class=&quot;alert-body&quot;&gt;Your changes have been saved.&lt;/p&gt;\n  &lt;/div&gt;\n  &lt;button class=&quot;alert-close&quot; aria-label=&quot;Dismiss&quot;&gt;&amp;times;&lt;/button&gt;\n&lt;/div&gt;</code></pre>\n<pre><code class=\"language-css\">.alert {\n  display: flex;\n  align-items: flex-start;\n  gap: 12px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid transparent;\n}\n\n.alert--success {\n  background: rgba(34, 197, 94, 0.1);\n  border-color: rgba(34, 197, 94, 0.3);\n  color: #15803d;\n}\n\n.alert--warning {\n  background: rgba(245, 158, 11, 0.1);\n  border-color: rgba(245, 158, 11, 0.3);\n  color: #92400e;\n}\n\n.alert--danger {\n  background: rgba(239, 68, 68, 0.1);\n  border-color: rgba(239, 68, 68, 0.3);\n  color: #991b1b;\n}\n\n.alert--info {\n  background: rgba(59, 130, 246, 0.1);\n  border-color: rgba(59, 130, 246, 0.3);\n  color: #1e40af;\n}\n\n.alert-icon {\n  width: 20px;\n  height: 20px;\n  flex-shrink: 0;\n  margin-top: 2px;\n}\n\n.alert-title {\n  display: block;\n  margin-bottom: 2px;\n}\n\n.alert-body {\n  margin: 0;\n  font-size: 0.9rem;\n  opacity: 0.9;\n}\n\n.alert-close {\n  margin-left: auto;\n  background: none;\n  border: none;\n  font-size: 1.25rem;\n  cursor: pointer;\n  opacity: 0.6;\n  line-height: 1;\n}\n\n.alert-close:hover { opacity: 1; }</code></pre>\n<pre><code class=\"language-js\">document.querySelectorAll(&quot;.alert-close&quot;).forEach(btn =&gt; {\n  btn.addEventListener(&quot;click&quot;, () =&gt; {\n    btn.closest(&quot;.alert&quot;).remove();\n  });\n});</code></pre>\n<h3 id=\"web-development-handbook-p2-loading-spinner\">Loading Spinner</h3>\n<pre><code class=\"language-html\">&lt;div class=&quot;spinner&quot; role=&quot;status&quot; aria-label=&quot;Loading...&quot;&gt;&lt;/div&gt;</code></pre>\n<pre><code class=\"language-css\">.spinner {\n  width: 32px;\n  height: 32px;\n  border: 3px solid var(--color-border);\n  border-top-color: var(--color-primary);\n  border-radius: 50%;\n  animation: spin 700ms linear infinite;\n}\n\n@keyframes spin {\n  to { transform: rotate(360deg); }\n}\n\n/* Skeleton loading (placeholder while content loads) */\n.skeleton {\n  background: linear-gradient(\n    90deg,\n    var(--color-border) 25%,\n    var(--color-surface) 50%,\n    var(--color-border) 75%\n  );\n  background-size: 200% 100%;\n  animation: shimmer 1.5s infinite;\n  border-radius: 4px;\n}\n\n@keyframes shimmer {\n  from { background-position: 200% 0; }\n  to   { background-position: -200% 0; }\n}</code></pre>\n<h3 id=\"web-development-handbook-p2-tooltip\">Tooltip</h3>\n<pre><code class=\"language-html\">&lt;button class=&quot;tooltip-trigger&quot; data-tooltip=&quot;Delete this item&quot;&gt;\n  Delete\n&lt;/button&gt;</code></pre>\n<pre><code class=\"language-css\">.tooltip-trigger {\n  position: relative;\n}\n\n.tooltip-trigger::before {\n  content: attr(data-tooltip);\n  position: absolute;\n  bottom: calc(100% + 8px);\n  left: 50%;\n  transform: translateX(-50%);\n  background: #1a1a1a;\n  color: white;\n  padding: 4px 10px;\n  border-radius: 6px;\n  font-size: 0.8rem;\n  white-space: nowrap;\n  pointer-events: none;\n  opacity: 0;\n  transition: opacity 200ms;\n}\n\n.tooltip-trigger::after {\n  content: &quot;&quot;;\n  position: absolute;\n  bottom: calc(100% + 2px);\n  left: 50%;\n  transform: translateX(-50%);\n  border: 6px solid transparent;\n  border-top-color: #1a1a1a;\n  pointer-events: none;\n  opacity: 0;\n  transition: opacity 200ms;\n}\n\n.tooltip-trigger:hover::before,\n.tooltip-trigger:hover::after,\n.tooltip-trigger:focus::before,\n.tooltip-trigger:focus::after {\n  opacity: 1;\n}</code></pre>\n<h3 id=\"web-development-handbook-p2-dropdown-menu\">Dropdown Menu</h3>\n<pre><code class=\"language-html\">&lt;div class=&quot;dropdown&quot;&gt;\n  &lt;button class=&quot;btn dropdown-trigger&quot; aria-expanded=&quot;false&quot;\n          aria-haspopup=&quot;menu&quot;&gt;\n    Options \u25be\n  &lt;/button&gt;\n  &lt;div class=&quot;dropdown-menu&quot; role=&quot;menu&quot; hidden&gt;\n    &lt;a role=&quot;menuitem&quot; class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Edit&lt;/a&gt;\n    &lt;a role=&quot;menuitem&quot; class=&quot;dropdown-item&quot; href=&quot;#&quot;&gt;Duplicate&lt;/a&gt;\n    &lt;div class=&quot;dropdown-divider&quot;&gt;&lt;/div&gt;\n    &lt;button role=&quot;menuitem&quot; class=&quot;dropdown-item dropdown-item--danger&quot;&gt;Delete&lt;/button&gt;\n  &lt;/div&gt;\n&lt;/div&gt;</code></pre>\n<pre><code class=\"language-css\">.dropdown {\n  position: relative;\n  display: inline-block;\n}\n\n.dropdown-menu {\n  position: absolute;\n  top: calc(100% + 4px);\n  left: 0;\n  min-width: 160px;\n  background: var(--color-surface);\n  border: 1px solid var(--color-border);\n  border-radius: 8px;\n  box-shadow: var(--shadow-md);\n  padding: 4px;\n  z-index: 50;\n}\n\n.dropdown-menu[hidden] { display: none; }\n\n.dropdown-item {\n  display: block;\n  width: 100%;\n  padding: 8px 12px;\n  text-decoration: none;\n  background: none;\n  border: none;\n  text-align: left;\n  border-radius: 6px;\n  font-size: 0.9rem;\n  cursor: pointer;\n  color: var(--color-text);\n}\n\n.dropdown-item:hover {\n  background: rgba(0,0,0,0.05);\n}\n\n.dropdown-item--danger {\n  color: var(--color-danger);\n}\n\n.dropdown-divider {\n  height: 1px;\n  background: var(--color-border);\n  margin: 4px 0;\n}</code></pre>\n<pre><code class=\"language-js\">document.querySelectorAll(&quot;.dropdown&quot;).forEach(dropdown =&gt; {\n  const trigger = dropdown.querySelector(&quot;.dropdown-trigger&quot;);\n  const menu = dropdown.querySelector(&quot;.dropdown-menu&quot;);\n\n  trigger.addEventListener(&quot;click&quot;, (e) =&gt; {\n    e.stopPropagation();\n    const isOpen = trigger.getAttribute(&quot;aria-expanded&quot;) === &quot;true&quot;;\n    trigger.setAttribute(&quot;aria-expanded&quot;, !isOpen);\n    menu.hidden = isOpen;\n  });\n\n  // Close when clicking outside\n  document.addEventListener(&quot;click&quot;, () =&gt; {\n    trigger.setAttribute(&quot;aria-expanded&quot;, &quot;false&quot;);\n    menu.hidden = true;\n  });\n\n  // Keyboard: Escape closes\n  document.addEventListener(&quot;keydown&quot;, (e) =&gt; {\n    if (e.key === &quot;Escape&quot;) {\n      trigger.setAttribute(&quot;aria-expanded&quot;, &quot;false&quot;);\n      menu.hidden = true;\n      trigger.focus();\n    }\n  });\n});</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p2-103-layout-components\">10.3 \u2014 Layout Components</h2>\n<h3 id=\"web-development-handbook-p2-hero-section\">Hero Section</h3>\n<p>The large, prominent section at the top of a landing page.</p>\n<pre><code class=\"language-html\">&lt;section class=&quot;hero&quot;&gt;\n  &lt;div class=&quot;container&quot;&gt;\n    &lt;p class=&quot;hero-eyebrow&quot;&gt;Introducing v2.0&lt;/p&gt;\n    &lt;h1 class=&quot;hero-title&quot;&gt;Build websites that&lt;br&gt; actually work.&lt;/h1&gt;\n    &lt;p class=&quot;hero-subtitle&quot;&gt;\n      A complete handbook for learning modern web development from\n      scratch. No fluff. Pure fundamentals.\n    &lt;/p&gt;\n    &lt;div class=&quot;hero-actions&quot;&gt;\n      &lt;a href=&quot;#start&quot; class=&quot;btn btn--primary btn--lg&quot;&gt;Get Started \u2192&lt;/a&gt;\n      &lt;a href=&quot;#demo&quot; class=&quot;btn btn--ghost btn--lg&quot;&gt;Watch Demo&lt;/a&gt;\n    &lt;/div&gt;\n  &lt;/div&gt;\n&lt;/section&gt;</code></pre>\n<pre><code class=\"language-css\">.hero {\n  padding: 80px 0;\n  text-align: center;\n}\n\n.container {\n  width: 90%;\n  max-width: 1200px;\n  margin: 0 auto;\n}\n\n.hero-eyebrow {\n  display: inline-block;\n  padding: 4px 12px;\n  background: rgba(42, 110, 245, 0.1);\n  color: var(--color-primary);\n  border-radius: 99px;\n  font-size: 0.875rem;\n  font-weight: 600;\n  margin-bottom: 20px;\n}\n\n.hero-title {\n  font-size: clamp(2rem, 5vw, 4rem);\n  font-weight: 800;\n  line-height: 1.1;\n  margin: 0 0 20px;\n}\n\n.hero-subtitle {\n  font-size: clamp(1rem, 2vw, 1.25rem);\n  color: var(--color-muted);\n  max-width: 600px;\n  margin: 0 auto 32px;\n  line-height: 1.6;\n}\n\n.hero-actions {\n  display: flex;\n  justify-content: center;\n  gap: 12px;\n  flex-wrap: wrap;\n}</code></pre>\n<h3 id=\"web-development-handbook-p2-responsive-card-grid\">Responsive Card Grid</h3>\n<pre><code class=\"language-html\">&lt;section class=&quot;card-grid&quot;&gt;\n  &lt;article class=&quot;card&quot;&gt;...&lt;/article&gt;\n  &lt;article class=&quot;card&quot;&gt;...&lt;/article&gt;\n  &lt;article class=&quot;card&quot;&gt;...&lt;/article&gt;\n  &lt;article class=&quot;card&quot;&gt;...&lt;/article&gt;\n&lt;/section&gt;</code></pre>\n<pre><code class=\"language-css\">.card-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));\n  gap: 24px;\n  padding: 24px 0;\n}</code></pre>\n<h3 id=\"web-development-handbook-p2-dashboard-layout\">Dashboard Layout</h3>\n<pre><code class=\"language-html\">&lt;div class=&quot;dashboard&quot;&gt;\n  &lt;aside class=&quot;dashboard-sidebar&quot;&gt;\n    &lt;!-- Sidebar nav --&gt;\n  &lt;/aside&gt;\n  &lt;div class=&quot;dashboard-content&quot;&gt;\n    &lt;header class=&quot;dashboard-topbar&quot;&gt;\n      &lt;h1&gt;Dashboard&lt;/h1&gt;\n    &lt;/header&gt;\n    &lt;main class=&quot;dashboard-main&quot;&gt;\n      &lt;div class=&quot;stats-grid&quot;&gt;\n        &lt;div class=&quot;stat-card&quot;&gt;...&lt;/div&gt;\n        &lt;div class=&quot;stat-card&quot;&gt;...&lt;/div&gt;\n        &lt;div class=&quot;stat-card&quot;&gt;...&lt;/div&gt;\n      &lt;/div&gt;\n    &lt;/main&gt;\n  &lt;/div&gt;\n&lt;/div&gt;</code></pre>\n<pre><code class=\"language-css\">.dashboard {\n  display: flex;\n  min-height: 100vh;\n}\n\n.dashboard-sidebar {\n  width: 240px;\n  flex-shrink: 0;\n}\n\n.dashboard-content {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  min-width: 0;  /* Prevent flex children from overflowing */\n}\n\n.dashboard-topbar {\n  height: 64px;\n  border-bottom: 1px solid var(--color-border);\n  display: flex;\n  align-items: center;\n  padding: 0 32px;\n  position: sticky;\n  top: 0;\n  background: var(--color-bg);\n  z-index: 10;\n}\n\n.dashboard-main {\n  padding: 32px;\n  flex: 1;\n}\n\n.stats-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));\n  gap: 24px;\n}\n\n.stat-card {\n  background: var(--color-surface);\n  border: 1px solid var(--color-border);\n  border-radius: 12px;\n  padding: 24px;\n}</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p2-104-form-components\">10.4 \u2014 Form Components</h2>\n<h3 id=\"web-development-handbook-p2-styled-input-group\">Styled Input Group</h3>\n<pre><code class=\"language-html\">&lt;div class=&quot;input-group&quot;&gt;\n  &lt;label class=&quot;label&quot; for=&quot;search&quot;&gt;Search&lt;/label&gt;\n  &lt;div class=&quot;input-wrapper&quot;&gt;\n    &lt;svg class=&quot;input-icon&quot; aria-hidden=&quot;true&quot;&gt;...&lt;/svg&gt;\n    &lt;input class=&quot;input&quot; type=&quot;search&quot; id=&quot;search&quot;\n           placeholder=&quot;Search projects...&quot;&gt;\n  &lt;/div&gt;\n  &lt;span class=&quot;input-hint&quot;&gt;Type to search. Press Esc to clear.&lt;/span&gt;\n&lt;/div&gt;</code></pre>\n<pre><code class=\"language-css\">.input-group {\n  display: flex;\n  flex-direction: column;\n  gap: 6px;\n}\n\n.label {\n  font-size: 0.875rem;\n  font-weight: 500;\n  color: var(--color-text);\n}\n\n.input-wrapper {\n  position: relative;\n}\n\n.input-icon {\n  position: absolute;\n  left: 12px;\n  top: 50%;\n  transform: translateY(-50%);\n  width: 16px;\n  height: 16px;\n  color: var(--color-muted);\n  pointer-events: none;\n}\n\n.input {\n  width: 100%;\n  padding: 10px 12px 10px 36px; /* Left padding for icon */\n  background: var(--color-bg);\n  border: 1px solid var(--color-border);\n  border-radius: 8px;\n  font-size: 0.9rem;\n  color: var(--color-text);\n  outline: none;\n  transition: border-color 150ms, box-shadow 150ms;\n}\n\n.input:focus {\n  border-color: var(--color-primary);\n  box-shadow: 0 0 0 3px rgba(42, 110, 245, 0.15);\n}\n\n.input-hint {\n  font-size: 0.8rem;\n  color: var(--color-muted);\n}</code></pre>\n<h3 id=\"web-development-handbook-p2-custom-checkbox\">Custom Checkbox</h3>\n<pre><code class=\"language-html\">&lt;label class=&quot;checkbox-label&quot;&gt;\n  &lt;input type=&quot;checkbox&quot; class=&quot;checkbox-input&quot; id=&quot;agree&quot;&gt;\n  &lt;span class=&quot;checkbox-control&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;\n  &lt;span class=&quot;checkbox-text&quot;&gt;I agree to the terms&lt;/span&gt;\n&lt;/label&gt;</code></pre>\n<pre><code class=\"language-css\">.checkbox-label {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  cursor: pointer;\n}\n\n.checkbox-input {\n  position: absolute;\n  opacity: 0;\n  width: 0;\n  height: 0;\n}\n\n.checkbox-control {\n  width: 18px;\n  height: 18px;\n  border: 2px solid var(--color-border);\n  border-radius: 4px;\n  flex-shrink: 0;\n  transition: background 150ms, border-color 150ms;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.checkbox-input:checked + .checkbox-control {\n  background: var(--color-primary);\n  border-color: var(--color-primary);\n}\n\n.checkbox-input:checked + .checkbox-control::after {\n  content: &quot;&quot;;\n  width: 10px;\n  height: 6px;\n  border: 2px solid white;\n  border-top: none;\n  border-right: none;\n  transform: rotate(-45deg) translateY(-1px);\n}\n\n.checkbox-input:focus + .checkbox-control {\n  box-shadow: 0 0 0 3px rgba(42, 110, 245, 0.2);\n}</code></pre>\n<h3 id=\"web-development-handbook-p2-toggle-switch\">Toggle Switch</h3>\n<pre><code class=\"language-html\">&lt;label class=&quot;toggle-label&quot;&gt;\n  &lt;input type=&quot;checkbox&quot; class=&quot;toggle-input&quot; role=&quot;switch&quot;&gt;\n  &lt;span class=&quot;toggle-track&quot;&gt;\n    &lt;span class=&quot;toggle-thumb&quot;&gt;&lt;/span&gt;\n  &lt;/span&gt;\n  &lt;span class=&quot;toggle-text&quot;&gt;Enable notifications&lt;/span&gt;\n&lt;/label&gt;</code></pre>\n<pre><code class=\"language-css\">.toggle-label {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  cursor: pointer;\n}\n\n.toggle-input {\n  position: absolute;\n  opacity: 0;\n  width: 0;\n  height: 0;\n}\n\n.toggle-track {\n  width: 44px;\n  height: 24px;\n  background: var(--color-border);\n  border-radius: 9999px;\n  position: relative;\n  transition: background 200ms;\n  flex-shrink: 0;\n}\n\n.toggle-input:checked + .toggle-track {\n  background: var(--color-primary);\n}\n\n.toggle-thumb {\n  position: absolute;\n  top: 3px;\n  left: 3px;\n  width: 18px;\n  height: 18px;\n  background: white;\n  border-radius: 50%;\n  transition: transform 200ms;\n  box-shadow: 0 1px 3px rgba(0,0,0,0.2);\n}\n\n.toggle-input:checked + .toggle-track .toggle-thumb {\n  transform: translateX(20px);\n}\n\n.toggle-input:focus + .toggle-track {\n  box-shadow: 0 0 0 3px rgba(42, 110, 245, 0.2);\n}</code></pre>\n<h3 id=\"web-development-handbook-p2-pagination\">Pagination</h3>\n<pre><code class=\"language-html\">&lt;nav aria-label=&quot;Pagination&quot;&gt;\n  &lt;ul class=&quot;pagination&quot;&gt;\n    &lt;li&gt;&lt;a class=&quot;page-btn&quot; href=&quot;?page=1&quot; aria-label=&quot;Previous&quot;&gt;\u2039&lt;/a&gt;&lt;/li&gt;\n    &lt;li&gt;&lt;a class=&quot;page-btn active&quot; href=&quot;?page=1&quot; aria-current=&quot;page&quot;&gt;1&lt;/a&gt;&lt;/li&gt;\n    &lt;li&gt;&lt;a class=&quot;page-btn&quot; href=&quot;?page=2&quot;&gt;2&lt;/a&gt;&lt;/li&gt;\n    &lt;li&gt;&lt;a class=&quot;page-btn&quot; href=&quot;?page=3&quot;&gt;3&lt;/a&gt;&lt;/li&gt;\n    &lt;li&gt;&lt;span class=&quot;page-ellipsis&quot;&gt;\u2026&lt;/span&gt;&lt;/li&gt;\n    &lt;li&gt;&lt;a class=&quot;page-btn&quot; href=&quot;?page=10&quot;&gt;10&lt;/a&gt;&lt;/li&gt;\n    &lt;li&gt;&lt;a class=&quot;page-btn&quot; href=&quot;?page=2&quot; aria-label=&quot;Next&quot;&gt;\u203a&lt;/a&gt;&lt;/li&gt;\n  &lt;/ul&gt;\n&lt;/nav&gt;</code></pre>\n<pre><code class=\"language-css\">.pagination {\n  list-style: none;\n  display: flex;\n  align-items: center;\n  gap: 4px;\n  padding: 0;\n  margin: 24px 0;\n}\n\n.page-btn {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 36px;\n  height: 36px;\n  border-radius: 8px;\n  text-decoration: none;\n  font-size: 0.9rem;\n  color: var(--color-muted);\n  transition: background 150ms, color 150ms;\n}\n\n.page-btn:hover {\n  background: rgba(0,0,0,0.05);\n  color: var(--color-text);\n}\n\n.page-btn.active {\n  background: var(--color-primary);\n  color: white;\n}\n\n.page-ellipsis {\n  padding: 0 8px;\n  color: var(--color-muted);\n}</code></pre>\n<hr />\n<hr />\n<h1 id=\"web-development-handbook-p2-part-11-accessibility-a11y\">PART 11 \u2014 Accessibility (A11Y)</h1>\n<h2 id=\"web-development-handbook-p2-what-this-part-covers-2\">What This Part Covers</h2>\n<p>Accessibility means building websites that everyone can use \u2014 including people with visual, motor, auditory, or cognitive disabilities. It's not optional: in many countries it's legally required for public-facing websites.</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-111-why-accessibility-matters\">11.1 \u2014 Why Accessibility Matters</h2>\n<p><strong>The numbers:</strong> Roughly 15-20% of the world's population has some form of disability. This includes:</p>\n<ul><li>Vision: blindness, low vision, color blindness</li><li>Motor: limited hand movement, tremors, inability to use a mouse</li><li>Hearing: deafness, hard of hearing</li><li>Cognitive: dyslexia, ADHD, memory impairments</li></ul>\n<p><strong>The business case:</strong> Accessible websites reach more users, rank better in search engines (semantic HTML helps SEO), reduce legal liability, and often have better UX for everyone. Captions help hearing-impaired users but also people watching in noisy environments.</p>\n<p><strong>The technical reality:</strong> Most accessibility best practices are good HTML and CSS practices anyway.</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-112-semantic-html-and-aria\">11.2 \u2014 Semantic HTML and ARIA</h2>\n<p><strong>First rule of ARIA: don't use ARIA if you can use semantic HTML.</strong></p>\n<pre><code class=\"language-html\">&lt;!-- Semantic HTML already has built-in accessibility --&gt;\n&lt;button&gt;Click me&lt;/button&gt;       &lt;!-- Focusable, activatable with Space/Enter --&gt;\n&lt;a href=&quot;/about&quot;&gt;About&lt;/a&gt;      &lt;!-- Keyboard accessible, announced as &quot;link&quot; --&gt;\n&lt;input type=&quot;checkbox&quot;&gt;         &lt;!-- Toggled with Space, announced as &quot;checkbox&quot; --&gt;\n\n&lt;!-- Only use ARIA when no semantic element exists --&gt;\n&lt;div role=&quot;alert&quot;&gt;Error message&lt;/div&gt;  &lt;!-- Announces to screen readers --&gt;\n&lt;div role=&quot;dialog&quot;&gt;...&lt;/div&gt;           &lt;!-- Announces as a dialog --&gt;\n&lt;div role=&quot;tablist&quot;&gt;...&lt;/div&gt;          &lt;!-- Announces as a tab container --&gt;</code></pre>\n<p><strong>Common ARIA attributes:</strong></p>\n<pre><code class=\"language-html\">&lt;!-- Labels --&gt;\n&lt;button aria-label=&quot;Close dialog&quot;&gt;\u00d7&lt;/button&gt;\n&lt;img src=&quot;logo.png&quot; alt=&quot;Company logo&quot;&gt;  &lt;!-- alt is better than aria-label for images --&gt;\n\n&lt;!-- Expanded/collapsed states --&gt;\n&lt;button aria-expanded=&quot;false&quot; aria-controls=&quot;menu&quot;&gt;Menu&lt;/button&gt;\n&lt;ul id=&quot;menu&quot; hidden&gt;...&lt;/ul&gt;\n\n&lt;!-- Current page in navigation --&gt;\n&lt;a href=&quot;/about&quot; aria-current=&quot;page&quot;&gt;About&lt;/a&gt;\n\n&lt;!-- Live regions (announce dynamic content changes) --&gt;\n&lt;div aria-live=&quot;polite&quot;&gt;Loading complete. 42 results found.&lt;/div&gt;\n&lt;div aria-live=&quot;assertive&quot;&gt;Error: form submission failed.&lt;/div&gt;\n\n&lt;!-- Hidden from screen readers (decorative elements) --&gt;\n&lt;svg aria-hidden=&quot;true&quot;&gt;...&lt;/svg&gt;\n&lt;span aria-hidden=&quot;true&quot;&gt;\u2192&lt;/span&gt;\n\n&lt;!-- Required form fields --&gt;\n&lt;input required aria-required=&quot;true&quot;&gt;\n\n&lt;!-- Invalid form fields --&gt;\n&lt;input aria-invalid=&quot;true&quot; aria-describedby=&quot;error-msg&quot;&gt;\n&lt;span id=&quot;error-msg&quot;&gt;This field is required&lt;/span&gt;</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p2-113-keyboard-navigation\">11.3 \u2014 Keyboard Navigation</h2>\n<p>Every interactive element must be usable with a keyboard alone. Users who cannot use a mouse (motor impairments) or prefer keyboard navigation depend on this.</p>\n<p><strong>How keyboard navigation works:</strong></p>\n<ul><li><code>Tab</code> moves focus to the next focusable element</li><li><code>Shift+Tab</code> moves focus backward</li><li><code>Enter</code> activates links and buttons</li><li><code>Space</code> activates checkboxes and buttons</li><li><code>Arrow keys</code> navigate within components (menus, tabs, etc.)</li><li><code>Escape</code> closes dialogs and menus</li></ul>\n<p><strong>Which elements are focusable by default:</strong></p>\n<ul><li><code>&lt;a&gt;</code> with <code>href</code></li><li><code>&lt;button&gt;</code></li><li><code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;select&gt;</code></li><li>Elements with <code>tabindex=\"0\"</code></li></ul>\n<p><strong>Removing elements from focus order:</strong></p>\n<pre><code class=\"language-html\">&lt;button tabindex=&quot;-1&quot;&gt;Not focusable with Tab&lt;/button&gt;</code></pre>\n<p><strong>Making custom elements focusable:</strong></p>\n<pre><code class=\"language-html\">&lt;div tabindex=&quot;0&quot; role=&quot;button&quot; class=&quot;custom-btn&quot;&gt;Click me&lt;/div&gt;</code></pre>\n<p><strong>Always make focus states visible:</strong></p>\n<pre><code class=\"language-css\">/* Never do this \u2014 it removes focus visibility for keyboard users */\n*:focus { outline: none; }\n\n/* Do this instead \u2014 custom visible focus styles */\n:focus-visible {\n  outline: 2px solid var(--color-primary);\n  outline-offset: 2px;\n}</code></pre>\n<p>The difference between <code>:focus</code> and <code>:focus-visible</code>:</p>\n<ul><li><code>:focus</code> triggers on both mouse click and keyboard navigation</li><li><code>:focus-visible</code> triggers only when keyboard navigation is detected</li></ul>\n<p>Use <code>:focus-visible</code> to show focus rings for keyboard users without showing them for mouse users (which often looks awkward).</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-114-color-contrast\">11.4 \u2014 Color Contrast</h2>\n<p>All text must have sufficient contrast against its background.</p>\n<p><strong>WCAG AA requirements:</strong></p>\n<ul><li>Normal text (&lt; 18px regular or &lt; 14px bold): 4.5:1 contrast ratio</li><li>Large text (\u2265 18px regular or \u2265 14px bold): 3:1 contrast ratio</li><li>UI components (borders, icons): 3:1 contrast ratio</li></ul>\n<p><strong>Tools to check contrast:</strong></p>\n<ul><li>Browser DevTools: Inspect an element \u2192 Accessibility tab \u2192 Color contrast</li><li>WebAIM Contrast Checker: webaim.org/resources/contrastchecker</li><li>Chrome DevTools: Lighthouse \u2192 Accessibility audit</li></ul>\n<p><strong>Color blindness:</strong> Don't rely on color alone to convey meaning. Always pair color with a label, icon, or pattern.</p>\n<pre><code class=\"language-html\">&lt;!-- Bad: error is conveyed by red color alone --&gt;\n&lt;input style=&quot;border-color: red&quot;&gt;\n\n&lt;!-- Good: error conveyed by color AND text AND icon --&gt;\n&lt;input style=&quot;border-color: red&quot; aria-invalid=&quot;true&quot;&gt;\n&lt;span class=&quot;error-text&quot;&gt;\n  &lt;svg aria-hidden=&quot;true&quot;&gt;...&lt;/svg&gt; This field is required\n&lt;/span&gt;</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p2-115-focus-trap-for-modals\">11.5 \u2014 Focus Trap for Modals</h2>\n<p>When a modal is open, focus should be trapped inside it \u2014 Tab should cycle through the modal's focusable elements only, not the content behind.</p>\n<pre><code class=\"language-js\">function trapFocus(element) {\n  const focusable = element.querySelectorAll(\n    &#x27;button, [href], input, select, textarea, [tabindex]:not([tabindex=&quot;-1&quot;])&#x27;\n  );\n  const first = focusable[0];\n  const last = focusable[focusable.length - 1];\n\n  element.addEventListener(&quot;keydown&quot;, (e) =&gt; {\n    if (e.key !== &quot;Tab&quot;) return;\n\n    if (e.shiftKey) {\n      // Shift+Tab: if at first, wrap to last\n      if (document.activeElement === first) {\n        e.preventDefault();\n        last.focus();\n      }\n    } else {\n      // Tab: if at last, wrap to first\n      if (document.activeElement === last) {\n        e.preventDefault();\n        first.focus();\n      }\n    }\n  });\n}</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p2-116-accessibility-checklist\">11.6 \u2014 Accessibility Checklist</h2>\n<p>Use this before declaring any project \"done\":</p>\n<p><strong>Structure:</strong></p>\n<ul><li>[ ] One <code>&lt;h1&gt;</code> per page \u2014 the page's primary topic</li><li>[ ] Heading levels in order (h1 \u2192 h2 \u2192 h3), never skipped</li><li>[ ] <code>&lt;main&gt;</code> wraps primary content</li><li>[ ] Navigation in <code>&lt;nav&gt;</code> with <code>aria-label</code> if multiple navs exist</li><li>[ ] Page has a <code>&lt;title&gt;</code> that describes this specific page</li></ul>\n<p><strong>Images:</strong></p>\n<ul><li>[ ] Every <code>&lt;img&gt;</code> has an <code>alt</code> attribute</li><li>[ ] Decorative images have <code>alt=\"\"</code></li><li>[ ] SVG icons have <code>aria-hidden=\"true\"</code> if decorative</li></ul>\n<p><strong>Forms:</strong></p>\n<ul><li>[ ] Every input has a visible <code>&lt;label&gt;</code></li><li>[ ] Required fields marked with <code>required</code> and <code>aria-required</code></li><li>[ ] Error messages linked to their inputs with <code>aria-describedby</code></li></ul>\n<p><strong>Keyboard:</strong></p>\n<ul><li>[ ] All interactive elements focusable via Tab</li><li>[ ] Focus states visible for all interactive elements</li><li>[ ] Modals trap focus when open</li><li>[ ] Modals return focus to trigger when closed</li></ul>\n<p><strong>Color:</strong></p>\n<ul><li>[ ] All text meets 4.5:1 contrast ratio</li><li>[ ] Error/success states not conveyed by color alone</li></ul>\n<p><strong>Dynamic content:</strong></p>\n<ul><li>[ ] Content changes announced with <code>aria-live</code> regions</li><li>[ ] Loading states communicated (spinner with <code>aria-label</code>)</li></ul>\n<hr />\n<hr />\n<h1 id=\"web-development-handbook-p2-part-12-browser-devtools-debugging\">PART 12 \u2014 Browser DevTools &amp; Debugging</h1>\n<h2 id=\"web-development-handbook-p2-what-this-part-covers-3\">What This Part Covers</h2>\n<p>DevTools is the set of tools built into your browser for inspecting and debugging web pages. Learning to use DevTools effectively is one of the most valuable skills a frontend developer can have.</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-121-opening-devtools\">12.1 \u2014 Opening DevTools</h2>\n<ul><li><strong>Chrome/Edge:</strong> <code>F12</code> or <code>Ctrl+Shift+I</code> (Windows/Linux), <code>Cmd+Option+I</code> (Mac)</li><li><strong>Firefox:</strong> <code>F12</code> or <code>Ctrl+Shift+I</code></li><li><strong>Safari:</strong> Enable Developer menu in Preferences, then <code>Cmd+Option+I</code></li></ul>\n<hr />\n<h2 id=\"web-development-handbook-p2-122-the-elements-panel\">12.2 \u2014 The Elements Panel</h2>\n<p>The Elements panel shows the current DOM \u2014 not your source HTML file, but the live version with any JavaScript modifications.</p>\n<p><strong>What you can do:</strong></p>\n<ul><li>Click any element in the panel to inspect it</li><li>See applied CSS styles in the right panel (Styles tab)</li><li>See computed styles \u2014 the final values after all cascade/inheritance</li><li>See the box model diagram (with clickable margin/padding/border areas)</li><li>Edit HTML live: double-click any attribute or text to edit it</li><li>Add/remove/edit CSS rules directly in the browser to test changes</li></ul>\n<p><strong>Workflow for debugging CSS:</strong></p>\n<ol><li>Right-click the element on the page \u2192 \"Inspect\"</li><li>The element is highlighted in the Elements panel</li><li>Styles panel shows all CSS rules \u2014 crossed-out rules were overridden</li><li>Try adding CSS in the browser first to test it, then copy to your file</li></ol>\n<p><strong>Reading the Styles panel:</strong></p>\n<ul><li>Rules listed from most specific to least specific (top = wins)</li><li>Strikethrough = overridden by a higher-specificity rule</li><li>Gray italic = inherited from parent</li><li><code>element.style</code> at the top = inline styles</li></ul>\n<hr />\n<h2 id=\"web-development-handbook-p2-123-the-console\">12.3 \u2014 The Console</h2>\n<p>The Console executes JavaScript, shows errors and warnings, and displays <code>console.log</code> output.</p>\n<p><strong>Console methods:</strong></p>\n<pre><code class=\"language-js\">console.log(&quot;Basic log&quot;);\nconsole.warn(&quot;Yellow warning&quot;);\nconsole.error(&quot;Red error&quot;);\nconsole.table([{a: 1}, {a: 2}]);     // Display array/object as table\nconsole.group(&quot;Group label&quot;);          // Collapsible group\nconsole.log(&quot;Inside group&quot;);\nconsole.groupEnd();\nconsole.time(&quot;timer&quot;);                 // Start a timer\n// ... code ...\nconsole.timeEnd(&quot;timer&quot;);             // Log elapsed time\nconsole.trace();                       // Print call stack</code></pre>\n<p><strong>Running JavaScript in the console:</strong> You can type any JavaScript expression in the console and it will execute on the current page. This is useful for quickly testing selectors:</p>\n<pre><code class=\"language-js\">document.querySelector(&quot;.card&quot;)     // Returns first matching element\ndocument.querySelectorAll(&quot;a&quot;).length  // Count links\ndocument.title                        // Read page title</code></pre>\n<p><strong>Reading error messages:</strong> A red error message typically looks like:</p>\n<pre><code>Uncaught TypeError: Cannot read properties of null (reading &#x27;addEventListener&#x27;)\n    at main.js:42:15</code></pre>\n<p>Reading this:</p>\n<ul><li><code>TypeError</code> \u2014 the type of error</li><li><code>Cannot read properties of null</code> \u2014 what went wrong (trying to use <code>.addEventListener</code> on <code>null</code>)</li><li><code>main.js:42:15</code> \u2014 file, line number, column number</li></ul>\n<p>Click the file reference to jump directly to the source.</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-124-the-network-tab\">12.4 \u2014 The Network Tab</h2>\n<p>Shows every HTTP request the page makes \u2014 HTML, CSS, JS, images, API calls.</p>\n<p><strong>Column meanings:</strong></p>\n<ul><li><strong>Name:</strong> Filename or URL</li><li><strong>Status:</strong> HTTP response code (200 = OK, 404 = Not Found, 500 = Server Error, 304 = Cached)</li><li><strong>Type:</strong> File type (document, stylesheet, script, xhr/fetch, img)</li><li><strong>Size:</strong> Response size (or \"(disk cache)\" if cached)</li><li><strong>Time:</strong> How long the request took</li></ul>\n<p><strong>Debugging network issues:</strong></p>\n<ul><li>A red row means the request failed (404, 500, etc.)</li><li>Click any request to see its details: headers, preview, response body</li><li>Use the filter bar to show only XHR (API calls), JS, CSS, or images</li><li>\"Preserve log\" checkbox keeps history across page navigations</li></ul>\n<p><strong>Testing API responses:</strong> When your JavaScript makes a <code>fetch()</code> call, it appears in the Network tab. Click it to see:</p>\n<ul><li>The request URL and method</li><li>Request headers (including auth tokens if any)</li><li>The response JSON</li><li>Status code</li></ul>\n<p>This lets you verify your API calls are sending the right data and receiving the right responses.</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-125-debugging-javascript\">12.5 \u2014 Debugging JavaScript</h2>\n<p><strong>Setting breakpoints:</strong></p>\n<ol><li>Open the Sources tab</li><li>Navigate to your JS file in the file tree</li><li>Click a line number to set a breakpoint (blue dot appears)</li><li>Reload the page or trigger the action</li><li>Execution pauses at the breakpoint</li><li>Inspect variables in the right panel</li><li>Use step buttons: Step Over (next line), Step Into (enter function), Step Out, Continue</li></ol>\n<p><strong>Console breakpoints:</strong> Add <code>debugger;</code> to your JavaScript code \u2014 equivalent to clicking the line in DevTools:</p>\n<pre><code class=\"language-js\">function processData(data) {\n  debugger;  // Execution pauses here when DevTools is open\n  return data.map(item =&gt; item.value);\n}</code></pre>\n<p><strong>Common debugging patterns:</strong></p>\n<pre><code class=\"language-js\">// Log the type of a variable (common confusion point)\nconsole.log(typeof myVar);  // &quot;string&quot;, &quot;number&quot;, &quot;object&quot;, &quot;undefined&quot;, etc.\n\n// Log an object with a label\nconst user = { name: &quot;Alex&quot; };\nconsole.log(&quot;user:&quot;, user);  // Shows the label and the object\n\n// Check if something is null/undefined before using it\nconsole.log(&quot;element exists:&quot;, !!document.querySelector(&quot;.my-class&quot;));\n\n// Log function arguments when debugging\nfunction calculate(a, b) {\n  console.log(&quot;calculate called with:&quot;, a, b);\n  return a + b;\n}</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p2-126-the-lighthouse-audit\">12.6 \u2014 The Lighthouse Audit</h2>\n<p>Lighthouse is built into Chrome DevTools (in the \"Lighthouse\" tab). It automatically audits your page and gives scores and recommendations for:</p>\n<ul><li><strong>Performance:</strong> Loading speed, image optimization, render-blocking resources</li><li><strong>Accessibility:</strong> Missing labels, contrast issues, missing alt text</li><li><strong>Best Practices:</strong> HTTPS, console errors, modern APIs</li><li><strong>SEO:</strong> Meta tags, crawlability, mobile-friendliness</li></ul>\n<p>Run a Lighthouse audit before shipping any project. Aim for scores above 90 in all categories.</p>\n<hr />\n<hr />\n<h1 id=\"web-development-handbook-p2-part-13-project-organization\">PART 13 \u2014 Project Organization</h1>\n<h2 id=\"web-development-handbook-p2-what-this-part-covers-4\">What This Part Covers</h2>\n<p>How you organize your project files determines how easy the project is to maintain, scale, and understand. Good organization is invisible when done right and painful when done wrong.</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-131-the-single-page-starter\">13.1 \u2014 The Single-Page Starter</h2>\n<p>For a simple one-page website, this is all you need:</p>\n<pre><code>project/\n\u251c\u2500\u2500 index.html\n\u251c\u2500\u2500 styles.css\n\u251c\u2500\u2500 script.js\n\u2514\u2500\u2500 images/\n    \u2514\u2500\u2500 logo.png</code></pre>\n<p><strong>Rules for this structure:</strong></p>\n<ul><li><code>index.html</code> is always the main file (servers automatically serve <code>index.html</code> when a directory is requested)</li><li>All paths in HTML are relative to <code>index.html</code>'s location</li></ul>\n<hr />\n<h2 id=\"web-development-handbook-p2-132-multi-page-structure\">13.2 \u2014 Multi-Page Structure</h2>\n<p>When you have multiple pages:</p>\n<pre><code>project/\n\u251c\u2500\u2500 index.html           \u2190 Home page\n\u251c\u2500\u2500 about.html           \u2190 About page\n\u251c\u2500\u2500 contact.html         \u2190 Contact page\n\u251c\u2500\u2500 styles/\n\u2502   \u251c\u2500\u2500 main.css         \u2190 Shared styles for all pages\n\u2502   \u2514\u2500\u2500 about.css        \u2190 Styles specific to about page\n\u251c\u2500\u2500 scripts/\n\u2502   \u251c\u2500\u2500 main.js          \u2190 Shared scripts\n\u2502   \u2514\u2500\u2500 contact.js       \u2190 Scripts for contact page only\n\u2514\u2500\u2500 images/\n    \u251c\u2500\u2500 hero.jpg\n    \u2514\u2500\u2500 team/\n        \u251c\u2500\u2500 alex.jpg\n        \u2514\u2500\u2500 jordan.jpg</code></pre>\n<p><strong>Path syntax:</strong></p>\n<pre><code class=\"language-html\">&lt;!-- From index.html, linking to about.html in same folder --&gt;\n&lt;a href=&quot;about.html&quot;&gt;About&lt;/a&gt;\n\n&lt;!-- From index.html, linking to CSS in styles/ subfolder --&gt;\n&lt;link rel=&quot;stylesheet&quot; href=&quot;styles/main.css&quot;&gt;\n\n&lt;!-- From about.html, linking to image in images/team/ --&gt;\n&lt;img src=&quot;images/team/alex.jpg&quot; alt=&quot;Alex&quot;&gt;\n\n&lt;!-- Going UP a directory with ../ --&gt;\n&lt;!-- (If about.html is in a subfolder and needs to reach the root) --&gt;\n&lt;link rel=&quot;stylesheet&quot; href=&quot;../styles/main.css&quot;&gt;</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p2-133-scalable-structure\">13.3 \u2014 Scalable Structure</h2>\n<p>For larger projects or when using modern tooling:</p>\n<pre><code>project/\n\u251c\u2500\u2500 index.html\n\u251c\u2500\u2500 package.json              \u2190 Project metadata and dependencies\n\u251c\u2500\u2500 .gitignore                \u2190 Files not tracked by git\n\u251c\u2500\u2500 README.md                 \u2190 Project documentation\n\u2502\n\u251c\u2500\u2500 src/                      \u2190 Source files (what you edit)\n\u2502   \u251c\u2500\u2500 main.js\n\u2502   \u251c\u2500\u2500 styles/\n\u2502   \u2502   \u251c\u2500\u2500 base.css          \u2190 Variables, reset, typography\n\u2502   \u2502   \u251c\u2500\u2500 components.css    \u2190 Reusable component styles\n\u2502   \u2502   \u251c\u2500\u2500 layout.css        \u2190 Page structure styles\n\u2502   \u2502   \u2514\u2500\u2500 utilities.css     \u2190 Helper classes\n\u2502   \u2514\u2500\u2500 components/\n\u2502       \u251c\u2500\u2500 navbar.js\n\u2502       \u251c\u2500\u2500 modal.js\n\u2502       \u2514\u2500\u2500 accordion.js\n\u2502\n\u251c\u2500\u2500 assets/                   \u2190 Static assets\n\u2502   \u251c\u2500\u2500 images/\n\u2502   \u251c\u2500\u2500 fonts/\n\u2502   \u2514\u2500\u2500 icons/\n\u2502\n\u2514\u2500\u2500 dist/                     \u2190 Built output (generated, don&#x27;t edit)</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p2-134-separating-concerns\">13.4 \u2014 Separating Concerns</h2>\n<p>\"Separation of concerns\" means each file should have one clear responsibility.</p>\n<p><strong>Don't do this:</strong></p>\n<pre><code class=\"language-html\">&lt;!-- index.html \u2014 BAD: mixes structure, style, and behavior --&gt;\n&lt;h1 style=&quot;color: red; font-size: 2rem;&quot;&gt;My Heading&lt;/h1&gt;\n&lt;button onclick=&quot;alert(&#x27;clicked&#x27;)&quot;&gt;Click me&lt;/button&gt;\n&lt;style&gt;\n  body { margin: 0; }\n&lt;/style&gt;</code></pre>\n<p><strong>Do this:</strong></p>\n<pre><code class=\"language-html\">&lt;!-- index.html \u2014 structure only --&gt;\n&lt;h1 class=&quot;page-title&quot;&gt;My Heading&lt;/h1&gt;\n&lt;button class=&quot;btn btn--primary&quot; id=&quot;action-btn&quot;&gt;Click me&lt;/button&gt;</code></pre>\n<pre><code class=\"language-css\">/* styles.css \u2014 styling only */\n.page-title { font-size: 2rem; color: var(--color-primary); }</code></pre>\n<pre><code class=\"language-js\">// script.js \u2014 behavior only */\ndocument.getElementById(&quot;action-btn&quot;).addEventListener(&quot;click&quot;, () =&gt; {\n  console.log(&quot;Clicked&quot;);\n});</code></pre>\n<p><strong>Why this matters:</strong></p>\n<ul><li>You can change styles without touching HTML or JavaScript</li><li>You can change behavior without touching HTML or CSS</li><li>Styles and scripts can be cached by the browser and reused across pages</li><li>Designers can edit CSS without knowing JavaScript. JavaScript developers can edit scripts without knowing CSS.</li></ul>\n<hr />\n<hr />\n<h1 id=\"web-development-handbook-p2-part-14-building-complete-pages\">PART 14 \u2014 Building Complete Pages</h1>\n<h2 id=\"web-development-handbook-p2-what-this-part-covers-5\">What This Part Covers</h2>\n<p>Theory is useless without practice. This part walks through composing complete, realistic web pages from the components and patterns you've learned.</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-141-anatomy-of-a-web-page\">14.1 \u2014 Anatomy of a Web Page</h2>\n<p>Most web pages follow a predictable structure regardless of their content:</p>\n<pre><code>\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502           HEADER              \u2502  Branding + navigation\n\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524\n\u2502            HERO               \u2502  Primary value proposition (above the fold)\n\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524\n\u2502          SECTION 1            \u2502  First content section (features, intro, etc.)\n\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524\n\u2502          SECTION 2            \u2502  Secondary content\n\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524\n\u2502            CTA                \u2502  Call to action (get started, sign up, etc.)\n\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524\n\u2502           FOOTER              \u2502  Links, copyright, social\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518</code></pre>\n<p>Each section has its own internal structure. The job of composing a page is arranging these sections in an order that guides the user toward understanding and taking action.</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-142-landing-page-complete-structure\">14.2 \u2014 Landing Page Complete Structure</h2>\n<pre><code class=\"language-html\">&lt;!DOCTYPE html&gt;\n&lt;html lang=&quot;en&quot;&gt;\n&lt;head&gt;\n  &lt;meta charset=&quot;UTF-8&quot;&gt;\n  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;\n  &lt;title&gt;MyProduct \u2014 The Better Way to Build&lt;/title&gt;\n  &lt;meta name=&quot;description&quot; content=&quot;MyProduct helps teams build faster. Less friction, more output.&quot;&gt;\n  &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/base.css&quot;&gt;\n  &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/components.css&quot;&gt;\n&lt;/head&gt;\n&lt;body&gt;\n\n  &lt;!-- NAVBAR --&gt;\n  &lt;header class=&quot;navbar&quot;&gt;\n    &lt;a href=&quot;/&quot; class=&quot;navbar-brand&quot;&gt;MyProduct&lt;/a&gt;\n    &lt;nav class=&quot;navbar-nav&quot; aria-label=&quot;Main navigation&quot;&gt;\n      &lt;a class=&quot;nav-link&quot; href=&quot;#features&quot;&gt;Features&lt;/a&gt;\n      &lt;a class=&quot;nav-link&quot; href=&quot;#pricing&quot;&gt;Pricing&lt;/a&gt;\n      &lt;a class=&quot;nav-link&quot; href=&quot;#about&quot;&gt;About&lt;/a&gt;\n    &lt;/nav&gt;\n    &lt;a href=&quot;/signup&quot; class=&quot;btn btn--primary&quot;&gt;Sign Up Free&lt;/a&gt;\n  &lt;/header&gt;\n\n  &lt;main&gt;\n\n    &lt;!-- HERO --&gt;\n    &lt;section class=&quot;hero&quot; aria-labelledby=&quot;hero-title&quot;&gt;\n      &lt;div class=&quot;container&quot;&gt;\n        &lt;p class=&quot;hero-eyebrow&quot;&gt;Now in Public Beta&lt;/p&gt;\n        &lt;h1 id=&quot;hero-title&quot; class=&quot;hero-title&quot;&gt;\n          The better way to build&lt;br&gt;your next project.\n        &lt;/h1&gt;\n        &lt;p class=&quot;hero-subtitle&quot;&gt;\n          Stop fighting your tools. MyProduct gives your team the\n          workflow they deserve \u2014 fast, clear, and maintainable.\n        &lt;/p&gt;\n        &lt;div class=&quot;hero-actions&quot;&gt;\n          &lt;a href=&quot;/signup&quot; class=&quot;btn btn--primary btn--lg&quot;&gt;Start for Free&lt;/a&gt;\n          &lt;a href=&quot;#demo&quot; class=&quot;btn btn--ghost btn--lg&quot;&gt;Watch Demo&lt;/a&gt;\n        &lt;/div&gt;\n      &lt;/div&gt;\n    &lt;/section&gt;\n\n    &lt;!-- FEATURES --&gt;\n    &lt;section id=&quot;features&quot; class=&quot;section&quot; aria-labelledby=&quot;features-title&quot;&gt;\n      &lt;div class=&quot;container&quot;&gt;\n        &lt;h2 id=&quot;features-title&quot; class=&quot;section-title&quot;&gt;Everything you need&lt;/h2&gt;\n        &lt;p class=&quot;section-subtitle&quot;&gt;Built for teams that care about quality.&lt;/p&gt;\n\n        &lt;div class=&quot;feature-grid&quot;&gt;\n          &lt;div class=&quot;feature-card&quot;&gt;\n            &lt;div class=&quot;feature-icon&quot; aria-hidden=&quot;true&quot;&gt;\u26a1&lt;/div&gt;\n            &lt;h3 class=&quot;feature-title&quot;&gt;Lightning Fast&lt;/h3&gt;\n            &lt;p class=&quot;feature-body&quot;&gt;Built for speed from the ground up. Your team won&#x27;t wait.&lt;/p&gt;\n          &lt;/div&gt;\n          &lt;div class=&quot;feature-card&quot;&gt;\n            &lt;div class=&quot;feature-icon&quot; aria-hidden=&quot;true&quot;&gt;\ud83d\udd12&lt;/div&gt;\n            &lt;h3 class=&quot;feature-title&quot;&gt;Secure by Default&lt;/h3&gt;\n            &lt;p class=&quot;feature-body&quot;&gt;Enterprise-grade security without the enterprise complexity.&lt;/p&gt;\n          &lt;/div&gt;\n          &lt;div class=&quot;feature-card&quot;&gt;\n            &lt;div class=&quot;feature-icon&quot; aria-hidden=&quot;true&quot;&gt;\ud83d\udcca&lt;/div&gt;\n            &lt;h3 class=&quot;feature-title&quot;&gt;Real Insights&lt;/h3&gt;\n            &lt;p class=&quot;feature-body&quot;&gt;See what&#x27;s working. Know what to fix. Continuously improve.&lt;/p&gt;\n          &lt;/div&gt;\n        &lt;/div&gt;\n      &lt;/div&gt;\n    &lt;/section&gt;\n\n    &lt;!-- CTA BANNER --&gt;\n    &lt;section class=&quot;cta-section&quot; aria-labelledby=&quot;cta-title&quot;&gt;\n      &lt;div class=&quot;container&quot;&gt;\n        &lt;h2 id=&quot;cta-title&quot;&gt;Ready to build better?&lt;/h2&gt;\n        &lt;p&gt;Join 10,000 developers who already switched.&lt;/p&gt;\n        &lt;a href=&quot;/signup&quot; class=&quot;btn btn--primary btn--lg&quot;&gt;Get Started \u2014 It&#x27;s Free&lt;/a&gt;\n      &lt;/div&gt;\n    &lt;/section&gt;\n\n  &lt;/main&gt;\n\n  &lt;!-- FOOTER --&gt;\n  &lt;footer class=&quot;site-footer&quot;&gt;\n    &lt;div class=&quot;container&quot;&gt;\n      &lt;div class=&quot;footer-grid&quot;&gt;\n        &lt;div class=&quot;footer-col&quot;&gt;\n          &lt;strong&gt;MyProduct&lt;/strong&gt;\n          &lt;p&gt;Making development better, one project at a time.&lt;/p&gt;\n        &lt;/div&gt;\n        &lt;div class=&quot;footer-col&quot;&gt;\n          &lt;h4&gt;Product&lt;/h4&gt;\n          &lt;nav aria-label=&quot;Footer product links&quot;&gt;\n            &lt;a href=&quot;/features&quot;&gt;Features&lt;/a&gt;\n            &lt;a href=&quot;/pricing&quot;&gt;Pricing&lt;/a&gt;\n            &lt;a href=&quot;/changelog&quot;&gt;Changelog&lt;/a&gt;\n          &lt;/nav&gt;\n        &lt;/div&gt;\n        &lt;div class=&quot;footer-col&quot;&gt;\n          &lt;h4&gt;Company&lt;/h4&gt;\n          &lt;nav aria-label=&quot;Footer company links&quot;&gt;\n            &lt;a href=&quot;/about&quot;&gt;About&lt;/a&gt;\n            &lt;a href=&quot;/blog&quot;&gt;Blog&lt;/a&gt;\n            &lt;a href=&quot;/contact&quot;&gt;Contact&lt;/a&gt;\n          &lt;/nav&gt;\n        &lt;/div&gt;\n      &lt;/div&gt;\n      &lt;p class=&quot;footer-copy&quot;&gt;\u00a9 2026 MyProduct. All rights reserved.&lt;/p&gt;\n    &lt;/div&gt;\n  &lt;/footer&gt;\n\n  &lt;script src=&quot;scripts/main.js&quot;&gt;&lt;/script&gt;\n&lt;/body&gt;\n&lt;/html&gt;</code></pre>\n<hr />\n<hr />\n<h1 id=\"web-development-handbook-p2-part-15-animation-effects\">PART 15 \u2014 Animation &amp; Effects</h1>\n<h2 id=\"web-development-handbook-p2-what-this-part-covers-6\">What This Part Covers</h2>\n<p>Animations make interfaces feel alive and responsive. Used correctly, they guide attention and communicate state. Used incorrectly, they distract and annoy.</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-151-css-transitions\">15.1 \u2014 CSS Transitions</h2>\n<p>Transitions smoothly animate changes between two states.</p>\n<pre><code class=\"language-css\">/* Syntax: property duration timing-function delay */\n.btn {\n  background: var(--color-primary);\n  transition: background 200ms ease, transform 100ms ease;\n}\n\n.btn:hover {\n  background: var(--color-primary-dark);\n  transform: translateY(-1px);\n}</code></pre>\n<p><strong>Timing functions:</strong></p>\n<pre><code class=\"language-css\">transition-timing-function: ease;         /* Default \u2014 fast start, slow end */\ntransition-timing-function: linear;       /* Constant speed */\ntransition-timing-function: ease-in;      /* Slow start, fast end */\ntransition-timing-function: ease-out;     /* Fast start, slow end */\ntransition-timing-function: ease-in-out; /* Slow start and end */\ntransition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1); /* Custom \u2014 bounce */</code></pre>\n<p><strong>What can be transitioned:</strong> Almost all CSS properties that have numeric values: <code>color</code>, <code>background-color</code>, <code>opacity</code>, <code>transform</code>, <code>width</code>, <code>height</code>, <code>margin</code>, <code>padding</code>, <code>border-color</code>, <code>box-shadow</code>.</p>\n<p><strong>What cannot be transitioned:</strong> <code>display</code> (use <code>opacity</code> + <code>visibility</code> instead), <code>height: auto</code> (use <code>max-height</code> trick).</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-152-css-transforms\">15.2 \u2014 CSS Transforms</h2>\n<p>Transforms change an element's visual appearance without affecting layout (other elements don't move).</p>\n<pre><code class=\"language-css\">/* Translate (move) */\ntransform: translateX(20px);        /* Move right 20px */\ntransform: translateY(-10px);       /* Move up 10px */\ntransform: translate(20px, -10px);  /* Move right and up */\ntransform: translateX(-50%) translateY(-50%); /* Center trick */\n\n/* Scale */\ntransform: scale(1.05);             /* 5% larger */\ntransform: scaleX(0);               /* Squish horizontally */\n\n/* Rotate */\ntransform: rotate(45deg);           /* Rotate 45 degrees clockwise */\ntransform: rotate(-90deg);          /* Counterclockwise */\n\n/* Skew */\ntransform: skewX(10deg);\n\n/* Multiple transforms */\ntransform: translateY(-4px) scale(1.02) rotate(2deg);</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p2-153-css-animations-keyframes\">15.3 \u2014 CSS Animations (Keyframes)</h2>\n<p>For more complex animations with multiple states:</p>\n<pre><code class=\"language-css\">@keyframes fadeIn {\n  from { opacity: 0; transform: translateY(16px); }\n  to   { opacity: 1; transform: translateY(0); }\n}\n\n@keyframes pulse {\n  0%, 100% { transform: scale(1); }\n  50%       { transform: scale(1.05); }\n}\n\n@keyframes slideInLeft {\n  from { transform: translateX(-100%); opacity: 0; }\n  to   { transform: translateX(0);     opacity: 1; }\n}\n\n/* Applying an animation */\n.card {\n  animation: fadeIn 400ms ease both;\n}\n\n/* Animation shorthand */\n/* name duration timing-function delay iterations direction fill-mode */\n.card {\n  animation: fadeIn 400ms ease 0ms 1 normal both;\n}</code></pre>\n<p><strong><code>animation-fill-mode</code> values:</strong></p>\n<ul><li><code>none</code> \u2014 element returns to pre-animation state</li><li><code>forwards</code> \u2014 element stays at final keyframe state</li><li><code>backwards</code> \u2014 element starts at first keyframe state</li><li><code>both</code> \u2014 applies both forwards and backwards (most useful)</li></ul>\n<hr />\n<h2 id=\"web-development-handbook-p2-154-hover-effects\">15.4 \u2014 Hover Effects</h2>\n<p>Common and useful micro-interactions:</p>\n<pre><code class=\"language-css\">/* Lift effect */\n.card {\n  transition: transform 200ms ease, box-shadow 200ms ease;\n}\n.card:hover {\n  transform: translateY(-4px);\n  box-shadow: var(--shadow-lg);\n}\n\n/* Color fade */\n.nav-link {\n  color: var(--color-muted);\n  transition: color 150ms;\n}\n.nav-link:hover { color: var(--color-text); }\n\n/* Underline grow from left */\n.link {\n  position: relative;\n  text-decoration: none;\n}\n.link::after {\n  content: &quot;&quot;;\n  position: absolute;\n  bottom: -2px;\n  left: 0;\n  width: 0;\n  height: 2px;\n  background: var(--color-primary);\n  transition: width 200ms ease;\n}\n.link:hover::after { width: 100%; }\n\n/* Button press */\n.btn:active {\n  transform: translateY(1px);\n  box-shadow: none;\n}</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p2-155-scroll-animations-with-intersection-observer\">15.5 \u2014 Scroll Animations with Intersection Observer</h2>\n<p>Animate elements as they scroll into view:</p>\n<pre><code class=\"language-js\">const observer = new IntersectionObserver((entries) =&gt; {\n  entries.forEach(entry =&gt; {\n    if (entry.isIntersecting) {\n      entry.target.classList.add(&quot;visible&quot;);\n      observer.unobserve(entry.target); // Stop observing after animation\n    }\n  });\n}, {\n  threshold: 0.1  // Trigger when 10% of element is visible\n});\n\ndocument.querySelectorAll(&quot;.animate-on-scroll&quot;).forEach(el =&gt; {\n  observer.observe(el);\n});</code></pre>\n<pre><code class=\"language-css\">.animate-on-scroll {\n  opacity: 0;\n  transform: translateY(24px);\n  transition: opacity 600ms ease, transform 600ms ease;\n}\n\n.animate-on-scroll.visible {\n  opacity: 1;\n  transform: translateY(0);\n}</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p2-156-performance-considerations\">15.6 \u2014 Performance Considerations</h2>\n<p><strong>Efficient properties (use freely):</strong></p>\n<ul><li><code>opacity</code> \u2014 composited layer, no reflow/repaint</li><li><code>transform</code> \u2014 composited layer, no reflow/repaint</li></ul>\n<p><strong>Expensive properties (use sparingly):</strong></p>\n<ul><li><code>width</code>, <code>height</code>, <code>margin</code>, <code>padding</code> \u2014 trigger reflow (expensive)</li><li><code>color</code>, <code>background-color</code> \u2014 trigger repaint (moderate)</li><li><code>box-shadow</code> \u2014 moderate cost</li></ul>\n<p><strong>Rule:</strong> Animate with <code>opacity</code> and <code>transform</code> whenever possible. Avoid animating layout properties.</p>\n<p><strong>Respect reduced motion:</strong></p>\n<pre><code class=\"language-css\">@media (prefers-reduced-motion: reduce) {\n  *,\n  *::before,\n  *::after {\n    animation-duration: 0.01ms !important;\n    animation-iteration-count: 1 !important;\n    transition-duration: 0.01ms !important;\n  }\n}</code></pre>\n<p>Always include this. Some users experience nausea or seizures from motion. <code>prefers-reduced-motion</code> respects their OS setting.</p>\n<hr />\n<hr />\n<h1 id=\"web-development-handbook-p2-part-16-web-performance\">PART 16 \u2014 Web Performance</h1>\n<h2 id=\"web-development-handbook-p2-what-this-part-covers-7\">What This Part Covers</h2>\n<p>Performance is how fast a website loads and responds. Users abandon pages that take more than 3 seconds to load. Performance is both a technical problem and a user experience problem.</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-161-how-browsers-load-pages\">16.1 \u2014 How Browsers Load Pages</h2>\n<p>Understanding loading order helps you prioritize:</p>\n<ol><li>Browser parses HTML (top to bottom)</li><li>When it finds <code>&lt;link rel=\"stylesheet\"&gt;</code>, it fetches CSS (render-blocking \u2014 stops painting)</li><li>When it finds <code>&lt;script&gt;</code>, it fetches and executes JS (parsing-blocking \u2014 stops reading HTML)</li><li>Images, fonts, and other resources load in parallel after the main content</li></ol>\n<p><strong>Why scripts go at the bottom:</strong> Scripts in <code>&lt;head&gt;</code> block HTML parsing. Scripts at the bottom of <code>&lt;body&gt;</code> let the visible content load first.</p>\n<p><strong><code>defer</code> and <code>async</code> attributes:</strong></p>\n<pre><code class=\"language-html\">&lt;!-- defer: load in background, execute after HTML parsing complete, in order --&gt;\n&lt;script src=&quot;main.js&quot; defer&gt;&lt;/script&gt;\n\n&lt;!-- async: load in background, execute immediately when ready, any order --&gt;\n&lt;script src=&quot;analytics.js&quot; async&gt;&lt;/script&gt;</code></pre>\n<p>Use <code>defer</code> for scripts that interact with the DOM. Use <code>async</code> for independent scripts (analytics, ads) that don't depend on other scripts.</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-162-image-optimization\">16.2 \u2014 Image Optimization</h2>\n<p>Images are usually the largest files on a webpage. Optimizing them has the biggest performance impact.</p>\n<p><strong>Choose the right format:</strong></p>\n<table><tbody>\n<tr><td>Format</td><td>Best for</td></tr>\n<tr><td>JPEG</td><td>Photographs, complex images with gradients</td></tr>\n<tr><td>PNG</td><td>Images requiring transparency</td></tr>\n<tr><td>WebP</td><td>Everything \u2014 better compression than JPEG/PNG</td></tr>\n<tr><td>AVIF</td><td>Cutting-edge, best compression, limited browser support</td></tr>\n<tr><td>SVG</td><td>Icons, logos, illustrations \u2014 infinitely scalable</td></tr>\n<tr><td>GIF</td><td>Avoid \u2014 WebP and video are always better</td></tr>\n</tbody></table>\n<p><strong>Size images correctly:</strong> Don't serve a 4000px image for a 400px thumbnail. Resize images to the maximum size they'll be displayed.</p>\n<p><strong>Lazy loading:</strong> Don't load images until the user scrolls close to them:</p>\n<pre><code class=\"language-html\">&lt;img src=&quot;photo.jpg&quot; alt=&quot;Photo&quot; loading=&quot;lazy&quot;&gt;</code></pre>\n<p>This one attribute is all you need for modern browsers. Images below the fold don't load until needed.</p>\n<p><strong>Responsive images with <code>srcset</code>:</strong> Serve different image sizes for different viewport widths:</p>\n<pre><code class=\"language-html\">&lt;img\n  src=&quot;photo-800.jpg&quot;\n  srcset=&quot;photo-400.jpg 400w, photo-800.jpg 800w, photo-1200.jpg 1200w&quot;\n  sizes=&quot;(min-width: 1024px) 800px, (min-width: 640px) 50vw, 100vw&quot;\n  alt=&quot;Photo&quot;\n&gt;</code></pre>\n<p>The browser picks the smallest image that's still large enough for the display.</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-163-reducing-css-and-javascript-size\">16.3 \u2014 Reducing CSS and JavaScript Size</h2>\n<p><strong>Minification:</strong> Removing whitespace, comments, and long variable names from production files. Tools like Vite, Webpack, and esbuild do this automatically during build.</p>\n<p><strong>Tree-shaking:</strong> Build tools remove unused code from JavaScript bundles. Only import what you use.</p>\n<p><strong>Code splitting:</strong> Instead of loading all JavaScript upfront, load only the JS needed for the current page.</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-164-avoiding-layout-thrashing\">16.4 \u2014 Avoiding Layout Thrashing</h2>\n<p>Layout thrashing occurs when you rapidly alternate between reading layout properties and modifying them, forcing the browser to recalculate layout repeatedly.</p>\n<pre><code class=\"language-js\">// BAD: causes layout thrashing\nelements.forEach(el =&gt; {\n  const width = el.offsetWidth;  // Forces layout recalculation\n  el.style.width = (width * 2) + &quot;px&quot;; // Modifies layout\n});\n\n// GOOD: batch reads, then batch writes\nconst widths = elements.map(el =&gt; el.offsetWidth); // All reads first\nelements.forEach((el, i) =&gt; {\n  el.style.width = (widths[i] * 2) + &quot;px&quot;; // Then all writes\n});</code></pre>\n<hr />\n<hr />\n<h1 id=\"web-development-handbook-p2-part-17-beginner-to-advanced-workflow\">PART 17 \u2014 Beginner-to-Advanced Workflow</h1>\n<h2 id=\"web-development-handbook-p2-what-this-part-covers-8\">What This Part Covers</h2>\n<p>Professional developers don't open a code editor and start typing. They plan, prototype, iterate, and test. This part teaches the development workflow.</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-171-planning-a-page\">17.1 \u2014 Planning a Page</h2>\n<p>Before writing code, answer these questions:</p>\n<ol><li><strong>What is the purpose of this page?</strong> What should the user be able to do or understand after visiting it?</li><li><strong>Who is the user?</strong> What do they know? What do they want?</li><li><strong>What content exists?</strong> Text, images, data \u2014 what do you have to work with?</li><li><strong>What are the key actions?</strong> Sign up, contact, read more, download \u2014 what should the user do?</li><li><strong>What are the sections?</strong> Header, hero, features, CTA, footer \u2014 what sections make sense for this content?</li></ol>\n<hr />\n<h2 id=\"web-development-handbook-p2-172-wireframing\">17.2 \u2014 Wireframing</h2>\n<p>A wireframe is a rough visual layout \u2014 boxes and labels, no color, no detail. It answers \"where does everything go?\" before worrying about what it looks like.</p>\n<p><strong>Draw a wireframe before writing HTML.</strong> Paper is fine. A whiteboard is fine. The point is to commit to a layout before writing any code.</p>\n<p><strong>What a wireframe includes:</strong></p>\n<ul><li>Page sections (header, main areas, footer)</li><li>Content blocks (text, images, forms)</li><li>Navigation structure</li><li>Call-to-action placement</li></ul>\n<p><strong>What a wireframe excludes:</strong></p>\n<ul><li>Colors</li><li>Fonts</li><li>Images</li><li>Detailed copy</li><li>Spacing</li></ul>\n<hr />\n<h2 id=\"web-development-handbook-p2-173-html-first-css-second-js-third\">17.3 \u2014 HTML First, CSS Second, JS Third</h2>\n<p>Build in this order:</p>\n<ol><li><strong>Write semantic HTML first.</strong> Does the structure make sense without any styling?</li><li><strong>Add CSS.</strong> Does it look correct at various screen sizes?</li><li><strong>Add JavaScript.</strong> Does the interactivity work correctly?</li></ol>\n<p><strong>Why this order matters:</strong></p>\n<ul><li>HTML without CSS still needs to be readable and make sense (screen readers, slow connections)</li><li>CSS without JavaScript still needs to look right and be usable</li><li>JavaScript without CSS or proper HTML will be inaccessible</li></ul>\n<p>Test at each step before moving to the next.</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-174-iterative-development\">17.4 \u2014 Iterative Development</h2>\n<p>Don't build an entire page and then test it. Build one section, test it, then build the next.</p>\n<p><strong>Micro-cycle (repeat for every component):</strong></p>\n<ol><li>Write the HTML</li><li>Open in browser</li><li>Add CSS</li><li>Check in browser at mobile, tablet, and desktop widths</li><li>Add JavaScript (if needed)</li><li>Test interactions</li><li>Fix issues</li><li>Move to next component</li></ol>\n<p><strong>The browser is your real-time feedback.</strong> Every time you save a file, refresh the browser and look at what changed. Never write more than 20-30 lines without checking the browser.</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-175-how-professionals-approach-a-new-project\">17.5 \u2014 How Professionals Approach a New Project</h2>\n<p><strong>Day 1:</strong> Understand requirements. Write down every feature, every page, every interaction.</p>\n<p><strong>Day 2:</strong> Sketch wireframes for every page.</p>\n<p><strong>Day 3:</strong> Set up project structure. Create base CSS with design tokens. Build the navigation.</p>\n<p><strong>Days 4+:</strong> Build one section or page at a time. Test on real devices. Get feedback.</p>\n<p><strong>Before shipping:</strong> Run Lighthouse audit. Test keyboard navigation. Test with a screen reader. Test on a slow connection (DevTools Network tab \u2192 Throttle to \"Slow 3G\").</p>\n<hr />\n<hr />\n<h1 id=\"web-development-handbook-p2-part-18-full-website-projects\">PART 18 \u2014 Full Website Projects</h1>\n<h2 id=\"web-development-handbook-p2-what-this-part-covers-9\">What This Part Covers</h2>\n<p>This part provides the architectural blueprint for building common types of complete websites. Each one combines everything you've learned.</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-181-personal-portfolio-site\">18.1 \u2014 Personal Portfolio Site</h2>\n<p><strong>Purpose:</strong> Showcase your skills, projects, and contact information to potential employers or clients.</p>\n<p><strong>Pages:</strong></p>\n<ul><li><code>/</code> \u2014 Home: hero with name and title, brief intro, featured projects, contact CTA</li><li><code>/projects</code> \u2014 Projects: grid of all projects with filters</li><li><code>/about</code> \u2014 About: detailed bio, skills, experience</li></ul>\n<p><strong>Key architecture decisions:</strong></p>\n<ul><li>Use semantic HTML \u2014 <code>&lt;article&gt;</code> for each project, <code>&lt;section&gt;</code> for each page section</li><li>Projects data stored in a JS array \u2014 easy to add new projects</li><li>Mobile-first responsive grid for projects (auto-fill minmax)</li><li>Single CSS file with variables for easy theming</li></ul>\n<p><strong>Data pattern for projects:</strong></p>\n<pre><code class=\"language-js\">const projects = [\n  {\n    title: &quot;DustVault&quot;,\n    description: &quot;Local-first file versioning tool.&quot;,\n    tech: [&quot;Python&quot;, &quot;SQLite&quot;, &quot;Tkinter&quot;],\n    link: &quot;https://github.com/...&quot;,\n    image: &quot;images/dustvault.png&quot;,\n    featured: true\n  },\n  // ...\n];\n\n// Render projects to DOM\nfunction renderProjects(filter = &quot;all&quot;) {\n  const grid = document.getElementById(&quot;project-grid&quot;);\n  const filtered = filter === &quot;all&quot;\n    ? projects\n    : projects.filter(p =&gt; p.tech.includes(filter));\n\n  grid.innerHTML = filtered.map(p =&gt; `\n    &lt;article class=&quot;card&quot;&gt;\n      &lt;img class=&quot;card-image&quot; src=&quot;${p.image}&quot; alt=&quot;${p.title} screenshot&quot;&gt;\n      &lt;div class=&quot;card-body&quot;&gt;\n        &lt;h3 class=&quot;card-title&quot;&gt;${p.title}&lt;/h3&gt;\n        &lt;p class=&quot;card-description&quot;&gt;${p.description}&lt;/p&gt;\n        &lt;div class=&quot;tech-tags&quot;&gt;\n          ${p.tech.map(t =&gt; `&lt;span class=&quot;badge&quot;&gt;${t}&lt;/span&gt;`).join(&quot;&quot;)}\n        &lt;/div&gt;\n      &lt;/div&gt;\n      &lt;footer class=&quot;card-footer&quot;&gt;\n        &lt;a href=&quot;${p.link}&quot; class=&quot;btn btn--ghost&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;\n          View Project \u2192\n        &lt;/a&gt;\n      &lt;/footer&gt;\n    &lt;/article&gt;\n  `).join(&quot;&quot;);\n}</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p2-182-documentation-site\">18.2 \u2014 Documentation Site</h2>\n<p><strong>Purpose:</strong> Explain a product, library, or API to developers.</p>\n<p><strong>Structure:</strong></p>\n<pre><code>docs/\n\u251c\u2500\u2500 index.html          \u2190 Introduction\n\u251c\u2500\u2500 getting-started.html\n\u251c\u2500\u2500 api-reference.html\n\u251c\u2500\u2500 examples.html\n\u2514\u2500\u2500 styles/\n    \u251c\u2500\u2500 base.css\n    \u2514\u2500\u2500 docs.css        \u2190 Code blocks, sidebar, callouts</code></pre>\n<p><strong>Key features:</strong></p>\n<ul><li>Sticky sidebar navigation</li><li>Active section highlighting in sidebar (Intersection Observer)</li><li>Code syntax highlighting (<code>&lt;pre&gt;&lt;code&gt;</code> with a library like Prism.js)</li><li>Callout boxes (<code>.callout--note</code>, <code>.callout--warning</code>, <code>.callout--tip</code>)</li><li>Search functionality</li></ul>\n<p><strong>Sidebar + content layout:</strong></p>\n<pre><code class=\"language-css\">.docs-layout {\n  display: grid;\n  grid-template-columns: 240px 1fr;\n  min-height: 100vh;\n}\n\n.docs-sidebar {\n  position: sticky;\n  top: 0;\n  height: 100vh;\n  overflow-y: auto;\n  border-right: 1px solid var(--color-border);\n}\n\n.docs-content {\n  max-width: 680px;\n  padding: 48px 32px;\n}</code></pre>\n<p><strong>Active heading tracker:</strong></p>\n<pre><code class=\"language-js\">const headings = document.querySelectorAll(&quot;h2[id], h3[id]&quot;);\nconst navLinks = document.querySelectorAll(&quot;.sidebar-link&quot;);\n\nconst observer = new IntersectionObserver(entries =&gt; {\n  entries.forEach(entry =&gt; {\n    const link = document.querySelector(`[href=&quot;#${entry.target.id}&quot;]`);\n    if (link) link.classList.toggle(&quot;active&quot;, entry.isIntersecting);\n  });\n}, { rootMargin: &quot;0px 0px -80% 0px&quot; });\n\nheadings.forEach(h =&gt; observer.observe(h));</code></pre>\n<hr />\n<h2 id=\"web-development-handbook-p2-183-admin-dashboard\">18.3 \u2014 Admin Dashboard</h2>\n<p><strong>Purpose:</strong> Provide a control panel for managing data, users, or content.</p>\n<p><strong>Layout:</strong></p>\n<pre><code class=\"language-html\">&lt;div class=&quot;dashboard-shell&quot;&gt;\n  &lt;aside class=&quot;sidebar&quot;&gt;\n    &lt;!-- Navigation --&gt;\n  &lt;/aside&gt;\n  &lt;div class=&quot;main-area&quot;&gt;\n    &lt;header class=&quot;topbar&quot;&gt;\n      &lt;!-- Page title, user menu, notifications --&gt;\n    &lt;/header&gt;\n    &lt;main class=&quot;page-content&quot;&gt;\n      &lt;!-- Stat cards, tables, charts --&gt;\n    &lt;/main&gt;\n  &lt;/div&gt;\n&lt;/div&gt;</code></pre>\n<p><strong>Key components:</strong></p>\n<ul><li>Stat cards with metrics and trend indicators</li><li>Data table with sorting and filtering</li><li>Charts (use Chart.js for a vanilla JS chart library)</li><li>Form modals for creating/editing records</li></ul>\n<p><strong>Data table pattern:</strong></p>\n<pre><code class=\"language-js\">class DataTable {\n  constructor(data, columns) {\n    this.data = data;\n    this.columns = columns;\n    this.sortKey = null;\n    this.sortDir = &quot;asc&quot;;\n    this.filter = &quot;&quot;;\n  }\n\n  getDisplayData() {\n    let rows = this.data.filter(row =&gt;\n      this.columns.some(col =&gt;\n        String(row[col.key]).toLowerCase().includes(this.filter.toLowerCase())\n      )\n    );\n\n    if (this.sortKey) {\n      rows = [...rows].sort((a, b) =&gt; {\n        const dir = this.sortDir === &quot;asc&quot; ? 1 : -1;\n        return a[this.sortKey] &gt; b[this.sortKey] ? dir : -dir;\n      });\n    }\n\n    return rows;\n  }\n\n  render(container) {\n    const rows = this.getDisplayData();\n    container.innerHTML = `\n      &lt;table class=&quot;data-table&quot;&gt;\n        &lt;thead&gt;\n          &lt;tr&gt;\n            ${this.columns.map(col =&gt; `\n              &lt;th class=&quot;sortable&quot; data-key=&quot;${col.key}&quot;&gt;\n                ${col.label}\n                ${this.sortKey === col.key ? (this.sortDir === &quot;asc&quot; ? &quot; \u2191&quot; : &quot; \u2193&quot;) : &quot;&quot;}\n              &lt;/th&gt;\n            `).join(&quot;&quot;)}\n          &lt;/tr&gt;\n        &lt;/thead&gt;\n        &lt;tbody&gt;\n          ${rows.map(row =&gt; `\n            &lt;tr&gt;\n              ${this.columns.map(col =&gt; `&lt;td&gt;${row[col.key]}&lt;/td&gt;`).join(&quot;&quot;)}\n            &lt;/tr&gt;\n          `).join(&quot;&quot;)}\n        &lt;/tbody&gt;\n      &lt;/table&gt;\n    `;\n\n    container.querySelectorAll(&quot;.sortable&quot;).forEach(th =&gt; {\n      th.addEventListener(&quot;click&quot;, () =&gt; {\n        if (this.sortKey === th.dataset.key) {\n          this.sortDir = this.sortDir === &quot;asc&quot; ? &quot;desc&quot; : &quot;asc&quot;;\n        } else {\n          this.sortKey = th.dataset.key;\n          this.sortDir = &quot;asc&quot;;\n        }\n        this.render(container);\n      });\n    });\n  }\n}</code></pre>\n<hr />\n<hr />\n<h1 id=\"web-development-handbook-p2-glossary\">GLOSSARY</h1>\n<p><em>Every technical term used in this handbook, in plain English.</em></p>\n<hr />\n<h2 id=\"web-development-handbook-p2-html-terms\">HTML Terms</h2>\n<p><strong>DOCTYPE</strong> \u2014 A declaration on the first line of an HTML file that tells the browser which version of HTML the document uses. <code>&lt;!DOCTYPE html&gt;</code> specifies HTML5.</p>\n<p><strong>Element</strong> \u2014 A complete HTML structure including its opening tag, content, and closing tag. <code>&lt;p&gt;Hello&lt;/p&gt;</code> is an element.</p>\n<p><strong>Tag</strong> \u2014 The markup that wraps content. <code>&lt;p&gt;</code> is an opening tag, <code>&lt;/p&gt;</code> is a closing tag. Tags define elements.</p>\n<p><strong>Attribute</strong> \u2014 Additional information provided inside a tag's opening tag. In <code>&lt;img src=\"photo.jpg\" alt=\"Photo\"&gt;</code>, <code>src</code> and <code>alt</code> are attributes.</p>\n<p><strong>Self-closing element</strong> \u2014 An HTML element that has no content and no closing tag. Called a \"void element.\" Examples: <code>&lt;img&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;hr&gt;</code>.</p>\n<p><strong>Nesting</strong> \u2014 Placing one element inside another. The inner element is a \"child\" of the outer \"parent\" element.</p>\n<p><strong>Semantic HTML</strong> \u2014 HTML that uses elements whose names describe the role of the content they contain. <code>&lt;nav&gt;</code> is semantic (it contains navigation). <code>&lt;div&gt;</code> is not semantic (it's a generic container).</p>\n<p><strong>DOM (Document Object Model)</strong> \u2014 The browser's internal representation of an HTML document as a tree of objects. JavaScript interacts with the DOM, not the raw HTML file. Analogy: the HTML file is a recipe; the DOM is the finished dish.</p>\n<p><strong>Block element</strong> \u2014 An element that starts on a new line and takes up the full available width. Examples: <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;section&gt;</code>. Analogy: paragraphs in a book.</p>\n<p><strong>Inline element</strong> \u2014 An element that flows within the surrounding text, taking only as much width as its content needs. Examples: <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>. Analogy: words in a sentence.</p>\n<p><strong>Void element</strong> \u2014 An HTML element that cannot have children and has no closing tag. Examples: <code>&lt;img&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;br&gt;</code>, <code>&lt;meta&gt;</code>.</p>\n<p><strong>Accessible Rich Internet Applications (ARIA)</strong> \u2014 A set of HTML attributes (<code>role</code>, <code>aria-*</code>) that add accessibility information to elements that lack semantic meaning. Used to communicate component state and structure to screen readers.</p>\n<p><strong>Metadata</strong> \u2014 Information about the page that appears in <code>&lt;head&gt;</code> and is not directly displayed to users. Includes the page title, character encoding, viewport settings, and descriptions for search engines.</p>\n<p><strong>Alt text</strong> \u2014 Descriptive text on an <code>&lt;img&gt;</code> element (via the <code>alt</code> attribute) that describes the image for screen readers and displays when the image fails to load.</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-css-terms\">CSS Terms</h2>\n<p><strong>Cascade</strong> \u2014 The algorithm CSS uses to determine which rules apply when multiple rules target the same element. Considers specificity, source order, and inheritance.</p>\n<p><strong>Specificity</strong> \u2014 A measure of how \"specific\" a CSS selector is. More specific selectors override less specific ones. ID selectors &gt; class selectors &gt; element selectors.</p>\n<p><strong>Inheritance</strong> \u2014 CSS properties whose values pass down from parent elements to their children. <code>color</code> and <code>font-family</code> are inherited. <code>margin</code> and <code>border</code> are not.</p>\n<p><strong>Box model</strong> \u2014 The model used to calculate an element's total rendered size. Every element is a rectangle with four areas: content, padding, border, and margin.</p>\n<p><strong><code>box-sizing: border-box</code></strong> \u2014 A box-sizing mode where <code>width</code> and <code>height</code> include padding and border. The professional standard, avoiding the confusing default where width refers only to content.</p>\n<p><strong>Selector</strong> \u2014 The part of a CSS rule that determines which elements the rule applies to. Examples: <code>.card</code> (class selector), <code>#logo</code> (ID selector), <code>nav a</code> (descendant selector).</p>\n<p><strong>Pseudo-class</strong> \u2014 A CSS selector suffix that targets an element based on its state or position. Examples: <code>:hover</code> (mouse over), <code>:focus</code> (keyboard focus), <code>:nth-child(2)</code> (second child).</p>\n<p><strong>Pseudo-element</strong> \u2014 A CSS selector suffix that targets a specific part of an element. Examples: <code>::before</code> (before the content), <code>::after</code> (after the content), <code>::first-letter</code>.</p>\n<p><strong>CSS custom properties</strong> \u2014 Variables in CSS, defined with <code>--</code> prefix and used with <code>var()</code>. Example: <code>--primary: #2a6ef5</code> and <code>color: var(--primary)</code>. Also called \"CSS variables.\"</p>\n<p><strong>Margin collapse</strong> \u2014 A CSS behavior where the vertical margins of adjacent block elements combine into a single margin equal to the larger of the two, rather than adding together.</p>\n<p><strong>Flexbox</strong> \u2014 A CSS layout mode (<code>display: flex</code>) for arranging items in a row or column with powerful alignment and distribution options.</p>\n<p><strong>CSS Grid</strong> \u2014 A CSS layout mode (<code>display: grid</code>) for creating two-dimensional layouts with rows and columns.</p>\n<p><strong>Media query</strong> \u2014 A CSS conditional rule that applies styles only when certain conditions are met, most commonly based on viewport width. Used for responsive design.</p>\n<p><strong><code>rem</code></strong> \u2014 A CSS unit relative to the root element's font size. 1rem = the <code>&lt;html&gt;</code> element's font size (16px by default). Scales consistently across the page.</p>\n<p><strong><code>em</code></strong> \u2014 A CSS unit relative to the current element's font size. Compounds with nesting \u2014 a child element's <code>em</code> is relative to its parent's font size.</p>\n<p><strong><code>vw</code> / <code>vh</code></strong> \u2014 CSS units representing 1% of the viewport width / height. <code>100vw</code> = full viewport width.</p>\n<p><strong><code>clamp(min, preferred, max)</code></strong> \u2014 A CSS function that returns the preferred value clamped between min and max. Used for fluid typography: <code>font-size: clamp(1rem, 2.5vw, 1.5rem)</code>.</p>\n<p><strong>Design token</strong> \u2014 A named variable that stores a design decision. <code>--color-primary: #2a6ef5</code> is a design token. Tokens create consistency and enable theming.</p>\n<p><strong>Specificity war</strong> \u2014 When developers add increasingly specific selectors to override each other, leading to complex, hard-to-maintain CSS. Solved by consistent naming conventions and avoiding IDs in CSS.</p>\n<p><strong>BEM (Block, Element, Modifier)</strong> \u2014 A CSS naming convention. <code>block__element--modifier</code>. Example: <code>.card__title--featured</code>. Prevents naming conflicts and makes component structure obvious.</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-javascript-terms\">JavaScript Terms</h2>\n<p><strong>Variable</strong> \u2014 A named container that stores a value. Created with <code>let</code>, <code>const</code>, or (avoid) <code>var</code>.</p>\n<p><strong><code>const</code></strong> \u2014 Declares a variable that cannot be reassigned. Does not mean the value is deeply immutable \u2014 object properties and array contents can still change.</p>\n<p><strong><code>let</code></strong> \u2014 Declares a variable that can be reassigned. Block-scoped (exists only within the <code>{}</code> it was declared in).</p>\n<p><strong><code>var</code></strong> \u2014 Old way to declare variables. Function-scoped, not block-scoped, and hoisted. Avoid in modern code.</p>\n<p><strong>Data type</strong> \u2014 The category of a value. JavaScript's primitive types: <code>string</code>, <code>number</code>, <code>boolean</code>, <code>null</code>, <code>undefined</code>, <code>symbol</code>, <code>bigint</code>. Complex types: <code>object</code> (includes arrays and functions).</p>\n<p><strong>Function</strong> \u2014 A reusable block of code that performs a task when called. Can accept input (parameters) and return output.</p>\n<p><strong>Arrow function</strong> \u2014 A concise function syntax using <code>=&gt;</code>. Example: <code>const add = (a, b) =&gt; a + b</code>. Inherits <code>this</code> from its surrounding context.</p>\n<p><strong>Scope</strong> \u2014 The region of code where a variable is accessible. Variables in inner scopes can access outer scope variables, but not vice versa.</p>\n<p><strong>Closure</strong> \u2014 When an inner function retains access to variables from its outer function's scope, even after the outer function has finished executing.</p>\n<p><strong>Truthy / Falsy</strong> \u2014 In JavaScript, every value is implicitly either true or false in a boolean context. Falsy values: <code>false</code>, <code>0</code>, <code>\"\"</code>, <code>null</code>, <code>undefined</code>, <code>NaN</code>. Everything else is truthy.</p>\n<p><strong>Event listener</strong> \u2014 A function that's called when a specific event occurs on an element. Set up with <code>element.addEventListener(\"event\", callback)</code>.</p>\n<p><strong>Event bubbling</strong> \u2014 When an event on a child element \"bubbles up\" to its parent elements. A click on a <code>&lt;button&gt;</code> inside a <code>&lt;div&gt;</code> also triggers click handlers on the <code>&lt;div&gt;</code>.</p>\n<p><strong>Event delegation</strong> \u2014 Attaching a single event listener to a parent element instead of many listeners to each child, using <code>event.target</code> to identify which child was clicked.</p>\n<p><strong><code>event.preventDefault()</code></strong> \u2014 Stops the browser's default action for an event. Used on form <code>submit</code> events to prevent page reload, or on links to prevent navigation.</p>\n<p><strong>Promise</strong> \u2014 An object representing a future value. Has three states: pending (not yet settled), fulfilled (value ready), rejected (error occurred).</p>\n<p><strong><code>async / await</code></strong> \u2014 Syntax for working with Promises that makes asynchronous code read like synchronous code. <code>await</code> pauses execution until a Promise settles.</p>\n<p><strong>Fetch API</strong> \u2014 The browser's built-in API for making HTTP requests. Returns a Promise.</p>\n<p><strong><code>JSON</code></strong> \u2014 JavaScript Object Notation. A text format for representing data. <code>JSON.stringify()</code> converts JS objects to JSON strings. <code>JSON.parse()</code> converts JSON strings to JS objects.</p>\n<p><strong><code>null</code></strong> \u2014 An intentional absence of a value. \"Nothing is here, and this is intentional.\"</p>\n<p><strong><code>undefined</code></strong> \u2014 A variable has been declared but not given a value yet. \"Nothing is here, and it was probably a mistake.\"</p>\n<p><strong>Template literal</strong> \u2014 A string enclosed in backticks that can contain <code>${expression}</code> interpolations and span multiple lines.</p>\n<p><strong>Destructuring</strong> \u2014 Syntax for extracting values from arrays or objects into individual variables. <code>const { name, age } = user</code>.</p>\n<p><strong>Spread operator (<code>...</code>)</strong> \u2014 Expands an array or object into individual elements. <code>[...arr, newItem]</code> creates a new array with all items plus one more.</p>\n<p><strong>Rest parameter (<code>...</code>)</strong> \u2014 In a function definition, collects all remaining arguments into an array. <code>function sum(...nums)</code>.</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-browser-terms\">Browser Terms</h2>\n<p><strong>Browser engine</strong> \u2014 The software component that renders web pages. Chrome/Edge use Blink. Firefox uses Gecko. Safari uses WebKit.</p>\n<p><strong>Render</strong> \u2014 The process of drawing the visual result of HTML, CSS, and JavaScript onto the screen.</p>\n<p><strong>Reflow (Layout)</strong> \u2014 Recalculating the position and size of elements on the page. Expensive operation. Triggered by changing properties that affect layout (width, height, margin, etc.).</p>\n<p><strong>Repaint</strong> \u2014 Redrawing pixels for elements whose visual appearance changed but not layout. Less expensive than reflow.</p>\n<p><strong>Compositing</strong> \u2014 The final step of rendering where browser layers are assembled. <code>opacity</code> and <code>transform</code> changes only trigger compositing \u2014 the cheapest rendering step.</p>\n<p><strong>HTTP request</strong> \u2014 A message sent from the browser to a server requesting a resource (HTML file, image, API data).</p>\n<p><strong>HTTP status code</strong> \u2014 A number in the server's response indicating the result. 200 = success, 301 = redirect, 404 = not found, 500 = server error.</p>\n<p><strong>Cache</strong> \u2014 Storage of previously loaded resources so they don't need to be re-downloaded. The browser cache stores CSS, JS, and images so repeat visits are faster.</p>\n<p><strong>DNS (Domain Name System)</strong> \u2014 The system that translates human-readable domain names (google.com) into IP addresses (142.250.80.100).</p>\n<p><strong>HTTPS</strong> \u2014 A secure version of HTTP that encrypts traffic between browser and server. Required for many browser features (service workers, geolocation, camera).</p>\n<p><strong>CDN (Content Delivery Network)</strong> \u2014 A network of servers around the world that serve static assets from the server closest to the user, reducing latency.</p>\n<p><strong>viewport</strong> \u2014 The visible area of the browser window. On mobile devices, it refers to the screen area available to the page.</p>\n<p><strong>DevTools</strong> \u2014 Built-in browser tools for inspecting and debugging web pages. Open with F12 in most browsers.</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-uiux-terms\">UI/UX Terms</h2>\n<p><strong>UI (User Interface)</strong> \u2014 The visual elements users interact with. Buttons, forms, navigation \u2014 everything you can see and click.</p>\n<p><strong>UX (User Experience)</strong> \u2014 The overall experience of using a product. How easy it is to accomplish goals, how it makes users feel, how smoothly it flows.</p>\n<p><strong>Wireframe</strong> \u2014 A rough structural sketch of a page layout. Uses boxes and labels instead of real content. Used for planning before detailed design.</p>\n<p><strong>Prototype</strong> \u2014 A realistic simulation of a design. More detailed than a wireframe, used for testing the experience before building.</p>\n<p><strong>Call to Action (CTA)</strong> \u2014 A UI element (usually a button or link) that prompts the user to take a specific action. \"Sign Up,\" \"Get Started,\" \"Learn More.\"</p>\n<p><strong>Above the fold</strong> \u2014 Content visible on screen without scrolling. The most important content should be here.</p>\n<p><strong>Affordance</strong> \u2014 A visual cue that suggests how an element should be used. A button that looks raised suggests it can be clicked. An underlined word suggests it's a link.</p>\n<p><strong>Microcopy</strong> \u2014 Small pieces of text that guide users through an interface. Placeholder text, error messages, button labels, tooltips.</p>\n<p><strong>White space (negative space)</strong> \u2014 Empty space in a design. Not wasted \u2014 it improves readability and focuses attention on important content.</p>\n<p><strong>Visual hierarchy</strong> \u2014 The arrangement of elements to guide the user's eye from most important to least important.</p>\n<p><strong>Contrast</strong> \u2014 The difference in visual properties (lightness, color, size, weight) between two elements. High contrast draws the eye.</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-responsive-design-terms\">Responsive Design Terms</h2>\n<p><strong>Responsive design</strong> \u2014 An approach where a website adapts its layout to the viewer's screen size.</p>\n<p><strong>Mobile-first</strong> \u2014 A development approach where base styles target small screens, and media queries add complexity for larger screens.</p>\n<p><strong>Breakpoint</strong> \u2014 A viewport width at which a responsive layout changes. Typically set with <code>min-width</code> media queries.</p>\n<p><strong>Fluid layout</strong> \u2014 A layout that stretches and compresses proportionally as the viewport changes width, using percentages and <code>fr</code> units.</p>\n<p><strong>Adaptive layout</strong> \u2014 A layout that switches between a few fixed layouts (e.g., mobile, tablet, desktop) at breakpoints, rather than scaling fluidly.</p>\n<p><strong><code>min()</code> / <code>max()</code> / <code>clamp()</code></strong> \u2014 CSS functions for responsive values. <code>clamp(min, preferred, max)</code> is particularly useful for fluid typography.</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-accessibility-terms\">Accessibility Terms</h2>\n<p><strong>A11Y</strong> \u2014 Numeronym for \"accessibility\" (a + 11 letters + y). Commonly used shorthand.</p>\n<p><strong>WCAG (Web Content Accessibility Guidelines)</strong> \u2014 International standards for web accessibility. Level AA compliance is the typical minimum requirement.</p>\n<p><strong>Screen reader</strong> \u2014 Software that reads web page content aloud for users who are blind or have low vision. Popular screen readers: NVDA (Windows, free), VoiceOver (Mac/iOS, built-in), JAWS (Windows, paid).</p>\n<p><strong>Keyboard navigation</strong> \u2014 Navigating a website using only the keyboard (Tab, Enter, Space, Arrow keys) without a mouse.</p>\n<p><strong>Focus</strong> \u2014 The element that currently receives keyboard input. Indicated by a visible outline (focus ring).</p>\n<p><strong>Focus trap</strong> \u2014 Constraining keyboard focus within a specific component (like a modal). Users Tab through the component's focusable elements in a loop rather than navigating to page content behind it.</p>\n<p><strong>Skip navigation link</strong> \u2014 A hidden link at the top of the page that jumps to the main content when activated. Allows keyboard users to skip the navigation on every page.</p>\n<p><strong>ARIA live region</strong> \u2014 An area of the page that announces dynamic content changes to screen readers. Used for notifications, error messages, and loading states.</p>\n<p><strong>Color contrast ratio</strong> \u2014 A mathematical measure of the difference in luminance between a text color and its background. WCAG AA requires 4.5:1 for normal text.</p>\n<p><strong>Alt text</strong> \u2014 Text that describes the visual content of an image. Read by screen readers and shown when images fail to load.</p>\n<hr />\n<h2 id=\"web-development-handbook-p2-web-architecture-terms\">Web Architecture Terms</h2>\n<p><strong>Client-side</strong> \u2014 Code that runs in the user's browser. HTML, CSS, and frontend JavaScript.</p>\n<p><strong>Server-side</strong> \u2014 Code that runs on a remote server. Node.js, Python, PHP, etc.</p>\n<p><strong>Static site</strong> \u2014 A website served as pre-built HTML, CSS, and JS files. No server-side code runs per-request. Fast, cheap to host, easy to cache.</p>\n<p><strong>SPA (Single Page Application)</strong> \u2014 A web app that loads one HTML file and uses JavaScript to swap content without full page reloads. Fast navigation but requires JavaScript.</p>\n<p><strong>Hash routing</strong> \u2014 A routing strategy where the URL fragment (<code>#/page</code>) is used to determine what to display. Doesn't require server configuration.</p>\n<p><strong>Separation of concerns</strong> \u2014 The principle that different aspects of a program (structure, styling, behavior) should be in separate, independent files.</p>\n<p><strong>Component</strong> \u2014 A self-contained, reusable piece of UI with its own HTML structure, CSS styles, and optional JavaScript behavior.</p>\n<p><strong>Design system</strong> \u2014 A comprehensive set of design decisions (colors, typography, spacing, components) shared across a project to ensure consistency.</p>\n<p><strong>DRY (Don't Repeat Yourself)</strong> \u2014 A principle discouraging duplication. If you write the same code twice, extract it into a reusable function or component.</p>\n<p><strong>Technical debt</strong> \u2014 Code that works but is poorly structured, hard to maintain, or requires shortcuts that will cause problems later.</p>\n<p><strong>Refactoring</strong> \u2014 Improving the structure of existing code without changing its behavior.</p>\n<p><strong>CDN (Content Delivery Network)</strong> \u2014 A globally distributed network of servers that serve static assets from the closest server to the user, improving load times.</p>\n<p><strong>Build process</strong> \u2014 Automated transformation of source code into optimized production files. Includes minification, bundling, transpilation.</p>\n<p><strong>Minification</strong> \u2014 Removing all unnecessary characters (whitespace, comments) from code to reduce file size.</p>\n<p><strong>Bundling</strong> \u2014 Combining multiple JS or CSS files into one (or a few) for fewer network requests.</p>\n<hr />\n<p><em>End of The Complete Web Development Handbook.</em></p>\n<hr />\n<p><em>Written for the self_learning_guidance collection \u2014 May 2026</em> <em>Companion to: universal_project_merge_guide.md</em></p>"
     },
     {
-      id: "payment-links",
-      title: "Updating Payment Links",
-      category: "E-commerce",
-      summary: "How to safely update Stripe payment links when packages or prices change.",
-      content: [
+      "id": "universal-project-merge-guide",
+      "title": "Universal Project Merge Guide",
+      "navLabel": "Project Merge",
+      "summary": "**Audience:** Beginner to intermediate developer **Purpose:** Teach you HOW to think about, plan, and execute a project merge \u2014 not do it for you **Format:** Technical handbook with phased chapters, examples, and decisio",
+      "href": "universal-project-merge-guide.html",
+      "icon": "Merge",
+      "sections": [
         {
-          heading: "Finding payment links",
-          body: "Stripe payment links are set in the config file or directly in the HTML. Search the repo for stripe.com/b/pay to find all instances. Do not update them by memory — always find every occurrence."
+          "id": "universal-project-merge-guide-a-complete-educational-walkthrough-for-merging-any-two-web-projects",
+          "title": "A Complete Educational Walkthrough for Merging Any Two Web Projects",
+          "level": 2
         },
         {
-          heading: "Updating safely",
-          body: "Copy the new Stripe link exactly from the Stripe dashboard. Do a find-all replace rather than manual one-by-one — if a link appears in multiple places and you miss one, clients will land on the wrong checkout page."
+          "id": "universal-project-merge-guide-what-this-phase-accomplishes",
+          "title": "What This Phase Accomplishes",
+          "level": 2
         },
         {
-          heading: "Test after updating",
-          body: "Click every payment link on every page after updating. Confirm the Stripe checkout page loads for the correct product and price. Do not push until you have verified this manually."
+          "id": "universal-project-merge-guide-11-what-is-project-structure-and-why-does-it-matter",
+          "title": "1.1 \u2014 What Is \"Project Structure\" and Why Does It Matter?",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-12-identifying-the-framework",
+          "title": "1.2 \u2014 Identifying the Framework",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-13-identifying-the-routing-system",
+          "title": "1.3 \u2014 Identifying the Routing System",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-14-identifying-the-styling-system",
+          "title": "1.4 \u2014 Identifying the Styling System",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-15-identifying-reusable-systems",
+          "title": "1.5 \u2014 Identifying Reusable Systems",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-16-identifying-technical-debt",
+          "title": "1.6 \u2014 Identifying Technical Debt",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-17-estimating-merge-complexity",
+          "title": "1.7 \u2014 Estimating Merge Complexity",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-what-this-phase-accomplishes-2",
+          "title": "What This Phase Accomplishes",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-21-framework-conflicts",
+          "title": "2.1 \u2014 Framework Conflicts",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-22-css-conflicts",
+          "title": "2.2 \u2014 CSS Conflicts",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-23-dependency-conflicts",
+          "title": "2.3 \u2014 Dependency Conflicts",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-24-state-management-conflicts",
+          "title": "2.4 \u2014 State Management Conflicts",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-25-easy-moderate-and-dangerous-merges",
+          "title": "2.5 \u2014 Easy, Moderate, and Dangerous Merges",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-what-this-phase-accomplishes-3",
+          "title": "What This Phase Accomplishes",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-31-choosing-a-base-project",
+          "title": "3.1 \u2014 Choosing a Base Project",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-32-designing-the-unified-architecture",
+          "title": "3.2 \u2014 Designing the Unified Architecture",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-33-creating-a-merge-blueprint-task-list",
+          "title": "3.3 \u2014 Creating a Merge Blueprint (Task List)",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-34-why-beginners-fail-without-a-plan",
+          "title": "3.4 \u2014 Why Beginners Fail Without a Plan",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-what-this-phase-accomplishes-4",
+          "title": "What This Phase Accomplishes",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-41-git-fundamentals-review",
+          "title": "4.1 \u2014 Git Fundamentals Review",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-42-branching-strategy-for-merges",
+          "title": "4.2 \u2014 Branching Strategy for Merges",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-43-backup-strategies",
+          "title": "4.3 \u2014 Backup Strategies",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-44-when-to-keep-existing-repositories-vs-start-fresh",
+          "title": "4.4 \u2014 When to Keep Existing Repositories vs. Start Fresh",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-45-rollback-strategies",
+          "title": "4.5 \u2014 Rollback Strategies",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-46-how-cloudflare-pages-connects-to-git-repositories",
+          "title": "4.6 \u2014 How Cloudflare Pages Connects to Git Repositories",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-what-this-phase-accomplishes-5",
+          "title": "What This Phase Accomplishes",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-51-what-is-a-design-system",
+          "title": "5.1 \u2014 What Is a Design System?",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-52-why-consistency-matters",
+          "title": "5.2 \u2014 Why Consistency Matters",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-53-auditing-both-projects-visual-systems",
+          "title": "5.3 \u2014 Auditing Both Projects' Visual Systems",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-54-building-the-unified-variables-file",
+          "title": "5.4 \u2014 Building the Unified Variables File",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-55-reusable-ui-components",
+          "title": "5.5 \u2014 Reusable UI Components",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-56-responsive-design",
+          "title": "5.6 \u2014 Responsive Design",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-what-this-phase-accomplishes-6",
+          "title": "What This Phase Accomplishes",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-61-comparing-duplicate-components",
+          "title": "6.1 \u2014 Comparing Duplicate Components",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-62-avoiding-duplicated-logic",
+          "title": "6.2 \u2014 Avoiding Duplicated Logic",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-63-centralizing-reusable-systems",
+          "title": "6.3 \u2014 Centralizing Reusable Systems",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-64-integrating-navigation-systems",
+          "title": "6.4 \u2014 Integrating Navigation Systems",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-65-cross-linking-between-features",
+          "title": "6.5 \u2014 Cross-Linking Between Features",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-what-this-phase-accomplishes-7",
+          "title": "What This Phase Accomplishes",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-71-removing-technical-debt",
+          "title": "7.1 \u2014 Removing Technical Debt",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-72-simplifying-architecture",
+          "title": "7.2 \u2014 Simplifying Architecture",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-73-naming-conventions",
+          "title": "7.3 \u2014 Naming Conventions",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-74-dependency-cleanup",
+          "title": "7.4 \u2014 Dependency Cleanup",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-what-this-phase-accomplishes-8",
+          "title": "What This Phase Accomplishes",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-81-development-vs-production-environments",
+          "title": "8.1 \u2014 Development vs. Production Environments",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-82-build-systems",
+          "title": "8.2 \u2014 Build Systems",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-83-cloudflare-pages-setup-complete-walkthrough",
+          "title": "8.3 \u2014 Cloudflare Pages Setup (Complete Walkthrough)",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-84-cicd-basics",
+          "title": "8.4 \u2014 CI/CD Basics",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-what-this-phase-accomplishes-9",
+          "title": "What This Phase Accomplishes",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-91-the-testing-pyramid",
+          "title": "9.1 \u2014 The Testing Pyramid",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-92-manual-testing-checklist",
+          "title": "9.2 \u2014 Manual Testing Checklist",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-93-browser-console-debugging",
+          "title": "9.3 \u2014 Browser Console Debugging",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-94-accessibility-checks",
+          "title": "9.4 \u2014 Accessibility Checks",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-what-this-phase-accomplishes-10",
+          "title": "What This Phase Accomplishes",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-101-how-bad-architecture-accumulates-over-time",
+          "title": "10.1 \u2014 How Bad Architecture Accumulates Over Time",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-102-documentation-strategies",
+          "title": "10.2 \u2014 Documentation Strategies",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-103-architecture-decision-records-adrs",
+          "title": "10.3 \u2014 Architecture Decision Records (ADRs)",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-104-preparing-for-scaling",
+          "title": "10.4 \u2014 Preparing for Scaling",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-105-folder-conventions-as-living-documentation",
+          "title": "10.5 \u2014 Folder Conventions as Living Documentation",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-the-merge-is-a-design-exercise",
+          "title": "The Merge Is a Design Exercise",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-the-cost-of-impatience",
+          "title": "The Cost of Impatience",
+          "level": 2
+        },
+        {
+          "id": "universal-project-merge-guide-this-guide-is-a-starting-point",
+          "title": "This Guide Is a Starting Point",
+          "level": 2
         }
-      ]
+      ],
+      "contentHtml": "<h1 id=\"universal-project-merge-guide-universal-project-merge-guide\">Universal Project Merge Guide</h1>\n<h2 id=\"universal-project-merge-guide-a-complete-educational-walkthrough-for-merging-any-two-web-projects\">A Complete Educational Walkthrough for Merging Any Two Web Projects</h2>\n<p><strong>Audience:</strong> Beginner to intermediate developer <strong>Purpose:</strong> Teach you HOW to think about, plan, and execute a project merge \u2014 not do it for you <strong>Format:</strong> Technical handbook with phased chapters, examples, and decision frameworks</p>\n<hr />\n<blockquote><p><strong>Before you read a single line of code:</strong> The most common reason project merges fail is that developers open their editor before they open their brain. This guide will teach you to inspect, evaluate, plan, and only then act. Patience in the planning phase saves days of untangling chaos.</p></blockquote>\n<hr />\n<h1 id=\"universal-project-merge-guide-table-of-contents\">TABLE OF CONTENTS</h1>\n<ul><li>Phase 1 \u2014 Understanding Both Projects</li><li>Phase 2 \u2014 Evaluating Merge Difficulty</li><li>Phase 3 \u2014 Planning Before Coding</li><li>Phase 4 \u2014 Git &amp; Safety Systems</li><li>Phase 5 \u2014 Creating Unified Design Systems</li><li>Phase 6 \u2014 Merging Components &amp; Features</li><li>Phase 7 \u2014 Refactoring &amp; Cleanup</li><li>Phase 8 \u2014 Deployment &amp; Production Readiness</li><li>Phase 9 \u2014 Testing &amp; Validation</li><li>Phase 10 \u2014 Long-Term Maintainability</li></ul>\n<hr />\n<hr />\n<h1 id=\"universal-project-merge-guide-phase-1-understanding-both-projects\">PHASE 1 \u2014 Understanding Both Projects</h1>\n<h2 id=\"universal-project-merge-guide-what-this-phase-accomplishes\">What This Phase Accomplishes</h2>\n<p>Before you can merge two things, you need to understand what each thing actually is. This sounds obvious, but most beginners skip it. They see two folders of code and assume they know what's inside. They're wrong, and it costs them.</p>\n<p>This phase teaches you to audit a project the way a professional does \u2014 systematically, without assumptions, reading what is actually there rather than what you expect to find.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-11-what-is-project-structure-and-why-does-it-matter\">1.1 \u2014 What Is \"Project Structure\" and Why Does It Matter?</h2>\n<p>Every software project is a collection of files organized in a folder hierarchy. That hierarchy is not arbitrary. It reflects architectural decisions someone made: what belongs together, what is shared, what is isolated, what is likely to change.</p>\n<p>When you first open a project, the folder structure tells you:</p>\n<ul><li>What kind of application this is (website, API, desktop app, CLI tool)</li><li>What framework or library was used (if any)</li><li>How the code is organized (by feature, by type, by layer)</li><li>How mature the project is (well-organized vs. everything dumped in one folder)</li><li>What is likely to conflict with another project</li></ul>\n<p><strong>How to inspect project structure:</strong></p>\n<p>Open a terminal in the project root and run:</p>\n<pre><code class=\"language-bash\">find . -not -path &#x27;*/node_modules/*&#x27; -not -path &#x27;*/.git/*&#x27; -type f | sort</code></pre>\n<p>This lists every file, excluding generated noise. Read through the list slowly. Note:</p>\n<ul><li>What types of files exist (<code>.html</code>, <code>.js</code>, <code>.ts</code>, <code>.css</code>, <code>.json</code>, <code>.md</code>, <code>.env</code>, <code>.py</code>, <code>.go</code>, etc.)</li><li>Are there config files at the root? (<code>package.json</code>, <code>vite.config.js</code>, <code>webpack.config.js</code>, <code>tsconfig.json</code>, <code>pyproject.toml</code>, <code>Cargo.toml</code>, <code>.eslintrc</code>, etc.)</li><li>Is there a <code>src/</code> directory? A <code>public/</code> directory? A <code>dist/</code> or <code>build/</code> directory?</li><li>Are there test files? (<code><em>.test.js</code>, <code></em>.spec.ts</code>, <code>__tests__/</code>)</li><li>Is there a <code>.env</code> or <code>.env.example</code>?</li></ul>\n<p>Write this list down. You will compare it against the second project.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-12-identifying-the-framework\">1.2 \u2014 Identifying the Framework</h2>\n<p>A \"framework\" is a set of tools and conventions that dictates how you build your application. Two projects using different frameworks are not automatically incompatible \u2014 but the more incompatible their frameworks, the harder the merge.</p>\n<p><strong>How to identify the framework of a project:</strong></p>\n<p>Step 1: Read <code>package.json</code> (if it exists). The <code>dependencies</code> and <code>devDependencies</code> sections name every major library used.</p>\n<pre><code class=\"language-json\">{\n  &quot;dependencies&quot;: {\n    &quot;react&quot;: &quot;^18.2.0&quot;,\n    &quot;react-dom&quot;: &quot;^18.2.0&quot;\n  }\n}</code></pre>\n<p>This tells you: React app.</p>\n<pre><code class=\"language-json\">{\n  &quot;dependencies&quot;: {\n    &quot;vue&quot;: &quot;^3.3.0&quot;\n  }\n}</code></pre>\n<p>This tells you: Vue app.</p>\n<p>No <code>package.json</code> at all, and only <code>.html</code>/<code>.js</code>/<code>.css</code> files? This is a \"vanilla\" project \u2014 no framework, pure browser technologies. These are often the easiest to merge.</p>\n<p>Step 2: Look at the entry point. Usually <code>index.html</code>, <code>main.js</code>, <code>app.js</code>, <code>index.ts</code>, or <code>main.ts</code>. Read the first few lines. Does it import React? Does it use <code>createApp</code> (Vue)? Does it call <code>document.getElementById(\"app\")</code> directly?</p>\n<p>Step 3: Check the build config. A <code>vite.config.js</code> or <code>webpack.config.js</code> tells you how the project gets compiled for production. A project with no build config runs directly in the browser \u2014 no compilation step needed.</p>\n<p><strong>Framework quick-reference table:</strong></p>\n<table><tbody>\n<tr><td>Files / Imports Present</td><td>Framework / Technology</td></tr>\n<tr><td><code>react</code>, <code>ReactDOM.render</code>, <code>.jsx</code> files</td><td>React</td></tr>\n<tr><td><code>vue</code>, <code>createApp</code>, <code>.vue</code> files</td><td>Vue 3</td></tr>\n<tr><td><code>angular.json</code>, <code>@angular/core</code></td><td>Angular</td></tr>\n<tr><td><code>svelte</code>, <code>.svelte</code> files</td><td>Svelte</td></tr>\n<tr><td>No npm, pure <code>.html/.css/.js</code></td><td>Vanilla / plain web</td></tr>\n<tr><td><code>next.config.js</code></td><td>Next.js (React with SSR)</td></tr>\n<tr><td><code>nuxt.config.js</code></td><td>Nuxt (Vue with SSR)</td></tr>\n<tr><td><code>package.json</code> with no frontend deps</td><td>Node.js backend / CLI</td></tr>\n</tbody></table>\n<p><strong>Beginner note:</strong> You do not need to know every framework deeply. You only need to know: are these two projects using the SAME framework or DIFFERENT frameworks? Same = easier merge. Different = you need to decide which framework wins, or architect a wrapper.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-13-identifying-the-routing-system\">1.3 \u2014 Identifying the Routing System</h2>\n<p>Routing is how a web application decides which \"page\" to show based on the URL. This is one of the most critical systems to understand before a merge, because two projects almost always have overlapping routes.</p>\n<p><strong>Types of routing:</strong></p>\n<p><strong>1. File-based routing (static sites, Next.js, Nuxt):</strong> The folder structure IS the routes. A file at <code>pages/about.html</code> = the <code>/about</code> URL. When merging, you must carefully place files so routes don't collide.</p>\n<p><strong>2. Hash-based routing (common in vanilla SPAs):</strong> URLs look like <code>mysite.com/#/home</code> or <code>mysite.com/#/projects</code>. The <code>#</code> symbol means the browser never actually navigates \u2014 JavaScript reads the hash and swaps the visible content. Two projects using hash routing can collide if they both handle the same hash values.</p>\n<p><strong>3. Client-side routing (React Router, Vue Router):</strong> A JavaScript library intercepts URL changes and renders the matching component. Routes are defined in code like:</p>\n<pre><code class=\"language-js\">&lt;Route path=&quot;/dashboard&quot; element={&lt;Dashboard /&gt;} /&gt;</code></pre>\n<p><strong>4. Server-side routing:</strong> The server decides what HTML to send based on the URL. Common in Express.js, Flask, Django. If merging two server-side apps, you must reconcile their route handlers.</p>\n<p><strong>What to record during inspection:</strong></p>\n<ul><li>What routing system does this project use?</li><li>What routes does it define? List them all.</li><li>Are any routes protected (require login)?</li><li>Does the project use a base path (e.g., <code>/app/</code> or <code>/admin/</code>)?</li></ul>\n<p>When you have both projects' route lists side by side, look for collisions \u2014 two routes with the same path that lead to different content.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-14-identifying-the-styling-system\">1.4 \u2014 Identifying the Styling System</h2>\n<p>Visual conflicts are the most immediately visible problem after a merge. If both projects use a global CSS reset, or both define styles for <code>body</code>, <code>h1</code>, <code>button</code>, etc., they will fight each other.</p>\n<p><strong>Types of styling systems:</strong></p>\n<p><strong>1. Global CSS files:</strong> One or more <code>.css</code> files linked in <code>&lt;head&gt;</code>. Styles apply everywhere. These conflict most easily.</p>\n<p><strong>2. CSS Modules:</strong> Each component has its own <code>.module.css</code> file. Class names are scoped automatically to avoid conflicts. These are safer to merge.</p>\n<p><strong>3. Tailwind CSS:</strong> Utility classes written directly in HTML. Two Tailwind projects merge relatively easily since Tailwind generates only the classes actually used.</p>\n<p><strong>4. CSS-in-JS (styled-components, emotion):</strong> Styles are written in JavaScript files. Component-scoped by default. Relatively safe to merge.</p>\n<p><strong>5. SCSS / SASS:</strong> An extension of CSS with variables, nesting, and mixins. Two SCSS projects can conflict through shared variable names or global style inheritance.</p>\n<p><strong>6. No CSS framework, inline styles, or component framework (Bootstrap, Bulma):</strong> Component frameworks add their own class names globally. Two projects using different component frameworks (e.g., one uses Bootstrap, one uses Bulma) will likely conflict heavily.</p>\n<p><strong>What to record:</strong></p>\n<ul><li>What CSS approach does each project use?</li><li>Does the project define global variables (CSS custom properties like <code>--primary-color</code>)?</li><li>Does the project import a third-party CSS framework?</li><li>Does the project have a CSS reset or <code>normalize.css</code>?</li></ul>\n<hr />\n<h2 id=\"universal-project-merge-guide-15-identifying-reusable-systems\">1.5 \u2014 Identifying Reusable Systems</h2>\n<p>A \"reusable system\" is any piece of code that multiple parts of the project depend on. These are valuable \u2014 they are also the most dangerous to disrupt during a merge.</p>\n<p><strong>What to look for:</strong></p>\n<ul><li><strong>Utility functions:</strong> Files named <code>utils.js</code>, <code>helpers.js</code>, <code>lib/</code>, <code>shared/</code>. These often contain functions used throughout the app.</li><li><strong>Configuration:</strong> Files named <code>config.js</code>, <code>constants.js</code>, or exported objects containing environment-dependent values.</li><li><strong>API/data fetching layer:</strong> Files named <code>api.js</code>, <code>services/</code>, <code>client.js</code>. These centralize how the app communicates with external data.</li><li><strong>State management:</strong> Redux store, Vuex/Pinia store, Zustand store, React Context. If a project has centralized state, all features depend on it.</li><li><strong>Authentication logic:</strong> Login, logout, token storage, route guards.</li><li><strong>Error handling / logging:</strong> Global error boundaries, error reporting utilities.</li></ul>\n<p><strong>Beginner note:</strong> When you find a reusable system, mark it with a star. These are the pieces you MUST carry into the merged project intact. If you accidentally break one of these during the merge, many features will break simultaneously.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-16-identifying-technical-debt\">1.6 \u2014 Identifying Technical Debt</h2>\n<p>Technical debt is code that works today but will cause problems tomorrow. It is the accumulated cost of shortcuts, hasty decisions, and deferred cleanup.</p>\n<p><strong>Signs of technical debt:</strong></p>\n<ul><li>Duplicate code in multiple files (the same logic copy-pasted)</li><li>Very large files (a single file over 500 lines is a warning sign)</li><li>Commented-out code blocks (\"//TODO: fix this later\", <code># old version kept just in case</code>)</li><li>Hardcoded values that should be configuration (e.g., <code>fetch(\"http://localhost:3000/api\")</code> in production code)</li><li>Deeply nested folder structures that are hard to navigate</li><li>Inconsistent naming conventions (some files <code>camelCase.js</code>, others <code>kebab-case.js</code>, others <code>PascalCase.js</code>)</li><li>No README or outdated README</li><li>Dead code \u2014 functions defined but never called</li><li>Missing error handling for operations that can fail (network calls, file reads)</li></ul>\n<p><strong>Why this matters for merging:</strong></p>\n<p>You do not want to carry technical debt from both projects into the merged result. The merge is an opportunity to clean up \u2014 but only if you identify the debt first. If you merge two messy projects blindly, you get a doubly messy merged project.</p>\n<p><strong>Practical action:</strong></p>\n<p>After inspecting each project, write a short \"health score\" for it:</p>\n<ul><li>What are the 3 biggest quality problems?</li><li>What would you fix first if this were your codebase?</li><li>Is this project's architecture a model to follow, or one to clean up?</li></ul>\n<hr />\n<h2 id=\"universal-project-merge-guide-17-estimating-merge-complexity\">1.7 \u2014 Estimating Merge Complexity</h2>\n<p>After fully inspecting both projects, you can estimate how hard the merge will be. Use this framework:</p>\n<p><strong>Complexity Multipliers:</strong></p>\n<table><tbody>\n<tr><td>Factor</td><td>Low Complexity</td><td>High Complexity</td></tr>\n<tr><td>Frameworks</td><td>Same framework</td><td>Different frameworks</td></tr>\n<tr><td>Routing</td><td>Both use hash routing</td><td>One uses server routing, one client</td></tr>\n<tr><td>Styling</td><td>Both use CSS modules</td><td>Both use global CSS with same class names</td></tr>\n<tr><td>Dependencies</td><td>90%+ overlap</td><td>Totally different dependency trees</td></tr>\n<tr><td>State management</td><td>Neither has it OR both use same library</td><td>Different state management systems</td></tr>\n<tr><td>Project size</td><td>Both small (&lt; 20 files each)</td><td>Both large (100+ files each)</td></tr>\n<tr><td>Code quality</td><td>Both well-organized</td><td>Both messy</td></tr>\n</tbody></table>\n<p>Add up your complexity estimates. If most factors are \"low complexity,\" this is a manageable merge. If several are \"high complexity,\" budget significantly more time and expect setbacks.</p>\n<hr />\n<hr />\n<h1 id=\"universal-project-merge-guide-phase-2-evaluating-merge-difficulty\">PHASE 2 \u2014 Evaluating Merge Difficulty</h1>\n<h2 id=\"universal-project-merge-guide-what-this-phase-accomplishes-2\">What This Phase Accomplishes</h2>\n<p>Phase 1 gave you raw information about each project. Phase 2 teaches you to compare them \u2014 to put both audits side by side and honestly evaluate what conflicts exist and how severe they are.</p>\n<p>This phase prevents the single biggest beginner mistake: <strong>underestimating the difficulty of the merge and starting without a plan.</strong></p>\n<hr />\n<h2 id=\"universal-project-merge-guide-21-framework-conflicts\">2.1 \u2014 Framework Conflicts</h2>\n<p>A \"framework conflict\" occurs when two projects use fundamentally different JavaScript frameworks.</p>\n<p><strong>Scenario A: Both projects use the same framework</strong></p>\n<p>Example: Both use React. This is the ideal case. You share the same component model, the same lifecycle methods, the same JSX syntax. You can typically move component files directly between projects and they will work with minimal modification.</p>\n<p><strong>Scenario B: One uses a framework, one is vanilla</strong></p>\n<p>Example: One project uses React, the other is plain HTML/JS. This is moderately difficult. You have two options:</p>\n<p><em>Option 1 \u2014 Convert the vanilla project to React:</em> Rewrite each vanilla \"page\" or \"section\" as a React component. This is work, but produces a clean result.</p>\n<p><em>Option 2 \u2014 Keep both paradigms with a wrapper:</em> The React app serves some routes, the vanilla code serves others. This is fragile and not recommended for long-term projects.</p>\n<p><strong>Scenario C: Both projects use DIFFERENT frameworks</strong></p>\n<p>Example: One uses React, the other uses Vue. This is the hardest case. React and Vue cannot share components \u2014 they have completely different ways of defining, rendering, and managing state in components.</p>\n<p>Your options are:</p>\n<ol><li>Choose one framework and rewrite the other project's components in that framework. (Costly, but produces a clean codebase.)</li><li>Use a micro-frontend architecture where each framework runs in an isolated island. (Advanced, complex, overkill for most projects.)</li><li>Convert both to vanilla JS/TypeScript. (Only viable if both projects are small and simple.)</li></ol>\n<p><strong>Decision rule:</strong> Unless you have a specific reason not to, always choose the framework that is used by the larger or more mature of the two projects. Rewriting the smaller project is almost always less work than rewriting the larger one.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-22-css-conflicts\">2.2 \u2014 CSS Conflicts</h2>\n<p>CSS conflicts are sneaky. The code \"works\" \u2014 it just looks wrong in subtle ways. Two projects' styles fight each other, overriding each other in unpredictable ways.</p>\n<p><strong>Types of CSS conflict:</strong></p>\n<p><strong>1. Selector conflicts:</strong> Both projects define styles for the same selector.</p>\n<pre><code class=\"language-css\">/* Project A */\nbutton {\n  background: #2a6ef5;\n  border-radius: 4px;\n}\n\n/* Project B */\nbutton {\n  background: transparent;\n  border-radius: 0;\n  border-bottom: 2px solid black;\n}</code></pre>\n<p>When you merge both CSS files, whichever comes LAST in the <code>&lt;head&gt;</code> wins. But only partially \u2014 some properties from the earlier file might still leak through.</p>\n<p><strong>2. Variable name conflicts:</strong> Both projects use CSS custom properties, but with different values:</p>\n<pre><code class=\"language-css\">/* Project A */\n:root {\n  --primary: #2a6ef5;\n  --spacing: 16px;\n}\n\n/* Project B */\n:root {\n  --primary: #e53e3e; /* completely different color! */\n  --spacing: 24px;\n}</code></pre>\n<p>In a merged stylesheet, the second <code>:root</code> block overwrites the first. Your Project A components will suddenly use Project B's colors.</p>\n<p><strong>3. Class name collisions:</strong> Both projects happen to use the same class names with different meanings:</p>\n<pre><code class=\"language-css\">/* Project A \u2014 .card is a dashboard widget */\n.card { background: white; border-radius: 8px; }\n\n/* Project B \u2014 .card is a playing card game element */\n.card { background: green; width: 100px; height: 140px; }</code></pre>\n<p><strong>How to detect these conflicts:</strong></p>\n<pre><code class=\"language-bash\"># Extract all CSS selectors from both projects and sort them\ngrep -rh &#x27;^\\.&#x27; projectA/styles.css projectB/styles.css | sort &gt; selectors_a.txt\ngrep -rh &#x27;^\\.&#x27; projectA/styles.css projectB/styles.css | sort &gt; selectors_b.txt\ncomm -12 selectors_a.txt selectors_b.txt  # shows shared selectors</code></pre>\n<p>This is not perfect, but it quickly surfaces obvious collisions.</p>\n<p><strong>Resolution strategies:</strong></p>\n<ul><li><strong>Namespace one project's CSS:</strong> Prefix all of Project B's classes with <code>.pb-</code> so <code>.card</code> becomes <code>.pb-card</code>. Find-and-replace in both CSS and HTML/JS files.</li><li><strong>Use CSS Modules for one or both projects:</strong> Modules scope class names to the file, preventing global collisions entirely.</li><li><strong>Build a unified design system:</strong> Discard both projects' global styles and write new shared styles. Apply them consistently to both.</li></ul>\n<hr />\n<h2 id=\"universal-project-merge-guide-23-dependency-conflicts\">2.3 \u2014 Dependency Conflicts</h2>\n<p>Dependencies are third-party libraries your project uses (listed in <code>package.json</code>). Conflicts arise when:</p>\n<p><strong>1. Both projects use the same library at different major versions:</strong></p>\n<pre><code class=\"language-json\">// Project A\n&quot;react&quot;: &quot;^17.0.0&quot;\n\n// Project B  \n&quot;react&quot;: &quot;^18.2.0&quot;</code></pre>\n<p>React 17 and React 18 have different APIs. Code written for 17 may not work in 18 without modifications. You must pick one version and update the code accordingly.</p>\n<p><strong>2. Two libraries that do the same thing:</strong></p>\n<pre><code class=\"language-json\">// Project A uses axios for HTTP requests\n&quot;axios&quot;: &quot;^1.4.0&quot;\n\n// Project B uses fetch (built-in) + a wrapper library\n&quot;ky&quot;: &quot;^1.0.0&quot;</code></pre>\n<p>Both work \u2014 but a merged project shouldn't use two different HTTP libraries. Standardize on one.</p>\n<p><strong>3. Conflicting peer dependencies:</strong></p>\n<p>Some libraries require specific versions of their peer libraries. When you combine two projects' <code>package.json</code> files, npm may warn about peer dependency conflicts. These require careful resolution.</p>\n<p><strong>How to handle dependency audits:</strong></p>\n<pre><code class=\"language-bash\"># Compare both projects&#x27; direct dependencies side by side\ncat projectA/package.json | python3 -c &quot;import sys,json; d=json.load(sys.stdin); [print(k,v) for k,v in d.get(&#x27;dependencies&#x27;,{}).items()]&quot; | sort &gt; deps_a.txt\ncat projectB/package.json | python3 -c &quot;import sys,json; d=json.load(sys.stdin); [print(k,v) for k,v in d.get(&#x27;dependencies&#x27;,{}).items()]&quot; | sort &gt; deps_b.txt\n\n# Find packages present in both\ncomm -12 deps_a.txt deps_b.txt</code></pre>\n<p>For each shared package, decide: which version wins? Usually the higher version \u2014 but verify no breaking changes.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-24-state-management-conflicts\">2.4 \u2014 State Management Conflicts</h2>\n<p>State management is how an application stores and shares data between different parts of the UI.</p>\n<p><strong>Simple case (no state management):</strong> Each component manages its own local state. Easiest to merge \u2014 no conflicts.</p>\n<p><strong>Complex case (centralized state):</strong> One project uses Redux. Another uses Zustand. Both have stores, actions, reducers.</p>\n<p>If you blindly paste both stores into the merged project, you get two competing sources of truth for the same data, naming collisions in action types, and unpredictable behavior.</p>\n<p><strong>Resolution strategies:</strong></p>\n<ul><li>If both projects are small, eliminate centralized state and use local component state or simple React Context.</li><li>If one project's state management is more mature, adopt it as the base and migrate the other project's state into it.</li><li>Never run two different state management libraries simultaneously unless they manage completely separate domains with no data sharing.</li></ul>\n<hr />\n<h2 id=\"universal-project-merge-guide-25-easy-moderate-and-dangerous-merges\">2.5 \u2014 Easy, Moderate, and Dangerous Merges</h2>\n<p>Use this framework to categorize the merge you're facing before you commit to doing it:</p>\n<p><strong>Easy Merge:</strong></p>\n<ul><li>Same framework (or both vanilla)</li><li>Similar project sizes (neither is 10x larger than the other)</li><li>Minimal CSS conflicts (both use modules, or one has very little global CSS)</li><li>Different routes (no URL collisions)</li><li>Similar dependency versions</li><li>Both projects are well-organized</li></ul>\n<p>Expected time: Hours to a day or two.</p>\n<p><strong>Moderate Merge:</strong></p>\n<ul><li>Same framework but different major versions</li><li>Some CSS conflicts requiring namespace work</li><li>Some route collisions requiring URL redesign</li><li>One project has centralized state, the other doesn't</li><li>Moderate technical debt in one or both projects</li></ul>\n<p>Expected time: Several days to a week or two.</p>\n<p><strong>Dangerous Merge:</strong></p>\n<ul><li>Different frameworks (React + Vue, or framework + vanilla with complex features)</li><li>Heavy global CSS conflicts with many shared class names</li><li>Both projects have centralized state using different libraries</li><li>Deeply different architectural approaches (one is event-driven, one is component-driven)</li><li>Both projects are large (100+ files each)</li><li>Significant technical debt in both</li></ul>\n<p>Expected time: Weeks or months. Consider whether a merge is actually the right approach, or whether building new from scratch using both codebases as reference would be faster.</p>\n<hr />\n<hr />\n<h1 id=\"universal-project-merge-guide-phase-3-planning-before-coding\">PHASE 3 \u2014 Planning Before Coding</h1>\n<h2 id=\"universal-project-merge-guide-what-this-phase-accomplishes-3\">What This Phase Accomplishes</h2>\n<p>This phase teaches you to make a concrete written plan before touching a single file. A good plan prevents two of the most common beginner failure modes:</p>\n<ol><li><strong>Chaotic merging:</strong> Copy files over in no particular order, end up with a broken half-merged state that's hard to understand or revert.</li><li><strong>Scope creep:</strong> Start merging, discover a problem, start fixing it, discover another problem, fix that \u2014 and end up three levels deep in unplanned changes with nothing working.</li></ol>\n<hr />\n<h2 id=\"universal-project-merge-guide-31-choosing-a-base-project\">3.1 \u2014 Choosing a Base Project</h2>\n<p>The \"base project\" is the project whose structure will serve as the foundation of the merged result. The other project's content will be integrated into it.</p>\n<p><strong>How to choose the base project:</strong></p>\n<p>Ask these questions:</p>\n<ul><li>Which project is more architecturally mature? (Better organized, less technical debt)</li><li>Which project is closer to the final merged vision? (If you're merging a notes app and a projects tracker into one knowledge tool, which already looks more like that?)</li><li>Which project uses the framework you want to continue using?</li><li>Which project has the better design system?</li><li>Which project has more tests?</li><li>Which project is actively maintained? (More recent commits, better documentation)</li></ul>\n<p>The project that wins the most of these comparisons becomes the base.</p>\n<p><strong>Beginner note:</strong> You are not \"deleting\" the other project. You are using one as the structural foundation and integrating the other's features into it. All valuable code from both projects ends up in the merged result.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-32-designing-the-unified-architecture\">3.2 \u2014 Designing the Unified Architecture</h2>\n<p>Before you merge, you need to know what the merged project should look like. Draw this out. Write it down. Commit to it before you write any code.</p>\n<p><strong>Unified architecture document template:</strong></p>\n<pre><code>MERGED PROJECT NAME: _______________\n\n## Purpose\nWhat does this merged application do?\n\n## Target Users  \nWho uses it?\n\n## Core Features (from Project A)\n1.\n2.\n3.\n\n## Core Features (from Project B)\n1.\n2.\n3.\n\n## Unified Route Map\n/ \u2014 Home page\n/notes \u2014 Notes section (from Project A)\n/projects \u2014 Projects section (from Project B)\n/settings \u2014 Settings (new, combining both)\n\n## Unified Folder Structure\n/src\n  /components\n    /shared    \u2190 components used by both former projects\n    /notes     \u2190 components specific to notes feature\n    /projects  \u2190 components specific to projects feature\n  /styles\n    base.css   \u2190 reset, variables, typography\n    notes.css  \u2190 notes-specific styles\n    projects.css \u2190 projects-specific styles\n  /utils\n    api.js     \u2190 unified data fetching\n    helpers.js \u2190 shared utility functions\n\n## Design System Decision\nWhich project&#x27;s visual style wins? _______________\nOR: Are we building a new unified style? _______________\n\n## Dependency Strategy\nList each dependency conflict and its resolution:\n- react: use version 18 (from Project B)\n- CSS framework: use Project A&#x27;s custom CSS, discard Project B&#x27;s Bootstrap</code></pre>\n<p>This document becomes your contract with yourself. Every decision you make during the merge should be traceable back to this document. If you find yourself making a decision that contradicts it, pause and update the document first \u2014 don't just make the change.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-33-creating-a-merge-blueprint-task-list\">3.3 \u2014 Creating a Merge Blueprint (Task List)</h2>\n<p>Break the merge into discrete, individually-completable tasks. This is critical. A merge is not one task \u2014 it is a sequence of 20-50 smaller tasks, each of which has a clear \"done\" state.</p>\n<p><strong>Example merge task list:</strong></p>\n<pre><code>PHASE A \u2014 Setup\n[ ] Fork/copy the base project into a new folder\n[ ] Create a new git branch: feature/merge-project-b\n[ ] Install all dependencies and verify base project runs\n\nPHASE B \u2014 Design System Unification\n[ ] Audit Project A&#x27;s CSS variables\n[ ] Audit Project B&#x27;s CSS variables\n[ ] Create unified _variables.css with merged/chosen values\n[ ] Verify base project still renders correctly with unified variables\n\nPHASE C \u2014 Routing\n[ ] Add /projects route to base project&#x27;s router\n[ ] Verify /projects route renders a placeholder page\n\nPHASE D \u2014 Feature Integration\n[ ] Copy Project B&#x27;s ProjectList component to /src/components/projects/\n[ ] Update ProjectList to use unified design system classes\n[ ] Wire ProjectList to /projects route\n[ ] Verify projects list renders with dummy data\n\nPHASE E \u2014 Data Layer\n[ ] Audit Project B&#x27;s data fetching code\n[ ] Integrate into unified api.js\n[ ] Connect ProjectList to real data\n[ ] Verify data loads correctly\n\nPHASE F \u2014 Cleanup\n[ ] Remove all duplicate code\n[ ] Remove all console.log debug statements\n[ ] Run dependency audit and remove unused packages\n[ ] Final CSS audit \u2014 remove all unused styles\n\nPHASE G \u2014 Testing\n[ ] Test every route manually\n[ ] Test on mobile viewport\n[ ] Test with keyboard navigation\n[ ] Test with empty data states</code></pre>\n<p>Check off each task as you complete it. Never skip checking tasks off \u2014 the checklist is your protection against the \"I think I did everything\" trap.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-34-why-beginners-fail-without-a-plan\">3.4 \u2014 Why Beginners Fail Without a Plan</h2>\n<p>Without a plan, the typical beginner merge looks like this:</p>\n<ol><li>Copy files from Project B into Project A</li><li>Something breaks. Not sure what.</li><li>Start debugging. Fix one thing.</li><li>Three new things break.</li><li>Get confused about what was working before and what was always broken.</li><li>Git history is a mess \u2014 no clear \"before\" state to compare against.</li><li>Give up and start over from scratch, losing all the work done so far.</li></ol>\n<p>With a plan:</p>\n<ol><li>Copy files from Project B into Project A (following the blueprint)</li><li>Something breaks.</li><li>You know exactly what you just changed (one task from the checklist).</li><li>You revert only that change and examine what went wrong.</li><li>Git history is clean \u2014 each task is one commit, each commit has a clear description.</li><li>You proceed to the next task, note a dependency in the plan, and handle it in order.</li></ol>\n<p>The plan doesn't prevent problems. It prevents you from losing track of where you are when problems occur.</p>\n<hr />\n<hr />\n<h1 id=\"universal-project-merge-guide-phase-4-git-safety-systems\">PHASE 4 \u2014 Git &amp; Safety Systems</h1>\n<h2 id=\"universal-project-merge-guide-what-this-phase-accomplishes-4\">What This Phase Accomplishes</h2>\n<p>This phase teaches you to use git not just as a \"save button\" but as a full time-machine and safety system. A merge that goes wrong is not a disaster if you have a clean git history \u2014 it's just a revert away from a working state.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-41-git-fundamentals-review\">4.1 \u2014 Git Fundamentals Review</h2>\n<p><strong>What git does:</strong> Git tracks every version of every file in your project. When you \"commit,\" you create a permanent snapshot of your entire project at that moment in time. You can always return to any snapshot.</p>\n<p><strong>Key concepts:</strong></p>\n<ul><li><strong>Repository (repo):</strong> A project folder that git is tracking (it contains a hidden <code>.git/</code> folder)</li><li><strong>Commit:</strong> A saved snapshot of the project at a point in time, with a message explaining what changed</li><li><strong>Branch:</strong> A parallel version of the project where you can make changes without affecting the \"main\" version</li><li><strong>HEAD:</strong> Git's term for \"where you are right now\" in history</li><li><strong>Remote:</strong> A copy of the repository stored somewhere else (GitHub, GitLab, Bitbucket, etc.)</li></ul>\n<p><strong>Essential commands:</strong></p>\n<pre><code class=\"language-bash\">git status                  # What has changed since last commit?\ngit diff                    # Show me exactly what changed (line by line)\ngit add &lt;file&gt;              # Stage a file for commit\ngit add -p                  # Interactively stage hunks of changes\ngit commit -m &quot;message&quot;     # Save a snapshot with a description\ngit log --oneline           # See recent commits (compact view)\ngit log --oneline --graph   # See branches and merges visually\ngit stash                   # Temporarily save uncommitted changes\ngit stash pop               # Restore stashed changes\ngit checkout &lt;branch&gt;       # Switch to a different branch\ngit checkout &lt;commit-hash&gt;  # Time-travel to an old commit (read-only)\ngit reset --hard HEAD       # DANGER: discard ALL uncommitted changes\ngit revert &lt;commit-hash&gt;    # Undo a specific commit by creating a new commit</code></pre>\n<hr />\n<h2 id=\"universal-project-merge-guide-42-branching-strategy-for-merges\">4.2 \u2014 Branching Strategy for Merges</h2>\n<p>Never do a merge directly on your <code>main</code> branch. Always work on a feature branch.</p>\n<p><strong>Why:</strong> If the merge goes wrong, you want to be able to delete the branch and start over without affecting your working <code>main</code> branch. If you worked on <code>main</code>, \"starting over\" means destroying <code>main</code>.</p>\n<p><strong>Recommended branch structure for a merge project:</strong></p>\n<pre><code>main (stable, always-working version of the base project)\n\u2514\u2500\u2500 feature/integrate-projectb (your merge work)\n    \u251c\u2500\u2500 feature/integrate-projectb--design-system (optional sub-branch for large isolated work)\n    \u2514\u2500\u2500 feature/integrate-projectb--routing (optional sub-branch)</code></pre>\n<p><strong>Creating the merge branch:</strong></p>\n<pre><code class=\"language-bash\"># Make sure you&#x27;re on main and it&#x27;s clean\ngit checkout main\ngit status  # should say &quot;nothing to commit&quot;\n\n# Create and switch to your merge branch\ngit checkout -b feature/integrate-projectb\n\n# Verify you&#x27;re on the new branch\ngit branch  # asterisk (*) shows current branch</code></pre>\n<p><strong>Committing during the merge:</strong></p>\n<p>Commit after completing EACH task from your merge blueprint. Do not let uncommitted changes accumulate across multiple tasks.</p>\n<pre><code class=\"language-bash\"># After completing one task from the blueprint:\ngit add src/components/projects/ProjectList.jsx\ngit commit -m &quot;feat: add ProjectList component from Project B&quot;\n\n# After the next task:\ngit add src/styles/projects.css\ngit commit -m &quot;style: add project-specific CSS from Project B&quot;</code></pre>\n<p>Good commit messages follow the pattern: <code>type: description</code></p>\n<ul><li><code>feat:</code> \u2014 new feature or added code</li><li><code>fix:</code> \u2014 bug fix</li><li><code>style:</code> \u2014 CSS/visual changes only</li><li><code>refactor:</code> \u2014 restructuring code without changing behavior</li><li><code>chore:</code> \u2014 dependency updates, tooling, config</li></ul>\n<hr />\n<h2 id=\"universal-project-merge-guide-43-backup-strategies\">4.3 \u2014 Backup Strategies</h2>\n<p><strong>Strategy 1: Remote repository backup</strong></p>\n<p>Push your branch to a remote (GitHub, etc.) frequently. Even if your local machine fails, the code is safe.</p>\n<pre><code class=\"language-bash\">git push origin feature/integrate-projectb</code></pre>\n<p>Set up the remote tracking once:</p>\n<pre><code class=\"language-bash\">git push -u origin feature/integrate-projectb\n# After this, just: git push</code></pre>\n<p><strong>Strategy 2: Archive copy</strong></p>\n<p>Before starting the merge, create a complete zip archive of both project directories and store them somewhere safe (external drive, cloud storage). This is belt-and-suspenders protection \u2014 even if git history gets corrupted (rare but possible), you have the raw files.</p>\n<pre><code class=\"language-bash\">zip -r projectA_backup_2024-01-15.zip projectA/\nzip -r projectB_backup_2024-01-15.zip projectB/</code></pre>\n<p><strong>Strategy 3: Tagged checkpoint</strong></p>\n<p>Before starting destructive changes (like removing a large section of CSS or rewriting a component), create a git tag. A tag is a permanent pointer to that commit.</p>\n<pre><code class=\"language-bash\">git tag checkpoint-before-css-rewrite\ngit push origin checkpoint-before-css-rewrite</code></pre>\n<p>To return to it:</p>\n<pre><code class=\"language-bash\">git checkout checkpoint-before-css-rewrite</code></pre>\n<hr />\n<h2 id=\"universal-project-merge-guide-44-when-to-keep-existing-repositories-vs-start-fresh\">4.4 \u2014 When to Keep Existing Repositories vs. Start Fresh</h2>\n<p><strong>Keep the existing repository when:</strong></p>\n<ul><li>The base project has a meaningful git history you want to preserve</li><li>You want to maintain blame/authorship for compliance or reference</li><li>The project is deployed and the remote URL is already configured in your deployment system</li></ul>\n<p><strong>Start fresh when:</strong></p>\n<ul><li>Both projects have messy, unhelpful git histories (\"WIP\", \"fix\", \"asdf\" commits)</li><li>The merge is so substantial it's effectively a new project</li><li>You want a clean <code>main</code> branch without the baggage of two separate histories</li></ul>\n<p><strong>How to start fresh while preserving work:</strong></p>\n<pre><code class=\"language-bash\"># Create a new empty repo\nmkdir merged-project\ncd merged-project\ngit init\n\n# Manually copy the files from your base project\ncp -r ../projectA/. .\n\n# Make the first commit\ngit add .\ngit commit -m &quot;init: base project from projectA&quot;\n\n# Now manually integrate Project B&#x27;s files\n# (copy specific files, not the .git folder)</code></pre>\n<p><strong>CRITICAL WARNING: Never copy a project's <code>.git/</code> folder into another project.</strong> Git repositories are not meant to be nested this way (unless using git submodules, which is a specific advanced pattern). Copying <code>.git/</code> from one project into another corrupts both.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-45-rollback-strategies\">4.5 \u2014 Rollback Strategies</h2>\n<p><strong>Scenario: I made changes that broke everything and I want to undo one commit</strong></p>\n<pre><code class=\"language-bash\">git revert HEAD  # creates a new commit that undoes the last commit</code></pre>\n<p>This is safe \u2014 it preserves history and just adds an \"undo\" commit. Preferred over destructive resets.</p>\n<p><strong>Scenario: I made changes across the last 3 commits and want to undo all of them</strong></p>\n<pre><code class=\"language-bash\">git revert HEAD~3..HEAD  # creates undo commits for the last 3 commits</code></pre>\n<p><strong>Scenario: I haven't committed yet and want to discard ALL uncommitted changes</strong></p>\n<pre><code class=\"language-bash\">git checkout .   # discards changes to tracked files\ngit clean -fd   # removes untracked files and directories (DANGER: permanent)</code></pre>\n<p><strong>Scenario: I committed something broken and want to go back to before that commit (advanced, destructive)</strong></p>\n<pre><code class=\"language-bash\"># Find the commit hash you want to return to\ngit log --oneline\n\n# Reset to that commit (keeps changes as uncommitted)\ngit reset HEAD~1         # moves back 1 commit, keeps changes staged\ngit reset --soft HEAD~1  # moves back 1 commit, keeps changes staged\ngit reset --hard HEAD~1  # DANGER: moves back 1 commit, DISCARDS changes permanently\n\n# Only use --hard if you are absolutely certain</code></pre>\n<hr />\n<h2 id=\"universal-project-merge-guide-46-how-cloudflare-pages-connects-to-git-repositories\">4.6 \u2014 How Cloudflare Pages Connects to Git Repositories</h2>\n<p>If you're deploying your merged project via Cloudflare Pages (a static site hosting service):</p>\n<p><strong>How it works:</strong></p>\n<ol><li>Your code lives in a GitHub/GitLab repository</li><li>Cloudflare Pages is connected to that repository</li><li>When you push to the <code>main</code> branch, Cloudflare automatically runs your build command and deploys the result to a global CDN</li><li>Every push to any other branch creates a \"preview deployment\" at a unique URL (useful for testing merges before they go live)</li></ol>\n<p><strong>Setup process:</strong></p>\n<ol><li>Push your project to a GitHub repository</li><li>Log into Cloudflare Dashboard \u2192 Pages \u2192 Create a project</li><li>Connect to GitHub and select your repository</li><li>Configure build settings:</li></ol>\n<ul><li>For a vanilla HTML/JS/CSS project with no build step: set build command to nothing, output directory to <code>/</code> or <code>.</code></li><li>For a Vite project: build command <code>npm run build</code>, output directory <code>dist</code></li><li>For a Next.js project: build command <code>npm run build</code>, use the Cloudflare Next.js adapter</li></ul>\n<ol><li>Set any environment variables needed</li></ol>\n<p><strong>Preview deployments:</strong></p>\n<p>Every branch push creates a preview URL like <code>feature-integrate-projectb.your-project.pages.dev</code>. Share this with stakeholders to review your merge before it goes to production.</p>\n<p><strong>Important:</strong> Cloudflare Pages serves static files. It cannot run a Node.js server. If your merged project requires a backend, use Cloudflare Workers (for serverless functions) or a separate backend deployment.</p>\n<hr />\n<hr />\n<h1 id=\"universal-project-merge-guide-phase-5-creating-unified-design-systems\">PHASE 5 \u2014 Creating Unified Design Systems</h1>\n<h2 id=\"universal-project-merge-guide-what-this-phase-accomplishes-5\">What This Phase Accomplishes</h2>\n<p>A \"design system\" is the set of visual rules and reusable UI components that make your application look and feel consistent. Two projects merged without unifying their design systems look like two different websites glued together \u2014 jarring, unprofessional, hard to maintain.</p>\n<p>This phase teaches you to create one coherent visual language for your merged project.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-51-what-is-a-design-system\">5.1 \u2014 What Is a Design System?</h2>\n<p>A design system defines:</p>\n<ul><li><strong>Colors:</strong> Primary, secondary, accent, neutral, semantic (success, error, warning, info)</li><li><strong>Typography:</strong> Font families, font sizes, weights, line heights</li><li><strong>Spacing:</strong> Consistent padding and margin values (usually 4px or 8px grids)</li><li><strong>Border radius:</strong> How rounded corners are</li><li><strong>Shadows:</strong> Box shadow depth levels</li><li><strong>Breakpoints:</strong> Where layouts change for different screen sizes</li><li><strong>Reusable components:</strong> Buttons, inputs, cards, modals, navigation \u2014 visually consistent across all uses</li></ul>\n<p>Without a design system, every developer makes arbitrary visual decisions, and the app accumulates inconsistency.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-52-why-consistency-matters\">5.2 \u2014 Why Consistency Matters</h2>\n<p>Consider two buttons in a merged app:</p>\n<pre><code class=\"language-html\">&lt;!-- From Project A --&gt;\n&lt;button class=&quot;btn btn-primary&quot;&gt;Save&lt;/button&gt;\n&lt;!-- Renders as: blue, 4px radius, 12px padding, Inter font --&gt;\n\n&lt;!-- From Project B --&gt;\n&lt;button class=&quot;submit-button&quot;&gt;Save&lt;/button&gt;\n&lt;!-- Renders as: green, 0 radius, 8px padding, Roboto font --&gt;</code></pre>\n<p>Both say \"Save.\" Both work. But they look completely different. This signals to users: \"this app was not designed as a whole.\" It erodes trust and professional perception.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-53-auditing-both-projects-visual-systems\">5.3 \u2014 Auditing Both Projects' Visual Systems</h2>\n<p><strong>Step 1: Collect all CSS custom properties (variables)</strong></p>\n<pre><code class=\"language-bash\">grep -r &quot;^  --&quot; projectA/styles.css projectB/styles.css</code></pre>\n<p>List every variable from both projects. Group them by type:</p>\n<pre><code>COLOR VARIABLES:\n  Project A: --primary: #2a6ef5, --bg: #ffffff, --text: #1a1a1a\n  Project B: --accent: #e53e3e, --surface: #f9fafb, --body-text: #333\n\nSPACING VARIABLES:\n  Project A: --space-sm: 8px, --space-md: 16px, --space-lg: 32px\n  Project B: (no variables, uses hardcoded values in CSS)\n\nTYPOGRAPHY:\n  Project A: font-family: &#x27;Inter&#x27;, sans-serif; applied to body\n  Project B: font-family: &#x27;Roboto&#x27;, sans-serif; applied to body</code></pre>\n<p><strong>Step 2: Screenshot both projects</strong></p>\n<p>Take screenshots of key UI areas from both projects:</p>\n<ul><li>Navigation / sidebar</li><li>A list view</li><li>A detail / single-item view</li><li>A form with inputs</li><li>Buttons in various states</li></ul>\n<p>Pin these screenshots side by side. What do you like from each? What do you want to keep? What do you want to discard?</p>\n<p><strong>Step 3: Make explicit decisions</strong></p>\n<p>For each design element, make a choice:</p>\n<ul><li>Use Project A's version</li><li>Use Project B's version</li><li>Build something new that combines the best of both</li></ul>\n<p>Document every decision. This becomes your design system spec.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-54-building-the-unified-variables-file\">5.4 \u2014 Building the Unified Variables File</h2>\n<p>Create a single CSS file \u2014 typically <code>_variables.css</code> or <code>base.css</code> \u2014 that defines all shared design tokens:</p>\n<pre><code class=\"language-css\">:root {\n  /* Colors */\n  --color-primary:   #2a6ef5;\n  --color-accent:    #e8a055;\n  --color-success:   #2da87e;\n  --color-danger:    #e53e3e;\n  --color-warning:   #d97706;\n\n  /* Neutrals */\n  --color-bg:        #0d0d0d;\n  --color-surface:   #1a1a1a;\n  --color-border:    #2e2e2e;\n  --color-text:      #e8e8e8;\n  --color-text-muted: #888;\n\n  /* Typography */\n  --font-body: &#x27;Inter&#x27;, system-ui, sans-serif;\n  --font-mono: &#x27;JetBrains Mono&#x27;, &#x27;Courier New&#x27;, monospace;\n\n  --text-xs:   0.75rem;\n  --text-sm:   0.875rem;\n  --text-base: 1rem;\n  --text-lg:   1.125rem;\n  --text-xl:   1.25rem;\n  --text-2xl:  1.5rem;\n  --text-3xl:  2rem;\n\n  /* Spacing (8px base grid) */\n  --space-1:  4px;\n  --space-2:  8px;\n  --space-3:  12px;\n  --space-4:  16px;\n  --space-6:  24px;\n  --space-8:  32px;\n  --space-12: 48px;\n  --space-16: 64px;\n\n  /* Shape */\n  --radius-sm: 4px;\n  --radius-md: 8px;\n  --radius-lg: 16px;\n  --radius-full: 9999px;\n\n  /* Shadows */\n  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);\n  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);\n  --shadow-lg: 0 16px 40px rgba(0,0,0,0.5);\n\n  /* Breakpoints (used in media queries) */\n  /* Note: CSS variables can&#x27;t be used in media queries directly */\n  /* Document them here for reference: 640px, 768px, 1024px, 1280px */\n}</code></pre>\n<p>This file is imported first. Every other CSS file in the project uses ONLY these variables \u2014 no hardcoded color values, no hardcoded font stacks, no magic numbers for spacing.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-55-reusable-ui-components\">5.5 \u2014 Reusable UI Components</h2>\n<p>After defining your variables, build a library of reusable base components. These are the \"atoms\" of your design system \u2014 the smallest building blocks that appear everywhere:</p>\n<p><strong>Button variants:</strong></p>\n<pre><code class=\"language-css\">.btn {\n  display: inline-flex;\n  align-items: center;\n  gap: var(--space-2);\n  padding: var(--space-2) var(--space-4);\n  font-size: var(--text-sm);\n  font-weight: 500;\n  border-radius: var(--radius-md);\n  border: 1px solid transparent;\n  cursor: pointer;\n  transition: opacity 150ms, transform 100ms;\n}\n\n.btn:hover { opacity: 0.9; }\n.btn:active { transform: translateY(1px); }\n\n.btn--primary {\n  background: var(--color-primary);\n  color: white;\n}\n\n.btn--ghost {\n  background: transparent;\n  border-color: var(--color-border);\n  color: var(--color-text);\n}\n\n.btn--danger {\n  background: var(--color-danger);\n  color: white;\n}</code></pre>\n<p><strong>Form inputs:</strong></p>\n<pre><code class=\"language-css\">.input {\n  width: 100%;\n  padding: var(--space-2) var(--space-3);\n  background: var(--color-surface);\n  border: 1px solid var(--color-border);\n  border-radius: var(--radius-md);\n  color: var(--color-text);\n  font-size: var(--text-sm);\n  outline: none;\n  transition: border-color 150ms;\n}\n\n.input:focus {\n  border-color: var(--color-primary);\n}</code></pre>\n<p><strong>Cards:</strong></p>\n<pre><code class=\"language-css\">.card {\n  background: var(--color-surface);\n  border: 1px solid var(--color-border);\n  border-radius: var(--radius-lg);\n  padding: var(--space-6);\n}</code></pre>\n<p>Once you have these base components, go through every piece of UI from both projects and replace hardcoded styles with these classes. Every button becomes <code>.btn</code>. Every input becomes <code>.input</code>. This is how you achieve visual consistency across the merged app.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-56-responsive-design\">5.6 \u2014 Responsive Design</h2>\n<p>Responsive design means your application works correctly on all screen sizes \u2014 desktop, tablet, mobile.</p>\n<p><strong>Core approach: mobile-first</strong></p>\n<p>Write base styles for the smallest screen, then add <code>@media</code> rules to adjust for larger screens:</p>\n<pre><code class=\"language-css\">/* Base: mobile */\n.sidebar {\n  display: none;  /* hidden on mobile */\n}\n\n.content {\n  padding: var(--space-4);\n}\n\n/* Tablet and above */\n@media (min-width: 768px) {\n  .sidebar {\n    display: block;\n    width: 240px;\n  }\n\n  .layout {\n    display: grid;\n    grid-template-columns: 240px 1fr;\n  }\n\n  .content {\n    padding: var(--space-8);\n  }\n}</code></pre>\n<p><strong>Common breakpoints (document these in your variables file as comments):</strong></p>\n<ul><li><code>480px</code> \u2014 large phones in landscape</li><li><code>640px</code> \u2014 small tablets</li><li><code>768px</code> \u2014 tablets</li><li><code>1024px</code> \u2014 small laptops</li><li><code>1280px</code> \u2014 desktop</li><li><code>1536px</code> \u2014 large desktop / wide monitor</li></ul>\n<p><strong>When merging two projects with different responsive strategies:</strong></p>\n<p>One project might be desktop-only (no media queries). Another might be mobile-first. The merged project should use the mobile-first approach, which means you may need to add responsive breakpoints to the desktop-only project's components.</p>\n<hr />\n<hr />\n<h1 id=\"universal-project-merge-guide-phase-6-merging-components-features\">PHASE 6 \u2014 Merging Components &amp; Features</h1>\n<h2 id=\"universal-project-merge-guide-what-this-phase-accomplishes-6\">What This Phase Accomplishes</h2>\n<p>This phase teaches you to physically move code from one project to another, handling the practical challenges of integrating different components, avoiding duplication, and maintaining a clean architecture.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-61-comparing-duplicate-components\">6.1 \u2014 Comparing Duplicate Components</h2>\n<p>Before copying a component from Project B into the merged project, check whether Project A already has a similar component. You almost always find overlap:</p>\n<p><strong>Examples of likely duplicates:</strong></p>\n<table><tbody>\n<tr><td>Project A Component</td><td>Project B Component</td><td>Merged Result</td></tr>\n<tr><td><code>&lt;NavBar /&gt;</code></td><td><code>&lt;Sidebar /&gt;</code></td><td>Keep A's NavBar, integrate B's nav items into it</td></tr>\n<tr><td><code>&lt;Modal /&gt;</code></td><td><code>&lt;Dialog /&gt;</code></td><td>Pick the better-implemented one, use it everywhere</td></tr>\n<tr><td><code>&lt;LoadingSpinner /&gt;</code></td><td><code>&lt;Loader /&gt;</code></td><td>They do the same thing \u2014 keep one</td></tr>\n<tr><td><code>&lt;ErrorMessage /&gt;</code></td><td><code>&lt;Alert /&gt;</code></td><td>The same concept \u2014 unify</td></tr>\n<tr><td><code>formatDate()</code></td><td><code>dateToString()</code></td><td>The same utility \u2014 keep one, update all callers</td></tr>\n</tbody></table>\n<p><strong>Evaluation criteria when choosing which duplicate to keep:</strong></p>\n<ul><li>Which is more feature-complete? (More props, handles more edge cases)</li><li>Which has better accessibility? (Uses <code>aria-</code> attributes, handles keyboard navigation)</li><li>Which is more flexible? (Easier to customize for different uses)</li><li>Which has better error handling?</li><li>Which is better named? (Clearer purpose from the name alone)</li></ul>\n<hr />\n<h2 id=\"universal-project-merge-guide-62-avoiding-duplicated-logic\">6.2 \u2014 Avoiding Duplicated Logic</h2>\n<p>After a merge, it's easy to end up with the same logic in two places. This is called \"code duplication\" and it's a maintenance hazard: when you need to fix a bug or change behavior, you have to find and update every copy.</p>\n<p><strong>Types of logic that frequently get duplicated:</strong></p>\n<ul><li>Date formatting</li><li>Number formatting (currency, percentages)</li><li>String manipulation (truncation, slug generation)</li><li>API request helpers (authentication headers, error handling)</li><li>Validation (email format, required fields)</li><li>Local storage read/write wrappers</li></ul>\n<p><strong>How to find duplicates after a merge:</strong></p>\n<pre><code class=\"language-bash\"># Find all function definitions in both projects&#x27; JS files\ngrep -rn &quot;function &quot; src/ | grep -v &quot;node_modules&quot; | sort\n\n# Look for similarly-named functions\ngrep -rn &quot;export function\\|export const\\|module.exports&quot; src/</code></pre>\n<p>Review the list. Anything that appears more than once should be evaluated for consolidation.</p>\n<p><strong>Consolidation pattern:</strong></p>\n<ol><li>Identify the best version of the duplicated function</li><li>Move it to <code>/src/utils/</code> or <code>/src/shared/</code> with a clear name</li><li>Remove the other copies</li><li>Update all files that imported the removed copies to import from the new location</li></ol>\n<pre><code class=\"language-bash\"># Find all files importing from the old location\ngrep -rn &quot;from &#x27;../helpers&#x27;&quot; src/\n# Update them to the new location</code></pre>\n<hr />\n<h2 id=\"universal-project-merge-guide-63-centralizing-reusable-systems\">6.3 \u2014 Centralizing Reusable Systems</h2>\n<p>A well-organized merged project has clear \"layers\" of code, each with a single responsibility:</p>\n<p><strong>Recommended folder structure:</strong></p>\n<pre><code>src/\n\u251c\u2500\u2500 components/       \u2190 UI components (organized by feature)\n\u2502   \u251c\u2500\u2500 shared/       \u2190 components used across multiple features\n\u2502   \u2502   \u251c\u2500\u2500 Button.jsx\n\u2502   \u2502   \u251c\u2500\u2500 Modal.jsx\n\u2502   \u2502   \u251c\u2500\u2500 Input.jsx\n\u2502   \u2502   \u2514\u2500\u2500 Card.jsx\n\u2502   \u251c\u2500\u2500 notes/        \u2190 components only used in the notes feature\n\u2502   \u2502   \u251c\u2500\u2500 NoteList.jsx\n\u2502   \u2502   \u2514\u2500\u2500 NoteDetail.jsx\n\u2502   \u2514\u2500\u2500 projects/     \u2190 components only used in the projects feature\n\u2502       \u251c\u2500\u2500 ProjectGrid.jsx\n\u2502       \u2514\u2500\u2500 ProjectDetail.jsx\n\u251c\u2500\u2500 utils/            \u2190 pure utility functions (no UI, no side effects)\n\u2502   \u251c\u2500\u2500 dates.js\n\u2502   \u251c\u2500\u2500 strings.js\n\u2502   \u2514\u2500\u2500 validation.js\n\u251c\u2500\u2500 api/              \u2190 data fetching (API calls, localStorage, file reads)\n\u2502   \u251c\u2500\u2500 client.js     \u2190 base fetch wrapper with auth headers, error handling\n\u2502   \u251c\u2500\u2500 notes.js      \u2190 notes-specific API calls\n\u2502   \u2514\u2500\u2500 projects.js   \u2190 project-specific API calls\n\u251c\u2500\u2500 hooks/            \u2190 (React) custom hooks for shared stateful logic\n\u2502   \u251c\u2500\u2500 useLocalStorage.js\n\u2502   \u2514\u2500\u2500 useSearch.js\n\u251c\u2500\u2500 store/            \u2190 (if using centralized state) Redux/Zustand/etc.\n\u251c\u2500\u2500 styles/\n\u2502   \u251c\u2500\u2500 base.css      \u2190 variables, reset, typography, base components\n\u2502   \u251c\u2500\u2500 notes.css\n\u2502   \u2514\u2500\u2500 projects.css\n\u2514\u2500\u2500 main.js           \u2190 entry point</code></pre>\n<p>This structure makes it immediately clear where to find any piece of code, and where to add new code. When another developer (or future you) works on this project, the organization removes ambiguity.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-64-integrating-navigation-systems\">6.4 \u2014 Integrating Navigation Systems</h2>\n<p>When two web apps merge, their navigation systems must become one. Users should be able to move between all features of the merged app through a single navigation interface.</p>\n<p><strong>Common patterns:</strong></p>\n<p><strong>Flat navigation</strong> (all items at the same level):</p>\n<pre><code>Home | Notes | Projects | Settings</code></pre>\n<p>Use when you have fewer than 8 top-level sections and no hierarchical relationship between them.</p>\n<p><strong>Grouped navigation</strong> (items organized under category headers):</p>\n<pre><code>CONTENT\n  \u2514 Notes\n  \u2514 Projects\nPERSONAL\n  \u2514 Settings\n  \u2514 Profile</code></pre>\n<p>Use when you have many items or when items naturally group into categories.</p>\n<p><strong>Hierarchical navigation</strong> (nested sections with sub-items):</p>\n<pre><code>Notes \u25bc\n  \u2514 All Notes\n  \u2514 By Topic\n  \u2514 Favorites\nProjects \u25bc\n  \u2514 All Projects\n  \u2514 Active\n  \u2514 Archived</code></pre>\n<p>Use when each section has sub-sections that are navigated independently.</p>\n<p><strong>What to check when merging navigation:</strong></p>\n<ol><li>Does merging the nav items make the navigation too crowded? (More than 8 top-level items is usually too many.)</li><li>Do any nav items from both projects have the same label but different meanings?</li><li>Is the active state (highlighting the current page) correctly computed for all merged routes?</li><li>Does the navigation work on mobile? (Hamburger menu, drawer, etc.)</li><li>Are there any routes in the old navigation that no longer make sense in the merged context?</li></ol>\n<hr />\n<h2 id=\"universal-project-merge-guide-65-cross-linking-between-features\">6.5 \u2014 Cross-Linking Between Features</h2>\n<p>One of the benefits of merging two apps is that features can reference each other. A project detail page could link to related notes. A note could link to the project it belongs to.</p>\n<p><strong>Approach:</strong></p>\n<ol><li>Identify logical relationships between the two feature sets</li><li>Add cross-links where they add value to the user's experience</li><li>Do NOT add cross-links just because you can \u2014 only where there's a genuine user need</li></ol>\n<p><strong>Implementation:</strong></p>\n<p>Cross-links are usually just anchor tags or Link components pointing to routes in the other feature:</p>\n<pre><code class=\"language-jsx\">// In NoteDetail.jsx \u2014 linking to a related project\n{note.relatedProjectSlug &amp;&amp; (\n  &lt;a href={`/projects/${note.relatedProjectSlug}`} className=&quot;related-link&quot;&gt;\n    Related project: {note.relatedProjectName}\n  &lt;/a&gt;\n)}</code></pre>\n<p>You may need to add metadata fields to your data model to support cross-references. Plan this in your architecture document before implementing.</p>\n<hr />\n<hr />\n<h1 id=\"universal-project-merge-guide-phase-7-refactoring-cleanup\">PHASE 7 \u2014 Refactoring &amp; Cleanup</h1>\n<h2 id=\"universal-project-merge-guide-what-this-phase-accomplishes-7\">What This Phase Accomplishes</h2>\n<p>After the mechanical work of integration, the merged codebase typically has rough edges: inconsistencies, leftover code from the pre-merge version of each project, dead imports, CSS rules that no longer apply to anything, and minor inconsistencies introduced during the integration work.</p>\n<p>This phase teaches you to systematically clean up to a state where the merged project is actually better than either of its predecessors.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-71-removing-technical-debt\">7.1 \u2014 Removing Technical Debt</h2>\n<p>Use your notes from Phase 1 (where you identified technical debt in each project). Now address each item:</p>\n<p><strong>Dead code removal:</strong></p>\n<pre><code class=\"language-bash\"># Find exported functions that are never imported\n# (rough heuristic \u2014 review manually before deleting)\ngrep -rn &quot;export function\\|export const&quot; src/ | while read line; do\n  fname=$(echo &quot;$line&quot; | grep -o &#x27;function [a-zA-Z]*\\|const [a-zA-Z]*&#x27; | head -1 | cut -d&#x27; &#x27; -f2)\n  count=$(grep -rn &quot;$fname&quot; src/ --include=&quot;*.js&quot; --include=&quot;*.jsx&quot; | wc -l)\n  echo &quot;$count: $fname&quot;\ndone | sort -n | head -20</code></pre>\n<p>Items with a count of 1 (only the definition, no usages) are candidates for deletion.</p>\n<p><strong>Hardcoded value cleanup:</strong></p>\n<pre><code class=\"language-bash\"># Find hardcoded localhost URLs (should be environment variables)\ngrep -rn &quot;localhost:&quot; src/ --include=&quot;*.js&quot; --include=&quot;*.jsx&quot;\n\n# Find hardcoded color values (should be CSS variables)\ngrep -rn &quot;#[0-9a-fA-F]\\{3,6\\}&quot; src/styles/</code></pre>\n<p>Replace hardcoded localhost with <code>process.env.API_URL</code> or equivalent. Replace hardcoded colors with your unified CSS variables.</p>\n<p><strong>Console.log cleanup:</strong></p>\n<pre><code class=\"language-bash\">grep -rn &quot;console.log\\|console.warn\\|console.error&quot; src/ --include=&quot;*.js&quot; --include=&quot;*.jsx&quot;</code></pre>\n<p>Remove all debug logs that were added during development. (Intentional error logging \u2014 like logging caught exceptions \u2014 is fine to keep.)</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-72-simplifying-architecture\">7.2 \u2014 Simplifying Architecture</h2>\n<p>After a merge, some abstractions that existed in the original projects may no longer make sense, or may have become redundant.</p>\n<p><strong>Signs that an abstraction should be simplified or removed:</strong></p>\n<ul><li>A wrapper around a single function: <code>function doThing() { return otherDoThing(); }</code> \u2014 just call <code>otherDoThing</code> directly.</li><li>A configuration object with only one key \u2014 just pass the value directly.</li><li>A \"shared\" component used in exactly one place \u2014 it's not really shared, consider inlining it.</li><li>A complex state management setup for state that only one component uses \u2014 use local component state.</li></ul>\n<p><strong>The Rule of Three:</strong> Only abstract (create a shared utility, extract a component, create a constant) when you have used the same pattern in THREE or more places. One use = inline. Two uses = maybe. Three uses = abstract.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-73-naming-conventions\">7.3 \u2014 Naming Conventions</h2>\n<p>Inconsistent naming is one of the most friction-producing forms of technical debt. A file named <code>projectUtils.js</code> in one area and <code>note_helpers.js</code> in another, or a component called <code>NoteCard</code> and another called <code>projectcard.jsx</code> \u2014 these small inconsistencies accumulate into real confusion.</p>\n<p><strong>Choose one convention and apply it everywhere:</strong></p>\n<table><tbody>\n<tr><td>File type</td><td>Convention</td><td>Example</td></tr>\n<tr><td>React components</td><td>PascalCase</td><td><code>NoteDetail.jsx</code>, <code>ProjectGrid.jsx</code></td></tr>\n<tr><td>Utility files</td><td>camelCase</td><td><code>dateUtils.js</code>, <code>stringHelpers.js</code></td></tr>\n<tr><td>CSS files</td><td>kebab-case</td><td><code>note-detail.css</code>, <code>project-grid.css</code></td></tr>\n<tr><td>Constants</td><td>SCREAMING_SNAKE_CASE</td><td><code>MAX_NOTE_LENGTH</code>, <code>API_BASE_URL</code></td></tr>\n<tr><td>Functions</td><td>camelCase</td><td><code>formatDate()</code>, <code>slugify()</code></td></tr>\n<tr><td>CSS classes</td><td>kebab-case</td><td><code>.note-card</code>, <code>.project-grid</code></td></tr>\n</tbody></table>\n<p>After choosing, do a sweep:</p>\n<pre><code class=\"language-bash\"># Find files with underscores in names (if you chose camelCase/kebab-case)\nfind src/ -name &quot;*_*&quot; -type f\n\n# Find files with uppercase that aren&#x27;t components\nfind src/ -name &quot;[a-z]*[A-Z]*.js&quot; -not -name &quot;*.jsx&quot;</code></pre>\n<p>Rename files that violate the convention, then update all imports accordingly.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-74-dependency-cleanup\">7.4 \u2014 Dependency Cleanup</h2>\n<p>Over time (and especially during a merge), <code>package.json</code> accumulates packages that are no longer used.</p>\n<p><strong>Find unused dependencies:</strong></p>\n<pre><code class=\"language-bash\"># Install depcheck (a tool for finding unused dependencies)\nnpx depcheck\n\n# It reports: unused dependencies, missing dependencies, files using each package</code></pre>\n<p>Review the report carefully. Some packages are used in ways <code>depcheck</code> can't detect (dynamic imports, CLI tools, etc.). Do not blindly delete everything it flags \u2014 verify manually.</p>\n<p><strong>Remove a dependency:</strong></p>\n<pre><code class=\"language-bash\">npm uninstall package-name\n# or\nyarn remove package-name</code></pre>\n<p>After removing, run the app and ensure nothing breaks.</p>\n<p><strong>Check for duplicated packages at different versions:</strong></p>\n<pre><code class=\"language-bash\">npm ls --depth=0 2&gt;/dev/null | sort</code></pre>\n<p>If you see two versions of the same package, investigate why and attempt to consolidate.</p>\n<hr />\n<hr />\n<h1 id=\"universal-project-merge-guide-phase-8-deployment-production-readiness\">PHASE 8 \u2014 Deployment &amp; Production Readiness</h1>\n<h2 id=\"universal-project-merge-guide-what-this-phase-accomplishes-8\">What This Phase Accomplishes</h2>\n<p>A merged app that only works locally is half-done. This phase teaches you to configure the project for reliable production deployment, understand the difference between development and production environments, and set up automated deployments.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-81-development-vs-production-environments\">8.1 \u2014 Development vs. Production Environments</h2>\n<p><strong>Development environment:</strong> Your local machine. Features that help you work fast:</p>\n<ul><li>Hot module reload (changes appear instantly without full refresh)</li><li>Source maps (errors point to original source, not compiled output)</li><li>Verbose error messages</li><li>Unminified code (readable in browser DevTools)</li><li>Local API endpoints (localhost:3000, etc.)</li></ul>\n<p><strong>Production environment:</strong> The live server users connect to. Requirements:</p>\n<ul><li>Minified, optimized code (faster download)</li><li>No source maps (protects your source code)</li><li>Generic error messages (doesn't expose internals)</li><li>Real API endpoints (your actual server or third-party services)</li><li>Environment variables for all configuration (never hardcoded)</li></ul>\n<p><strong>Environment variables:</strong></p>\n<p>Never hardcode values that differ between development and production. Use environment variables:</p>\n<pre><code class=\"language-js\">// Bad (hardcoded)\nconst API_URL = &quot;https://api.myapp.com&quot;;\n\n// Good (environment variable with local fallback)\nconst API_URL = process.env.VITE_API_URL || &quot;http://localhost:3000&quot;;</code></pre>\n<p>Create two files:</p>\n<ul><li><code>.env</code> \u2014 production values (add to <code>.gitignore</code>)</li><li><code>.env.local</code> \u2014 local development overrides (also add to <code>.gitignore</code>)</li><li><code>.env.example</code> \u2014 a template with all variable names but no values (commit this to git)</li></ul>\n<pre><code class=\"language-bash\"># .env.example\nVITE_API_URL=\nVITE_SENTRY_DSN=\nVITE_STRIPE_PUBLIC_KEY=</code></pre>\n<hr />\n<h2 id=\"universal-project-merge-guide-82-build-systems\">8.2 \u2014 Build Systems</h2>\n<p>For projects without a build step (plain HTML/CSS/JS), skip this section \u2014 what you see is what gets deployed.</p>\n<p>For projects using a bundler (Vite, Webpack, Parcel):</p>\n<p><strong>How a build works:</strong></p>\n<ol><li>Your source code (<code>src/</code>) contains many files, modern JS syntax, imports, etc.</li><li>The bundler reads all of these and compiles them into one (or a few) optimized files.</li><li>The output goes into <code>dist/</code> or <code>build/</code>.</li><li>This output directory is what gets deployed \u2014 not your source.</li></ol>\n<p><strong>Common build commands:</strong></p>\n<pre><code class=\"language-bash\">npm run build          # most projects\nnpx vite build         # Vite specifically\nnpx next build         # Next.js</code></pre>\n<p><strong>Verify the build succeeds before merging is \"done\":</strong></p>\n<pre><code class=\"language-bash\">npm run build\n# Should complete without errors and produce a dist/ folder</code></pre>\n<p><strong>Test the production build locally:</strong></p>\n<pre><code class=\"language-bash\"># Serve the dist folder locally to verify it works\nnpx serve dist\n# or\npython3 -m http.server 8000 --directory dist</code></pre>\n<p>Open <code>http://localhost:8000</code> and manually test every route and feature. Production builds sometimes have subtle differences from development.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-83-cloudflare-pages-setup-complete-walkthrough\">8.3 \u2014 Cloudflare Pages Setup (Complete Walkthrough)</h2>\n<p><strong>Prerequisites:</strong></p>\n<ul><li>Your merged project is in a GitHub repository (public or private)</li><li>You have a Cloudflare account (free tier supports Pages)</li></ul>\n<p><strong>Step 1: Connect to GitHub</strong></p>\n<ol><li>Log into <code>dash.cloudflare.com</code></li><li>Left sidebar \u2192 Pages \u2192 Create a project</li><li>Click \"Connect to Git\"</li><li>Authorize Cloudflare to access your GitHub account</li><li>Select your repository</li></ol>\n<p><strong>Step 2: Configure build settings</strong></p>\n<table><tbody>\n<tr><td>Project type</td><td>Build command</td><td>Output directory</td></tr>\n<tr><td>Plain HTML/CSS/JS</td><td><em>(leave empty)</em></td><td><code>/</code></td></tr>\n<tr><td>Vite</td><td><code>npm run build</code></td><td><code>dist</code></td></tr>\n<tr><td>Create React App</td><td><code>npm run build</code></td><td><code>build</code></td></tr>\n<tr><td>Next.js</td><td><code>npm run build</code></td><td><code>.next</code></td></tr>\n<tr><td>Nuxt</td><td><code>npm run generate</code></td><td><code>dist</code></td></tr>\n</tbody></table>\n<p><strong>Step 3: Add environment variables</strong></p>\n<p>In the Cloudflare Pages settings for your project: Settings \u2192 Environment Variables \u2192 Add variable</p>\n<p>Add all variables from your <code>.env.example</code> with their actual production values.</p>\n<p><strong>Step 4: Deploy</strong></p>\n<p>Click \"Save and Deploy.\" Cloudflare will clone your repository, run the build command, and deploy the output to their CDN. First deployment takes 2-5 minutes.</p>\n<p><strong>Step 5: Configure custom domain (optional)</strong></p>\n<p>Pages settings \u2192 Custom domains \u2192 Add a custom domain. Follow the DNS configuration instructions.</p>\n<p><strong>Automatic deployments:</strong></p>\n<p>After setup, every push to <code>main</code> triggers a production deployment. Every push to any other branch creates a preview deployment at a unique URL. You can share preview URLs before merging to get feedback.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-84-cicd-basics\">8.4 \u2014 CI/CD Basics</h2>\n<p>CI/CD stands for Continuous Integration / Continuous Deployment. It means: every code change automatically runs tests and (if tests pass) deploys to production.</p>\n<p><strong>Cloudflare Pages handles CD automatically.</strong> Every push to <code>main</code> deploys.</p>\n<p><strong>Adding CI (automated testing before deployment):</strong></p>\n<p>Create a GitHub Actions workflow file at <code>.github/workflows/ci.yml</code>:</p>\n<pre><code class=\"language-yaml\">name: CI\n\non:\n  push:\n    branches: [main, &#x27;feature/**&#x27;]\n  pull_request:\n    branches: [main]\n\njobs:\n  test:\n    runs-on: ubuntu-latest\n\n    steps:\n      - uses: actions/checkout@v4\n\n      - name: Setup Node.js\n        uses: actions/setup-node@v4\n        with:\n          node-version: &#x27;20&#x27;\n          cache: &#x27;npm&#x27;\n\n      - name: Install dependencies\n        run: npm ci\n\n      - name: Run tests\n        run: npm test\n\n      - name: Build\n        run: npm run build</code></pre>\n<p>This runs on every push and pull request. If any step fails, GitHub marks the commit as failed and Cloudflare can be configured to not deploy failed builds.</p>\n<hr />\n<hr />\n<h1 id=\"universal-project-merge-guide-phase-9-testing-validation\">PHASE 9 \u2014 Testing &amp; Validation</h1>\n<h2 id=\"universal-project-merge-guide-what-this-phase-accomplishes-9\">What This Phase Accomplishes</h2>\n<p>Code that compiles is not necessarily code that works. This phase teaches you to systematically validate that your merged application functions correctly \u2014 not just \"seems to work\" but actually works across all routes, screen sizes, and edge cases.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-91-the-testing-pyramid\">9.1 \u2014 The Testing Pyramid</h2>\n<p>There are three levels of testing, from most granular to most holistic:</p>\n<p><strong>Unit tests:</strong> Test individual functions in isolation. Example: test that <code>slugify(\"Hello World!\")</code> returns <code>\"hello-world\"</code>.</p>\n<p><strong>Integration tests:</strong> Test that multiple pieces work together. Example: test that the notes list component correctly fetches and displays notes from the API.</p>\n<p><strong>End-to-end (E2E) tests:</strong> Test the entire user flow through a real browser. Example: open the app, navigate to notes, click a note, verify the detail page shows the correct content.</p>\n<p>For a merged project, focus first on manually verifying the golden path (the most important user flows), then add automated tests for the most critical logic.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-92-manual-testing-checklist\">9.2 \u2014 Manual Testing Checklist</h2>\n<p>Go through this checklist every time you're ready to call the merge \"done\":</p>\n<p><strong>Routing:</strong></p>\n<ul><li>[ ] Every route defined in your merge blueprint renders correctly</li><li>[ ] Navigating directly to each route (typing the URL) works, not just clicking links</li><li>[ ] The active state in navigation is correct for every route</li><li>[ ] The browser back/forward buttons work correctly</li><li>[ ] 404 / unknown routes show an appropriate error page</li></ul>\n<p><strong>Features from Project A:</strong></p>\n<ul><li>[ ] Every feature from Project A that should still work... still works</li><li>[ ] Check with dummy data AND with empty states (what if there are no notes?)</li></ul>\n<p><strong>Features from Project B:</strong></p>\n<ul><li>[ ] Every feature from Project B that should still work... still works</li><li>[ ] Check with dummy data AND with empty states</li></ul>\n<p><strong>Cross-feature interactions:</strong></p>\n<ul><li>[ ] Navigation between features works</li><li>[ ] Any cross-links you added work correctly</li><li>[ ] Shared state is consistent across features</li></ul>\n<p><strong>Forms:</strong></p>\n<ul><li>[ ] Every form input accepts user input</li><li>[ ] Form validation shows appropriate error messages</li><li>[ ] Form submission works</li><li>[ ] Success states are shown after submission</li></ul>\n<p><strong>Authentication (if applicable):</strong></p>\n<ul><li>[ ] Unauthenticated users see the correct restricted routes</li><li>[ ] Login/logout flow works</li><li>[ ] Session persistence works after page reload</li></ul>\n<p><strong>Responsive behavior:</strong></p>\n<ul><li>[ ] Test at 320px width (small phone)</li><li>[ ] Test at 768px width (tablet)</li><li>[ ] Test at 1280px width (desktop)</li><li>[ ] Navigation adapts appropriately at each size</li></ul>\n<hr />\n<h2 id=\"universal-project-merge-guide-93-browser-console-debugging\">9.3 \u2014 Browser Console Debugging</h2>\n<p>The browser console is your primary debugging tool for web applications. Open it with <code>F12</code> or <code>Ctrl+Shift+I</code> (Windows/Linux) or <code>Cmd+Option+I</code> (Mac), then click the \"Console\" tab.</p>\n<p><strong>What to look for:</strong></p>\n<ul><li><strong>Red errors:</strong> JavaScript exceptions. These break features. Fix all of them.</li><li><strong>Yellow warnings:</strong> Potential problems. Review and address the important ones.</li><li><strong>Network errors (404, 500):</strong> Requests to URLs that don't exist or servers that are down. Often caused by hardcoded development URLs surviving into production.</li></ul>\n<p><strong>Common post-merge console errors and their causes:</strong></p>\n<table><tbody>\n<tr><td>Error</td><td>Likely Cause</td></tr>\n<tr><td><code>Cannot read properties of undefined</code></td><td>A variable that was supposed to be set isn't. Often a missing prop or API response format change.</td></tr>\n<tr><td><code>Failed to fetch</code></td><td>API request failing. Check the URL, check the network tab.</td></tr>\n<tr><td><code>Module not found: ...'</code></td><td>An import path is wrong after you moved files during the merge.</td></tr>\n<tr><td><code>Warning: Each child in a list should have a unique \"key\" prop</code></td><td>React-specific. Add unique <code>key</code> props to list items.</td></tr>\n<tr><td><code>Content Security Policy: The page's settings blocked the loading of a resource</code></td><td>CSP headers blocking a resource. May need to update CSP config.</td></tr>\n</tbody></table>\n<hr />\n<h2 id=\"universal-project-merge-guide-94-accessibility-checks\">9.4 \u2014 Accessibility Checks</h2>\n<p>Accessibility (often abbreviated \"a11y\") means your application is usable by people with disabilities \u2014 those using screen readers, keyboard-only navigation, or high-contrast displays.</p>\n<p><strong>Quick accessibility checks:</strong></p>\n<ol><li><strong>Keyboard navigation:</strong> Tab through your entire application without using a mouse. Can you reach every interactive element? Does focus order make sense? Can you operate all buttons and links with Enter/Space?</li></ol>\n<ol><li><strong>Contrast:</strong> Use the browser's accessibility audit (DevTools \u2192 Lighthouse \u2192 Accessibility) to check color contrast ratios. Text on backgrounds should meet WCAG AA standards (4.5:1 ratio for normal text).</li></ol>\n<ol><li><strong>Alt text:</strong> Every <code>&lt;img&gt;</code> element should have an <code>alt</code> attribute. Decorative images get <code>alt=\"\"</code>. Informative images get a descriptive text.</li></ol>\n<ol><li><strong>Semantic HTML:</strong> Use proper HTML elements for their semantic purpose. <code>&lt;button&gt;</code> for buttons, <code>&lt;a&gt;</code> for navigation links, <code>&lt;h1&gt;</code>/<code>&lt;h2&gt;</code> for headings in order, <code>&lt;nav&gt;</code> for navigation regions.</li></ol>\n<ol><li><strong>Screen reader test:</strong> On Mac, enable VoiceOver (Cmd+F5). On Windows, use NVDA (free). Navigate your application by audio alone. Can you understand and operate everything?</li></ol>\n<hr />\n<hr />\n<h1 id=\"universal-project-merge-guide-phase-10-long-term-maintainability\">PHASE 10 \u2014 Long-Term Maintainability</h1>\n<h2 id=\"universal-project-merge-guide-what-this-phase-accomplishes-10\">What This Phase Accomplishes</h2>\n<p>A merge that produces a working application today but is painful to work with in six months is an incomplete merge. This phase teaches you to leave the codebase in a state that future developers \u2014 including future you \u2014 can work with productively.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-101-how-bad-architecture-accumulates-over-time\">10.1 \u2014 How Bad Architecture Accumulates Over Time</h2>\n<p>Software systems degrade through a process called \"entropy.\" Each time someone needs to add a feature quickly, they find the easiest place to add it \u2014 which is often not the architecturally correct place. This is fine once or twice. Over time, it becomes a tangle.</p>\n<p><strong>Warning signs that entropy is accumulating:</strong></p>\n<ul><li>Components that started small are now 500+ lines</li><li>\"God objects\" \u2014 single files that do everything (handles routing, state, API calls, UI rendering)</li><li>Circular imports \u2014 Module A imports Module B which imports Module A</li><li>Tests are breaking without any obvious reason \u2014 hidden interdependencies</li><li>Adding any feature requires touching 10+ files</li><li>New developers can't figure out where to add code without asking for help</li></ul>\n<p><strong>Prevention:</strong></p>\n<p>The best defense is the folder structure and component boundaries you established during the merge. Enforce them. When you add a new feature, place it in the correct location according to the architecture, not the most convenient location.</p>\n<p>When you notice yourself putting code \"just here for now,\" stop and put it in the right place. \"For now\" almost always becomes permanent.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-102-documentation-strategies\">10.2 \u2014 Documentation Strategies</h2>\n<p>Good documentation does not mean comments on every line. It means capturing the information that the code itself cannot convey.</p>\n<p><strong>README.md:</strong></p>\n<p>Every project needs a README that covers:</p>\n<pre><code class=\"language-markdown\"># Project Name\n\nOne sentence describing what this project does.\n\n## Getting Started\n</code></pre>\n<p>npm install npm run dev</p>\n<pre><code>\nOpen http://localhost:5173\n\n## Architecture\n\nBrief description of how the project is organized:\n- `src/components/` \u2014 UI components\n- `src/api/` \u2014 data fetching\n- `src/utils/` \u2014 shared utilities\n\n## Environment Variables\n\nCopy `.env.example` to `.env` and fill in:\n- `VITE_API_URL` \u2014 URL of the backend API\n\n## Deployment\n\nDeployed automatically via Cloudflare Pages on push to `main`.</code></pre>\n<p><strong>Comments in code:</strong></p>\n<p>Write a comment only when the reason for code is non-obvious \u2014 not what it does, but why.</p>\n<pre><code class=\"language-js\">// Good comment (explains WHY \u2014 non-obvious constraint)\n// localStorage.removeItem here because Chrome throttles \n// writes in beforeunload; we write on blur instead\ninput.addEventListener(&quot;blur&quot;, persist);\n\n// Bad comment (explains WHAT \u2014 the code already says this)\n// Loop over all notes\nnotes.forEach(note =&gt; { ... });</code></pre>\n<p><strong>Commit messages:</strong></p>\n<p>Good commit messages are documentation. Write them as if you're explaining to a future developer why a change was made:</p>\n<pre><code class=\"language-bash\"># Bad\ngit commit -m &quot;fix stuff&quot;\n\n# Good\ngit commit -m &quot;fix: route /projects now updates active nav item\n\nPreviously the nav active state was only computed on initial\nload. Added hashchange listener to recompute on navigation.&quot;</code></pre>\n<hr />\n<h2 id=\"universal-project-merge-guide-103-architecture-decision-records-adrs\">10.3 \u2014 Architecture Decision Records (ADRs)</h2>\n<p>An Architecture Decision Record is a short document that captures a significant architectural choice and the reasoning behind it. It is one of the most valuable forms of documentation for a project.</p>\n<p><strong>When to write an ADR:</strong></p>\n<ul><li>When you chose one approach over several alternatives</li><li>When a decision will be hard to change later</li><li>When the reason for a decision is not obvious from the code</li></ul>\n<p><strong>ADR template:</strong></p>\n<pre><code class=\"language-markdown\"># ADR 001: Use localStorage for project persistence (no backend)\n\n## Status\nAccepted\n\n## Context\nThe knowledge base site is deployed as a static site with no server.\nWe need to persist user edits to projects across browser sessions.\n\n## Decision\nUse browser localStorage as the persistence layer, with the projects\narray in site.json as the initial/fallback data.\n\n## Consequences\n+ No backend infrastructure required\n+ Works offline\n+ Instant reads/writes (no network latency)\n- Data is browser-local (does not sync across devices)\n- Data is lost if localStorage is cleared\n- Cannot exceed ~5MB of storage\n\n## Alternatives Considered\n- Firebase Firestore: adds auth complexity and costs money at scale\n- Supabase: requires a backend, overkill for a personal notes site\n- URL-encoded state: too large for projects data, ugly URLs</code></pre>\n<p>Store ADRs in a <code>docs/decisions/</code> folder in your repository. Reference them in code comments when relevant.</p>\n<hr />\n<h2 id=\"universal-project-merge-guide-104-preparing-for-scaling\">10.4 \u2014 Preparing for Scaling</h2>\n<p>\"Scaling\" means the project growing: more features, more data, more contributors, more users.</p>\n<p><strong>Code-level scaling preparation:</strong></p>\n<ul><li><strong>Keep functions small and focused:</strong> Functions under 30 lines are easy to test, understand, and modify.</li><li><strong>Use dependency injection:</strong> Pass dependencies into functions rather than importing them at the top. This makes code testable and flexible.</li><li><strong>Keep components isolated:</strong> A component should not know about components outside its immediate parent/child relationships.</li><li><strong>Avoid global state for everything:</strong> Only put data in global state if it genuinely needs to be shared across distant parts of the app.</li></ul>\n<p><strong>Architectural scaling signals:</strong></p>\n<p>When your <code>src/components/shared/</code> folder has more than 15-20 components, consider organizing them into sub-categories (<code>src/components/shared/forms/</code>, <code>src/components/shared/layout/</code>, <code>src/components/shared/data-display/</code>).</p>\n<p>When your <code>utils/</code> folder is getting large, group utilities by domain: <code>utils/dates/</code>, <code>utils/strings/</code>, <code>utils/validation/</code>.</p>\n<p>When a single feature (e.g., projects) becomes large enough to have its own routing, state, components, and API calls, consider organizing it as a \"feature module\":</p>\n<pre><code>src/features/projects/\n\u251c\u2500\u2500 components/\n\u251c\u2500\u2500 api.js\n\u251c\u2500\u2500 store.js (if using state management)\n\u251c\u2500\u2500 routes.jsx\n\u2514\u2500\u2500 index.js  \u2190 public API of the feature</code></pre>\n<p><strong>Performance scaling preparation:</strong></p>\n<ul><li><strong>Lazy load routes:</strong> Load JavaScript for each route only when the route is visited, not all at once on initial load.</li><li><strong>Virtualize long lists:</strong> If a list can have thousands of items, use virtual rendering (only render visible items). Libraries: <code>react-virtual</code>, <code>tanstack-virtual</code>.</li><li><strong>Cache API responses:</strong> If the same data is fetched multiple times, cache it in memory or localStorage to avoid redundant network requests.</li><li><strong>Optimize images:</strong> Use appropriate formats (WebP for photos, SVG for icons) and appropriate sizes (don't serve a 4000px image for a 400px thumbnail).</li></ul>\n<hr />\n<h2 id=\"universal-project-merge-guide-105-folder-conventions-as-living-documentation\">10.5 \u2014 Folder Conventions as Living Documentation</h2>\n<p>Your folder structure communicates architecture to everyone who reads the project. Protect it.</p>\n<p><strong>Create a CONVENTIONS.md file in your repository:</strong></p>\n<pre><code class=\"language-markdown\"># Code Conventions\n\n## Folder structure\n- `src/components/shared/` \u2014 components used in 3+ features\n- `src/components/&lt;feature&gt;/` \u2014 components used only in one feature\n- `src/api/` \u2014 all external data fetching (API calls, localStorage)\n- `src/utils/` \u2014 pure functions with no side effects, no UI\n- `src/styles/` \u2014 CSS files, organized to match component structure\n\n## Naming\n- Component files: PascalCase (.jsx)\n- Utility files: camelCase (.js)\n- CSS files: kebab-case matching component name (Button.jsx \u2192 button.css)\n- CSS classes: kebab-case\n\n## Component rules\n- One component per file\n- Component file and folder name must match the component&#x27;s exported name\n- No business logic in components \u2014 extract to utils/ or api/\n\n## Commit message format\n- feat: new feature\n- fix: bug fix\n- style: visual/CSS change only\n- refactor: restructuring without behavior change\n- chore: tooling, dependencies, config</code></pre>\n<p>This document is the constitution of your codebase. Review it when onboarding collaborators. Update it when conventions change. Enforce it in code review.</p>\n<hr />\n<hr />\n<h1 id=\"universal-project-merge-guide-closing-thoughts\">CLOSING THOUGHTS</h1>\n<h2 id=\"universal-project-merge-guide-the-merge-is-a-design-exercise\">The Merge Is a Design Exercise</h2>\n<p>Every decision you make during a merge is a design decision: What belongs together? What should be separated? What is shared and what is specific? What is temporary and what should persist?</p>\n<p>Approach merges the way a city planner approaches urban development: with a map, a vision, and respect for the existing infrastructure. You are not bulldozing and rebuilding from scratch. You are carefully integrating two systems into one coherent whole.</p>\n<h2 id=\"universal-project-merge-guide-the-cost-of-impatience\">The Cost of Impatience</h2>\n<p>The most expensive merges are the ones that were rushed. Every hour spent in planning (Phases 1-3) saves roughly 3-5 hours of debugging in the implementation phases. Every backup taken (Phase 4) is insurance you will eventually be grateful for. Every test run (Phase 9) catches regressions before users do.</p>\n<p>The developers who finish merges fastest are not the ones who start coding immediately \u2014 they're the ones who spend the most time understanding the problem before writing a line.</p>\n<h2 id=\"universal-project-merge-guide-this-guide-is-a-starting-point\">This Guide Is a Starting Point</h2>\n<p>No guide can anticipate every situation you'll encounter. The technologies change. The projects are never exactly like the examples. The constraints are always different.</p>\n<p>What doesn't change is the thinking process:</p>\n<ol><li>Understand deeply before acting</li><li>Plan before implementing</li><li>Work incrementally with frequent checkpoints</li><li>Validate systematically</li><li>Leave things better than you found them</li></ol>\n<p>Follow that process, and you will handle any merge \u2014 however unexpected \u2014 with confidence.</p>\n<hr />\n<p><em>Last updated: May 2026</em> <em>Author: Technical education guide \u2014 for personal reference</em></p>"
     },
     {
-      id: "form-destination",
-      title: "Changing Form Destinations",
-      category: "Forms",
-      summary: "How to update where form submissions are sent when email addresses change.",
-      content: [
+      "id": "system-diagnostic-commands",
+      "title": "0. Install the \u201claptop inspection toolkit\u201d",
+      "navLabel": "Diagnostics",
+      "summary": "Start here:",
+      "href": "system-diagnostic-commands.html",
+      "icon": "Diag",
+      "sections": [
         {
-          heading: "EmailJS vs FormSubmit",
-          body: "NexSite Studio uses two form handlers. EmailJS is used for flows that need an auto-reply (quote forms, questionnaires). FormSubmit is used for simpler contact forms. Check which one the site uses before editing."
+          "id": "system-diagnostic-commands-0-install-the-laptop-inspection-toolkit",
+          "title": "0. Install the \u201claptop inspection toolkit\u201d",
+          "level": 2
         },
         {
-          heading: "Updating EmailJS",
-          body: "EmailJS keys live in the script that calls emailjs.send(). Update the service ID, template ID, and public key in the relevant JS file or script block. Test by submitting the form — verify both the admin notification and the auto-reply arrive correctly."
+          "id": "system-diagnostic-commands-1-full-laptop-inventory-commands",
+          "title": "1. Full laptop inventory commands",
+          "level": 2
         },
         {
-          heading: "Updating FormSubmit",
-          body: "The FormSubmit destination is the email address in the form's action attribute: action=\"https://formsubmit.co/ajax/EMAIL\". Update the address. Important: FormSubmit requires activation — the first submission to a new email triggers a confirmation that must be clicked before submissions will deliver."
+          "id": "system-diagnostic-commands-2-find-every-device-file-linux-exposes",
+          "title": "2. Find every device file Linux exposes",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-3-cpu-commands",
+          "title": "3. CPU commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-4-ram-memory-commands",
+          "title": "4. RAM / memory commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-5-battery-and-power-commands",
+          "title": "5. Battery and power commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-6-temperature-and-sensor-commands",
+          "title": "6. Temperature and sensor commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-7-fan-commands",
+          "title": "7. Fan commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-8-gpu-commands",
+          "title": "8. GPU commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-9-screen-display-commands",
+          "title": "9. Screen / display commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-10-keyboard-commands",
+          "title": "10. Keyboard commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-11-mouse-touchpad-commands",
+          "title": "11. Mouse / touchpad commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-12-camera-webcam-commands",
+          "title": "12. Camera / webcam commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-13-microphone-commands",
+          "title": "13. Microphone commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-14-speakers-audio-output-commands",
+          "title": "14. Speakers / audio output commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-15-wi-fi-commands",
+          "title": "15. Wi-Fi commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-16-ethernet-commands",
+          "title": "16. Ethernet commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-17-bluetooth-commands",
+          "title": "17. Bluetooth commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-18-usb-port-commands",
+          "title": "18. USB port commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-19-usb-storage-flash-drive-commands",
+          "title": "19. USB storage / flash drive commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-20-disk-ssd-health-commands",
+          "title": "20. Disk / SSD health commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-21-filesystem-commands",
+          "title": "21. Filesystem commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-22-processes-running-programs",
+          "title": "22. Processes / running programs",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-23-services-startup-systemd-commands",
+          "title": "23. Services / startup / systemd commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-24-network-ports-sockets",
+          "title": "24. Network ports / sockets",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-25-local-network-discovery",
+          "title": "25. Local network discovery",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-26-packetnetwork-monitoring",
+          "title": "26. Packet/network monitoring",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-27-firewall-commands",
+          "title": "27. Firewall commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-28-tailscale-commands",
+          "title": "28. Tailscale commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-29-kde-connect-commands",
+          "title": "29. KDE Connect commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-30-printer-commands",
+          "title": "30. Printer commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-31-serial-ports-device-ports",
+          "title": "31. Serial ports / device ports",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-32-thunderbolt-usb-c-commands",
+          "title": "32. Thunderbolt / USB-C commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-33-webcam-mic-privacy-check-commands",
+          "title": "33. Webcam / mic privacy check commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-34-firmware-bios-hardware-update-commands",
+          "title": "34. Firmware / BIOS / hardware update commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-35-kernel-module-commands",
+          "title": "35. Kernel module commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-36-logs-for-hardware-debugging",
+          "title": "36. Logs for hardware debugging",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-37-location-gps-geoclue-commands",
+          "title": "37. Location / GPS / geoclue commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-38-d-bus-inspection-commands",
+          "title": "38. D-Bus inspection commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-39-system-security-permissions-commands",
+          "title": "39. System security / permissions commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-40-mounted-phones-android-mtp-commands",
+          "title": "40. Mounted phones / Android / MTP commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-41-package-app-commands",
+          "title": "41. Package / app commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-42-list-every-command-available-on-your-laptop",
+          "title": "42. List every command available on your laptop",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-43-best-what-does-this-command-do-commands",
+          "title": "43. Best \u201cwhat does this command do?\u201d commands",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-44-commands-that-can-change-important-things",
+          "title": "44. Commands that can change important things",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-45-one-command-to-generate-a-laptop-report",
+          "title": "45. One command to generate a laptop report",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-46-the-mental-model",
+          "title": "46. The mental model",
+          "level": 2
+        },
+        {
+          "id": "system-diagnostic-commands-47-the-big-three-discovery-commands",
+          "title": "47. The \u201cbig three\u201d discovery commands",
+          "level": 2
         }
-      ]
-    },
-    {
-      id: "pushing-changes",
-      title: "Pushing Changes to Production",
-      category: "Deployment",
-      summary: "How to get local edits live on a Cloudflare Pages site.",
-      content: [
-        {
-          heading: "Commit and push",
-          body: "Stage only the files you changed. Write a clear, specific commit message. Push to main. Cloudflare Pages detects the push and redeploys automatically — this takes 30–90 seconds for a static site."
-        },
-        {
-          heading: "Confirm the deployment",
-          body: "Go to the Cloudflare Pages dashboard, find the project, and watch the build log. When the deployment shows as Success, visit the live URL and hard-refresh (Ctrl+Shift+R) to confirm the change is live."
-        },
-        {
-          heading: "If the change doesn't appear",
-          body: "Cloudflare caches aggressively. If the deployment succeeded but you still see old content, purge the Cloudflare cache from the dashboard under Caching → Configuration → Purge Everything, then hard-refresh. This is almost always the fix."
-        },
-        {
-          heading: "Never force-push to main on a live site",
-          body: "If you need to undo a bad change, use git revert rather than git reset --hard. Revert creates a new commit that undoes the previous one — this is safe to push. Reset rewrites history, which can cause problems on shared repos."
-        }
-      ]
-    }
-  ],
-
-  // ─── Booking Site Setup ───────────────────────────────────────────────────────
-
-  bookingSetup: [
-    {
-      id: "copy-template",
-      title: "Copy the Template",
-      category: "Setup",
-      summary: "Start from the booking template — never from a blank file.",
-      content: [
-        {
-          heading: "Copy, don't create",
-          body: "Copy the booking-template/ directory to the new client project folder. Rename the folder to the client name using lowercase-hyphenated format (e.g., river-salon/, apex-auto/). Never build a booking site from a blank HTML file — you will reinvent work that's already done."
-        },
-        {
-          heading: "Project folder structure",
-          body: "Inside the new project folder, create: assets/ for images, docs/ for the intake form and scope doc, and NOTES.md for anything important. Add the client's intake form and scope document to docs/ before writing any code."
-        },
-        {
-          heading: "Initialize git",
-          body: "Initialize a git repo in the new project folder immediately. Create the GitHub repo, add the remote, and make the first commit before any real work starts. This ensures nothing is lost and gives you a rollback point."
-        }
-      ]
-    },
-    {
-      id: "fill-config",
-      title: "Fill site-config.js",
-      category: "Configuration",
-      summary: "Complete the config file before touching any HTML.",
-      content: [
-        {
-          heading: "Config first, always",
-          body: "Do not touch any HTML until site-config.js is completely filled. Every field — business name, address, phone, email, hours, social links — should come from the intake form and be populated before the first browser preview."
-        },
-        {
-          heading: "Services array",
-          body: "Each service needs a unique id (lowercase-hyphenated), name, category, description, price, duration, bookingUrl, and an offeredBy array of team member IDs. If a service is offered by all staff, include all team IDs or use an empty array — check the template docs for which behavior is default."
-        },
-        {
-          heading: "Team array",
-          body: "Each team member needs a unique id that matches the offeredBy values on services. Include name, role, bio, photo path, and their individual booking URL if different from the main URL. IDs must match exactly — a mismatch will cause the staff filter to silently fail."
-        },
-        {
-          heading: "Hours and extras",
-          body: "Fill hours, testimonials, FAQs, and social links from the intake form. These are easy to miss when focused on services and team — go through the config top to bottom at least once to confirm no field is left blank or at its placeholder value."
-        }
-      ]
-    },
-    {
-      id: "booking-mode",
-      title: "Set Booking Mode",
-      category: "Configuration",
-      summary: "Choose and configure the booking experience for the client.",
-      content: [
-        {
-          heading: "Use hybrid as the default",
-          body: "The hybrid booking mode gives visitors four paths: book by service, book by staff, embedded widget, and request form. Use hybrid unless the client has a specific reason to restrict it. Most clients benefit from giving visitors options."
-        },
-        {
-          heading: "Main booking URL",
-          body: "The bookingUrl field in the config is the fallback link when no more specific URL is available. Paste the client's main booking page URL here and test it. If it 404s or redirects to a login page, stop and clarify with the client."
-        },
-        {
-          heading: "Embedded widget",
-          body: "If the client uses Calendly or a provider that offers an embed script, paste that script in the config's embedScript field. The booking page will inject it. Test the embed — some providers block embedding outside their domain by default and require a settings change on the client's account."
-        },
-        {
-          heading: "Request form fallback",
-          body: "The request form is always available in hybrid mode as a fallback. Make sure the form's destination email is set correctly in the form handler (EmailJS or FormSubmit) and test a real submission before sending the staging link."
-        }
-      ]
-    },
-    {
-      id: "test-before-review",
-      title: "Test Before Review",
-      category: "QA",
-      summary: "What to test before sending the staging link to the client.",
-      content: [
-        {
-          heading: "Use a live server, not file://",
-          body: "Open the site with VS Code Live Server or run python3 -m http.server in the project folder. Never open HTML files directly with file:// — config-driven rendering scripts load external files and will fail silently on the file:// protocol."
-        },
-        {
-          heading: "What to check",
-          body: "Click every booking link and confirm it opens the correct provider page. Submit the request form with a real email address and verify the submission arrives. Navigate every page. Check that all services and team members appear with correct information."
-        },
-        {
-          heading: "Console must be clean",
-          body: "Open browser devtools and confirm zero errors in the console. Warnings are acceptable. Errors are not. A site with console errors is not ready for client review."
-        },
-        {
-          heading: "Real device before delivery",
-          body: "Before sending the staging link, test on a real mobile phone — not browser devtools. The booking flow, nav, and form must all work on a small screen. Devtools mobile emulation does not catch everything."
-        }
-      ]
-    }
-  ],
-
-  // ─── Deployment ───────────────────────────────────────────────────────────────
-
-  deployment: [
-    {
-      id: "github-setup",
-      title: "Push to GitHub",
-      category: "Version Control",
-      summary: "Repo setup and pushing a client site to GitHub before connecting to Cloudflare.",
-      content: [
-        {
-          heading: "One repo per client",
-          body: "Each client site lives in its own GitHub repo. Create the repo before the first push. Make it private unless the client specifically requests otherwise. Use the client name as the repo name in lowercase-hyphenated format."
-        },
-        {
-          heading: ".gitignore",
-          body: "Add a .gitignore before the first commit. At minimum exclude: .DS_Store, node_modules/, .env, and any file that might contain credentials. For static sites this is straightforward — there is usually little to ignore."
-        },
-        {
-          heading: "Commit messages",
-          body: "Write clear commit messages that describe what changed and why, not just 'update' or 'fix'. Future-you reading git log two months from now will be grateful. 'Update booking URLs for River Salon rebrand' is useful. 'Changes' is not."
-        },
-        {
-          heading: "Never force-push to main on live sites",
-          body: "If you need to undo a change on a live site, use git revert. It creates a new commit that undoes the previous one — safe to push without disrupting history. Reserve git reset --hard for local development only."
-        }
-      ]
-    },
-    {
-      id: "cloudflare-pages",
-      title: "Connect to Cloudflare Pages",
-      category: "Hosting",
-      summary: "How to deploy a static site to Cloudflare Pages and get it live.",
-      content: [
-        {
-          heading: "Create the Pages project",
-          body: "In the Cloudflare dashboard: Pages → Create a project → Connect to Git. Authorize GitHub and select the client's repo. For a static HTML site, leave the build command blank and set the output directory to / (root). Click Save and Deploy."
-        },
-        {
-          heading: "First deploy",
-          body: "Cloudflare triggers a deploy automatically on connection. Watch the build log — it should complete in under 60 seconds for a static site. The site will be live at a *.pages.dev URL immediately after success."
-        },
-        {
-          heading: "Test on .pages.dev first",
-          body: "Visit the .pages.dev URL and run through the full site — forms, navigation, booking links, mobile. Do not set the custom domain until the site is fully tested at this URL. It's much easier to troubleshoot before DNS is involved."
-        },
-        {
-          heading: "Automatic deploys on push",
-          body: "After the initial setup, every push to main will trigger a new deployment automatically. No manual steps needed. This is the core of the workflow — edit locally, commit, push, and the site updates within 90 seconds."
-        }
-      ]
-    },
-    {
-      id: "custom-domain",
-      title: "Custom Domain Setup",
-      category: "DNS",
-      summary: "How to point a client's domain to the Cloudflare Pages project.",
-      content: [
-        {
-          heading: "Add the domain in Pages",
-          body: "In the Pages project → Custom domains → Add a domain. Enter the client's domain (e.g., riverhairsalon.com). If the domain's DNS is already managed on Cloudflare, the CNAME record is added automatically. If not, Cloudflare will give you the exact DNS record to add at the registrar."
-        },
-        {
-          heading: "DNS propagation",
-          body: "DNS changes take 5–60 minutes to propagate in most cases, up to 48 hours in rare situations. Once propagation is complete, HTTPS activates automatically via Cloudflare's universal SSL — you do not need to install or manage a certificate."
-        },
-        {
-          heading: "www vs non-www",
-          body: "Decide which is canonical (usually non-www for small business sites) and set a redirect for the other. In Cloudflare's DNS settings, add both records and use a Page Rule or Redirect Rule to forward www to non-www (or vice versa). Test both in a browser."
-        },
-        {
-          heading: "Verify before delivery",
-          body: "Visit the custom domain over HTTPS and confirm the site loads correctly. Check the browser's padlock icon to confirm the certificate is valid. Run through the full site on the live custom domain before sending the client the delivery message."
-        }
-      ]
-    },
-    {
-      id: "cloudflare-access",
-      title: "Cloudflare Access",
-      category: "Security",
-      summary: "How to protect a private site (like this training portal) with Cloudflare Access.",
-      content: [
-        {
-          heading: "What it does",
-          body: "Cloudflare Access puts an authentication gate in front of a Pages project. Visitors must authenticate before they can see the site. This is how learn.nexsitestudio.org is protected — no login code lives in the site itself."
-        },
-        {
-          heading: "Setup path",
-          body: "In the Cloudflare Zero Trust dashboard → Access → Applications → Add an application → Self-hosted. Set the domain to the subdomain you want to protect. Configure the identity provider — email OTP is the simplest option and requires no external identity service."
-        },
-        {
-          heading: "Policies",
-          body: "After creating the application, add a policy that allows access only to specific email addresses. This means you can add team members and contractors by email without managing passwords. Removing access is instant — just remove the email from the policy."
-        },
-        {
-          heading: "See the setup doc",
-          body: "A step-by-step walkthrough is in docs/cloudflare-access-setup.md in this repo. Follow that doc rather than the Cloudflare UI alone — the order of steps matters and some settings are easy to miss."
-        }
-      ]
-    }
-  ],
-
-  // ─── Maintenance ─────────────────────────────────────────────────────────────
-
-  maintenance: [
-    {
-      id: "scope",
-      title: "What Maintenance Includes",
-      category: "Scope",
-      summary: "The exact boundaries of what monthly maintenance covers.",
-      content: [
-        {
-          heading: "Covered tasks",
-          body: "Monthly maintenance covers: content updates (text, images, hours, pricing), link checks, form handler verification, and minor copy changes. These are tasks that keep the existing site accurate and functional — not tasks that change or expand the site."
-        },
-        {
-          heading: "Small update definition",
-          body: "A small update is any change that takes less than 30 minutes end-to-end including testing and pushing to production. Examples: text edits, image swaps, adding a testimonial, updating a phone number, fixing a broken link, correcting hours."
-        },
-        {
-          heading: "Not covered",
-          body: "New pages, design changes, layout alterations, integrating a new third-party tool, rebranding, adding staff with new photography, changing the booking provider. These are project tasks and are billed separately even if the client frames them as 'small changes.'"
-        },
-        {
-          heading: "Response time",
-          body: "Acknowledge maintenance requests within one business day. Complete small updates within 3 business days. Urgent items — broken forms, wrong hours, incorrect phone numbers — get same-day or next-day turnaround."
-        }
-      ]
-    },
-    {
-      id: "processing",
-      title: "Processing a Maintenance Request",
-      category: "Process",
-      summary: "Step-by-step for handling a client maintenance request correctly.",
-      content: [
-        {
-          heading: "Acknowledge first",
-          body: "When a client sends a maintenance request, reply to confirm you received it and give them an expected completion time before starting work. Never silently start and complete the task without communication — clients need to know you received the request."
-        },
-        {
-          heading: "Scope check",
-          body: "Before starting, confirm the request falls within maintenance scope. If it is a clear small update, proceed. If it is borderline, use your judgment for the first occurrence and note it internally. If it keeps happening, address the scope pattern in the next check-in."
-        },
-        {
-          heading: "Make the change",
-          body: "Make the edit, test locally, push to production, confirm the deployment succeeded and the change is live. Do not push and assume — verify on the live URL before closing out the request."
-        },
-        {
-          heading: "Follow up",
-          body: "Send the client a short message: what you changed, the live URL to verify, and any action items for them. Do not just push and go quiet. This follow-up is what separates a professional maintenance relationship from an invisible service."
-        }
-      ]
-    },
-    {
-      id: "monthly-checkin",
-      title: "Monthly Check-In",
-      category: "Client Relations",
-      summary: "How to run proactive monthly check-ins that reduce churn.",
-      content: [
-        {
-          heading: "Send it even if nothing happened",
-          body: "Once a month, send clients a brief update even if no maintenance was requested. Clients who hear nothing wonder what they're paying for. Monthly check-ins make the maintenance plan feel active and valuable."
-        },
-        {
-          heading: "What to include",
-          body: "Keep it to 3–4 sentences: any changes made that month, a note that everything is running correctly, and a prompt for any upcoming changes they want to get ahead of. You can also mention if anything on the site looks dated and might be worth updating."
-        },
-        {
-          heading: "Use the Client Comms template",
-          body: "There is a monthly check-in template in the Client Comms section. Use it — it's faster than writing from scratch and ensures you don't forget to include the right info."
-        }
-      ]
-    },
-    {
-      id: "escalation",
-      title: "When to Escalate to a Project",
-      category: "Scope",
-      summary: "How to recognize when a maintenance request has grown beyond maintenance scope.",
-      content: [
-        {
-          heading: "The 30-minute rule",
-          body: "If a maintenance request will take more than 30 minutes, stop. Scope it as a project task and send the client a brief description and cost before starting. Do not absorb large requests into maintenance — this devalues your time and sets a bad precedent."
-        },
-        {
-          heading: "Examples that always escalate",
-          body: "Adding a new page. Redesigning a section. Integrating a new form or tool. Changing the booking provider. Adding staff with new photos. Updating brand colors across the site. Rewriting copy for an entire page. These are projects regardless of how the client frames them."
-        },
-        {
-          heading: "How to frame the escalation",
-          body: "Use the out-of-scope response template from the Client Comms section. The key is to say yes to the work while being clear that it's outside the current scope — never just say no without offering a path forward."
-        }
-      ]
-    }
-  ],
-
-  // ─── Troubleshooting ─────────────────────────────────────────────────────────
-
-  troubleshooting: [
-    {
-      id: "form-not-sending",
-      symptom: "Form submits but nothing arrives",
-      cause: "Wrong EmailJS keys, FormSubmit not activated, or the form is hitting an error silently.",
-      fix: [
-        "Open the browser console and submit the form — look for any JavaScript error on submit.",
-        "For EmailJS: verify the service ID, template ID, and public key in the script match the EmailJS dashboard exactly.",
-        "For FormSubmit: confirm the destination email has been activated. The first submission to a new email sends a confirmation link that must be clicked — if that link was never clicked, submissions are silently discarded.",
-        "Test with a real email address. Some spam filters reject common test addresses.",
-        "If you recently changed the destination email, re-test the activation flow from scratch."
-      ]
-    },
-    {
-      id: "site-not-updating",
-      symptom: "Pushed to GitHub but live site still shows old content",
-      cause: "Cloudflare Pages build didn't run, failed silently, or the cache is serving old files.",
-      fix: [
-        "Go to the Cloudflare Pages dashboard → find the project → Deployments tab.",
-        "Check the latest deployment status. If it shows Failed, click it to read the build log — it will tell you exactly what broke.",
-        "If the deployment succeeded but content is old, go to Caching → Configuration → Purge Everything in the Cloudflare dashboard.",
-        "Hard-refresh the browser with Ctrl+Shift+R (or Cmd+Shift+R on Mac) after purging.",
-        "If the deployment never triggered, check that the repo is still connected under Pages → Settings → Builds & deployments."
-      ]
-    },
-    {
-      id: "mobile-nav-broken",
-      symptom: "Hamburger menu button does nothing on mobile",
-      cause: "The JS file that controls the nav toggle is not loaded on the page, or a JS error is preventing the listener from attaching.",
-      fix: [
-        "Open browser devtools on the mobile viewport and check the console for JavaScript errors.",
-        "Confirm the correct script file (script.js or the portal JS file) is loaded before </body> on the affected page.",
-        "Check that the toggle button's ID in the HTML matches the ID the script looks for (usually menu-toggle).",
-        "Confirm the sidebar element has the correct ID the script references (usually sidebar).",
-        "Test in a private/incognito window to rule out a cached bad version of the script."
-      ]
-    },
-    {
-      id: "images-not-loading",
-      symptom: "Images appear as broken on the live site",
-      cause: "Wrong file path, filename case mismatch, or the image file was not committed to the repo.",
-      fix: [
-        "Check the browser console — it will show a 404 for the missing image with the exact path it tried to load.",
-        "Confirm the image file was committed to git. Run git status to check for untracked files, and git log to verify the file was included in a past commit.",
-        "Cloudflare Pages runs on Linux, which is case-sensitive. hero.jpg and Hero.jpg are different files. Check that the src path case matches the actual filename exactly.",
-        "If the path looks correct, check that the file is in the right directory relative to the HTML file referencing it."
-      ]
-    },
-    {
-      id: "404-on-pages",
-      symptom: "A page URL returns 404 on the live site",
-      cause: "The HTML file does not exist at the path the URL expects, or a redirect is needed.",
-      fix: [
-        "Confirm the HTML file exists in the repo with a name that exactly matches the URL path (e.g., /about → about.html).",
-        "NexSite Studio builds use file-based routing — every URL must correspond to an actual .html file. There is no router generating pages dynamically.",
-        "Check that the file was committed and is in the correct directory. Run git log --oneline -- path/to/file.html to confirm.",
-        "If the URL was recently changed (e.g., from /services.html to /our-services.html), add a Cloudflare Pages redirect rule under the project's Settings → Redirects."
-      ]
-    },
-    {
-      id: "emails-to-spam",
-      symptom: "Form submissions arrive but land in the client's spam folder",
-      cause: "Sending domain not verified, or the form handler's sending IP is flagged by the client's email provider.",
-      fix: [
-        "For EmailJS: add a custom sender domain in the EmailJS dashboard and follow the instructions to add the required DNS records (SPF, DKIM). This is the most reliable fix.",
-        "Ask the client to whitelist the sending address (typically noreply@emailjs.com or your custom domain) in their email provider.",
-        "For FormSubmit: the sending domain is managed by FormSubmit and cannot be customized on the free tier. If spam delivery is persistent, consider switching to EmailJS with a custom sender domain.",
-        "Check that the form's reply-to field is set to the client's actual email — this helps with threading and whitelist matching."
-      ]
-    }
-  ],
-
-  // ─── Client Comms Templates ───────────────────────────────────────────────────
-
-  comms: [
-    {
-      id: "first-response",
-      title: "First Response to Inquiry",
-      when: "When a potential client reaches out through the contact form or email for the first time.",
-      template: "Hi [NAME],\n\nThanks for reaching out — I'd love to learn more about what you're working on.\n\nI build websites for small businesses, focused on clean, mobile-ready sites that are easy to maintain long-term. Packages start at $100 for a basic site and go up based on what you need.\n\nThe quickest way to get started is to fill out my short intake form — it takes about 5 minutes and gives me everything I need to send you a clear quote:\n[QUESTIONNAIRE LINK]\n\nLet me know if you have questions in the meantime.\n\nCaleb Collins\nNexSite Studio\ncaleb.collins@nexsitestudio.org"
-    },
-    {
-      id: "intake-confirmation",
-      title: "Intake Confirmation",
-      when: "After a client submits the intake questionnaire.",
-      template: "Hi [NAME],\n\nGot your questionnaire — thanks for the detail.\n\nI'll review everything and put together a scope summary and quote for you within 1–2 business days.\n\nIf anything changes or you thought of something you forgot to mention, just reply here.\n\nCaleb\nNexSite Studio"
-    },
-    {
-      id: "scope-confirmation",
-      title: "Scope Confirmation",
-      when: "When sending the scope document for client approval before starting a build.",
-      template: "Hi [NAME],\n\nAttached is the scope document for your project. It outlines what's included in the build, what falls outside the current scope, the timeline, and the payment terms.\n\nPlease read through it and reply with any questions. When you're ready to move forward, just reply with 'Looks good' or let me know if anything needs adjusting.\n\nOnce I have your approval, I'll send the invoice and we can lock in a start date.\n\nCaleb\nNexSite Studio"
-    },
-    {
-      id: "weekly-update",
-      title: "Weekly Build Update",
-      when: "Once per week during an active build, even if there's nothing major to report.",
-      template: "Hi [NAME],\n\nQuick update on your site:\n\n[WHAT WAS DONE THIS WEEK — 2–3 sentences. E.g.: Built out the home page and services section. Still waiting on the team photos — once those come in I can finish the About page.]\n\n[WHAT'S NEXT — E.g.: Next up is the contact form and booking page. On track for [DATE] review.]\n\n[IF WAITING ON CLIENT — Could you send [THING] by [DATE] so I can keep things moving?]\n\nLet me know if you have questions.\n\nCaleb"
-    },
-    {
-      id: "delivery",
-      title: "Site Delivery",
-      when: "When delivering a completed site or major milestone for client review.",
-      template: "Hi [NAME],\n\nYour site is ready for review:\n\n[STAGING or LIVE URL]\n\nHere's what's included in this delivery:\n• [Item 1]\n• [Item 2]\n• [Item 3]\n\nPlease review on both desktop and your phone. Specifically:\n1. Confirm all your business info is correct (hours, address, phone, email).\n2. Try submitting the contact form — you should get a confirmation email.\n3. Let me know if any text, images, or services need to be updated.\n\nI need your feedback by [DATE — 5 business days]. After that I have [NUMBER] revision rounds included in the scope.\n\nCaleb"
-    },
-    {
-      id: "out-of-scope",
-      title: "Out-of-Scope Response",
-      when: "When a client requests something that falls outside the agreed project scope.",
-      template: "Hi [NAME],\n\nThanks for sending this — [BRIEF DESCRIPTION OF REQUEST] is definitely something I can help with.\n\nIt does fall outside what's covered in the current project scope, so I'd need to put together a quick add-on quote before starting. It would likely be [ESTIMATE — e.g., 'around 2 hours of work' or '$X']. Want me to send a short change order?\n\nJust let me know and I'll get it over to you.\n\nCaleb"
-    },
-    {
-      id: "maintenance-ack",
-      title: "Maintenance Request Acknowledgement",
-      when: "When a client on a maintenance plan sends in a request.",
-      template: "Hi [NAME],\n\nGot it — I'll take care of [REQUEST] within [TIMEFRAME, e.g., the next 2 business days]. I'll follow up once it's live.\n\nCaleb"
-    },
-    {
-      id: "monthly-checkin",
-      title: "Monthly Check-In",
-      when: "Sent once a month to all active maintenance clients, even if nothing was requested.",
-      template: "Hi [NAME],\n\nMonthly check-in for your site at [URL].\n\n[WHAT HAPPENED THIS MONTH — or: No changes were requested this month — everything is running correctly.]\n\nAnything you'd like to update before next month? Even small things are worth mentioning — hours, team changes, new services, seasonal pricing.\n\nCaleb\nNexSite Studio"
-    }
-  ],
-
-  // ─── Policies ─────────────────────────────────────────────────────────────────
-
-  policies: [
-    {
-      id: "package-scope",
-      title: "Package Scope Boundaries",
-      category: "Scope",
-      summary: "Exact boundaries for what each package includes and excludes.",
-      content: [
-        {
-          heading: "Starter Site — $100 setup + $30/mo",
-          body: "1-page website. Contact form (EmailJS or FormSubmit). Mobile-optimized layout. Domain and hosting setup via Cloudflare Pages. Up to 5 listed services. 3 free updates/mo. Does not include: booking platform integration, e-commerce, custom backend, additional pages, or design work beyond the base template."
-        },
-        {
-          heading: "Business Site — $200 setup + $50/mo",
-          body: "3–5 pages with navigation. Contact form. Up to 10 listed services. Quote or intake form section. Gallery or portfolio section. Basic SEO meta tags (title, description, Open Graph). 6 free edits/mo. Does not include: booking platform integration, e-commerce, custom backend, login systems, or anything requiring a server."
-        },
-        {
-          heading: "Booking Site — $300 setup + $70/mo",
-          body: "All Business Site features plus booking-ready pages: service listings, staff profiles, and booking links or embeds connected to the client's existing booking provider. Up to 10 pages. Stripe/Square payment capability. 8 free edits/mo. Does not include: custom scheduling logic, live availability sync via API, customer account creation, payment processing beyond the client's booking provider, or any custom backend."
-        },
-        {
-          heading: "Enterprise Site — $600 setup + starting at $70/mo",
-          body: "Custom scope only. Defined per project after a scoping call. May include custom backend features, employee login, business/sales metrics, API integrations, multi-location support, or advanced payment flows — each as an explicit line item with its own cost. 10 priority edits/mo. Requires a 50% deposit before work begins."
-        }
-      ]
-    },
-    {
-      id: "small-update",
-      title: "Small Update Definition",
-      category: "Maintenance",
-      summary: "The official definition of what counts as a small update under a maintenance plan.",
-      content: [
-        {
-          heading: "What counts",
-          body: "A small update is any change that takes less than 30 minutes end-to-end — including testing and pushing to production. Text edits, image swaps, adding a testimonial, updating hours, fixing a broken link, correcting a phone number or email address."
-        },
-        {
-          heading: "What does not count",
-          body: "Adding a new page. Redesigning a section. Changing the site's color scheme or layout. Integrating a new tool or service. Adding staff to a booking site. Rewriting copy for an entire page. Updating the booking provider. Any change that takes more than 30 minutes."
-        },
-        {
-          heading: "The goodwill rule",
-          body: "Out-of-scope requests under 30 minutes may be handled as a one-time goodwill gesture — once per project or maintenance cycle. Document it internally as a goodwill exception. Do not repeat without addressing the scope, or it becomes an expectation."
-        }
-      ]
-    },
-    {
-      id: "change-orders",
-      title: "Change Order Process",
-      category: "Project Management",
-      summary: "How to handle and document any work outside the agreed scope.",
-      content: [
-        {
-          heading: "When required",
-          body: "Any work outside the agreed scope requires a change order before work begins. This includes explicit client requests and scope expansion you discover during the build. The rule is simple: if it wasn't in the original scope doc, it needs a change order."
-        },
-        {
-          heading: "What goes in a change order",
-          body: "Keep it brief: description of the work (2–3 sentences), estimated time, additional cost (or 'no charge' if waiving as a goodwill gesture), and a line requesting client approval. It does not need to be a formal document — an email with these four points is sufficient."
-        },
-        {
-          heading: "Getting approval",
-          body: "Do not begin out-of-scope work until the client replies in writing. 'Sounds good' in an email is a valid approval. Store the approval thread in the project's docs/ folder. If the client asks you to 'just start' without approving, reply with the change order again and wait."
-        },
-        {
-          heading: "Tracking",
-          body: "Keep a running list of change orders in NOTES.md for each project. At project close, this list documents any scope changes that happened and gives you a reference if there are disputes later."
-        }
-      ]
-    },
-    {
-      id: "refund-cancellation",
-      title: "Refund and Cancellation",
-      category: "Payments",
-      summary: "The cancellation and refund policy for all NexSite Studio services.",
-      content: [
-        {
-          heading: "Setup fees",
-          body: "Setup fees are non-refundable once work has begun. Work is considered begun after the scope is approved and the first invoice is paid. If a client cancels before any work starts, a full refund may be issued at your discretion. If they cancel mid-project, bill for the percentage of the project completed."
-        },
-        {
-          heading: "Monthly maintenance plans",
-          body: "Maintenance plans are month-to-month with no long-term contracts. Clients can cancel with 30 days notice. No refunds for the current billing month. After cancellation, maintenance access ends at the end of the paid period."
-        },
-        {
-          heading: "Disputes",
-          body: "If a client disputes a charge, review the scope document and delivery record before responding. Communicate in writing. Most disputes are scope misunderstandings — refer back to the written scope confirmation. If the scope doc supports the client's position, acknowledge it and address it fairly. If it supports yours, calmly explain why."
-        }
-      ]
-    }
-  ],
-
-  // ─── Glossary ─────────────────────────────────────────────────────────────────
-
-  glossary: [
-    { term: "Booking Mode",       definition: "A configuration setting in the booking site template that controls which booking options are shown to visitors. The default is hybrid, which shows all four paths: by service, by staff, embedded widget, and request form." },
-    { term: "Change Order",       definition: "A short written record of out-of-scope work, its estimated cost, and client approval. Required before starting any work not covered in the original scope document." },
-    { term: "Cloudflare Access",  definition: "A Cloudflare Zero Trust product that adds an authentication gate to a web application. Used to protect private sites — like this training portal — without adding login code to the site itself." },
-    { term: "Cloudflare Pages",   definition: "Cloudflare's static site hosting platform. Deploys automatically on every git push to the connected GitHub repo. Provides HTTPS, global CDN, and custom domain support for free." },
-    { term: "CNAME",              definition: "A DNS record that maps one domain name to another. Used to point a client's custom domain to the Cloudflare Pages project URL." },
-    { term: "Config-driven",      definition: "A site architecture where all client-specific content — text, colors, services, team members — lives in a single configuration file rather than scattered through HTML. Allows the same template to serve many clients." },
-    { term: "data-slot",          definition: "An HTML attribute used by render.js in the booking template to mark where config values should be injected. JavaScript finds all elements with a matching data-slot name and updates their text or href from the config." },
-    { term: "EmailJS",            definition: "A JavaScript library that sends emails directly from the browser using a configured email service provider. Used for forms that require auto-reply emails, such as quote forms and the client questionnaire." },
-    { term: "FormSubmit",         definition: "A free, no-backend form handling service. HTML forms post to a FormSubmit URL and submissions are forwarded to the configured email address. Requires activation via a confirmation email on first use." },
-    { term: "Goodwill Gesture",   definition: "An out-of-scope request handled without charge as a one-time exception — typically for tasks under 30 minutes. Allowed once per project or maintenance cycle. Must be documented internally so it does not become a precedent." },
-    { term: "Intake",             definition: "The process of collecting all information from a new client before starting a project. Done via the client intake questionnaire. No build should start without a completed intake." },
-    { term: "Live Server",        definition: "A local development tool that serves project files over HTTP (not file://). Required for config-driven sites. VS Code has a Live Server extension. Alternatively run python3 -m http.server in the project folder." },
-    { term: "offeredBy",          definition: "A field in the booking template's service config. An array of team member IDs who offer that service. Used to filter staff on the booking page — only team members in offeredBy are shown when that service is selected." },
-    { term: "Scope Creep",        definition: "When a project gradually expands beyond its agreed boundaries through incremental client requests. Managed by the change order process and the 30-minute small update rule." },
-    { term: "Small Update",       definition: "Any change to a live site that takes under 30 minutes end-to-end — including testing and pushing to production. Covered under monthly maintenance plans. Anything over 30 minutes is a project task." },
-    { term: "Static Site",        definition: "A website made of plain HTML, CSS, and JavaScript files. No server-side code, no database. Fast, cheap to host, and simple to deploy. All NexSite Studio sites are static unless a client's Enterprise scope requires otherwise." },
-    { term: "HTTPS",              definition: "Encrypted web traffic via TLS. Cloudflare activates HTTPS automatically for all Pages projects via universal SSL. Never deliver a client site over plain HTTP." }
-  ],
-
-  // ─── Emergency Recovery ───────────────────────────────────────────────────────
-
-  emergency: [
-    {
-      id: "site-down",
-      title: "Site is Completely Down",
-      severity: "critical",
-      steps: [
-        "Check cloudflarestatus.com — if Cloudflare is having a global incident, you cannot fix it from your end. Note the incident and notify the client.",
-        "Go to Cloudflare Pages dashboard → find the project → Deployments tab. Check the latest deployment status.",
-        "If the last deployment failed, click it and read the build log. The error will be specific — a missing file, a bad path, a syntax error in a config file.",
-        "If the deployment succeeded but the site is unreachable, check the custom domain's DNS settings in Cloudflare. Confirm the CNAME record is present and correct.",
-        "If DNS looks correct, try the .pages.dev URL directly. If that loads, the issue is with the custom domain, not the site itself.",
-        "Check if the domain registration has expired. Look up the domain at the registrar (documented in the project's NOTES.md). Renewal is the only fix for an expired domain.",
-        "Notify the client as soon as you understand the cause — even before you've fixed it. Silence during a downtime is worse than a clear status update."
-      ]
-    },
-    {
-      id: "wrong-content",
-      title: "Wrong Content Went Live",
-      severity: "high",
-      steps: [
-        "Check git log to confirm what changed in the last push. Run: git log --oneline -5",
-        "If the bad content is something you can fix in under 5 minutes, fix it and push immediately.",
-        "If the bad content is complex to fix quickly, use git revert: run git revert HEAD, then push. This creates a new commit that undoes the last one without rewriting history.",
-        "Confirm the revert deployed successfully — watch the Cloudflare Pages build log.",
-        "Visit the live site and verify the bad content is gone before notifying the client.",
-        "Do NOT use git reset --hard on a live site's main branch. Use git revert."
-      ]
-    },
-    {
-      id: "form-stopped",
-      title: "Form Stopped Working",
-      severity: "high",
-      steps: [
-        "Open the live site and submit a test form. Open browser devtools → Console tab. Look for any JavaScript errors that appear on submit.",
-        "Check the last few git commits for any recent changes to the form or its scripts: git log --oneline -10",
-        "For EmailJS: log in to the EmailJS dashboard and confirm the email service is still active. Check that the service ID, template ID, and public key in the code still match the dashboard.",
-        "For FormSubmit: the destination email activation can expire or get flagged. Try re-submitting and clicking the re-confirmation email that FormSubmit sends.",
-        "Test on a different device and browser to rule out a local cache or extension issue.",
-        "If nothing is obviously wrong, check if the client's email provider has started spam-filtering the submissions — ask the client to check their spam folder."
-      ]
-    },
-    {
-      id: "build-failed",
-      title: "Cloudflare Pages Build Failed",
-      severity: "medium",
-      steps: [
-        "Go to Cloudflare Pages dashboard → project → Deployments. Click the failed deployment to open its build log.",
-        "Read the log carefully — it will name the exact file and line that caused the failure. Common causes: a missing file referenced in the config, a syntax error in a JS or JSON file, or a file that was deleted but still referenced.",
-        "Fix the issue locally. Open the browser console and confirm no errors before pushing the fix.",
-        "Push the fix to main and watch the new deployment. If it succeeds, verify the live site looks correct.",
-        "If the cause is unclear from the log, check git status and git diff to see if there are any unexpected changes in the working directory."
-      ]
-    },
-    {
-      id: "domain-expired",
-      title: "Domain Expired",
-      severity: "critical",
-      steps: [
-        "Find the domain registrar — it should be documented in the project's NOTES.md. If not, run a WHOIS lookup on the domain.",
-        "Log in to the registrar and renew the domain immediately. Most registrars allow renewal within a grace period of 30–40 days after expiration even if the domain shows as 'expired.'",
-        "If the domain shows as available for new registration, do not immediately purchase it as a new registration. Contact the registrar first — there may be a redemption period where the original owner can reclaim it (usually 30 days after the grace period).",
-        "After renewal, DNS records typically restore within 1–2 hours. HTTPS will reactivate automatically via Cloudflare once DNS resolves.",
-        "To prevent this in the future: document renewal dates in NOTES.md and enable auto-renew on the registrar account."
-      ]
-    }
-  ],
-
-  // ─── Checklists ───────────────────────────────────────────────────────────────
-
-  checklists: [
-    {
-      id: "new-client-onboarding",
-      title: "New Client Onboarding",
-      description: "Complete these steps when starting a new client relationship.",
-      category: "Client Relations",
-      items: [
-        { id: "nc1",  text: "Send and receive signed service agreement" },
-        { id: "nc2",  text: "Collect deposit or first payment if required" },
-        { id: "nc3",  text: "Complete the client intake questionnaire" },
-        { id: "nc4",  text: "Confirm domain name or hosting preferences" },
-        { id: "nc5",  text: "Clarify booking provider they use or want to use" },
-        { id: "nc6",  text: "Confirm scope in writing and send scope boundaries doc" },
-        { id: "nc7",  text: "Set expected delivery timeline and milestone dates" },
-        { id: "nc8",  text: "Create project folder with intake form, scope doc, and NOTES.md" },
-        { id: "nc9",  text: "Establish preferred communication channel (email, etc.)" }
-      ]
-    },
-    {
-      id: "booking-site-build",
-      title: "Booking Site Build",
-      description: "Complete each step when building a booking site from the template.",
-      category: "Development",
-      items: [
-        { id: "bs1",  text: "Copy booking-template/ to new project folder" },
-        { id: "bs2",  text: "Fill in all business fields in site-config.js" },
-        { id: "bs3",  text: "Add services array with correct IDs, categories, and booking URLs" },
-        { id: "bs4",  text: "Add team array with IDs that match service offeredBy fields" },
-        { id: "bs5",  text: "Add hours, testimonials, FAQs, and social links" },
-        { id: "bs6",  text: "Set booking mode and paste main booking URL" },
-        { id: "bs7",  text: "Drop in logo, hero image, and team photos" },
-        { id: "bs8",  text: "Set brand primaryColor and accentColor" },
-        { id: "bs9",  text: "Test locally with a live server (not file://)" },
-        { id: "bs10", text: "Test mobile navigation and booking flow on a real device" },
-        { id: "bs11", text: "Check browser console for zero errors" },
-        { id: "bs12", text: "Verify all booking links open correctly" },
-        { id: "bs13", text: "Test request form submission end-to-end" },
-        { id: "bs14", text: "Replace all placeholder text and images" },
-        { id: "bs15", text: "Set meta description and Open Graph tags for each page" }
-      ]
-    },
-    {
-      id: "pre-launch",
-      title: "Pre-Launch",
-      description: "Final checks before delivering a live site to a client.",
-      category: "Deployment",
-      items: [
-        { id: "pl1",  text: "Confirm domain is connected and HTTPS is active" },
-        { id: "pl2",  text: "Test form handler on production (not just staging)" },
-        { id: "pl3",  text: "Confirm client received form submission notification email" },
-        { id: "pl4",  text: "Verify all policy links are visible before booking CTAs" },
-        { id: "pl5",  text: "Test the full booking flow end-to-end on a real mobile device" },
-        { id: "pl6",  text: "Confirm footer year, business name, and contact details are correct" },
-        { id: "pl7",  text: "Check page load speed — hero images optimized, no uncompressed assets" },
-        { id: "pl8",  text: "Zero errors in browser console on every page" },
-        { id: "pl9",  text: "Get written client approval before marking project complete" },
-        { id: "pl10", text: "Send client delivery message with live URL and action items" }
-      ]
-    },
-    {
-      id: "training-completion",
-      title: "Training Completion",
-      description: "Mark each training module complete to track your onboarding progress.",
-      category: "Onboarding",
-      items: [
-        { id: "tr1",  text: "Read: Client Communication standards" },
-        { id: "tr2",  text: "Read: Scope Management standards" },
-        { id: "tr3",  text: "Read: Design Standards" },
-        { id: "tr4",  text: "Read: Code Standards" },
-        { id: "tr5",  text: "Read: File & Delivery Standards" },
-        { id: "tr6",  text: "Read: All four package workflows" },
-        { id: "tr7",  text: "Read: Booking site setup guide" },
-        { id: "tr8",  text: "Read: Deployment guide" },
-        { id: "tr9",  text: "Read: Maintenance scope and process" },
-        { id: "tr10", text: "Read: All Policies" },
-        { id: "tr11", text: "Complete: Booking Template Basics quiz (75%+)" },
-        { id: "tr12", text: "Complete: Scope & Client Relations quiz (75%+)" },
-        { id: "tr13", text: "Walk through: Booking template locally on a real site" },
-        { id: "tr14", text: "Complete: New Client Onboarding checklist (dry run)" }
-      ]
-    }
-  ],
-
-  // ─── Quizzes ──────────────────────────────────────────────────────────────────
-
-  quizzes: [
-    {
-      id: "booking-template-basics",
-      title: "Booking Template Basics",
-      description: "Test your understanding of the booking site template structure and configuration.",
-      category: "Templates",
-      passingScore: 75,
-      questions: [
-        {
-          id: "q1",
-          text: "Where does all client-specific data live in the booking template?",
-          options: ["Directly in the HTML files", "In js/site-config.js", "In a database", "In a .env file"],
-          correct: 1,
-          explanation: "All client content — business info, services, team, hours — lives in js/site-config.js. The HTML files should never need editing for a standard client build."
-        },
-        {
-          id: "q2",
-          text: "What is the recommended booking mode for most clients?",
-          options: ["embedded-widget", "request-form", "hybrid", "external-link"],
-          correct: 2,
-          explanation: "hybrid is the recommended default. It gives clients all four options (by service, by staff, embedded widget, and request form) so visitors can choose the path that works for them."
-        },
-        {
-          id: "q3",
-          text: "What does the offeredBy field on a service object do?",
-          options: [
-            "Sets the booking provider name",
-            "Lists which staff members offer that service, used by the staff filter on the booking page",
-            "Controls which pages the service appears on",
-            "Sets the display order of the service card"
-          ],
-          correct: 1,
-          explanation: "offeredBy is an array of team member IDs. When a visitor selects that service on the booking page, only staff members whose ID is in offeredBy are shown."
-        },
-        {
-          id: "q4",
-          text: "What does a data-slot attribute on an HTML element tell render.js to do?",
-          options: [
-            "Hide the element until config is loaded",
-            "Replace the element's text or href with the matching value from SITE_CONFIG",
-            "Create a new component inside the element",
-            "Mark the element as a required field"
-          ],
-          correct: 1,
-          explanation: "data-slot attributes are simple text/href injection points. render.js finds all elements with a given slot name and updates their textContent (or href for links) from the config."
-        },
-        {
-          id: "q5",
-          text: "Which script must always be loaded FIRST on any page that uses the template?",
-          options: ["render.js", "filters.js", "site-config.js", "booking.js"],
-          correct: 2,
-          explanation: "site-config.js must load first because it defines window.SITE_CONFIG. render.js and the other modules read from that global on load — if it doesn't exist yet, they will fail silently."
-        },
-        {
-          id: "q6",
-          text: "The client wants a live availability calendar synced from their booking provider. Is this in scope for the default booking package?",
-          options: [
-            "Yes, render.js handles this automatically",
-            "Yes, if they use Calendly or Square",
-            "No — live availability sync is a custom add-on",
-            "Yes, using the embedded widget mode"
-          ],
-          correct: 2,
-          explanation: "Live availability sync requires API access, auth/token management, and a backend or serverless function. This is explicitly out of scope for the default booking package and must be scoped as a custom add-on."
-        },
-        {
-          id: "q7",
-          text: "Why should you never open a config-driven site with the file:// protocol during development?",
-          options: [
-            "It's slower than a live server",
-            "Scripts that load external files fail silently on the file:// protocol",
-            "Cloudflare Pages requires HTTP to test",
-            "The browser blocks JavaScript on file:// pages"
-          ],
-          correct: 1,
-          explanation: "Config-driven sites load external JS files (like site-config.js). Browsers restrict cross-origin file loads on file://, so the config never loads and the site renders broken — often with no error message."
-        },
-        {
-          id: "q8",
-          text: "You need to add a services grid to a page that doesn't have one. What is the minimum HTML needed?",
-          options: [
-            "<div data-slot='services'></div>",
-            "<div class='services-grid' id='services-grid'></div>",
-            "<services-grid></services-grid>",
-            "<div data-render='services'></div>"
-          ],
-          correct: 1,
-          explanation: "render.js looks for id='services-grid' to know where to inject service cards. The class is for styling. Both are needed — the ID for JS targeting, the class for CSS."
-        }
-      ]
-    },
-    {
-      id: "scope-and-client-relations",
-      title: "Scope & Client Relations",
-      description: "Test your knowledge of NexSite Studio's scope management and client communication standards.",
-      category: "Standards",
-      passingScore: 75,
-      questions: [
-        {
-          id: "q1",
-          text: "A client asks you to add a customer login system to their booking site during the build. What do you do?",
-          options: [
-            "Add it — it's a small feature",
-            "Add it and mention it at delivery",
-            "Let them know it's outside the current scope and offer to price it as an add-on",
-            "Tell them it's impossible"
-          ],
-          correct: 2,
-          explanation: "A customer login system is explicitly outside the default booking package. The correct response is to acknowledge the request, clarify it is out of scope, and offer to price a change order before doing any work."
-        },
-        {
-          id: "q2",
-          text: "How often should you send a client update during an active build, even if there's nothing major to report?",
-          options: ["Only when a milestone is complete", "Every day", "At least once per week", "Only when the client asks"],
-          correct: 2,
-          explanation: "Clients should never have to ask where things stand. Sending at least one update per week — even a short check-in — prevents anxiety and builds trust."
-        },
-        {
-          id: "q3",
-          text: "A client sends a small request (estimated 20 minutes) that is not in the original scope. What should you do?",
-          options: [
-            "Refuse and explain scope",
-            "Complete it, document it as a one-time goodwill gesture, and note it internally",
-            "Bill them for it immediately",
-            "Ask them to submit a formal change request first"
-          ],
-          correct: 1,
-          explanation: "Small out-of-scope items (under 30 min) can be done as a goodwill gesture — once per project. Document it internally so it doesn't become a precedent. Anything larger requires a change order."
-        },
-        {
-          id: "q4",
-          text: "Which phrase is safe to use when describing a booking site to a potential client?",
-          options: [
-            "Custom booking platform with automated staff dashboards",
-            "Live scheduling system with real-time availability",
-            "Booking-ready website with service pages, staff profiles, and booking links",
-            "Full appointment management system"
-          ],
-          correct: 2,
-          explanation: "The safe phrase positions the product correctly: a website that connects to a booking platform, not a custom scheduling system. This protects NexSite Studio from accidentally selling a much larger project."
-        }
-      ]
-    }
-  ],
-
-  // ─── Templates (internal reference) ──────────────────────────────────────────
-
-  templates: [
-    {
-      id: "booking-site",
-      name: "Booking Site Template",
-      version: "1.0",
-      description: "Full booking-ready website for service businesses. Config-driven, static, Cloudflare Pages ready.",
-      tags: ["Salon", "Service Business", "Booking", "Static"],
-      path: "../booking-template/index.html",
-      docsPath: "../booking-template/docs/guide.html",
-      status: "stable"
+      ],
+      "contentHtml": "<p>On Linux / Pop!_OS, there is no single command that covers everything, because hardware is exposed through a mix of:</p>\n<p>/dev      # physical/logical devices: camera, disks, input, audio, serial, etc. /sys      # hardware state/control exposed by the kernel /proc     # live kernel/process/system info /etc      # configuration /run      # runtime state systemd   # services, timers, devices dbus      # desktop/hardware messaging layer</p>\n<p>So the real answer is: you build a command atlas by subsystem.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-0-install-the-laptop-inspection-toolkit\">0. Install the \u201claptop inspection toolkit\u201d</h2>\n<p>Start here:</p>\n<p>sudo apt update sudo apt install -y \\ pciutils usbutils lshw hwinfo inxi dmidecode \\ lm-sensors smartmontools nvme-cli hdparm \\ ethtool iw rfkill net-tools nmap tcpdump \\ v4l-utils ffmpeg cheese \\ alsa-utils pulseaudio-utils pipewire-bin \\ bluez upower acpi powertop \\ fwupd libinput-tools xinput evtest \\ cups-client system-config-printer \\ i2c-tools</p>\n<p>Some packages may already be installed. Some may not exist under the exact same name depending on your Pop!_OS version.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-1-full-laptop-inventory-commands\">1. Full laptop inventory commands</h2>\n<p>These are the \u201cshow me the whole machine\u201d commands.</p>\n<p>inxi -Fxxxz</p>\n<p>Great all-around system summary.</p>\n<p>sudo lshw</p>\n<p>Full hardware tree.</p>\n<p>sudo lshw -short</p>\n<p>Cleaner hardware list.</p>\n<p>hwinfo --short</p>\n<p>Another full hardware list.</p>\n<p>lscpu</p>\n<p>CPU details.</p>\n<p>lsblk -f</p>\n<p>Storage devices, partitions, filesystems.</p>\n<p>lsusb</p>\n<p>USB devices.</p>\n<p>lspci</p>\n<p>PCI/internal hardware: GPU, Wi-Fi, audio, USB controllers, etc.</p>\n<p>sudo dmidecode</p>\n<p>BIOS/motherboard/RAM/system firmware details.</p>\n<p>hostnamectl</p>\n<p>System identity, kernel, OS.</p>\n<p>uname -a</p>\n<p>Kernel info.</p>\n<p>neofetch</p>\n<p>Pretty overview, if installed.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-2-find-every-device-file-linux-exposes\">2. Find every device file Linux exposes</h2>\n<p>This is the raw \u201cwhat does Linux see as a device?\u201d layer.</p>\n<p>ls /dev</p>\n<p>All device files.</p>\n<p>ls -l /dev</p>\n<p>Detailed view.</p>\n<p>find /dev -maxdepth 2 -type c -o -type b</p>\n<p>Character and block devices.</p>\n<p>find /sys/class -maxdepth 2</p>\n<p>Kernel hardware classes.</p>\n<p>find /sys/bus -maxdepth 2</p>\n<p>Hardware buses.</p>\n<p>udevadm info --export-db</p>\n<p>Massive database of all detected devices.</p>\n<p>udevadm monitor</p>\n<p>Live device event monitor. Plug in USB, headphones, phone, etc. and watch Linux react.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-3-cpu-commands\">3. CPU commands</h2>\n<p>lscpu</p>\n<p>CPU model, cores, threads, architecture.</p>\n<p>cat /proc/cpuinfo</p>\n<p>Raw CPU info.</p>\n<p>grep \"model name\" /proc/cpuinfo | head -1</p>\n<p>Quick CPU name.</p>\n<p>cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor</p>\n<p>CPU power governors.</p>\n<p>cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_cur_freq</p>\n<p>Current CPU frequencies.</p>\n<p>top</p>\n<p>Live process and CPU usage.</p>\n<p>htop</p>\n<p>Better interactive process viewer.</p>\n<p>mpstat</p>\n<p>Per-core CPU stats, if installed.</p>\n<p>uptime</p>\n<p>Load average.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-4-ram-memory-commands\">4. RAM / memory commands</h2>\n<p>free -h</p>\n<p>Memory usage.</p>\n<p>cat /proc/meminfo</p>\n<p>Detailed RAM info.</p>\n<p>vmstat 1</p>\n<p>Live memory/system activity.</p>\n<p>sudo dmidecode --type memory</p>\n<p>RAM sticks, slots, speed, size.</p>\n<p>lsmem</p>\n<p>Memory block info.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-5-battery-and-power-commands\">5. Battery and power commands</h2>\n<p>upower -e</p>\n<p>List power devices.</p>\n<p>upower -i $(upower -e | grep BAT)</p>\n<p>Battery details.</p>\n<p>acpi -V</p>\n<p>Battery, thermal, AC adapter info.</p>\n<p>cat /sys/class/power_supply/BAT*/capacity</p>\n<p>Battery percentage.</p>\n<p>cat /sys/class/power_supply/BAT*/status</p>\n<p>Charging/discharging status.</p>\n<p>cat /sys/class/power_supply/AC*/online</p>\n<p>Whether charger is connected.</p>\n<p>sudo powertop</p>\n<p>Power usage analysis.</p>\n<p>systemctl status power-profiles-daemon</p>\n<p>Power profile service status.</p>\n<p>powerprofilesctl</p>\n<p>Show current power mode.</p>\n<p>powerprofilesctl list</p>\n<p>List available power profiles.</p>\n<p>powerprofilesctl set power-saver powerprofilesctl set balanced powerprofilesctl set performance</p>\n<p>Change power mode.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-6-temperature-and-sensor-commands\">6. Temperature and sensor commands</h2>\n<p>First run:</p>\n<p>sudo sensors-detect</p>\n<p>Then:</p>\n<p>sensors</p>\n<p>Shows CPU temps, fan sensors, voltage sensors, etc.</p>\n<p>watch -n 1 sensors</p>\n<p>Live sensor monitor.</p>\n<p>cat /sys/class/thermal/thermal_zone*/temp</p>\n<p>Raw thermal readings.</p>\n<p>for z in /sys/class/thermal/thermal_zone*; do echo \"$z: $(cat $z/type) $(cat $z/temp)\"; done</p>\n<p>Show thermal zone names and temperatures.</p>\n<p>ls /sys/class/hwmon/</p>\n<p>Hardware monitor devices.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-7-fan-commands\">7. Fan commands</h2>\n<p>Not every laptop exposes fan control.</p>\n<p>sensors</p>\n<p>May show fan RPM.</p>\n<p>ls /sys/class/hwmon/</p>\n<p>Look for fan entries.</p>\n<p>find /sys/class/hwmon -type f | grep fan</p>\n<p>Find fan-related sensor files.</p>\n<p>cat /sys/class/hwmon/hwmon<em>/fan</em>_input</p>\n<p>Fan RPM if exposed.</p>\n<p>Fan control is hardware-specific and can be risky. Do not blindly write values into /sys/class/hwmon.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-8-gpu-commands\">8. GPU commands</h2>\n<p>General GPU</p>\n<p>lspci | grep -Ei 'vga|3d|display'</p>\n<p>Find GPU devices.</p>\n<p>glxinfo -B</p>\n<p>OpenGL renderer info.</p>\n<p>vulkaninfo --summary</p>\n<p>Vulkan GPU info.</p>\n<p>ls /sys/class/drm/</p>\n<p>Display/GPU devices exposed by kernel.</p>\n<p>cat /sys/class/drm/card<em>/device/vendor cat /sys/class/drm/card</em>/device/device</p>\n<p>Raw GPU vendor/device IDs.</p>\n<p>NVIDIA</p>\n<p>nvidia-smi</p>\n<p>NVIDIA GPU status.</p>\n<p>watch -n 1 nvidia-smi</p>\n<p>Live NVIDIA GPU usage.</p>\n<p>nvidia-settings</p>\n<p>NVIDIA GUI settings, if installed.</p>\n<p>Intel</p>\n<p>intel_gpu_top</p>\n<p>Live Intel GPU usage, if installed.</p>\n<p>AMD</p>\n<p>radeontop</p>\n<p>Live AMD GPU usage, if installed.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-9-screen-display-commands\">9. Screen / display commands</h2>\n<p>xrandr</p>\n<p>Display layout under X11.</p>\n<p>xrandr --listmonitors</p>\n<p>Connected monitors.</p>\n<p>loginctl show-session \"$XDG_SESSION_ID\" -p Type</p>\n<p>Check whether you are on X11 or Wayland.</p>\n<p>kscreen-doctor -o</p>\n<p>KDE screen information, if installed.</p>\n<p>brightnessctl</p>\n<p>Show or control brightness, if installed.</p>\n<p>brightnessctl set 50%</p>\n<p>Set brightness.</p>\n<p>Raw backlight:</p>\n<p>ls /sys/class/backlight/ cat /sys/class/backlight/<em>/brightness cat /sys/class/backlight/</em>/max_brightness</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-10-keyboard-commands\">10. Keyboard commands</h2>\n<p>libinput list-devices</p>\n<p>Input devices.</p>\n<p>xinput list</p>\n<p>Input devices under X11.</p>\n<p>sudo evtest</p>\n<p>Inspect keyboard/mouse/touchpad events.</p>\n<p>showkey</p>\n<p>Show keycodes in virtual console.</p>\n<p>localectl status</p>\n<p>Keyboard layout info.</p>\n<p>setxkbmap -query</p>\n<p>X11 keyboard layout.</p>\n<p>gsettings get org.gnome.desktop.input-sources sources</p>\n<p>GNOME input sources.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-11-mouse-touchpad-commands\">11. Mouse / touchpad commands</h2>\n<p>libinput list-devices</p>\n<p>Shows touchpad capabilities.</p>\n<p>sudo libinput debug-events</p>\n<p>Live input event stream.</p>\n<p>xinput list-props \"DEVICE NAME\"</p>\n<p>Device properties under X11.</p>\n<p>gsettings list-recursively org.gnome.desktop.peripherals.touchpad</p>\n<p>GNOME touchpad settings.</p>\n<p>gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true</p>\n<p>Enable tap-to-click.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-12-camera-webcam-commands\">12. Camera / webcam commands</h2>\n<p>ls /dev/video*</p>\n<p>List camera/video devices.</p>\n<p>v4l2-ctl --list-devices</p>\n<p>Show camera devices.</p>\n<p>v4l2-ctl -d /dev/video0 --all</p>\n<p>Camera details.</p>\n<p>v4l2-ctl -d /dev/video0 --list-formats-ext</p>\n<p>Supported formats/resolutions.</p>\n<p>ffplay /dev/video0</p>\n<p>Preview camera.</p>\n<p>cheese</p>\n<p>GUI camera app.</p>\n<p>ffmpeg -f v4l2 -i /dev/video0 output.mkv</p>\n<p>Record webcam.</p>\n<p>fuser /dev/video0</p>\n<p>See what process is using the camera.</p>\n<p>lsof /dev/video0</p>\n<p>Also check camera usage.</p>\n<p>To disable camera temporarily:</p>\n<p>sudo modprobe -r uvcvideo</p>\n<p>To re-enable:</p>\n<p>sudo modprobe uvcvideo</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-13-microphone-commands\">13. Microphone commands</h2>\n<p>arecord -l</p>\n<p>List audio capture devices.</p>\n<p>arecord -L</p>\n<p>List ALSA capture device names.</p>\n<p>pactl list sources short</p>\n<p>List microphone/audio input sources.</p>\n<p>pactl list sources</p>\n<p>Detailed mic source info.</p>\n<p>pw-cli list-objects Node</p>\n<p>PipeWire audio nodes.</p>\n<p>wpctl status</p>\n<p>PipeWire/WirePlumber status.</p>\n<p>arecord -d 5 test.wav</p>\n<p>Record 5 seconds.</p>\n<p>aplay test.wav</p>\n<p>Play it back.</p>\n<p>fuser /dev/snd/*</p>\n<p>See what is using sound devices.</p>\n<p>lsof /dev/snd/*</p>\n<p>More detailed audio usage.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-14-speakers-audio-output-commands\">14. Speakers / audio output commands</h2>\n<p>aplay -l</p>\n<p>List playback devices.</p>\n<p>pactl list sinks short</p>\n<p>List speakers/headphones outputs.</p>\n<p>wpctl status</p>\n<p>Modern PipeWire status.</p>\n<p>wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+</p>\n<p>Volume up.</p>\n<p>wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-</p>\n<p>Volume down.</p>\n<p>wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle</p>\n<p>Mute/unmute.</p>\n<p>speaker-test -c 2</p>\n<p>Test stereo speakers.</p>\n<p>alsamixer</p>\n<p>Terminal mixer.</p>\n<p>pavucontrol</p>\n<p>GUI audio control panel, if installed.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-15-wi-fi-commands\">15. Wi-Fi commands</h2>\n<p>nmcli dev wifi</p>\n<p>Nearby Wi-Fi networks.</p>\n<p>nmcli -f ACTIVE,SSID,SIGNAL,RATE,BARS dev wifi</p>\n<p>Pretty Wi-Fi strength table.</p>\n<p>nmcli dev status</p>\n<p>Network devices.</p>\n<p>nmcli connection show</p>\n<p>Saved network profiles.</p>\n<p>iw dev</p>\n<p>Wireless interfaces.</p>\n<p>iw dev wlan0 link</p>\n<p>Current Wi-Fi connection details.</p>\n<p>iwconfig</p>\n<p>Older wireless info command.</p>\n<p>rfkill list</p>\n<p>Check if Wi-Fi/Bluetooth are blocked.</p>\n<p>sudo rfkill unblock wifi</p>\n<p>Unblock Wi-Fi.</p>\n<p>nmcli radio wifi off nmcli radio wifi on</p>\n<p>Toggle Wi-Fi.</p>\n<p>journalctl -u NetworkManager -f</p>\n<p>Live NetworkManager logs.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-16-ethernet-commands\">16. Ethernet commands</h2>\n<p>ip link</p>\n<p>Network interfaces.</p>\n<p>ip addr</p>\n<p>IP addresses.</p>\n<p>ethtool eth0</p>\n<p>Ethernet interface info.</p>\n<p>sudo ethtool -S eth0</p>\n<p>Ethernet statistics.</p>\n<p>nmcli dev status</p>\n<p>NetworkManager view.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-17-bluetooth-commands\">17. Bluetooth commands</h2>\n<p>rfkill list bluetooth</p>\n<p>Bluetooth blocked/unblocked status.</p>\n<p>bluetoothctl</p>\n<p>Interactive Bluetooth control.</p>\n<p>Inside bluetoothctl:</p>\n<p>power on agent on default-agent scan on devices pair XX:XX:XX:XX:XX:XX connect XX:XX:XX:XX:XX:XX trust XX:XX:XX:XX:XX:XX</p>\n<p>Other commands:</p>\n<p>systemctl status bluetooth</p>\n<p>Bluetooth service.</p>\n<p>journalctl -u bluetooth -f</p>\n<p>Bluetooth logs.</p>\n<p>btmgmt info</p>\n<p>Bluetooth adapter info.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-18-usb-port-commands\">18. USB port commands</h2>\n<p>lsusb</p>\n<p>USB devices.</p>\n<p>lsusb -t</p>\n<p>USB topology tree.</p>\n<p>sudo lsusb -v</p>\n<p>Very detailed USB info.</p>\n<p>udevadm monitor --kernel --udev</p>\n<p>Watch USB plug/unplug events.</p>\n<p>dmesg -w</p>\n<p>Live kernel messages when plugging in devices.</p>\n<p>find /sys/bus/usb/devices -maxdepth 2</p>\n<p>Raw USB device tree.</p>\n<p>usb-devices</p>\n<p>Readable USB device details.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-19-usb-storage-flash-drive-commands\">19. USB storage / flash drive commands</h2>\n<p>lsblk</p>\n<p>List drives.</p>\n<p>lsblk -f</p>\n<p>Show filesystems and labels.</p>\n<p>sudo fdisk -l</p>\n<p>Partition tables.</p>\n<p>udisksctl status</p>\n<p>Storage devices.</p>\n<p>udisksctl mount -b /dev/sdX1</p>\n<p>Mount USB drive.</p>\n<p>udisksctl unmount -b /dev/sdX1</p>\n<p>Unmount USB drive.</p>\n<p>udisksctl power-off -b /dev/sdX</p>\n<p>Safely power off USB drive.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-20-disk-ssd-health-commands\">20. Disk / SSD health commands</h2>\n<p>lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINT,MODEL</p>\n<p>Good disk overview.</p>\n<p>sudo smartctl -a /dev/sda</p>\n<p>SATA drive health.</p>\n<p>sudo smartctl -a /dev/nvme0</p>\n<p>NVMe health, sometimes works.</p>\n<p>sudo nvme list</p>\n<p>List NVMe drives.</p>\n<p>sudo nvme smart-log /dev/nvme0</p>\n<p>NVMe health log.</p>\n<p>df -h</p>\n<p>Filesystem space usage.</p>\n<p>du -sh *</p>\n<p>Folder size summary.</p>\n<p>sudo iotop</p>\n<p>Live disk I/O by process.</p>\n<p>iostat</p>\n<p>Disk I/O stats, if installed.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-21-filesystem-commands\">21. Filesystem commands</h2>\n<p>pwd</p>\n<p>Current folder.</p>\n<p>ls ls -lah</p>\n<p>List files.</p>\n<p>tree</p>\n<p>Folder tree, if installed.</p>\n<p>find . -name \"*.py\"</p>\n<p>Find files.</p>\n<p>locate filename</p>\n<p>Fast filename search, if installed.</p>\n<p>stat file.txt</p>\n<p>File metadata.</p>\n<p>file file.txt</p>\n<p>Detect file type.</p>\n<p>mount</p>\n<p>Mounted filesystems.</p>\n<p>findmnt</p>\n<p>Cleaner mount view.</p>\n<p>cat /etc/fstab</p>\n<p>Persistent mount config.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-22-processes-running-programs\">22. Processes / running programs</h2>\n<p>ps aux</p>\n<p>All processes.</p>\n<p>top htop</p>\n<p>Live process viewers.</p>\n<p>pgrep firefox</p>\n<p>Find process by name.</p>\n<p>pidof firefox</p>\n<p>Get process ID.</p>\n<p>pstree</p>\n<p>Process tree.</p>\n<p>lsof</p>\n<p>Open files by processes.</p>\n<p>lsof -p PID</p>\n<p>Files opened by one process.</p>\n<p>strace -p PID</p>\n<p>Watch system calls from a running process.</p>\n<p>kill PID</p>\n<p>Stop a process.</p>\n<p>killall firefox</p>\n<p>Stop by name.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-23-services-startup-systemd-commands\">23. Services / startup / systemd commands</h2>\n<p>systemctl</p>\n<p>Systemd overview.</p>\n<p>systemctl list-units --type=service</p>\n<p>Running services.</p>\n<p>systemctl list-unit-files</p>\n<p>All service files.</p>\n<p>systemctl status NetworkManager</p>\n<p>Service status.</p>\n<p>sudo systemctl restart NetworkManager</p>\n<p>Restart service.</p>\n<p>systemctl list-timers</p>\n<p>Scheduled timers.</p>\n<p>journalctl -xe</p>\n<p>Recent system logs.</p>\n<p>journalctl -f</p>\n<p>Live logs.</p>\n<p>journalctl -b</p>\n<p>Logs since last boot.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-24-network-ports-sockets\">24. Network ports / sockets</h2>\n<p>These are for your own machine/network.</p>\n<p>ss -tulpn</p>\n<p>Show listening TCP/UDP ports.</p>\n<p>sudo ss -tulpn</p>\n<p>Show ports with process names.</p>\n<p>lsof -i</p>\n<p>Network connections.</p>\n<p>sudo lsof -i -P -n</p>\n<p>Cleaner network process list.</p>\n<p>ip route</p>\n<p>Routing table.</p>\n<p>ip neigh</p>\n<p>Devices your laptop has recently seen on LAN.</p>\n<p>ping 1.1.1.1</p>\n<p>Connectivity test.</p>\n<p>traceroute example.com</p>\n<p>Route path, if installed.</p>\n<p>dig example.com</p>\n<p>DNS lookup.</p>\n<p>resolvectl status</p>\n<p>DNS configuration.</p>\n<p>nmcli dev show</p>\n<p>NetworkManager network details.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-25-local-network-discovery\">25. Local network discovery</h2>\n<p>For your own network:</p>\n<p>ip addr</p>\n<p>Find your subnet.</p>\n<p>Example:</p>\n<p>nmap -sn 192.168.1.0/24</p>\n<p>Find devices on your LAN.</p>\n<p>arp -a</p>\n<p>ARP table.</p>\n<p>ip neigh show</p>\n<p>Neighbor table.</p>\n<p>avahi-browse -a</p>\n<p>Discover mDNS/Bonjour devices, if installed.</p>\n<p>hostname -I</p>\n<p>Your local IPs.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-26-packetnetwork-monitoring\">26. Packet/network monitoring</h2>\n<p>sudo tcpdump -i any</p>\n<p>Live packet view.</p>\n<p>sudo tcpdump -i any host 1.1.1.1</p>\n<p>Watch traffic to/from one host.</p>\n<p>sudo tcpdump -i any port 443</p>\n<p>Watch HTTPS traffic metadata.</p>\n<p>iftop</p>\n<p>Live network usage by connection.</p>\n<p>nethogs</p>\n<p>Network usage by process.</p>\n<p>vnstat</p>\n<p>Bandwidth history, if configured.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-27-firewall-commands\">27. Firewall commands</h2>\n<p>On Ubuntu/Pop!_OS:</p>\n<p>sudo ufw status verbose</p>\n<p>Firewall status.</p>\n<p>sudo ufw enable</p>\n<p>Enable firewall.</p>\n<p>sudo ufw allow 22/tcp</p>\n<p>Allow SSH.</p>\n<p>sudo ufw deny 22/tcp</p>\n<p>Deny SSH.</p>\n<p>Lower-level:</p>\n<p>sudo nft list ruleset</p>\n<p>Modern Linux firewall rules.</p>\n<p>sudo iptables -L -v -n</p>\n<p>Older firewall rules.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-28-tailscale-commands\">28. Tailscale commands</h2>\n<p>Since you use Tailscale:</p>\n<p>tailscale status</p>\n<p>Mesh device status.</p>\n<p>tailscale ip</p>\n<p>Your Tailscale IP.</p>\n<p>tailscale ping DEVICE</p>\n<p>Ping a Tailscale peer.</p>\n<p>tailscale netcheck</p>\n<p>Connectivity diagnostics.</p>\n<p>tailscale status --json</p>\n<p>Machine-readable status.</p>\n<p>sudo tailscale up</p>\n<p>Bring Tailscale up.</p>\n<p>sudo tailscale down</p>\n<p>Bring Tailscale down.</p>\n<p>tailscale serve status</p>\n<p>Check Tailscale Serve.</p>\n<p>tailscale funnel status</p>\n<p>Check Funnel status.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-29-kde-connect-commands\">29. KDE Connect commands</h2>\n<p>kdeconnect-cli -a</p>\n<p>List available devices.</p>\n<p>kdeconnect-cli -l</p>\n<p>List paired devices.</p>\n<p>kdeconnect-cli --refresh</p>\n<p>Refresh device discovery.</p>\n<p>kdeconnect-cli --device DEVICE_ID --ping</p>\n<p>Ping phone.</p>\n<p>kdeconnect-cli --device DEVICE_ID --share /path/to/file</p>\n<p>Send file.</p>\n<p>kdeconnect-cli --device DEVICE_ID --ring</p>\n<p>Ring phone.</p>\n<p>kdeconnect-cli --device DEVICE_ID --clipboard</p>\n<p>Get clipboard.</p>\n<p>kdeconnect-cli --device DEVICE_ID --send-sms \"message\" --destination PHONE_NUMBER</p>\n<p>Send SMS, if supported/configured.</p>\n<p>qdbus org.kde.kdeconnect</p>\n<p>Explore KDE Connect D-Bus surface.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-30-printer-commands\">30. Printer commands</h2>\n<p>lpstat -p</p>\n<p>Printers.</p>\n<p>lpstat -v</p>\n<p>Printer devices.</p>\n<p>lpstat -t</p>\n<p>Full CUPS status.</p>\n<p>lpq</p>\n<p>Print queue.</p>\n<p>lp file.pdf</p>\n<p>Print file.</p>\n<p>lpr file.pdf</p>\n<p>Also print file.</p>\n<p>cancel JOB_ID</p>\n<p>Cancel print job.</p>\n<p>systemctl status cups</p>\n<p>CUPS print service.</p>\n<p>journalctl -u cups -f</p>\n<p>Printer logs.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-31-serial-ports-device-ports\">31. Serial ports / device ports</h2>\n<p>ls /dev/tty*</p>\n<p>TTY devices.</p>\n<p>ls /dev/ttyUSB<em> ls /dev/ttyACM</em></p>\n<p>USB serial devices.</p>\n<p>dmesg | grep tty</p>\n<p>Serial device detection logs.</p>\n<p>sudo dmesg -w</p>\n<p>Watch when plugging in Arduino/serial device.</p>\n<p>screen /dev/ttyUSB0 115200</p>\n<p>Connect to serial device.</p>\n<p>minicom -D /dev/ttyUSB0 -b 115200</p>\n<p>Serial terminal, if installed.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-32-thunderbolt-usb-c-commands\">32. Thunderbolt / USB-C commands</h2>\n<p>boltctl</p>\n<p>Thunderbolt devices, if supported.</p>\n<p>lsusb -t</p>\n<p>USB-C topology.</p>\n<p>lspci | grep -i thunderbolt</p>\n<p>Thunderbolt controller.</p>\n<p>journalctl -k | grep -i thunderbolt</p>\n<p>Thunderbolt kernel messages.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-33-webcam-mic-privacy-check-commands\">33. Webcam / mic privacy check commands</h2>\n<p>Camera:</p>\n<p>fuser /dev/video*</p>\n<p>Microphone/audio:</p>\n<p>fuser /dev/snd/*</p>\n<p>All suspicious open devices:</p>\n<p>sudo lsof /dev/video<em> /dev/snd/</em> 2&gt;/dev/null</p>\n<p>Processes using network:</p>\n<p>sudo lsof -i -P -n</p>\n<p>Processes with deleted files still open:</p>\n<p>sudo lsof | grep deleted</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-34-firmware-bios-hardware-update-commands\">34. Firmware / BIOS / hardware update commands</h2>\n<p>fwupdmgr get-devices</p>\n<p>Firmware-capable devices.</p>\n<p>fwupdmgr refresh</p>\n<p>Refresh firmware metadata.</p>\n<p>fwupdmgr get-updates</p>\n<p>Available firmware updates.</p>\n<p>sudo fwupdmgr update</p>\n<p>Install firmware updates.</p>\n<p>sudo dmidecode -t bios</p>\n<p>BIOS info.</p>\n<p>sudo dmidecode -t system</p>\n<p>System info.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-35-kernel-module-commands\">35. Kernel module commands</h2>\n<p>Kernel modules are drivers.</p>\n<p>lsmod</p>\n<p>Loaded modules.</p>\n<p>modinfo uvcvideo</p>\n<p>Info about webcam driver.</p>\n<p>modinfo iwlwifi</p>\n<p>Intel Wi-Fi driver info.</p>\n<p>sudo modprobe MODULE</p>\n<p>Load module.</p>\n<p>sudo modprobe -r MODULE</p>\n<p>Unload module.</p>\n<p>Examples:</p>\n<p>sudo modprobe -r uvcvideo sudo modprobe uvcvideo</p>\n<p>Disable/re-enable USB webcam driver.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-36-logs-for-hardware-debugging\">36. Logs for hardware debugging</h2>\n<p>dmesg</p>\n<p>Kernel messages.</p>\n<p>sudo dmesg -w</p>\n<p>Live kernel messages.</p>\n<p>journalctl -k</p>\n<p>Kernel logs.</p>\n<p>journalctl -b</p>\n<p>Current boot logs.</p>\n<p>journalctl -p warning..alert</p>\n<p>Warnings/errors.</p>\n<p>journalctl -u NetworkManager</p>\n<p>Network logs.</p>\n<p>journalctl -u bluetooth</p>\n<p>Bluetooth logs.</p>\n<p>journalctl -u cups</p>\n<p>Printer logs.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-37-location-gps-geoclue-commands\">37. Location / GPS / geoclue commands</h2>\n<p>Most laptops do not have GPS, but desktop location services may exist.</p>\n<p>systemctl status geoclue</p>\n<p>Location service.</p>\n<p>busctl tree org.freedesktop.GeoClue2</p>\n<p>D-Bus location service tree.</p>\n<p>gsettings list-recursively | grep -i location</p>\n<p>Desktop location settings.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-38-d-bus-inspection-commands\">38. D-Bus inspection commands</h2>\n<p>D-Bus is how Linux desktop apps and services talk.</p>\n<p>busctl</p>\n<p>List system bus services.</p>\n<p>busctl --user</p>\n<p>List user bus services.</p>\n<p>busctl tree SERVICE_NAME</p>\n<p>Show service object tree.</p>\n<p>busctl introspect SERVICE_NAME OBJECT_PATH</p>\n<p>Inspect methods/properties.</p>\n<p>qdbus</p>\n<p>Qt/KDE D-Bus explorer.</p>\n<p>d-feet</p>\n<p>GUI D-Bus explorer, if installed.</p>\n<p>This is how you uncover \u201chidden\u201d controllable desktop/system functions.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-39-system-security-permissions-commands\">39. System security / permissions commands</h2>\n<p>id</p>\n<p>Your user/group info.</p>\n<p>groups</p>\n<p>Your groups.</p>\n<p>sudo -l</p>\n<p>What sudo allows you to do.</p>\n<p>getfacl file</p>\n<p>File access control list.</p>\n<p>ls -l</p>\n<p>Unix permissions.</p>\n<p>find / -perm -4000 -type f 2&gt;/dev/null</p>\n<p>Find SUID binaries.</p>\n<p>aa-status</p>\n<p>AppArmor status.</p>\n<p>sudo ufw status verbose</p>\n<p>Firewall status.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-40-mounted-phones-android-mtp-commands\">40. Mounted phones / Android / MTP commands</h2>\n<p>For Android phone over USB:</p>\n<p>lsusb</p>\n<p>See phone.</p>\n<p>gio mount -li</p>\n<p>Mounted GVFS/MTP devices.</p>\n<p>ls ~/.gvfs</p>\n<p>Older GVFS mount path.</p>\n<p>ls /run/user/$UID/gvfs/</p>\n<p>Modern GVFS mount path.</p>\n<p>mtp-detect</p>\n<p>MTP device details, if installed.</p>\n<p>adb devices</p>\n<p>Android Debug Bridge devices, if developer mode/USB debugging is enabled.</p>\n<p>adb shell</p>\n<p>Shell into your own Android device.</p>\n<p>adb push file.txt /sdcard/Download/ adb pull /sdcard/Download/file.txt .</p>\n<p>Move files.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-41-package-app-commands\">41. Package / app commands</h2>\n<p>apt list --installed</p>\n<p>Installed apt packages.</p>\n<p>dpkg -l</p>\n<p>Installed Debian packages.</p>\n<p>flatpak list</p>\n<p>Flatpak apps.</p>\n<p>snap list</p>\n<p>Snap apps, if Snap is installed.</p>\n<p>which commandname</p>\n<p>Find command path.</p>\n<p>type commandname</p>\n<p>Show whether command is binary, alias, shell builtin, etc.</p>\n<p>whereis commandname</p>\n<p>Find related files.</p>\n<p>apropos camera</p>\n<p>Search manual pages.</p>\n<p>man commandname</p>\n<p>Manual page.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-42-list-every-command-available-on-your-laptop\">42. List every command available on your laptop</h2>\n<p>This is closer to literally \u201cevery command.\u201d</p>\n<p>compgen -c | sort -u</p>\n<p>Every command your shell can find.</p>\n<p>Save it:</p>\n<p>compgen -c | sort -u &gt; all_commands.txt</p>\n<p>Count them:</p>\n<p>compgen -c | sort -u | wc -l</p>\n<p>Find commands related to a word:</p>\n<p>compgen -c | grep -i camera compgen -c | grep -i audio compgen -c | grep -i bluetooth compgen -c | grep -i wifi compgen -c | grep -i usb compgen -c | grep -i sensor</p>\n<p>Search man pages:</p>\n<p>apropos camera apropos audio apropos bluetooth apropos network apropos sensor apropos battery apropos printer</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-43-best-what-does-this-command-do-commands\">43. Best \u201cwhat does this command do?\u201d commands</h2>\n<p>man command</p>\n<p>Manual.</p>\n<p>command --help</p>\n<p>Built-in help.</p>\n<p>info command</p>\n<p>GNU info page.</p>\n<p>type -a command</p>\n<p>Shows command source.</p>\n<p>file $(which command)</p>\n<p>Shows whether it is script/binary/symlink.</p>\n<p>ldd $(which command)</p>\n<p>Shared libraries used by binary.</p>\n<p>strace command</p>\n<p>Watch what system calls it makes.</p>\n<p>strace -e openat command</p>\n<p>Watch what files it opens.</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-44-commands-that-can-change-important-things\">44. Commands that can change important things</h2>\n<p>These are powerful. Useful, but do not run randomly.</p>\n<p>Disk-destroying / filesystem-changing</p>\n<p>rm dd mkfs wipefs fdisk parted mount umount chmod chown setfacl</p>\n<p>Network-changing</p>\n<p>ip nmcli ufw nft iptables tailscale up tailscale down</p>\n<p>Service-changing</p>\n<p>systemctl start systemctl stop systemctl restart systemctl disable systemctl enable</p>\n<p>Kernel/driver-changing</p>\n<p>modprobe rmmod sysctl</p>\n<p>Firmware-changing</p>\n<p>fwupdmgr update</p>\n<p>Package-changing</p>\n<p>apt install apt remove apt purge flatpak uninstall</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-45-one-command-to-generate-a-laptop-report\">45. One command to generate a laptop report</h2>\n<p>This gives you a clean report folder.</p>\n<p>mkdir -p ~/laptop-map</p>\n<p>{ echo \"===== SYSTEM =====\" hostnamectl uname -a</p>\n<p>echo echo \"===== INXI =====\" inxi -Fxxxz 2&gt;/dev/null</p>\n<p>echo echo \"===== CPU =====\" lscpu</p>\n<p>echo echo \"===== MEMORY =====\" free -h cat /proc/meminfo | head -40</p>\n<p>echo echo \"===== BLOCK DEVICES =====\" lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINT,MODEL</p>\n<p>echo echo \"===== PCI =====\" lspci</p>\n<p>echo echo \"===== USB =====\" lsusb lsusb -t</p>\n<p>echo echo \"===== NETWORK =====\" ip addr ip route nmcli dev status nmcli connection show</p>\n<p>echo echo \"===== WIFI =====\" nmcli -f ACTIVE,SSID,SIGNAL,RATE,BARS dev wifi 2&gt;/dev/null</p>\n<p>echo echo \"===== AUDIO =====\" pactl list sinks short 2&gt;/dev/null pactl list sources short 2&gt;/dev/null wpctl status 2&gt;/dev/null</p>\n<p>echo echo \"===== CAMERA =====\" ls /dev/video* 2&gt;/dev/null v4l2-ctl --list-devices 2&gt;/dev/null</p>\n<p>echo echo \"===== INPUT DEVICES =====\" libinput list-devices 2&gt;/dev/null</p>\n<p>echo echo \"===== BATTERY =====\" upower -e upower -i $(upower -e | grep BAT | head -1) 2&gt;/dev/null</p>\n<p>echo echo \"===== SENSORS =====\" sensors 2&gt;/dev/null</p>\n<p>echo echo \"===== SERVICES =====\" systemctl list-units --type=service --state=running</p>\n<p>echo echo \"===== LISTENING PORTS =====\" sudo ss -tulpn</p>\n<p>echo echo \"===== COMMANDS AVAILABLE =====\" compgen -c | sort -u } | tee ~/laptop-map/report.txt</p>\n<p>Then open it:</p>\n<p>xdg-open ~/laptop-map/report.txt</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-46-the-mental-model\">46. The mental model</h2>\n<p>Think of your laptop like this:</p>\n<p>Layer\tWhat it means\tMain commands</p>\n<p>Hardware\tPhysical parts\tlshw, lspci, lsusb, dmidecode Kernel devices\tWhat Linux exposes\t/dev, /sys, udevadm, dmesg Drivers\tModules controlling hardware\tlsmod, modinfo, modprobe Services\tBackground systems\tsystemctl, journalctl Desktop APIs\tGUI/device messaging\tbusctl, qdbus, gsettings Network\tInterfaces, ports, routes\tip, nmcli, ss, tcpdump Sensors\tTemps, battery, fan\tsensors, upower, acpi, /sys/class Apps\tInstalled user programs\tapt, flatpak, dpkg, compgen</p>\n<hr />\n<h2 id=\"system-diagnostic-commands-47-the-big-three-discovery-commands\">47. The \u201cbig three\u201d discovery commands</h2>\n<p>When you do not know what controls something, use these:</p>\n<p>udevadm monitor</p>\n<p>For hardware plug/unplug events.</p>\n<p>dmesg -w</p>\n<p>For live kernel messages.</p>\n<p>busctl --user</p>\n<p>For desktop/session services.</p>\n<p>That trio is basically Linux\u2019s \u201ctell me what just happened\u201d surveillance room.</p>\n<hr />\n<p>My recommended starting combo for you</p>\n<p>Run these first:</p>\n<p>inxi -Fxxxz lsusb lspci lsblk -f nmcli dev status v4l2-ctl --list-devices pactl list sources short pactl list sinks short upower -e sensors systemctl list-units --type=service --state=running sudo ss -tulpn compgen -c | sort -u &gt; ~/all_commands.txt</p>\n<p>That gives you the first real map of your laptop: hardware, sensors, ports, camera, mic, network, services, and all available commands.</p>"
     }
   ]
-
 };

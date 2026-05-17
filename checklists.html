@@ -2,88 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="refresh" content="0; url=index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Checklists — NexSite Studio Training</title>
+  <title>Redirecting | Self-Learning Guidance</title>
   <link rel="stylesheet" href="css/portal.css" />
 </head>
-<body>
-<div class="app">
-  <aside class="sidebar" id="sidebar">
-    <div class="sidebar-brand">
-      <div class="sidebar-brand-icon">N</div>
-      <div>
-        <div class="sidebar-brand-name" id="sb-name">NexSite Studio</div>
-        <div class="sidebar-brand-sub">Training Portal</div>
-      </div>
+<body data-page="legacy">
+  <main class="page-content" style="max-width:720px;margin:0 auto;padding-top:4rem;">
+    <div class="card">
+      <h1 style="margin-bottom:0.75rem;">This page moved</h1>
+      <p style="margin-bottom:0.75rem;">The previous training content was replaced with the imported self-learning guidance library.</p>
+      <p><a href="index.html">Open the dashboard</a>.</p>
     </div>
-    <nav class="sidebar-nav" id="sidebar-nav"></nav>
-    <div class="sidebar-footer">Internal use only</div>
-  </aside>
-
-  <div class="main">
-    <div class="topbar">
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-      <div class="topbar-title" id="topbar-title">Checklists</div>
-      <div class="topbar-right" id="topbar-right"></div>
-    </div>
-
-    <div class="page-content">
-      <!-- Single checklist view -->
-      <div id="single-view" style="display:none">
-        <div class="page-header" id="single-header"></div>
-        <div id="checklist-mount"></div>
-      </div>
-
-      <!-- All checklists list view -->
-      <div id="list-view">
-        <div class="page-header">
-          <h1>Checklists</h1>
-          <p>Process checklists for client onboarding, builds, launches, and training. Progress saves automatically.</p>
-        </div>
-        <div class="grid-2" id="checklist-list"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script src="js/portal-config.js"></script>
-<script src="js/checklist.js"></script>
-<script>
-  (function () {
-    var cfg = window.PORTAL_CONFIG || {};
-    var nav = document.getElementById("sidebar-nav");
-    var sb  = document.getElementById("sb-name");
-    if (sb && cfg.org) sb.textContent = cfg.org.name;
-    (cfg.nav || []).forEach(function (item) {
-      var a = document.createElement("a");
-      a.className = "nav-item" + (item.id === "checklists" ? " active" : "");
-      a.href = item.href;
-      a.innerHTML = '<span class="nav-icon">' + item.icon + '</span>' + item.label;
-      nav.appendChild(a);
-    });
-    document.getElementById("menu-toggle").addEventListener("click", function () {
-      var s = document.getElementById("sidebar");
-      var open = s.classList.toggle("open");
-      this.classList.toggle("open", open);
-    });
-
-    // Check for ?id= param — show single checklist
-    var params = new URLSearchParams(location.search);
-    var clId   = params.get("id");
-    var cl     = clId ? (cfg.checklists || []).find(function (c) { return c.id === clId; }) : null;
-
-    if (cl) {
-      document.getElementById("list-view").style.display   = "none";
-      document.getElementById("single-view").style.display = "";
-      document.title = cl.title + " — NexSite Studio Training";
-      document.getElementById("topbar-title").textContent  = cl.title;
-      document.getElementById("topbar-right").innerHTML    = '<a class="btn btn--ghost btn--sm" href="checklists.html">← All Checklists</a>';
-      document.getElementById("single-header").innerHTML   = '<h1>' + cl.title + '</h1><p>' + cl.description + '</p>';
-      window.NexChecklist.renderFullChecklist(clId, "checklist-mount");
-    } else {
-      window.NexChecklist.renderChecklistList("checklist-list");
-    }
-  })();
-</script>
+  </main>
 </body>
 </html>
